@@ -348,3 +348,72 @@ selectedMultiSelectAsyncOptions:
         label: string
     }
     ```
+
+## 9. CustomModal
+Modal.
+
+```html
+<custom-modal
+    :isOpen="isModalOpen"
+    modalTitle="Inserisci nuovo"
+    @closeModal="openCloseModal"
+>
+    <template v-slot:modal-body>
+        Lorem ipsuctetur adipisicing elit. Quia excepturi voluptatum corrupti libero officia sed a officiis, accusamus ullam sunt magnam recusandae, repudiandae reprehenderit accusantium, autem eum sint unde quasi?
+    </template>
+
+    <template v-slot:modal-footer>
+        <div style="margin-right: 15px;">
+            <custom-button
+                label="Chiudi"
+                styleType="secondary-outline"
+                @onClick="openCloseModal"
+            />
+        </div>
+        <custom-button
+            label="Inserisci"
+            styleType="primary"
+            @onClick="test"
+        />
+    </template>
+</custom-modal>						
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| isOpen | boolean | If modal is open. | false |
+| modalTitle | string | Title of the modal | false |
+| withoutTitle | boolean | If modal has title or not | false |
+
+#### Events:
+1. @closeModal: emitted when click on "X" 
+
+#### slots:
+1. "modal-body"
+2. "modal-footer"
+
+## 10. CustomButton
+Button.
+
+```html
+<custom-button
+    label="Apri modale"
+    @onClick="openCloseModal"
+/>					
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| label | string | Text inside button. | false |
+| styleType | string | Style of the button. Alternatives: ['primary', 'primary-outline', 'secondary', 'secondary-outline']. Default: 'primary'. | false |
+| size | string | Size of button. Alternatives: ['small', 'default', 'large']. Default: 'default'.  | false |
+| disabled | boolean | If button is enabled or disabled | false |
+
+#### Events:
+1. @onClick: emitted when click
+
+#### slots:
+1. "slot-left": on the left of button text
+2. "slot-right": on the right of button text
