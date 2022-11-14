@@ -37,10 +37,12 @@ export default defineComponent({
     name: 'CustomRadioGroup',
     props: {
         options: {
-            type: Array as PropType<Array<RadioGroupOptions>>
+            type: Array as PropType<Array<RadioGroupOptions>>,
+            required: true
         },
         value: {
-            type: [Number, String] as PropType<number | string>
+            type: [Number, String] as PropType<number | string>,
+            default: ''
         },        
     },
     setup(props, context) {                           

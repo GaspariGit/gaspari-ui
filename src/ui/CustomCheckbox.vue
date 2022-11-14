@@ -5,7 +5,6 @@
 			class="checkbox" 
 			type="checkbox" 
 			:checked="checked" 
-			:value="value" 
 			@change="updateInput"
 			:disabled="disabled"
 			:name="name"
@@ -18,11 +17,8 @@
 import { defineComponent, PropType } from "vue";
 
 export default defineComponent({
-	name: 'CustomSingleCheckbox',
+	name: 'CustomCheckbox',
 	props: {
-		value: { 
-			type: String 
-		},
 		modelValue: { 
 			type: Boolean as PropType<boolean>, 			
 		},

@@ -36,7 +36,6 @@
 		<div style="padding: 8px">			
 			<custom-checkbox
 				label="select"
-				value="react"
 				v-model:checked="selected"	
 				:disabled="true"
 			/>				
@@ -244,7 +243,7 @@ export default defineComponent({
 
 		const selectedRadioValue = ref<number | string>('radio_1');
 
-		const selectedOption = ref<number | string>(null);
+		const selectedOption = ref<number | string>(1);
 
 		const selectedMultiSelectOptions = ref<Array<string> | Array<number>>([1, 2]);
 
@@ -285,7 +284,7 @@ export default defineComponent({
 			options, 
 			selectedRadioValue, 
 			selectedOption, 
-			selectedMultiSelectOptions ,
+			selectedMultiSelectOptions,
 			selectedMultiSelectAsyncOptions,
 			selectedFile,
 			selectedFiles,
