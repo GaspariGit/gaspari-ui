@@ -393,6 +393,22 @@ Modal.
 1. "modal-body"
 2. "modal-footer"
 
+## 11. CustomLoader
+Spinner for loading.
+
+```html
+<custom-loader
+    :loading="loading"
+    size="small"
+/>			
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| loading | boolean | If loader is loading or not. | false |
+| size | string | Size of loader. Alternatives: ['small', 'default', 'large']. Default: 'default'.  | false |
+
 ## 10. CustomButton
 Button.
 
