@@ -1,0 +1,16 @@
+.generic-input {        
+    &__label {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 10px
+    }
+
+    &__input {      
+        @include input-style;               
+    }    
+
+    &__read-only {
+        color: $secondary_color;
+    }
+}

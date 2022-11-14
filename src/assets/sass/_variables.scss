@@ -1,0 +1,24 @@
+// Colors SASS
+$primary_color: #f58234;
+$primary_color_hover: #c4601e;
+$secondary_color: #576b81;
+$secondary_color_hover: #314963;
+
+// Colors CSS
+:root {
+    --primary-color: #{$primary_color};
+    --primary-color-hover: #{$primary_color_hover};
+    --secondary-color: #{$secondary_color};
+    --secondary-color-hover: #{$secondary_color_hover};
+} 
+
+// Text Sizes
+$text_2xs: 12px;
+$text_xs: 14px;
+$text_sm: 16px;
+$text_md: 18px;
+$text_lg: 20px;
+$text_xl: 24px;
+$text_2xl: 28px;
+
+@import "./mixins";

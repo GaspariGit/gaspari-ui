@@ -1,0 +1,54 @@
+.generic-input {
+    &__input-file {
+        &--hidden {
+            display: none;
+        }
+    }
+
+    .file-list {
+        .file-list-item {
+            font-weight: 500;   
+            position: relative;   
+            padding: 10px 12px;
+            padding-right: 40px;  
+            border: 1px solid lighten($color: $secondary_color, $amount: 40);
+            border-radius: 5px;   
+            color: $secondary_color;  
+            margin-bottom: 10px;   
+            
+            &:last-child {
+                margin-bottom: 15px;
+            }
+
+            .item-cancel {
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;   
+                transform: translateY(-50%);  
+                cursor: pointer;  
+                transition: background-color 0.12s ease;
+
+                &:hover {
+                    background-color: darken(red, 15%);
+                }
+                
+                .cancel {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    .flexAligned {
+        display: flex;
+        align-items: center;
+    }    
+}
