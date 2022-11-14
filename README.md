@@ -393,7 +393,7 @@ Modal.
 1. "modal-body"
 2. "modal-footer"
 
-## 10 CustomLoader
+## 10. CustomLoader
 Spinner for loading.
 
 ```html
