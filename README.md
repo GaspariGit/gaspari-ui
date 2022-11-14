@@ -170,7 +170,7 @@ options:
 ```
 
 selectedRadioValue:
-```json
+```
 'radio_1'
 ```
 
@@ -224,7 +224,7 @@ options:
 ```
 
 selected:
-```json
+```
 1
 ```
 
@@ -279,7 +279,7 @@ options:
 ```
 
 selectedMultiSelectOptions:
-```json
+```
 [1, 2]
 ```
 
