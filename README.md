@@ -393,7 +393,7 @@ Modal.
 1. "modal-body"
 2. "modal-footer"
 
-## 11. CustomLoader
+## 10 CustomLoader
 Spinner for loading.
 
 ```html
@@ -409,7 +409,7 @@ Spinner for loading.
 | loading | boolean | If loader is loading or not. | false |
 | size | string | Size of loader. Alternatives: ['small', 'default', 'large']. Default: 'default'.  | false |
 
-## 10. CustomButton
+## 11. CustomButton
 Button.
 
 ```html
