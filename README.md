@@ -1,5 +1,5 @@
 # gaspari-ui
-Library of components of the company, written in Vue.js
+Library of components, written in Vue.js
 
 ---
 ## Installation
