@@ -389,7 +389,7 @@ Modal.
 #### Events:
 1. @closeModal: emitted when click on "X" 
 
-#### slots:
+#### Slots:
 1. "modal-body"
 2. "modal-footer"
 
@@ -430,6 +430,6 @@ Button.
 #### Events:
 1. @onClick: emitted when click
 
-#### slots:
+#### Slots:
 1. "slot-left": on the left of button text
 2. "slot-right": on the right of button text
