@@ -15,6 +15,16 @@ After downloading the repository and running:
 npm install
 ```
 
+Then import like this: 
+```js
+import { ComponentName } from "gaspari-ui";
+```
+
+Also add the style in App.vue or in other place to be used globally on the project:
+```js
+import "gaspari-ui/dist/style.css"; 
+```
+
 Is it possible to modify the library in /src folder. The /sandbox folder is where you can import components and use them, by running:
 
 ```
