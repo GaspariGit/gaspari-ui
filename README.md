@@ -107,7 +107,7 @@ Checkbox for multiple selection.
 ```
 
 options:
-```json
+```
 [
     { label: "Luther", id: 'Luther' },
     { label: "Diego", id: 2 },
@@ -120,7 +120,7 @@ options:
 ```
 
 heroes:
-```json
+```
 ['Luther','Ben', 'Vanya']
 ```
 
@@ -133,7 +133,7 @@ heroes:
 #### Types:
 1. MultiCheckboxOptions:   
 
-    ```json
+    ```
     {
         id : string | number;
         label : string;
@@ -151,7 +151,7 @@ Radio group for multiple exlusive options.
 ```
 
 options:
-```json
+```
 [
     {
         id: 'input_444',
@@ -183,7 +183,7 @@ selectedRadioValue:
 #### Types:
 1. RadioGroupOptions:   
 
-    ```json
+    ```
     {
         id: any;
         label : string;
@@ -206,7 +206,7 @@ Classic Select.
 ```
 
 options:
-```json
+```
 [
     {
         value: 1,
@@ -241,7 +241,7 @@ selected:
 #### Types:
 1. SelectOptions:   
 
-    ```json
+    ```
     {
         value: string | number,
         label: string
@@ -261,7 +261,7 @@ Multi Select.
 ```
 
 options:
-```json
+```
 [
     {
         label: 'Opzione 1',
@@ -293,7 +293,7 @@ selectedMultiSelectOptions:
 #### Types:
 1. SelectOptions:   
 
-    ```json
+    ```
     {
         value: string | number,
         label: string
@@ -314,7 +314,7 @@ Multi Select with search feature.
 ```
 
 selectedMultiSelectAsyncOptions:
-```json
+```
 [
     {
         label: 'Opzione 1',
@@ -342,7 +342,7 @@ selectedMultiSelectAsyncOptions:
 #### Types:
 1. SelectOptions:   
 
-    ```json
+    ```
     {
         value: string | number,
         label: string
