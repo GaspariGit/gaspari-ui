@@ -1,5 +1,5 @@
 import { PropType } from "vue";
-import RadioGroupOptions from '../types/RadioGroupOptions';
+import RadioGroupOptions from '../../types/RadioGroupOptions';
 declare const _default: import("vue").DefineComponent<{
     options: {
         type: PropType<RadioGroupOptions[]>;

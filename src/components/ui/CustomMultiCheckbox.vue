@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import CustomCheckbox from './CustomCheckbox.vue';
-import MultiCheckboxOptions from '../types/MultiCheckboxOptions';
+import MultiCheckboxOptions from '../../types/MultiCheckboxOptions';
 
 export default defineComponent({
     name: 'CustomMultiCheckbox',

@@ -47,7 +47,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import VueMultiselect from 'vue-multiselect';
-import SelectOptions from '../types/SelectOptions';
+import SelectOptions from '../../types/SelectOptions';
 
 export default defineComponent({
     name: 'CustomMultiSelect',

@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import SelectOptions from '../types/SelectOptions';
+import SelectOptions from '../../types/SelectOptions';
 declare const _default: import("vue").DefineComponent<{
     label: {
         type: PropType<string>;

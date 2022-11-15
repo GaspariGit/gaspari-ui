@@ -57,7 +57,7 @@
 import { defineComponent, onMounted, PropType, ref } from "vue";
 import CustomButton from "./CustomButton.vue";
 import axios from "axios";
-import FileInterface from "../types/FileInterface";
+import FileInterface from "../../types/FileInterface";
 import CustomLoader from "./CustomLoader.vue";
 
 export default defineComponent({

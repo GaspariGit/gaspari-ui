@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import MultiCheckboxOptions from '../types/MultiCheckboxOptions';
+import MultiCheckboxOptions from '../../types/MultiCheckboxOptions';
 declare const _default: import("vue").DefineComponent<{
     value: {
         type: PropType<(string | number)[]>;

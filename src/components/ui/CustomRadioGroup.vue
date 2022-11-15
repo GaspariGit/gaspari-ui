@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import RadioGroupOptions from '../types/RadioGroupOptions';
+import RadioGroupOptions from '../../types/RadioGroupOptions';
 
 export default defineComponent({
     name: 'CustomRadioGroup',
