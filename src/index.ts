@@ -17,7 +17,7 @@ import GenericInput from './components/ui/GenericInput.vue';
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 
 import './assets/sass/_app.scss';
-import './assets/input.css';
+import '../dist/style.css';
 
 export {
     CustomButton,
