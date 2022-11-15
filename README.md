@@ -16,8 +16,15 @@ import { ComponentName } from "gaspari-ui";
 Also add the styles in App.vue or in other place to be used globally on the project:
 ```js
 import "gaspari-ui/dist/style.css"; 
-import "gaspari-ui/dist/output.css"; 
 ```
+
+If you are NOT using Tailwindcss in the parent project, then add also this style:
+```js
+import "gaspari-ui/dist/output.css";
+```
+
+Otherwise, you can skip this passage.
+
 ---
 
 ## Testing locally
@@ -38,6 +45,16 @@ The library requires to use Tailwindcss (^3.2.4). So install it and run:
 npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css --watch
 ```
 
+## Building
+To release a new version of the library, you need first to build Vue:
+
+```
+npm run build
+```
+Secondly, run this command, to compile Tailwindcss styles:
+```
+npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css
+```
 ---
 # Components
 
