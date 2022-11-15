@@ -7,6 +7,11 @@ Library of components, written in Vue.js
 ```
 npm install gaspari-ui
 ```
+### Requirements:
+The library requires Vue (^3.2.13) and Tailwindcss (^3.2.4) to work.
+
+#
+
 
 Then import like this: 
 ```js
@@ -30,6 +35,13 @@ Is it possible to modify the library in /src folder. The /sandbox folder is wher
 ```
 npm run dev
 ```
+
+The library requires to use Tailwindcss (^3.2.4). So install it and run:
+
+```
+npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css --watch
+```
+
 ---
 # Components
 
