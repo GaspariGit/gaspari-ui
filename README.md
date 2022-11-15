@@ -18,7 +18,7 @@ Also add the styles in App.vue or in other place to be used globally on the proj
 import "gaspari-ui/dist/style.css"; 
 ```
 
-If you are NOT using Tailwindcss in the parent project, then add also this style:
+This library is meant to be used with Tailwindcss, but If you are NOT using it in the parent project, then add also this style globally:
 ```js
 import "gaspari-ui/dist/output.css";
 ```
@@ -39,7 +39,7 @@ Is it possible to modify the library in /src folder. The /sandbox folder is wher
 npm run dev
 ```
 
-The library requires to use Tailwindcss (^3.2.4). So install it and run:
+The library uses Tailwindcss. So to compile it run:
 
 ```
 npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css --watch
