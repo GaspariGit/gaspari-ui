@@ -13,5 +13,4 @@ import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 import './assets/sass/_app.scss';
-import '../dist/style.css';
 export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation };

@@ -7,20 +7,16 @@ Library of components, written in Vue.js
 ```
 npm install gaspari-ui
 ```
-### Requirements:
-The library requires Vue (^3.2.13) and Tailwindcss (^3.2.4) to work.
-
-#
-
 
 Then import like this: 
 ```js
 import { ComponentName } from "gaspari-ui";
 ```
 
-Also add the style in App.vue or in other place to be used globally on the project:
+Also add the styles in App.vue or in other place to be used globally on the project:
 ```js
 import "gaspari-ui/dist/style.css"; 
+import "gaspari-ui/dist/output.css"; 
 ```
 ---
 
