@@ -1,4 +1,4 @@
-import { defineComponent as T, openBlock as p, createElementBlock as b, normalizeClass as le, renderSlot as $, createElementVNode as f, toDisplayString as S, createTextVNode as R, ref as Z, createCommentVNode as _, Fragment as H, resolveComponent as ee, renderList as K, createBlock as A, onMounted as pt, createVNode as v, withCtx as D, withKeys as P, withModifiers as C, withDirectives as q, vShow as X, Transition as Te, computed as Ke, mergeProps as Ge, vModelText as ft, vModelDynamic as mt } from "vue";
+import { defineComponent as T, openBlock as p, createElementBlock as b, normalizeClass as le, renderSlot as $, createElementVNode as f, toDisplayString as S, createTextVNode as R, ref as Z, createCommentVNode as _, Fragment as H, resolveComponent as ee, renderList as K, createBlock as A, onMounted as pt, createVNode as v, withCtx as D, withKeys as P, withModifiers as C, withDirectives as I, vShow as X, Transition as Te, computed as Ke, mergeProps as Ge, vModelText as ft, vModelDynamic as mt } from "vue";
 const bt = T({
   name: "CustomButton",
   props: {
@@ -80,11 +80,8 @@ function yt(e, t, s, n, r, o) {
   ], 10, gt);
 }
 const wt = /* @__PURE__ */ F(bt, [["render", yt]]), St = T({
-  name: "CustomSingleCheckbox",
+  name: "CustomCheckbox",
   props: {
-    value: {
-      type: String
-    },
     modelValue: {
       type: Boolean
     },
@@ -109,7 +106,7 @@ const wt = /* @__PURE__ */ F(bt, [["render", yt]]), St = T({
       this.$emit("update:checked", e.target.checked);
     }
   }
-}), vt = ["checked", "value", "disabled", "name"], Ot = /* @__PURE__ */ f("span", { class: "checkmark" }, null, -1);
+}), vt = ["checked", "disabled", "name"], Ot = /* @__PURE__ */ f("span", { class: "checkmark" }, null, -1);
 function $t(e, t, s, n, r, o) {
   return p(), b("label", {
     class: le(["wrapper flex items-center", { disabled: e.disabled }])
@@ -119,7 +116,6 @@ function $t(e, t, s, n, r, o) {
       class: "checkbox",
       type: "checkbox",
       checked: e.checked,
-      value: e.value,
       onChange: t[0] || (t[0] = (...i) => e.updateInput && e.updateInput(...i)),
       disabled: e.disabled,
       name: e.name
@@ -236,7 +232,7 @@ function jt(e, t, s, n, r, o) {
     role: "status"
   }, Mt, 2)) : _("", !0);
 }
-const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), It = T({
+const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), qt = T({
   name: "CustomModal",
   props: {
     isOpen: {
@@ -259,7 +255,7 @@ const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), It = T({
       t.emit("closeModal");
     } };
   }
-}), qt = {
+}), It = {
   key: 0,
   class: "custom-modal"
 }, zt = { class: "modal-background" }, Ht = { class: "modal-container" }, xt = { class: "modal-header" }, Kt = { class: "modal-title" }, Gt = /* @__PURE__ */ f("svg", {
@@ -279,7 +275,7 @@ const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), It = T({
   Gt
 ], Wt = { class: "modal-body" }, Xt = { class: "modal-footer" };
 function Qt(e, t, s, n, r, o) {
-  return e.isOpen ? (p(), b("div", qt, [
+  return e.isOpen ? (p(), b("div", It, [
     f("div", zt, [
       f("div", Ht, [
         f("div", xt, [
@@ -303,14 +299,15 @@ function Qt(e, t, s, n, r, o) {
     ])
   ])) : _("", !0);
 }
-const Ni = /* @__PURE__ */ F(It, [["render", Qt]]), Yt = T({
+const Ni = /* @__PURE__ */ F(qt, [["render", Qt]]), Yt = T({
   name: "CustomMultiCheckbox",
   components: {
     CustomCheckbox: _t
   },
   props: {
     value: {
-      type: Array
+      type: Array,
+      default: []
     },
     options: {
       type: Array,
@@ -784,14 +781,14 @@ const Us = M.isStandardBrowserEnv ? function() {
     }
   };
 }();
-function Is(e) {
+function qs(e) {
   return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(e);
 }
-function qs(e, t) {
+function Is(e, t) {
   return t ? e.replace(/\/+$/, "") + "/" + t.replace(/^\/+/, "") : e;
 }
 function lt(e, t) {
-  return e && !Is(t) ? qs(e, t) : t;
+  return e && !qs(t) ? Is(e, t) : t;
 }
 const zs = M.isStandardBrowserEnv ? function() {
   const t = /(msie|trident)/i.test(navigator.userAgent), s = document.createElement("a");
@@ -1209,7 +1206,7 @@ function fe(e) {
   if (e.cancelToken && e.cancelToken.throwIfRequested(), e.signal && e.signal.aborted)
     throw new ne();
 }
-function Ie(e) {
+function qe(e) {
   return fe(e), e.headers = V.from(e.headers), e.data = pe.call(
     e,
     e.transformRequest
@@ -1297,7 +1294,7 @@ const ct = "1.1.3", Ce = {};
     return typeof n === e || "a" + (t < 1 ? "n " : " ") + e;
   };
 });
-const qe = {};
+const Ie = {};
 Ce.transitional = function(t, s, n) {
   function r(o, i) {
     return "[Axios v" + ct + "] Transitional option '" + o + "'" + i + (n ? ". " + n : "");
@@ -1308,7 +1305,7 @@ Ce.transitional = function(t, s, n) {
         r(i, " has been removed" + (s ? " in " + s : "")),
         g.ERR_DEPRECATED
       );
-    return s && !qe[i] && (qe[i] = !0, console.warn(
+    return s && !Ie[i] && (Ie[i] = !0, console.warn(
       r(
         i,
         " has been deprecated since v" + s + " and will be removed in the near future"
@@ -1336,7 +1333,7 @@ function en(e, t, s) {
 const ve = {
   assertOptions: en,
   validators: Ce
-}, I = ve.validators;
+}, q = ve.validators;
 class z {
   constructor(t) {
     this.defaults = t, this.interceptors = {
@@ -1348,12 +1345,12 @@ class z {
     typeof t == "string" ? (s = s || {}, s.url = t) : s = t || {}, s = te(this.defaults, s);
     const { transitional: n, paramsSerializer: r } = s;
     n !== void 0 && ve.assertOptions(n, {
-      silentJSONParsing: I.transitional(I.boolean),
-      forcedJSONParsing: I.transitional(I.boolean),
-      clarifyTimeoutError: I.transitional(I.boolean)
+      silentJSONParsing: q.transitional(q.boolean),
+      forcedJSONParsing: q.transitional(q.boolean),
+      clarifyTimeoutError: q.transitional(q.boolean)
     }, !1), r !== void 0 && ve.assertOptions(r, {
-      encode: I.function,
-      serialize: I.function
+      encode: q.function,
+      serialize: q.function
     }, !0), s.method = (s.method || this.defaults.method || "get").toLowerCase();
     const o = s.headers && u.merge(
       s.headers.common,
@@ -1376,7 +1373,7 @@ class z {
     });
     let a, h = 0, y;
     if (!l) {
-      const m = [Ie.bind(this), void 0];
+      const m = [qe.bind(this), void 0];
       for (m.unshift.apply(m, i), m.push.apply(m, c), y = m.length, a = Promise.resolve(s); h < y; )
         a = a.then(m[h++], m[h++]);
       return a;
@@ -1393,7 +1390,7 @@ class z {
       }
     }
     try {
-      a = Ie.call(this, O);
+      a = qe.call(this, O);
     } catch (m) {
       return Promise.reject(m);
     }
@@ -2176,7 +2173,7 @@ function An(e, t, s, n, r, o) {
         values: o.visibleValues,
         isOpen: e.isOpen
       }, () => [
-        q(v("div", _n, [
+        I(v("div", _n, [
           (p(!0), A(H, null, K(o.visibleValues, (i, l) => $(e.$slots, "tag", {
             option: i,
             search: e.search,
@@ -2210,7 +2207,7 @@ function An(e, t, s, n, r, o) {
       v(Te, { name: "multiselect__loading" }, {
         default: D(() => [
           $(e.$slots, "loading", {}, () => [
-            q(v("div", En, null, 512), [
+            I(v("div", En, null, 512), [
               [X, s.loading]
             ])
           ])
@@ -2264,7 +2261,7 @@ function An(e, t, s, n, r, o) {
     ], 512),
     v(Te, { name: "multiselect" }, {
       default: D(() => [
-        q(v("div", {
+        I(v("div", {
           class: "multiselect__content-wrapper",
           onFocus: t[12] || (t[12] = (...i) => e.activate && e.activate(...i)),
           tabindex: "-1",
@@ -2327,7 +2324,7 @@ function An(e, t, s, n, r, o) {
                 ])
               ], 42, ["data-select", "data-deselect", "onMouseenter", "onMousedown"])) : _("v-if", !0)
             ], 8, ["id", "role"]))), 128)) : _("v-if", !0),
-            q(v("li", null, [
+            I(v("li", null, [
               v("span", Ln, [
                 $(e.$slots, "noResult", { search: e.search }, () => [
                   Rn
@@ -2336,7 +2333,7 @@ function An(e, t, s, n, r, o) {
             ], 512), [
               [X, s.showNoResults && e.filteredOptions.length === 0 && e.search && !s.loading]
             ]),
-            q(v("li", null, [
+            I(v("li", null, [
               v("span", Tn, [
                 $(e.$slots, "noOptions", {}, () => [
                   Fn
@@ -2459,7 +2456,7 @@ function jn(e, t, s, n, r, o) {
   ]);
 }
 const ji = /* @__PURE__ */ F(Vn, [["render", jn]]);
-var Un = "Expected a function", He = 0 / 0, In = "[object Symbol]", qn = /^\s+|\s+$/g, zn = /^[-+]0x[0-9a-f]+$/i, Hn = /^0b[01]+$/i, xn = /^0o[0-7]+$/i, Kn = parseInt, Gn = typeof ie == "object" && ie && ie.Object === Object && ie, Jn = typeof self == "object" && self && self.Object === Object && self, Wn = Gn || Jn || Function("return this")(), Xn = Object.prototype, Qn = Xn.toString, Yn = Math.max, Zn = Math.min, ge = function() {
+var Un = "Expected a function", He = 0 / 0, qn = "[object Symbol]", In = /^\s+|\s+$/g, zn = /^[-+]0x[0-9a-f]+$/i, Hn = /^0b[01]+$/i, xn = /^0o[0-7]+$/i, Kn = parseInt, Gn = typeof ie == "object" && ie && ie.Object === Object && ie, Jn = typeof self == "object" && self && self.Object === Object && self, Wn = Gn || Jn || Function("return this")(), Xn = Object.prototype, Qn = Xn.toString, Yn = Math.max, Zn = Math.min, ge = function() {
   return Wn.Date.now();
 };
 function ei(e, t, s) {
@@ -2517,7 +2514,7 @@ function ti(e) {
   return !!e && typeof e == "object";
 }
 function si(e) {
-  return typeof e == "symbol" || ti(e) && Qn.call(e) == In;
+  return typeof e == "symbol" || ti(e) && Qn.call(e) == qn;
 }
 function xe(e) {
   if (typeof e == "number")
@@ -2530,7 +2527,7 @@ function xe(e) {
   }
   if (typeof e != "string")
     return e === 0 ? e : +e;
-  e = e.replace(qn, "");
+  e = e.replace(In, "");
   var s = Hn.test(e);
   return s || xn.test(e) ? Kn(e.slice(2), s ? 2 : 8) : zn.test(e) ? He : +e;
 }
@@ -2707,14 +2704,16 @@ function gi(e, t, s, n, r, o) {
     ], 40, fi)
   ]);
 }
-const Ii = /* @__PURE__ */ F(di, [["render", gi]]), yi = T({
+const qi = /* @__PURE__ */ F(di, [["render", gi]]), yi = T({
   name: "CustomRadioGroup",
   props: {
     options: {
-      type: Array
+      type: Array,
+      required: !0
     },
     value: {
-      type: [Number, String]
+      type: [Number, String],
+      default: ""
     }
   },
   setup(e, t) {
@@ -2747,7 +2746,7 @@ function $i(e, t, s, n, r, o) {
     ], 2))), 128))
   ]);
 }
-const qi = /* @__PURE__ */ F(yi, [["render", $i]]), _i = T({
+const Ii = /* @__PURE__ */ F(yi, [["render", $i]]), _i = T({
   name: "CustomTextArea",
   emits: ["update"],
   props: {
@@ -2782,7 +2781,7 @@ const qi = /* @__PURE__ */ F(yi, [["render", $i]]), _i = T({
 function ki(e, t, s, n, r, o) {
   return p(), b("div", Ei, [
     e.label ? (p(), b("label", Ci, S(e.label), 1)) : _("", !0),
-    q(f("textarea", Ge(e.$attrs, {
+    I(f("textarea", Ge(e.$attrs, {
       "onUpdate:modelValue": t[0] || (t[0] = (i) => e.computedValue = i),
       class: "generic-input__input " + e.classes
     }), null, 16), [
@@ -2834,7 +2833,7 @@ function Vi(e, t, s, n, r, o) {
     e.label ? (p(), b("label", Ti, S(e.label), 1)) : _("", !0),
     f("div", Fi, [
       $(e.$slots, "prepend"),
-      e.readOnly ? _("", !0) : q((p(), b("input", Ge({ key: 0 }, e.$attrs, {
+      e.readOnly ? _("", !0) : I((p(), b("input", Ge({ key: 0 }, e.$attrs, {
         "onUpdate:modelValue": t[0] || (t[0] = (i) => e.computedValue = i),
         class: "generic-input__input " + e.classes
       }), null, 16)), [
@@ -2855,8 +2854,8 @@ export {
   ji as CustomMultiSelect,
   Ui as CustomMultiSelectAsync,
   Mi as CustomMultipleFileUpload,
-  qi as CustomRadioGroup,
-  Ii as CustomSelect,
+  Ii as CustomRadioGroup,
+  qi as CustomSelect,
   zi as CustomTextArea,
   Hi as GenericInput
 };
