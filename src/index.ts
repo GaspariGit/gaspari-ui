@@ -1,3 +1,4 @@
+// Components
 import CustomButton from './components/ui/CustomButton.vue';
 import CustomCheckbox from './components/ui/CustomCheckbox.vue';
 import CustomFileUpload from './components/ui/CustomFileUpload.vue';
@@ -12,7 +13,11 @@ import CustomRadioGroup from './components/ui/CustomRadioGroup.vue';
 import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
 
+// Partials
+import HeaderNavigation from './components/partials/HeaderNavigation.vue';
+
 import './assets/sass/_app.scss';
+import './assets/input.css';
 
 export {
     CustomButton,
@@ -28,4 +33,5 @@ export {
     CustomRadioGroup,
     CustomTextArea,
     GenericInput,
+    HeaderNavigation
 }

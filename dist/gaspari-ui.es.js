@@ -1,5 +1,5 @@
-import { defineComponent as T, openBlock as p, createElementBlock as b, normalizeClass as le, renderSlot as $, createElementVNode as f, toDisplayString as S, createTextVNode as R, ref as Z, createCommentVNode as _, Fragment as H, resolveComponent as ee, renderList as K, createBlock as A, onMounted as pt, createVNode as v, withCtx as D, withKeys as P, withModifiers as C, withDirectives as I, vShow as X, Transition as Te, computed as Ke, mergeProps as Ge, vModelText as ft, vModelDynamic as mt } from "vue";
-const bt = T({
+import { defineComponent as R, openBlock as p, createElementBlock as b, normalizeClass as le, renderSlot as $, createElementVNode as f, toDisplayString as S, createTextVNode as F, ref as Z, createCommentVNode as _, Fragment as z, resolveComponent as ee, renderList as K, createBlock as A, onMounted as pt, createVNode as v, withCtx as D, withKeys as N, withModifiers as C, withDirectives as I, vShow as X, Transition as Te, computed as Ke, mergeProps as Ge, vModelText as ft, vModelDynamic as mt } from "vue";
+const bt = R({
   name: "CustomButton",
   props: {
     label: {
@@ -62,7 +62,7 @@ const bt = T({
       }
     };
   }
-}), F = (e, t) => {
+}), T = (e, t) => {
   const s = e.__vccOpts || e;
   for (const [n, r] of t)
     s[n] = r;
@@ -79,7 +79,7 @@ function yt(e, t, s, n, r, o) {
     $(e.$slots, "slot-right")
   ], 10, gt);
 }
-const wt = /* @__PURE__ */ F(bt, [["render", yt]]), St = T({
+const wt = /* @__PURE__ */ T(bt, [["render", yt]]), St = R({
   name: "CustomCheckbox",
   props: {
     modelValue: {
@@ -111,7 +111,7 @@ function $t(e, t, s, n, r, o) {
   return p(), b("label", {
     class: le(["wrapper flex items-center", { disabled: e.disabled }])
   }, [
-    R(S(e.label) + " ", 1),
+    F(S(e.label) + " ", 1),
     f("input", {
       class: "checkbox",
       type: "checkbox",
@@ -123,7 +123,7 @@ function $t(e, t, s, n, r, o) {
     Ot
   ], 2);
 }
-const _t = /* @__PURE__ */ F(St, [["render", $t]]), Et = T({
+const _t = /* @__PURE__ */ T(St, [["render", $t]]), Et = R({
   name: "CustomFileUpload",
   props: {
     label: {
@@ -181,7 +181,7 @@ const _t = /* @__PURE__ */ F(St, [["render", $t]]), Et = T({
 ], -1), Bt = [
   Vt
 ];
-function Pt(e, t, s, n, r, o) {
+function Nt(e, t, s, n, r, o) {
   return p(), b("div", Ct, [
     e.label ? (p(), b("label", kt, S(e.label), 1)) : _("", !0),
     f("div", Lt, [
@@ -199,7 +199,7 @@ function Pt(e, t, s, n, r, o) {
         }, " Sfoglia... "),
         f("div", Tt, [
           e.currentFile ? (p(), b("div", At, [
-            R(S(e.currentFile.name) + " ", 1),
+            F(S(e.currentFile.name) + " ", 1),
             f("div", {
               onClick: t[2] || (t[2] = (...i) => e.deleteFile && e.deleteFile(...i)),
               class: "generic-input__input-file__file__file-name__cancel"
@@ -210,7 +210,7 @@ function Pt(e, t, s, n, r, o) {
     ])
   ]);
 }
-const Pi = /* @__PURE__ */ F(Et, [["render", Pt]]), Nt = T({
+const Mi = /* @__PURE__ */ T(Et, [["render", Nt]]), Pt = R({
   name: "CustomLoader",
   props: {
     loading: {
@@ -232,7 +232,7 @@ function jt(e, t, s, n, r, o) {
     role: "status"
   }, Mt, 2)) : _("", !0);
 }
-const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), qt = T({
+const Ut = /* @__PURE__ */ T(Pt, [["render", jt]]), qt = R({
   name: "CustomModal",
   props: {
     isOpen: {
@@ -258,7 +258,7 @@ const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), qt = T({
 }), It = {
   key: 0,
   class: "custom-modal"
-}, zt = { class: "modal-background" }, Ht = { class: "modal-container" }, xt = { class: "modal-header" }, Kt = { class: "modal-title" }, Gt = /* @__PURE__ */ f("svg", {
+}, Ht = { class: "modal-background" }, zt = { class: "modal-container" }, xt = { class: "modal-header" }, Kt = { class: "modal-title" }, Gt = /* @__PURE__ */ f("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   viewBox: "0 0 24 24",
@@ -276,12 +276,12 @@ const Ut = /* @__PURE__ */ F(Nt, [["render", jt]]), qt = T({
 ], Wt = { class: "modal-body" }, Xt = { class: "modal-footer" };
 function Qt(e, t, s, n, r, o) {
   return e.isOpen ? (p(), b("div", It, [
-    f("div", zt, [
-      f("div", Ht, [
+    f("div", Ht, [
+      f("div", zt, [
         f("div", xt, [
           f("div", Kt, [
-            e.withoutTitle ? _("", !0) : (p(), b(H, { key: 0 }, [
-              R(S(e.modalTitle), 1)
+            e.withoutTitle ? _("", !0) : (p(), b(z, { key: 0 }, [
+              F(S(e.modalTitle), 1)
             ], 64))
           ]),
           f("div", {
@@ -299,7 +299,7 @@ function Qt(e, t, s, n, r, o) {
     ])
   ])) : _("", !0);
 }
-const Ni = /* @__PURE__ */ F(qt, [["render", Qt]]), Yt = T({
+const ji = /* @__PURE__ */ T(qt, [["render", Qt]]), Yt = R({
   name: "CustomMultiCheckbox",
   components: {
     CustomCheckbox: _t
@@ -324,7 +324,7 @@ const Ni = /* @__PURE__ */ F(qt, [["render", Qt]]), Yt = T({
 function Zt(e, t, s, n, r, o) {
   const i = ee("custom-checkbox");
   return p(), b("div", null, [
-    (p(!0), b(H, null, K(e.options, (l, c) => (p(), A(i, {
+    (p(!0), b(z, null, K(e.options, (l, c) => (p(), A(i, {
       key: c,
       label: l.label,
       checked: e.value.includes(l.id),
@@ -332,7 +332,7 @@ function Zt(e, t, s, n, r, o) {
     }, null, 8, ["label", "checked", "onUpdate:checked"]))), 128))
   ]);
 }
-const Di = /* @__PURE__ */ F(Yt, [["render", Zt]]);
+const Ui = /* @__PURE__ */ T(Yt, [["render", Zt]]);
 function Je(e, t) {
   return function() {
     return e.apply(t, arguments);
@@ -614,14 +614,14 @@ function ce(e, t, s) {
     if (!u.isUndefined(d)) {
       if (y.indexOf(d) !== -1)
         throw Error("Circular reference detected in " + w.join("."));
-      y.push(d), u.forEach(d, function(k, N) {
+      y.push(d), u.forEach(d, function(k, P) {
         (!(u.isUndefined(k) || k === null) && r.call(
           t,
           k,
-          u.isString(N) ? N.trim() : N,
+          u.isString(P) ? P.trim() : P,
           w,
           O
-        )) === !0 && m(k, w ? w.concat(N) : [N]);
+        )) === !0 && m(k, w ? w.concat(P) : [P]);
       }), y.pop();
     }
   }
@@ -700,7 +700,7 @@ const rt = {
   silentJSONParsing: !0,
   forcedJSONParsing: !0,
   clarifyTimeoutError: !1
-}, Vs = typeof URLSearchParams < "u" ? URLSearchParams : Ee, Bs = FormData, Ps = (() => {
+}, Vs = typeof URLSearchParams < "u" ? URLSearchParams : Ee, Bs = FormData, Ns = (() => {
   let e;
   return typeof navigator < "u" && ((e = navigator.product) === "ReactNative" || e === "NativeScript" || e === "NS") ? !1 : typeof window < "u" && typeof document < "u";
 })(), M = {
@@ -710,10 +710,10 @@ const rt = {
     FormData: Bs,
     Blob
   },
-  isStandardBrowserEnv: Ps,
+  isStandardBrowserEnv: Ns,
   protocols: ["http", "https", "file", "blob", "url", "data"]
 };
-function Ns(e, t) {
+function Ps(e, t) {
   return ce(e, new M.classes.URLSearchParams(), Object.assign({
     visitor: function(s, n, r, o) {
       return M.isNode && u.isBuffer(s) ? (this.append(n, s.toString("base64")), !1) : o.defaultVisitor.apply(this, arguments);
@@ -790,7 +790,7 @@ function Is(e, t) {
 function lt(e, t) {
   return e && !qs(t) ? Is(e, t) : t;
 }
-const zs = M.isStandardBrowserEnv ? function() {
+const Hs = M.isStandardBrowserEnv ? function() {
   const t = /(msie|trident)/i.test(navigator.userAgent), s = document.createElement("a");
   let n;
   function r(o) {
@@ -821,7 +821,7 @@ function ne(e, t, s) {
 u.inherits(ne, g, {
   __CANCEL__: !0
 });
-function Hs(e) {
+function zs(e) {
   const t = /^([-+\w]{1,25})(:?\/\/|:)/.exec(e);
   return t && t[1] || "";
 }
@@ -850,7 +850,7 @@ const xs = u.toObjectSet([
 `).forEach(function(i) {
     r = i.indexOf(":"), s = i.substring(0, r).trim().toLowerCase(), n = i.substring(r + 1).trim(), !(!s || t[s] && xs[s]) && (s === "set-cookie" ? t[s] ? t[s].push(n) : t[s] = [n] : t[s] = t[s] ? t[s] + ", " + n : n);
   }), t;
-}, Pe = Symbol("internals"), at = Symbol("defaults");
+}, Ne = Symbol("internals"), at = Symbol("defaults");
 function Y(e) {
   return e && String(e).trim().toLowerCase();
 }
@@ -864,7 +864,7 @@ function Gs(e) {
     t[n[1]] = n[2];
   return t;
 }
-function Ne(e, t, s, n) {
+function Pe(e, t, s, n) {
   if (u.isFunction(n))
     return n.call(this, t, s);
   if (!!u.isString(t)) {
@@ -934,7 +934,7 @@ Object.assign(V.prototype, {
   has: function(e, t) {
     if (e = Y(e), e) {
       const s = Q(this, e);
-      return !!(s && (!t || Ne(this, this[s], s, t)));
+      return !!(s && (!t || Pe(this, this[s], s, t)));
     }
     return !1;
   },
@@ -944,7 +944,7 @@ Object.assign(V.prototype, {
     function r(o) {
       if (o = Y(o), o) {
         const i = Q(s, o);
-        i && (!t || Ne(s, s[i], i, t)) && (delete s[i], n = !0);
+        i && (!t || Pe(s, s[i], i, t)) && (delete s[i], n = !0);
       }
     }
     return u.isArray(e) ? e.forEach(r) : r(e), n;
@@ -979,7 +979,7 @@ Object.assign(V, {
     return u.isString(e) ? new this(Ks(e)) : e instanceof this ? e : new this(e);
   },
   accessor: function(e) {
-    const s = (this[Pe] = this[Pe] = {
+    const s = (this[Ne] = this[Ne] = {
       accessors: {}
     }).accessors, n = this.prototype;
     function r(o) {
@@ -1076,7 +1076,7 @@ function Me(e) {
         a
       )), a = null;
     }, M.isStandardBrowserEnv) {
-      const m = (e.withCredentials || zs(h)) && e.xsrfCookieName && Us.read(e.xsrfCookieName);
+      const m = (e.withCredentials || Hs(h)) && e.xsrfCookieName && Us.read(e.xsrfCookieName);
       m && o.set(e.xsrfHeaderName, m);
     }
     r === void 0 && o.setContentType(null), "setRequestHeader" in a && u.forEach(o.toJSON(), function(d, w) {
@@ -1084,7 +1084,7 @@ function Me(e) {
     }), u.isUndefined(e.withCredentials) || (a.withCredentials = !!e.withCredentials), i && i !== "json" && (a.responseType = e.responseType), typeof e.onDownloadProgress == "function" && a.addEventListener("progress", De(e.onDownloadProgress, !0)), typeof e.onUploadProgress == "function" && a.upload && a.upload.addEventListener("progress", De(e.onUploadProgress)), (e.cancelToken || e.signal) && (l = (m) => {
       !a || (n(!m || m.type ? new ne(null, e, a) : m), a.abort(), a = null);
     }, e.cancelToken && e.cancelToken.subscribe(l), e.signal && (e.signal.aborted ? l() : e.signal.addEventListener("abort", l)));
-    const O = Hs(h);
+    const O = zs(h);
     if (O && M.protocols.indexOf(O) === -1) {
       n(new g("Unsupported protocol " + O + ":", g.ERR_BAD_REQUEST, e));
       return;
@@ -1143,7 +1143,7 @@ const J = {
     let l;
     if (o) {
       if (n.indexOf("application/x-www-form-urlencoded") > -1)
-        return Ns(t, this.formSerializer).toString();
+        return Ps(t, this.formSerializer).toString();
       if ((l = u.isFileList(t)) || n.indexOf("multipart/form-data") > -1) {
         const c = this.env && this.env.FormData;
         return ce(
@@ -1334,7 +1334,7 @@ const ve = {
   assertOptions: en,
   validators: Ce
 }, q = ve.validators;
-class z {
+class H {
   constructor(t) {
     this.defaults = t, this.interceptors = {
       request: new Be(),
@@ -1405,7 +1405,7 @@ class z {
   }
 }
 u.forEach(["delete", "get", "head", "options"], function(t) {
-  z.prototype[t] = function(s, n) {
+  H.prototype[t] = function(s, n) {
     return this.request(te(n || {}, {
       method: t,
       url: s,
@@ -1426,7 +1426,7 @@ u.forEach(["post", "put", "patch"], function(t) {
       }));
     };
   }
-  z.prototype[t] = s(), z.prototype[t + "Form"] = s(!0);
+  H.prototype[t] = s(), H.prototype[t + "Form"] = s(!0);
 });
 class ke {
   constructor(t) {
@@ -1492,13 +1492,13 @@ function sn(e) {
   return u.isObject(e) && e.isAxiosError === !0;
 }
 function dt(e) {
-  const t = new z(e), s = Je(z.prototype.request, t);
-  return u.extend(s, z.prototype, t, { allOwnKeys: !0 }), u.extend(s, t, null, { allOwnKeys: !0 }), s.create = function(r) {
+  const t = new H(e), s = Je(H.prototype.request, t);
+  return u.extend(s, H.prototype, t, { allOwnKeys: !0 }), u.extend(s, t, null, { allOwnKeys: !0 }), s.create = function(r) {
     return dt(te(e, r));
   }, s;
 }
 const L = dt(J);
-L.Axios = z;
+L.Axios = H;
 L.CanceledError = ne;
 L.CancelToken = ke;
 L.isCancel = ut;
@@ -1512,7 +1512,7 @@ L.all = function(t) {
 L.spread = tn;
 L.isAxiosError = sn;
 L.formToJSON = (e) => ot(u.isHTMLForm(e) ? new FormData(e) : e);
-const nn = T({
+const nn = R({
   name: "CustomMultipleFileUpload",
   components: {
     CustomButton: wt,
@@ -1614,11 +1614,11 @@ function bn(e, t, s, n, r, o) {
   return p(), b("div", rn, [
     e.label ? (p(), b("label", on, S(e.label), 1)) : _("", !0),
     f("ul", ln, [
-      (p(!0), b(H, null, K(e.fileList, (c, a) => (p(), b("li", {
+      (p(!0), b(z, null, K(e.fileList, (c, a) => (p(), b("li", {
         class: "file-list-item",
         key: a
       }, [
-        R(S(c.original_name + "." + c.extension) + " ", 1),
+        F(S(c.original_name + "." + c.extension) + " ", 1),
         f("div", {
           onClick: (h) => e.deleteFile(a),
           class: "item-cancel"
@@ -1653,7 +1653,7 @@ function bn(e, t, s, n, r, o) {
     ])
   ]);
 }
-const Mi = /* @__PURE__ */ F(nn, [["render", bn]]);
+const qi = /* @__PURE__ */ T(nn, [["render", bn]]);
 function me(e) {
   return e === 0 ? !1 : Array.isArray(e) && e.length === 0 ? !0 : !e;
 }
@@ -1686,7 +1686,7 @@ function Sn(e, t, s, n, r) {
     } : [];
   });
 }
-const ze = (...e) => (t) => e.reduce((s, n) => n(s), t);
+const He = (...e) => (t) => e.reduce((s, n) => n(s), t);
 var vn = {
   data() {
     return {
@@ -1833,13 +1833,13 @@ var vn = {
       return this.multiple ? this.internalValue : this.internalValue.length === 0 ? null : this.internalValue[0];
     },
     filterAndFlat(e, t, s) {
-      return ze(
+      return He(
         Sn(t, s, this.groupValues, this.groupLabel, this.customLabel),
         be(this.groupValues, this.groupLabel)
       )(e);
     },
     flatAndStrip(e) {
-      return ze(
+      return He(
         be(this.groupValues, this.groupLabel),
         wn
       )(e);
@@ -2143,7 +2143,7 @@ var vn = {
 const $n = {
   ref: "tags",
   class: "multiselect__tags"
-}, _n = { class: "multiselect__tags-wrap" }, En = { class: "multiselect__spinner" }, Cn = { key: 0 }, kn = { class: "multiselect__option" }, Ln = { class: "multiselect__option" }, Rn = /* @__PURE__ */ R("No elements found. Consider changing the search query."), Tn = { class: "multiselect__option" }, Fn = /* @__PURE__ */ R("List is empty.");
+}, _n = { class: "multiselect__tags-wrap" }, En = { class: "multiselect__spinner" }, Cn = { key: 0 }, kn = { class: "multiselect__option" }, Ln = { class: "multiselect__option" }, Rn = /* @__PURE__ */ F("No elements found. Consider changing the search query."), Tn = { class: "multiselect__option" }, Fn = /* @__PURE__ */ F("List is empty.");
 function An(e, t, s, n, r, o) {
   return p(), A("div", {
     tabindex: e.searchable ? -1 : s.tabindex,
@@ -2151,11 +2151,11 @@ function An(e, t, s, n, r, o) {
     onFocus: t[14] || (t[14] = (i) => e.activate()),
     onBlur: t[15] || (t[15] = (i) => e.searchable ? !1 : e.deactivate()),
     onKeydown: [
-      t[16] || (t[16] = P(C((i) => e.pointerForward(), ["self", "prevent"]), ["down"])),
-      t[17] || (t[17] = P(C((i) => e.pointerBackward(), ["self", "prevent"]), ["up"]))
+      t[16] || (t[16] = N(C((i) => e.pointerForward(), ["self", "prevent"]), ["down"])),
+      t[17] || (t[17] = N(C((i) => e.pointerBackward(), ["self", "prevent"]), ["up"]))
     ],
-    onKeypress: t[18] || (t[18] = P(C((i) => e.addPointerElement(i), ["stop", "self"]), ["enter", "tab"])),
-    onKeyup: t[19] || (t[19] = P((i) => e.deactivate(), ["esc"])),
+    onKeypress: t[18] || (t[18] = N(C((i) => e.addPointerElement(i), ["stop", "self"]), ["enter", "tab"])),
+    onKeyup: t[19] || (t[19] = N((i) => e.deactivate(), ["esc"])),
     role: "combobox",
     "aria-owns": "listbox-" + e.id
   }, [
@@ -2174,7 +2174,7 @@ function An(e, t, s, n, r, o) {
         isOpen: e.isOpen
       }, () => [
         I(v("div", _n, [
-          (p(!0), A(H, null, K(o.visibleValues, (i, l) => $(e.$slots, "tag", {
+          (p(!0), A(z, null, K(o.visibleValues, (i, l) => $(e.$slots, "tag", {
             option: i,
             search: e.search,
             remove: e.removeElement
@@ -2188,7 +2188,7 @@ function An(e, t, s, n, r, o) {
               }, null, 8, ["textContent"]),
               v("i", {
                 tabindex: "1",
-                onKeypress: P(C((c) => e.removeElement(i), ["prevent"]), ["enter"]),
+                onKeypress: N(C((c) => e.removeElement(i), ["prevent"]), ["enter"]),
                 onMousedown: C((c) => e.removeElement(i), ["prevent"]),
                 class: "multiselect__tag-icon"
               }, null, 40, ["onKeypress", "onMousedown"])
@@ -2230,13 +2230,13 @@ function An(e, t, s, n, r, o) {
         onInput: t[2] || (t[2] = (i) => e.updateSearch(i.target.value)),
         onFocus: t[3] || (t[3] = C((i) => e.activate(), ["prevent"])),
         onBlur: t[4] || (t[4] = C((i) => e.deactivate(), ["prevent"])),
-        onKeyup: t[5] || (t[5] = P((i) => e.deactivate(), ["esc"])),
+        onKeyup: t[5] || (t[5] = N((i) => e.deactivate(), ["esc"])),
         onKeydown: [
-          t[6] || (t[6] = P(C((i) => e.pointerForward(), ["prevent"]), ["down"])),
-          t[7] || (t[7] = P(C((i) => e.pointerBackward(), ["prevent"]), ["up"])),
-          t[9] || (t[9] = P(C((i) => e.removeLastElement(), ["stop"]), ["delete"]))
+          t[6] || (t[6] = N(C((i) => e.pointerForward(), ["prevent"]), ["down"])),
+          t[7] || (t[7] = N(C((i) => e.pointerBackward(), ["prevent"]), ["up"])),
+          t[9] || (t[9] = N(C((i) => e.removeLastElement(), ["stop"]), ["delete"]))
         ],
-        onKeypress: t[8] || (t[8] = P(C((i) => e.addPointerElement(i), ["prevent", "stop", "self"]), ["enter"])),
+        onKeypress: t[8] || (t[8] = N(C((i) => e.addPointerElement(i), ["prevent", "stop", "self"]), ["enter"])),
         class: "multiselect__input",
         "aria-controls": "listbox-" + e.id
       }, null, 44, ["name", "id", "placeholder", "value", "disabled", "tabindex", "aria-controls"])) : _("v-if", !0),
@@ -2246,7 +2246,7 @@ function An(e, t, s, n, r, o) {
         onMousedown: t[10] || (t[10] = C((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
         $(e.$slots, "singleLabel", { option: o.singleValue }, () => [
-          R(S(e.currentOptionLabel), 1)
+          F(S(e.currentOptionLabel), 1)
         ])
       ], 32)) : _("v-if", !0),
       o.isPlaceholderVisible ? (p(), A("span", {
@@ -2255,7 +2255,7 @@ function An(e, t, s, n, r, o) {
         onMousedown: t[11] || (t[11] = C((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
         $(e.$slots, "placeholder", {}, () => [
-          R(S(e.placeholder), 1)
+          F(S(e.placeholder), 1)
         ])
       ], 32)) : _("v-if", !0)
     ], 512),
@@ -2280,11 +2280,11 @@ function An(e, t, s, n, r, o) {
             e.multiple && e.max === e.internalValue.length ? (p(), A("li", Cn, [
               v("span", kn, [
                 $(e.$slots, "maxElements", {}, () => [
-                  R("Maximum of " + S(e.max) + " options selected. First remove a selected option to select another.", 1)
+                  F("Maximum of " + S(e.max) + " options selected. First remove a selected option to select another.", 1)
                 ])
               ])
             ])) : _("v-if", !0),
-            !e.max || e.internalValue.length < e.max ? (p(!0), A(H, { key: 1 }, K(e.filteredOptions, (i, l) => (p(), A("li", {
+            !e.max || e.internalValue.length < e.max ? (p(!0), A(z, { key: 1 }, K(e.filteredOptions, (i, l) => (p(), A("li", {
               class: "multiselect__element",
               key: l,
               id: e.id + "-" + l,
@@ -2353,7 +2353,7 @@ function An(e, t, s, n, r, o) {
   ], 42, ["tabindex", "aria-owns"]);
 }
 Le.render = An;
-const Vn = T({
+const Vn = R({
   name: "CustomMultiSelect",
   emits: ["update:selectedOptions"],
   props: {
@@ -2409,15 +2409,15 @@ const Vn = T({
     }), this.value = e;
   }
 });
-const Bn = { class: "custom-multiselect" }, Pn = {
+const Bn = { class: "custom-multiselect" }, Nn = {
   key: 0,
   for: "exampleFormControlSelect1",
   class: "custom-multiselect__label text-sm"
-}, Nn = { class: "multiselect__tags-wrap" }, Dn = { class: "multiselect__tag" }, Mn = ["onClick"];
+}, Pn = { class: "multiselect__tags-wrap" }, Dn = { class: "multiselect__tag" }, Mn = ["onClick"];
 function jn(e, t, s, n, r, o) {
   const i = ee("vue-multiselect");
   return p(), b("div", Bn, [
-    e.label ? (p(), b("label", Pn, S(e.label), 1)) : _("", !0),
+    e.label ? (p(), b("label", Nn, S(e.label), 1)) : _("", !0),
     v(i, {
       modelValue: e.value,
       "onUpdate:modelValue": t[0] || (t[0] = (l) => e.value = l),
@@ -2434,10 +2434,10 @@ function jn(e, t, s, n, r, o) {
       "internal-search": !1
     }, {
       noResult: D(() => [
-        R(" Nessun risultato. ")
+        F(" Nessun risultato. ")
       ]),
       tag: D((l) => [
-        f("div", Nn, [
+        f("div", Pn, [
           f("span", Dn, [
             f("span", null, S(l.option.label), 1),
             f("i", {
@@ -2449,14 +2449,14 @@ function jn(e, t, s, n, r, o) {
         ])
       ]),
       option: D((l) => [
-        R(S(l.option.label), 1)
+        F(S(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange"])
   ]);
 }
-const ji = /* @__PURE__ */ F(Vn, [["render", jn]]);
-var Un = "Expected a function", He = 0 / 0, qn = "[object Symbol]", In = /^\s+|\s+$/g, zn = /^[-+]0x[0-9a-f]+$/i, Hn = /^0b[01]+$/i, xn = /^0o[0-7]+$/i, Kn = parseInt, Gn = typeof ie == "object" && ie && ie.Object === Object && ie, Jn = typeof self == "object" && self && self.Object === Object && self, Wn = Gn || Jn || Function("return this")(), Xn = Object.prototype, Qn = Xn.toString, Yn = Math.max, Zn = Math.min, ge = function() {
+const Ii = /* @__PURE__ */ T(Vn, [["render", jn]]);
+var Un = "Expected a function", ze = 0 / 0, qn = "[object Symbol]", In = /^\s+|\s+$/g, Hn = /^[-+]0x[0-9a-f]+$/i, zn = /^0b[01]+$/i, xn = /^0o[0-7]+$/i, Kn = parseInt, Gn = typeof ie == "object" && ie && ie.Object === Object && ie, Jn = typeof self == "object" && self && self.Object === Object && self, Wn = Gn || Jn || Function("return this")(), Xn = Object.prototype, Qn = Xn.toString, Yn = Math.max, Zn = Math.min, ge = function() {
   return Wn.Date.now();
 };
 function ei(e, t, s) {
@@ -2482,17 +2482,17 @@ function ei(e, t, s) {
   function k() {
     var E = ge();
     if (B(E))
-      return N(E);
+      return P(E);
     l = setTimeout(k, w(E));
   }
-  function N(E) {
+  function P(E) {
     return l = void 0, O && n ? m(E) : (n = r = void 0, i);
   }
   function x() {
     l !== void 0 && clearTimeout(l), a = 0, n = c = r = l = void 0;
   }
   function de() {
-    return l === void 0 ? i : N(ge());
+    return l === void 0 ? i : P(ge());
   }
   function he() {
     var E = ge(), U = B(E);
@@ -2520,7 +2520,7 @@ function xe(e) {
   if (typeof e == "number")
     return e;
   if (si(e))
-    return He;
+    return ze;
   if (Oe(e)) {
     var t = typeof e.valueOf == "function" ? e.valueOf() : e;
     e = Oe(t) ? t + "" : t;
@@ -2528,11 +2528,11 @@ function xe(e) {
   if (typeof e != "string")
     return e === 0 ? e : +e;
   e = e.replace(In, "");
-  var s = Hn.test(e);
-  return s || xn.test(e) ? Kn(e.slice(2), s ? 2 : 8) : zn.test(e) ? He : +e;
+  var s = zn.test(e);
+  return s || xn.test(e) ? Kn(e.slice(2), s ? 2 : 8) : Hn.test(e) ? ze : +e;
 }
 var ni = ei;
-const ii = T({
+const ii = R({
   name: "CustomMultiSelectAsync",
   emits: ["update:selectedOptions"],
   props: {
@@ -2622,7 +2622,7 @@ function ci(e, t, s, n, r, o) {
       loading: e.loading
     }, {
       noResult: D(() => [
-        R(" Nessun risultato. ")
+        F(" Nessun risultato. ")
       ]),
       tag: D((l) => [
         f("div", li, [
@@ -2637,13 +2637,13 @@ function ci(e, t, s, n, r, o) {
         ])
       ]),
       option: D((l) => [
-        R(S(l.option.label), 1)
+        F(S(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange", "loading"])
   ]);
 }
-const Ui = /* @__PURE__ */ F(ii, [["render", ci]]), di = T({
+const Hi = /* @__PURE__ */ T(ii, [["render", ci]]), di = R({
   name: "CustomSelect",
   props: {
     options: {
@@ -2696,7 +2696,7 @@ function gi(e, t, s, n, r, o) {
       disabled: e.disabled
     }, [
       f("option", mi, S(e.placeholder), 1),
-      (p(!0), b(H, null, K(e.options, (i, l) => (p(), b("option", {
+      (p(!0), b(z, null, K(e.options, (i, l) => (p(), b("option", {
         key: l,
         value: i.value,
         selected: i.value == e.value
@@ -2704,7 +2704,7 @@ function gi(e, t, s, n, r, o) {
     ], 40, fi)
   ]);
 }
-const qi = /* @__PURE__ */ F(di, [["render", gi]]), yi = T({
+const zi = /* @__PURE__ */ T(di, [["render", gi]]), yi = R({
   name: "CustomRadioGroup",
   props: {
     options: {
@@ -2724,7 +2724,7 @@ const qi = /* @__PURE__ */ F(di, [["render", gi]]), yi = T({
 }), wi = { class: "custom-radio-group" }, Si = ["name", "id", "value", "disabled", "checked"], vi = /* @__PURE__ */ f("span", { class: "custom-radio-group__single-radio__radio" }, null, -1), Oi = ["for"];
 function $i(e, t, s, n, r, o) {
   return p(), b("div", wi, [
-    (p(!0), b(H, null, K(e.options, (i) => (p(), b("div", {
+    (p(!0), b(z, null, K(e.options, (i) => (p(), b("div", {
       key: i.id,
       class: le([{ disabled: i.disabled, checked: i.value == e.value }, "custom-radio-group__single-radio"])
     }, [
@@ -2746,7 +2746,7 @@ function $i(e, t, s, n, r, o) {
     ], 2))), 128))
   ]);
 }
-const Ii = /* @__PURE__ */ F(yi, [["render", $i]]), _i = T({
+const xi = /* @__PURE__ */ T(yi, [["render", $i]]), _i = R({
   name: "CustomTextArea",
   emits: ["update"],
   props: {
@@ -2789,7 +2789,7 @@ function ki(e, t, s, n, r, o) {
     ])
   ]);
 }
-const zi = /* @__PURE__ */ F(_i, [["render", ki]]), Li = T({
+const Ki = /* @__PURE__ */ T(_i, [["render", ki]]), Li = R({
   name: "GenericInput",
   emits: ["update"],
   props: {
@@ -2843,19 +2843,26 @@ function Vi(e, t, s, n, r, o) {
     e.readOnly ? (p(), b("div", Ai, S(e.computedValue), 1)) : _("", !0)
   ]);
 }
-const Hi = /* @__PURE__ */ F(Li, [["render", Vi]]);
+const Gi = /* @__PURE__ */ T(Li, [["render", Vi]]), Bi = R({
+  name: "HeaderNavigation"
+}), Ni = { class: "header-navigation container mx-auto" };
+function Pi(e, t, s, n, r, o) {
+  return p(), b("div", Ni, " HeaderNav ");
+}
+const Ji = /* @__PURE__ */ T(Bi, [["render", Pi]]);
 export {
   wt as CustomButton,
   _t as CustomCheckbox,
-  Pi as CustomFileUpload,
+  Mi as CustomFileUpload,
   Ut as CustomLoader,
-  Ni as CustomModal,
-  Di as CustomMultiCheckbox,
-  ji as CustomMultiSelect,
-  Ui as CustomMultiSelectAsync,
-  Mi as CustomMultipleFileUpload,
-  Ii as CustomRadioGroup,
-  qi as CustomSelect,
-  zi as CustomTextArea,
-  Hi as GenericInput
+  ji as CustomModal,
+  Ui as CustomMultiCheckbox,
+  Ii as CustomMultiSelect,
+  Hi as CustomMultiSelectAsync,
+  qi as CustomMultipleFileUpload,
+  xi as CustomRadioGroup,
+  zi as CustomSelect,
+  Ki as CustomTextArea,
+  Gi as GenericInput,
+  Ji as HeaderNavigation
 };

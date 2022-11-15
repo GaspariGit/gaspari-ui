@@ -11,5 +11,7 @@ import CustomSelect from './components/ui/CustomSelect.vue';
 import CustomRadioGroup from './components/ui/CustomRadioGroup.vue';
 import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
+import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 import './assets/sass/_app.scss';
-export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, };
+import './assets/input.css';
+export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation };
