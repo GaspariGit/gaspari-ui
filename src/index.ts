@@ -12,6 +12,8 @@ import CustomRadioGroup from './components/ui/CustomRadioGroup.vue';
 import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
 
+import './assets/sass/_app.scss';
+
 export {
     CustomButton,
     CustomCheckbox,
