@@ -1,5 +1,5 @@
 <template>
-	<div class="header-navigation container mx-auto mt-9">
+	<div class="header-navigation container mx-auto">
 		HeaderNav
 	</div>
 </template>
