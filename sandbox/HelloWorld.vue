@@ -1,5 +1,6 @@
 <template>
 	<div class="tor">
+		<header-navigation></header-navigation>
 		<h1>{{ name }}</h1>
 
 		<generic-input
@@ -192,20 +193,21 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import GenericInput from "../src/ui/GenericInput.vue";
-import CustomTextArea from "../src/ui/CustomTextArea.vue";
-import CustomCheckbox from "../src/ui/CustomCheckbox.vue";
+import GenericInput from "../src/components/ui/GenericInput.vue";
+import CustomTextArea from "../src/components/ui/CustomTextArea.vue";
+import CustomCheckbox from "../src/components/ui/CustomCheckbox.vue";
 import MultiCheckboxOptions from '../src/types/MultiCheckboxOptions';
-import CustomMultiCheckbox from "../src/ui/CustomMultiCheckbox.vue";
-import CustomRadioGroup from '../src/ui/CustomRadioGroup.vue';
-import CustomSelect from '../src/ui/CustomSelect.vue';
-import CustomMultiSelect from '../src/ui/CustomMultiSelect.vue';
-import CustomMultiSelectAsync from '../src/ui/CustomMultiSelectAsync.vue';
+import CustomMultiCheckbox from "../src/components/ui/CustomMultiCheckbox.vue";
+import CustomRadioGroup from '../src/components/ui/CustomRadioGroup.vue';
+import CustomSelect from '../src/components/ui/CustomSelect.vue';
+import CustomMultiSelect from '../src/components/ui/CustomMultiSelect.vue';
+import CustomMultiSelectAsync from '../src/components/ui/CustomMultiSelectAsync.vue';
 import SelectOptions from '../src/types/SelectOptions';
-import CustomFileUpload from '../src/ui/CustomFileUpload.vue';
-import CustomMultipleFileUpload from '../src/ui/CustomMultipleFileUpload.vue';
-import CustomModal from '../src/ui/CustomModal.vue';
-import CustomButton from '../src/ui/CustomButton.vue';
+import CustomFileUpload from '../src/components/ui/CustomFileUpload.vue';
+import CustomMultipleFileUpload from '../src/components/ui/CustomMultipleFileUpload.vue';
+import CustomModal from '../src/components/ui/CustomModal.vue';
+import CustomButton from '../src/components/ui/CustomButton.vue';
+import HeaderNavigation from "../src/components/partials/HeaderNavigation.vue";
 
 export default defineComponent({
 	name: 'HelloWorld',	
@@ -221,7 +223,8 @@ export default defineComponent({
 		CustomFileUpload,
 		CustomMultipleFileUpload,
 		CustomModal,
-		CustomButton
+		CustomButton,
+		HeaderNavigation
 	},
 	setup() {
 		const name = ref<string>('Gianni');		

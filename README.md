@@ -54,7 +54,7 @@ Generic input component for basic inputs(text, numbers, date).
 | $attrs | any | All other attributes you want to specify | false | 
 
 #### Slots:
-1. "slot-price"
+1. "slot-prepend"
 
     ```html
     <generic-input
