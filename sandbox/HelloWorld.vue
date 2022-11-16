@@ -3,6 +3,11 @@
 			:menuStructure="menuStructureList"
 		>
 			<template v-slot:content>
+				<form-container>
+					<template v-slot:content>
+						ciaooooj
+					</template>
+				</form-container>
 				<div class="tor">
 					<!-- <h1>{{ name }}</h1>
 
@@ -217,6 +222,7 @@ import CustomButton from '../src/components/ui/CustomButton.vue';
 import LayoutBase from "../src/layouts/LayoutBase.vue";
 import ListItem from '../src/types/ListItem';
 import menuStructure from './menuStructure.js';
+import FormContainer from '../src/components/partials/FormContainer.vue';
 
 export default defineComponent({
 	name: 'HelloWorld',	
@@ -233,7 +239,8 @@ export default defineComponent({
 		CustomMultipleFileUpload,
 		CustomModal,
 		CustomButton,
-		LayoutBase
+		LayoutBase,
+		FormContainer
 	},
 	setup() {
 		const name = ref<string>('Gianni');		
