@@ -72,7 +72,7 @@
 							class="w-1/4 mb-3 cursor-pointer transition hover:underline"
 						>
 							<template v-if="el.href">
-								<router-link :to="el.href">{{ el.label }}</router-link>
+								<router-link @click="forceClose" :to="el.href">{{ el.label }}</router-link>
 							</template>
 
 							<div v-else>{{ el.label }}</div>
@@ -129,6 +129,11 @@ export default defineComponent({
 				}
 			}
 		}
+		
+		const forceClose = () => {
+			isVisibleSubMenu.value = false;
+			currentMenu.value = null;
+		}
 
 		onMounted(() => {
 			document.addEventListener('click', close)
@@ -144,7 +149,8 @@ export default defineComponent({
 			currentMenu,
 			isVisibleSubMenu,
 			menuElementRef,
-			navigationRef
+			navigationRef,
+			forceClose
 		}
 	}
 })

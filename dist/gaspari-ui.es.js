@@ -1,4 +1,4 @@
-import { defineComponent as R, openBlock as d, createElementBlock as m, normalizeClass as se, renderSlot as E, createElementVNode as h, toDisplayString as y, createTextVNode as T, ref as j, createCommentVNode as O, Fragment as N, resolveComponent as J, renderList as z, createBlock as F, onMounted as Je, createVNode as S, withCtx as P, withKeys as M, withModifiers as $, withDirectives as q, vShow as X, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
+import { defineComponent as R, openBlock as d, createElementBlock as m, normalizeClass as se, renderSlot as E, createElementVNode as h, toDisplayString as v, createTextVNode as T, ref as j, createCommentVNode as O, Fragment as N, resolveComponent as J, renderList as z, createBlock as F, onMounted as Je, createVNode as S, withCtx as P, withKeys as M, withModifiers as $, withDirectives as q, vShow as X, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
 const St = R({
   name: "CustomButton",
   props: {
@@ -75,7 +75,7 @@ function Ot(e, t, s, n, r, o) {
     onClick: t[0] || (t[0] = (...i) => e.handleClick && e.handleClick(...i))
   }, [
     E(e.$slots, "slot-left"),
-    h("span", null, y(e.label), 1),
+    h("span", null, v(e.label), 1),
     E(e.$slots, "slot-right")
   ], 10, Et);
 }
@@ -111,7 +111,7 @@ function At(e, t, s, n, r, o) {
   return d(), m("label", {
     class: se(["wrapper flex items-center", { disabled: e.disabled }])
   }, [
-    T(y(e.label) + " ", 1),
+    T(v(e.label) + " ", 1),
     h("input", {
       class: "checkbox",
       type: "checkbox",
@@ -183,7 +183,7 @@ const Rt = /* @__PURE__ */ L(kt, [["render", At]]), Lt = R({
 ];
 function Ut(e, t, s, n, r, o) {
   return d(), m("div", Tt, [
-    e.label ? (d(), m("label", Ft, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", Ft, v(e.label), 1)) : O("", !0),
     h("div", Vt, [
       E(e.$slots, "prepend"),
       h("input", {
@@ -199,12 +199,12 @@ function Ut(e, t, s, n, r, o) {
         }, " Sfoglia... "),
         h("div", Bt, [
           e.currentFile ? (d(), m("div", Nt, [
-            T(y(e.currentFile.name) + " ", 1),
+            T(v(e.currentFile.name) + " ", 1),
             h("div", {
               onClick: t[2] || (t[2] = (...i) => e.deleteFile && e.deleteFile(...i)),
               class: "generic-input__input-file__file__file-name__cancel"
             }, jt)
-          ])) : (d(), m("div", Mt, y(e.placeholder), 1))
+          ])) : (d(), m("div", Mt, v(e.placeholder), 1))
         ])
       ])
     ])
@@ -281,7 +281,7 @@ function ss(e, t, s, n, r, o) {
         h("div", Qt, [
           h("div", Yt, [
             e.withoutTitle ? O("", !0) : (d(), m(N, { key: 0 }, [
-              T(y(e.modalTitle), 1)
+              T(v(e.modalTitle), 1)
             ], 64))
           ]),
           h("div", {
@@ -502,10 +502,10 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   noop: Ts,
   toFiniteNumber: Fs
 };
-function g(e, t, s, n, r) {
+function y(e, t, s, n, r) {
   Error.call(this), Error.captureStackTrace ? Error.captureStackTrace(this, this.constructor) : this.stack = new Error().stack, this.message = e, this.name = "AxiosError", t && (this.code = t), s && (this.config = s), n && (this.request = n), r && (this.response = r);
 }
-u.inherits(g, Error, {
+u.inherits(y, Error, {
   toJSON: function() {
     return {
       message: this.message,
@@ -522,7 +522,7 @@ u.inherits(g, Error, {
     };
   }
 });
-const st = g.prototype, nt = {};
+const st = y.prototype, nt = {};
 [
   "ERR_BAD_OPTION_VALUE",
   "ERR_BAD_OPTION",
@@ -539,13 +539,13 @@ const st = g.prototype, nt = {};
 ].forEach((e) => {
   nt[e] = { value: e };
 });
-Object.defineProperties(g, nt);
+Object.defineProperties(y, nt);
 Object.defineProperty(st, "isAxiosError", { value: !0 });
-g.from = (e, t, s, n, r, o) => {
+y.from = (e, t, s, n, r, o) => {
   const i = Object.create(st);
   return u.toFlatObject(e, i, function(c) {
     return c !== Error.prototype;
-  }, (l) => l !== "isAxiosError"), g.call(i, e.message, t, s, n, r), i.cause = e, i.name = e.name, o && Object.assign(i, o), i;
+  }, (l) => l !== "isAxiosError"), y.call(i, e.message, t, s, n, r), i.cause = e, i.name = e.name, o && Object.assign(i, o), i;
 };
 var re = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, Vs = typeof self == "object" ? self.FormData : window.FormData;
 function Se(e) {
@@ -578,24 +578,24 @@ function de(e, t, s) {
   }, !1, function(w, B) {
     return !u.isUndefined(B[w]);
   });
-  const n = s.metaTokens, r = s.visitor || f, o = s.dots, i = s.indexes, c = (s.Blob || typeof Blob < "u" && Blob) && Ms(t);
+  const n = s.metaTokens, r = s.visitor || p, o = s.dots, i = s.indexes, c = (s.Blob || typeof Blob < "u" && Blob) && Ms(t);
   if (!u.isFunction(r))
     throw new TypeError("visitor must be a function");
-  function a(p) {
-    if (p === null)
+  function a(f) {
+    if (f === null)
       return "";
-    if (u.isDate(p))
-      return p.toISOString();
-    if (!c && u.isBlob(p))
-      throw new g("Blob is not supported. Use a Buffer instead.");
-    return u.isArrayBuffer(p) || u.isTypedArray(p) ? c && typeof Blob == "function" ? new Blob([p]) : Buffer.from(p) : p;
+    if (u.isDate(f))
+      return f.toISOString();
+    if (!c && u.isBlob(f))
+      throw new y("Blob is not supported. Use a Buffer instead.");
+    return u.isArrayBuffer(f) || u.isTypedArray(f) ? c && typeof Blob == "function" ? new Blob([f]) : Buffer.from(f) : f;
   }
-  function f(p, w, B) {
-    let C = p;
-    if (p && !B && typeof p == "object") {
+  function p(f, w, B) {
+    let C = f;
+    if (f && !B && typeof f == "object") {
       if (u.endsWith(w, "{}"))
-        w = n ? w : w.slice(0, -2), p = JSON.stringify(p);
-      else if (u.isArray(p) && Ps(p) || u.isFileList(p) || u.endsWith(w, "[]") && (C = u.toArray(p)))
+        w = n ? w : w.slice(0, -2), f = JSON.stringify(f);
+      else if (u.isArray(f) && Ps(f) || u.isFileList(f) || u.endsWith(w, "[]") && (C = u.toArray(f)))
         return w = it(w), C.forEach(function(K, he) {
           !(u.isUndefined(K) || K === null) && t.append(
             i === !0 ? Ve([w], he, o) : i === null ? w : w + "[]",
@@ -603,18 +603,18 @@ function de(e, t, s) {
           );
         }), !1;
     }
-    return Se(p) ? !0 : (t.append(Ve(B, w, o), a(p)), !1);
+    return Se(f) ? !0 : (t.append(Ve(B, w, o), a(f)), !1);
   }
-  const v = [], _ = Object.assign(Bs, {
-    defaultVisitor: f,
+  const g = [], _ = Object.assign(Bs, {
+    defaultVisitor: p,
     convertValue: a,
     isVisitable: Se
   });
-  function b(p, w) {
-    if (!u.isUndefined(p)) {
-      if (v.indexOf(p) !== -1)
+  function b(f, w) {
+    if (!u.isUndefined(f)) {
+      if (g.indexOf(f) !== -1)
         throw Error("Circular reference detected in " + w.join("."));
-      v.push(p), u.forEach(p, function(C, D) {
+      g.push(f), u.forEach(f, function(C, D) {
         (!(u.isUndefined(C) || C === null) && r.call(
           t,
           C,
@@ -622,7 +622,7 @@ function de(e, t, s) {
           w,
           _
         )) === !0 && b(C, w ? w.concat(D) : [D]);
-      }), v.pop();
+      }), g.pop();
     }
   }
   if (!u.isObject(e))
@@ -748,9 +748,9 @@ function at(e) {
 }
 function zs(e, t, s) {
   const n = s.config.validateStatus;
-  !s.status || !n || n(s.status) ? e(s) : t(new g(
+  !s.status || !n || n(s.status) ? e(s) : t(new y(
     "Request failed with status code " + s.status,
-    [g.ERR_BAD_REQUEST, g.ERR_BAD_RESPONSE][Math.floor(s.status / 100) - 4],
+    [y.ERR_BAD_REQUEST, y.ERR_BAD_RESPONSE][Math.floor(s.status / 100) - 4],
     s.config,
     s.request,
     s
@@ -816,9 +816,9 @@ const Ks = U.isStandardBrowserEnv ? function() {
   };
 }();
 function ie(e, t, s) {
-  g.call(this, e == null ? "canceled" : e, g.ERR_CANCELED, t, s), this.name = "CanceledError";
+  y.call(this, e == null ? "canceled" : e, y.ERR_CANCELED, t, s), this.name = "CanceledError";
 }
-u.inherits(ie, g, {
+u.inherits(ie, y, {
   __CANCEL__: !0
 });
 function Ws(e) {
@@ -997,14 +997,14 @@ function tn(e, t) {
   const s = new Array(e), n = new Array(e);
   let r = 0, o = 0, i;
   return t = t !== void 0 ? t : 1e3, function(c) {
-    const a = Date.now(), f = n[o];
+    const a = Date.now(), p = n[o];
     i || (i = a), s[r] = c, n[r] = a;
-    let v = o, _ = 0;
-    for (; v !== r; )
-      _ += s[v++], v = v % e;
+    let g = o, _ = 0;
+    for (; g !== r; )
+      _ += s[g++], g = g % e;
     if (r = (r + 1) % e, r === o && (o = (o + 1) % e), a - i < t)
       return;
-    const b = f && a - f;
+    const b = p && a - p;
     return b ? Math.round(_ * 1e3 / b) : void 0;
   };
 }
@@ -1014,7 +1014,7 @@ function De(e, t) {
   return (r) => {
     const o = r.loaded, i = r.lengthComputable ? r.total : void 0, l = o - s, c = n(l), a = o <= i;
     s = o;
-    const f = {
+    const p = {
       loaded: o,
       total: i,
       progress: i ? o / i : void 0,
@@ -1022,7 +1022,7 @@ function De(e, t) {
       rate: c || void 0,
       estimated: c && i && a ? (i - o) / c : void 0
     };
-    f[t ? "download" : "upload"] = !0, e(f);
+    p[t ? "download" : "upload"] = !0, e(p);
   };
 }
 function je(e) {
@@ -1036,12 +1036,12 @@ function je(e) {
     u.isFormData(r) && U.isStandardBrowserEnv && o.setContentType(!1);
     let a = new XMLHttpRequest();
     if (e.auth) {
-      const b = e.auth.username || "", p = e.auth.password ? unescape(encodeURIComponent(e.auth.password)) : "";
-      o.set("Authorization", "Basic " + btoa(b + ":" + p));
+      const b = e.auth.username || "", f = e.auth.password ? unescape(encodeURIComponent(e.auth.password)) : "";
+      o.set("Authorization", "Basic " + btoa(b + ":" + f));
     }
-    const f = ut(e.baseURL, e.url);
-    a.open(e.method.toUpperCase(), ot(f, e.params, e.paramsSerializer), !0), a.timeout = e.timeout;
-    function v() {
+    const p = ut(e.baseURL, e.url);
+    a.open(e.method.toUpperCase(), ot(p, e.params, e.paramsSerializer), !0), a.timeout = e.timeout;
+    function g() {
       if (!a)
         return;
       const b = V.from(
@@ -1060,33 +1060,33 @@ function je(e) {
         n(C), c();
       }, w), a = null;
     }
-    if ("onloadend" in a ? a.onloadend = v : a.onreadystatechange = function() {
-      !a || a.readyState !== 4 || a.status === 0 && !(a.responseURL && a.responseURL.indexOf("file:") === 0) || setTimeout(v);
+    if ("onloadend" in a ? a.onloadend = g : a.onreadystatechange = function() {
+      !a || a.readyState !== 4 || a.status === 0 && !(a.responseURL && a.responseURL.indexOf("file:") === 0) || setTimeout(g);
     }, a.onabort = function() {
-      !a || (n(new g("Request aborted", g.ECONNABORTED, e, a)), a = null);
+      !a || (n(new y("Request aborted", y.ECONNABORTED, e, a)), a = null);
     }, a.onerror = function() {
-      n(new g("Network Error", g.ERR_NETWORK, e, a)), a = null;
+      n(new y("Network Error", y.ERR_NETWORK, e, a)), a = null;
     }, a.ontimeout = function() {
-      let p = e.timeout ? "timeout of " + e.timeout + "ms exceeded" : "timeout exceeded";
+      let f = e.timeout ? "timeout of " + e.timeout + "ms exceeded" : "timeout exceeded";
       const w = e.transitional || lt;
-      e.timeoutErrorMessage && (p = e.timeoutErrorMessage), n(new g(
-        p,
-        w.clarifyTimeoutError ? g.ETIMEDOUT : g.ECONNABORTED,
+      e.timeoutErrorMessage && (f = e.timeoutErrorMessage), n(new y(
+        f,
+        w.clarifyTimeoutError ? y.ETIMEDOUT : y.ECONNABORTED,
         e,
         a
       )), a = null;
     }, U.isStandardBrowserEnv) {
-      const b = (e.withCredentials || Ks(f)) && e.xsrfCookieName && qs.read(e.xsrfCookieName);
+      const b = (e.withCredentials || Ks(p)) && e.xsrfCookieName && qs.read(e.xsrfCookieName);
       b && o.set(e.xsrfHeaderName, b);
     }
-    r === void 0 && o.setContentType(null), "setRequestHeader" in a && u.forEach(o.toJSON(), function(p, w) {
-      a.setRequestHeader(w, p);
+    r === void 0 && o.setContentType(null), "setRequestHeader" in a && u.forEach(o.toJSON(), function(f, w) {
+      a.setRequestHeader(w, f);
     }), u.isUndefined(e.withCredentials) || (a.withCredentials = !!e.withCredentials), i && i !== "json" && (a.responseType = e.responseType), typeof e.onDownloadProgress == "function" && a.addEventListener("progress", De(e.onDownloadProgress, !0)), typeof e.onUploadProgress == "function" && a.upload && a.upload.addEventListener("progress", De(e.onUploadProgress)), (e.cancelToken || e.signal) && (l = (b) => {
       !a || (n(!b || b.type ? new ie(null, e, a) : b), a.abort(), a = null);
     }, e.cancelToken && e.cancelToken.subscribe(l), e.signal && (e.signal.aborted ? l() : e.signal.addEventListener("abort", l)));
-    const _ = Ws(f);
+    const _ = Ws(p);
     if (_ && U.protocols.indexOf(_) === -1) {
-      n(new g("Unsupported protocol " + _ + ":", g.ERR_BAD_REQUEST, e));
+      n(new y("Unsupported protocol " + _ + ":", y.ERR_BAD_REQUEST, e));
       return;
     }
     a.send(r || null);
@@ -1163,7 +1163,7 @@ const Q = {
         return JSON.parse(t);
       } catch (l) {
         if (i)
-          throw l.name === "SyntaxError" ? g.from(l, g.ERR_BAD_RESPONSE, this, null, this.response) : l;
+          throw l.name === "SyntaxError" ? y.from(l, y.ERR_BAD_RESPONSE, this, null, this.response) : l;
       }
     }
     return t;
@@ -1227,8 +1227,8 @@ function He(e) {
 function te(e, t) {
   t = t || {};
   const s = {};
-  function n(a, f) {
-    return u.isPlainObject(a) && u.isPlainObject(f) ? u.merge(a, f) : u.isPlainObject(f) ? u.merge({}, f) : u.isArray(f) ? f.slice() : f;
+  function n(a, p) {
+    return u.isPlainObject(a) && u.isPlainObject(p) ? u.merge(a, p) : u.isPlainObject(p) ? u.merge({}, p) : u.isArray(p) ? p.slice() : p;
   }
   function r(a) {
     if (u.isUndefined(t[a])) {
@@ -1283,9 +1283,9 @@ function te(e, t) {
     responseEncoding: i,
     validateStatus: l
   };
-  return u.forEach(Object.keys(e).concat(Object.keys(t)), function(f) {
-    const v = c[f] || r, _ = v(f);
-    u.isUndefined(_) && v !== l || (s[f] = _);
+  return u.forEach(Object.keys(e).concat(Object.keys(t)), function(p) {
+    const g = c[p] || r, _ = g(p);
+    u.isUndefined(_) && g !== l || (s[p] = _);
   }), s;
 }
 const ht = "1.1.3", Ce = {};
@@ -1301,9 +1301,9 @@ Ce.transitional = function(t, s, n) {
   }
   return (o, i, l) => {
     if (t === !1)
-      throw new g(
+      throw new y(
         r(i, " has been removed" + (s ? " in " + s : "")),
-        g.ERR_DEPRECATED
+        y.ERR_DEPRECATED
       );
     return s && !xe[i] && (xe[i] = !0, console.warn(
       r(
@@ -1315,7 +1315,7 @@ Ce.transitional = function(t, s, n) {
 };
 function on(e, t, s) {
   if (typeof e != "object")
-    throw new g("options must be an object", g.ERR_BAD_OPTION_VALUE);
+    throw new y("options must be an object", y.ERR_BAD_OPTION_VALUE);
   const n = Object.keys(e);
   let r = n.length;
   for (; r-- > 0; ) {
@@ -1323,11 +1323,11 @@ function on(e, t, s) {
     if (i) {
       const l = e[o], c = l === void 0 || i(l, o, e);
       if (c !== !0)
-        throw new g("option " + o + " must be " + c, g.ERR_BAD_OPTION_VALUE);
+        throw new y("option " + o + " must be " + c, y.ERR_BAD_OPTION_VALUE);
       continue;
     }
     if (s !== !0)
-      throw new g("Unknown option " + o, g.ERR_BAD_OPTION);
+      throw new y("Unknown option " + o, y.ERR_BAD_OPTION);
   }
 }
 const Ee = {
@@ -1358,34 +1358,34 @@ class G {
     );
     o && u.forEach(
       ["delete", "get", "head", "post", "put", "patch", "common"],
-      function(p) {
-        delete s.headers[p];
+      function(f) {
+        delete s.headers[f];
       }
     ), s.headers = new V(s.headers, o);
     const i = [];
     let l = !0;
-    this.interceptors.request.forEach(function(p) {
-      typeof p.runWhen == "function" && p.runWhen(s) === !1 || (l = l && p.synchronous, i.unshift(p.fulfilled, p.rejected));
+    this.interceptors.request.forEach(function(f) {
+      typeof f.runWhen == "function" && f.runWhen(s) === !1 || (l = l && f.synchronous, i.unshift(f.fulfilled, f.rejected));
     });
     const c = [];
-    this.interceptors.response.forEach(function(p) {
-      c.push(p.fulfilled, p.rejected);
+    this.interceptors.response.forEach(function(f) {
+      c.push(f.fulfilled, f.rejected);
     });
-    let a, f = 0, v;
+    let a, p = 0, g;
     if (!l) {
       const b = [He.bind(this), void 0];
-      for (b.unshift.apply(b, i), b.push.apply(b, c), v = b.length, a = Promise.resolve(s); f < v; )
-        a = a.then(b[f++], b[f++]);
+      for (b.unshift.apply(b, i), b.push.apply(b, c), g = b.length, a = Promise.resolve(s); p < g; )
+        a = a.then(b[p++], b[p++]);
       return a;
     }
-    v = i.length;
+    g = i.length;
     let _ = s;
-    for (f = 0; f < v; ) {
-      const b = i[f++], p = i[f++];
+    for (p = 0; p < g; ) {
+      const b = i[p++], f = i[p++];
       try {
         _ = b(_);
       } catch (w) {
-        p.call(this, w);
+        f.call(this, w);
         break;
       }
     }
@@ -1394,8 +1394,8 @@ class G {
     } catch (b) {
       return Promise.reject(b);
     }
-    for (f = 0, v = c.length; f < v; )
-      a = a.then(c[f++], c[f++]);
+    for (p = 0, g = c.length; p < g; )
+      a = a.then(c[p++], c[p++]);
     return a;
   }
   getUri(t) {
@@ -1504,7 +1504,7 @@ A.CancelToken = Ae;
 A.isCancel = dt;
 A.VERSION = ht;
 A.toFormData = de;
-A.AxiosError = g;
+A.AxiosError = y;
 A.Cancel = A.CanceledError;
 A.all = function(t) {
   return Promise.all(t);
@@ -1541,18 +1541,18 @@ const un = R({
       t.value.click();
     }, n = ({ target: a }) => {
       if (a && a.files.length > 0) {
-        let f = new FormData();
-        for (let v = 0; v < a.files.length; v++) {
-          const _ = a.files[v];
-          f.append("files", _);
+        let p = new FormData();
+        for (let g = 0; g < a.files.length; g++) {
+          const _ = a.files[g];
+          p.append("files", _);
         }
-        i(f), t.value.value = "";
+        i(p), t.value.value = "";
       }
     }, r = j([]), o = j(!1), i = (a) => {
-      console.log(a), o.value = !0, A.post(e.routePostFiles, a).then((f) => {
-        f.data.success ? alert("success") : alert("error"), o.value = !1;
-      }).catch((f) => {
-        console.log(f), o.value = !1;
+      console.log(a), o.value = !0, A.post(e.routePostFiles, a).then((p) => {
+        p.data.success ? alert("success") : alert("error"), o.value = !1;
+      }).catch((p) => {
+        console.log(p), o.value = !1;
       });
     }, l = (a) => {
       r.value.length > 0 && r.value.splice(a, 1);
@@ -1612,15 +1612,15 @@ const un = R({
 function Sn(e, t, s, n, r, o) {
   const i = J("custom-button"), l = J("custom-loader");
   return d(), m("div", cn, [
-    e.label ? (d(), m("label", dn, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", dn, v(e.label), 1)) : O("", !0),
     h("ul", hn, [
       (d(!0), m(N, null, z(e.fileList, (c, a) => (d(), m("li", {
         class: "file-list-item",
         key: a
       }, [
-        T(y(c.original_name + "." + c.extension) + " ", 1),
+        T(v(c.original_name + "." + c.extension) + " ", 1),
         h("div", {
-          onClick: (f) => e.deleteFile(a),
+          onClick: (p) => e.deleteFile(a),
           class: "item-cancel"
         }, mn, 8, pn)
       ]))), 128))
@@ -2184,7 +2184,7 @@ function Nn(e, t, s, n, r, o) {
               key: l
             }, [
               S("span", {
-                textContent: y(e.getOptionLabel(i))
+                textContent: v(e.getOptionLabel(i))
               }, null, 8, ["textContent"]),
               S("i", {
                 tabindex: "1",
@@ -2200,7 +2200,7 @@ function Nn(e, t, s, n, r, o) {
         e.internalValue && e.internalValue.length > s.limit ? E(e.$slots, "limit", { key: 0 }, () => [
           S("strong", {
             class: "multiselect__strong",
-            textContent: y(s.limitText(e.internalValue.length - s.limit))
+            textContent: v(s.limitText(e.internalValue.length - s.limit))
           }, null, 8, ["textContent"])
         ]) : O("v-if", !0)
       ]),
@@ -2246,7 +2246,7 @@ function Nn(e, t, s, n, r, o) {
         onMousedown: t[10] || (t[10] = $((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
         E(e.$slots, "singleLabel", { option: o.singleValue }, () => [
-          T(y(e.currentOptionLabel), 1)
+          T(v(e.currentOptionLabel), 1)
         ])
       ], 32)) : O("v-if", !0),
       o.isPlaceholderVisible ? (d(), F("span", {
@@ -2255,7 +2255,7 @@ function Nn(e, t, s, n, r, o) {
         onMousedown: t[11] || (t[11] = $((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
         E(e.$slots, "placeholder", {}, () => [
-          T(y(e.placeholder), 1)
+          T(v(e.placeholder), 1)
         ])
       ], 32)) : O("v-if", !0)
     ], 512),
@@ -2280,7 +2280,7 @@ function Nn(e, t, s, n, r, o) {
             e.multiple && e.max === e.internalValue.length ? (d(), F("li", Tn, [
               S("span", Fn, [
                 E(e.$slots, "maxElements", {}, () => [
-                  T("Maximum of " + y(e.max) + " options selected. First remove a selected option to select another.", 1)
+                  T("Maximum of " + v(e.max) + " options selected. First remove a selected option to select another.", 1)
                 ])
               ])
             ])) : O("v-if", !0),
@@ -2304,7 +2304,7 @@ function Nn(e, t, s, n, r, o) {
                   search: e.search,
                   index: l
                 }, () => [
-                  S("span", null, y(e.getOptionLabel(i)), 1)
+                  S("span", null, v(e.getOptionLabel(i)), 1)
                 ])
               ], 42, ["onClick", "onMouseenter", "data-select", "data-selected", "data-deselect"])),
               i && (i.$isLabel || i.$isDisabled) ? (d(), F("span", {
@@ -2320,7 +2320,7 @@ function Nn(e, t, s, n, r, o) {
                   search: e.search,
                   index: l
                 }, () => [
-                  S("span", null, y(e.getOptionLabel(i)), 1)
+                  S("span", null, v(e.getOptionLabel(i)), 1)
                 ])
               ], 42, ["data-select", "data-deselect", "onMouseenter", "onMousedown"])) : O("v-if", !0)
             ], 8, ["id", "role"]))), 128)) : O("v-if", !0),
@@ -2417,7 +2417,7 @@ const jn = { class: "custom-multiselect" }, Un = {
 function zn(e, t, s, n, r, o) {
   const i = J("vue-multiselect");
   return d(), m("div", jn, [
-    e.label ? (d(), m("label", Un, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", Un, v(e.label), 1)) : O("", !0),
     S(i, {
       modelValue: e.value,
       "onUpdate:modelValue": t[0] || (t[0] = (l) => e.value = l),
@@ -2439,7 +2439,7 @@ function zn(e, t, s, n, r, o) {
       tag: P((l) => [
         h("div", In, [
           h("span", Hn, [
-            h("span", null, y(l.option.label), 1),
+            h("span", null, v(l.option.label), 1),
             h("i", {
               onClick: (c) => e.removeOption(l.option),
               tabindex: "1",
@@ -2449,7 +2449,7 @@ function zn(e, t, s, n, r, o) {
         ])
       ]),
       option: P((l) => [
-        T(y(l.option.label), 1)
+        T(v(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange"])
@@ -2460,24 +2460,24 @@ var qn = "Expected a function", qe = 0 / 0, Gn = "[object Symbol]", Jn = /^\s+|\
   return ei.Date.now();
 };
 function ri(e, t, s) {
-  var n, r, o, i, l, c, a = 0, f = !1, v = !1, _ = !0;
+  var n, r, o, i, l, c, a = 0, p = !1, g = !1, _ = !0;
   if (typeof e != "function")
     throw new TypeError(qn);
-  t = Ge(t) || 0, Oe(s) && (f = !!s.leading, v = "maxWait" in s, o = v ? ni(Ge(s.maxWait) || 0, t) : o, _ = "trailing" in s ? !!s.trailing : _);
+  t = Ge(t) || 0, Oe(s) && (p = !!s.leading, g = "maxWait" in s, o = g ? ni(Ge(s.maxWait) || 0, t) : o, _ = "trailing" in s ? !!s.trailing : _);
   function b(k) {
     var H = n, Y = r;
     return n = r = void 0, a = k, i = e.apply(Y, H), i;
   }
-  function p(k) {
-    return a = k, l = setTimeout(C, t), f ? b(k) : i;
+  function f(k) {
+    return a = k, l = setTimeout(C, t), p ? b(k) : i;
   }
   function w(k) {
     var H = k - c, Y = k - a, Te = t - H;
-    return v ? ii(Te, o - Y) : Te;
+    return g ? ii(Te, o - Y) : Te;
   }
   function B(k) {
     var H = k - c, Y = k - a;
-    return c === void 0 || H >= t || H < 0 || v && Y >= o;
+    return c === void 0 || H >= t || H < 0 || g && Y >= o;
   }
   function C() {
     var k = ye();
@@ -2498,8 +2498,8 @@ function ri(e, t, s) {
     var k = ye(), H = B(k);
     if (n = arguments, r = this, c = k, H) {
       if (l === void 0)
-        return p(c);
-      if (v)
+        return f(c);
+      if (g)
         return l = setTimeout(C, t), b(c);
     }
     return l === void 0 && (l = setTimeout(C, t)), i;
@@ -2604,7 +2604,7 @@ const ui = R({
 function mi(e, t, s, n, r, o) {
   const i = J("vue-multiselect");
   return d(), m("div", ci, [
-    e.label ? (d(), m("label", di, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", di, v(e.label), 1)) : O("", !0),
     S(i, {
       modelValue: e.value,
       "onUpdate:modelValue": t[0] || (t[0] = (l) => e.value = l),
@@ -2627,7 +2627,7 @@ function mi(e, t, s, n, r, o) {
       tag: P((l) => [
         h("div", hi, [
           h("span", pi, [
-            h("span", null, y(l.option.label), 1),
+            h("span", null, v(l.option.label), 1),
             h("i", {
               onClick: (c) => e.removeOption(l.option),
               tabindex: "1",
@@ -2637,7 +2637,7 @@ function mi(e, t, s, n, r, o) {
         ])
       ]),
       option: P((l) => [
-        T(y(l.option.label), 1)
+        T(v(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange", "loading"])
@@ -2687,7 +2687,7 @@ const Sr = /* @__PURE__ */ L(ui, [["render", mi]]), bi = R({
 }, Si = ["value", "selected"];
 function Ei(e, t, s, n, r, o) {
   return d(), m("div", gi, [
-    e.label ? (d(), m("label", yi, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", yi, v(e.label), 1)) : O("", !0),
     h("select", {
       name: e.name,
       class: "custom-select__select",
@@ -2695,12 +2695,12 @@ function Ei(e, t, s, n, r, o) {
       onChange: t[0] || (t[0] = (...i) => e.handleSelectChange && e.handleSelectChange(...i)),
       disabled: e.disabled
     }, [
-      h("option", wi, y(e.placeholder), 1),
+      h("option", wi, v(e.placeholder), 1),
       (d(!0), m(N, null, z(e.options, (i, l) => (d(), m("option", {
         key: l,
         value: i.value,
         selected: i.value == e.value
-      }, y(i.label), 9, Si))), 128))
+      }, v(i.label), 9, Si))), 128))
     ], 40, vi)
   ]);
 }
@@ -2742,7 +2742,7 @@ function Ai(e, t, s, n, r, o) {
       h("label", {
         class: "custom-radio-group__single-radio__radio-label",
         for: i.id
-      }, y(i.label), 9, Ci)
+      }, v(i.label), 9, Ci)
     ], 2))), 128))
   ]);
 }
@@ -2780,7 +2780,7 @@ const Or = /* @__PURE__ */ L(Oi, [["render", Ai]]), Ri = R({
 };
 function Fi(e, t, s, n, r, o) {
   return d(), m("div", Li, [
-    e.label ? (d(), m("label", Ti, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", Ti, v(e.label), 1)) : O("", !0),
     q(h("textarea", We(e.$attrs, {
       "onUpdate:modelValue": t[0] || (t[0] = (i) => e.computedValue = i),
       class: "generic-input__input " + e.classes
@@ -2830,7 +2830,7 @@ const _r = /* @__PURE__ */ L(Ri, [["render", Fi]]), Vi = R({
 };
 function Di(e, t, s, n, r, o) {
   return d(), m("div", Pi, [
-    e.label ? (d(), m("label", Bi, y(e.label), 1)) : O("", !0),
+    e.label ? (d(), m("label", Bi, v(e.label), 1)) : O("", !0),
     h("div", Mi, [
       E(e.$slots, "prepend"),
       e.readOnly ? O("", !0) : q((d(), m("input", We({ key: 0 }, e.$attrs, {
@@ -2840,7 +2840,7 @@ function Di(e, t, s, n, r, o) {
         [bt, e.computedValue]
       ])
     ]),
-    e.readOnly ? (d(), m("div", Ni, y(e.computedValue), 1)) : O("", !0)
+    e.readOnly ? (d(), m("div", Ni, v(e.computedValue), 1)) : O("", !0)
   ]);
 }
 const kr = /* @__PURE__ */ L(Vi, [["render", Di]]), ji = "data:image/png;base64,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", Ui = R({
@@ -2855,10 +2855,12 @@ const kr = /* @__PURE__ */ L(Vi, [["render", Di]]), ji = "data:image/png;base64,
     }
   },
   setup(e, t) {
-    const s = ji, n = j(!1), r = j(null), o = (a, f) => {
-      e.menuStructure[a].children.length > 0 && (r.value && r.value.id === e.menuStructure[a].id ? (r.value = null, n.value = !1) : (r.value = e.menuStructure[a], n.value = !0));
-    }, i = j(null), l = j(null), c = (a) => {
-      l.value && !l.value.contains(a.target) && !i.value.contains(a.target) && (r.value = null, n.value = !1);
+    const s = ji, n = j(!1), r = j(null), o = (p, g) => {
+      e.menuStructure[p].children.length > 0 && (r.value && r.value.id === e.menuStructure[p].id ? (r.value = null, n.value = !1) : (r.value = e.menuStructure[p], n.value = !0));
+    }, i = j(null), l = j(null), c = (p) => {
+      l.value && !l.value.contains(p.target) && !i.value.contains(p.target) && (r.value = null, n.value = !1);
+    }, a = () => {
+      n.value = !1, r.value = null;
     };
     return Je(() => {
       document.addEventListener("click", c);
@@ -2870,11 +2872,12 @@ const kr = /* @__PURE__ */ L(Vi, [["render", Di]]), ji = "data:image/png;base64,
       currentMenu: r,
       isVisibleSubMenu: n,
       menuElementRef: l,
-      navigationRef: i
+      navigationRef: i,
+      forceClose: a
     };
   }
 });
-const Le = (e) => (vt("data-v-5b66be8b"), e = e(), wt(), e), Ii = { class: "header-navigation py-5 container mx-auto" }, Hi = { class: "flex items-center justify-between mb-5" }, xi = ["src"], zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-5b66be8b><div class="cursor-pointer" data-v-5b66be8b><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5b66be8b><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-5b66be8b></path></svg></div><div class="ml-7 cursor-pointer" data-v-5b66be8b><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5b66be8b><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-5b66be8b></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-5b66be8b><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-5b66be8b><div class="font-regular text-xl" data-v-5b66be8b>EP</div></div><div class="ml-1" data-v-5b66be8b><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-5b66be8b><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-5b66be8b></path></svg></div></div></div>', 1), qi = {
+const Le = (e) => (vt("data-v-6766234e"), e = e(), wt(), e), Ii = { class: "header-navigation py-5 container mx-auto" }, Hi = { class: "flex items-center justify-between mb-5" }, xi = ["src"], zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-6766234e><div class="cursor-pointer" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-6766234e></path></svg></div><div class="ml-7 cursor-pointer" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-6766234e></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-6766234e><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-6766234e><div class="font-regular text-xl" data-v-6766234e>EP</div></div><div class="ml-1" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-6766234e></path></svg></div></div></div>', 1), qi = {
   ref: "navigationRef",
   class: "text-secondary text-sm font-medium relative"
 }, Gi = { class: "flex" }, Ji = ["onClick"], Ki = {
@@ -2948,7 +2951,7 @@ function ar(e, t, s, n, r, o) {
         }, [
           h("span", {
             class: se({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
-          }, y(l.label), 3),
+          }, v(l.label), 3),
           l.children.length > 0 ? (d(), m("div", Ki, [
             e.currentMenu ? (d(), m(N, { key: 0 }, [
               e.currentMenu.id === l.id ? (d(), m("svg", Wi, Yi)) : (d(), m("svg", Xi, er))
@@ -2959,7 +2962,7 @@ function ar(e, t, s, n, r, o) {
       S(ae, null, {
         default: P(() => [
           e.isVisibleSubMenu && e.currentMenu ? (d(), m("div", ir, [
-            h("div", rr, y(e.currentMenu.label), 1),
+            h("div", rr, v(e.currentMenu.label), 1),
             h("ul", or, [
               (d(!0), m(N, null, z(e.currentMenu.children, (l, c) => (d(), m("li", {
                 key: c,
@@ -2967,13 +2970,14 @@ function ar(e, t, s, n, r, o) {
               }, [
                 l.href ? (d(), F(i, {
                   key: 0,
+                  onClick: e.forceClose,
                   to: l.href
                 }, {
                   default: P(() => [
-                    T(y(l.label), 1)
+                    T(v(l.label), 1)
                   ]),
                   _: 2
-                }, 1032, ["to"])) : (d(), m("div", lr, y(l.label), 1))
+                }, 1032, ["onClick", "to"])) : (d(), m("div", lr, v(l.label), 1))
               ]))), 128))
             ])
           ], 512)) : O("", !0)
@@ -2983,7 +2987,7 @@ function ar(e, t, s, n, r, o) {
     ], 512)
   ]);
 }
-const ur = /* @__PURE__ */ L(Ui, [["render", ar], ["__scopeId", "data-v-5b66be8b"]]), cr = R({
+const ur = /* @__PURE__ */ L(Ui, [["render", ar], ["__scopeId", "data-v-6766234e"]]), cr = R({
   name: "LayoutBase",
   components: {
     HeaderNavigation: ur
