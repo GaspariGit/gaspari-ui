@@ -16,6 +16,9 @@ import GenericInput from './components/ui/GenericInput.vue';
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 
+// Layouts
+import LayoutBase from './layouts/LayoutBase.vue';
+
 import './assets/sass/_app.scss';
 
 export {
@@ -32,5 +35,6 @@ export {
     CustomRadioGroup,
     CustomTextArea,
     GenericInput,
-    HeaderNavigation
+    HeaderNavigation,
+    LayoutBase
 }
