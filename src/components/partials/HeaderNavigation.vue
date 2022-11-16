@@ -39,7 +39,7 @@
 					class="mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none"					
 					@click="(e) => showSubMenu(index, e)"
 				>
-						<template v-if="item.href">
+						<template v-if="item.href && item.children.length === 0">
 							<router-link :to="item.href" @click="forceClose">
 								<span :class="{ 'text-secondaryHover' : currentMenu && currentMenu.id === item.id }">{{ item.label }}</span>
 							</router-link>
@@ -80,7 +80,7 @@
 							:key="index"
 							class="w-1/4 mb-3 cursor-pointer transition hover:underline"
 						>
-							<template v-if="el.href">
+							<template v-if="el.href && el.children.length === 0">
 								<router-link @click="forceClose" :to="el.href">{{ el.label }}</router-link>
 							</template>
 

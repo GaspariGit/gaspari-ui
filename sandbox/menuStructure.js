@@ -127,7 +127,6 @@ const menuStructure = [
     },
     {
         id: 5,
-        href: 'ghejhce',
         label: 'Statistiche & Marketing',
         children: [
             {
@@ -164,7 +163,6 @@ const menuStructure = [
     },
     {
         id: 6,
-        href: 'ghejhce',
         label: 'Varie',
         children: [
             {
