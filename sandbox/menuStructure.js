@@ -1,7 +1,6 @@
 const menuStructure = [
     {
         id: 1,
-        href: 'ghejhce',
         label: 'Anagrafiche',
         children: [
             {
@@ -62,7 +61,6 @@ const menuStructure = [
     },
     {
         id: 2,
-        href: 'ghejhce',
         label: 'Operatività',
         children: [
             {
