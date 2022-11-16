@@ -1,11 +1,10 @@
 <template>
-	<div>							
 		<layout-base
 			:menuStructure="menuStructureList"
 		>
 			<template v-slot:content>
 				<div class="tor">
-					<h1>{{ name }}</h1>
+					<!-- <h1>{{ name }}</h1>
 
 					<generic-input
 						type="text"
@@ -183,19 +182,18 @@
 								@onClick="test"
 							/>
 						</template>
-					</custom-modal>
+					</custom-modal> -->
 
-					<div style="padding: 8px;">
+					<!-- <div style="padding: 8px;">
 						<custom-button
 							label="Apri modale"
 							@onClick="openCloseModal"
 						/>
-					</div>
+					</div> -->
 
 				</div>
 			</template>
 		</layout-base>
-	</div>
 
 
 </template>

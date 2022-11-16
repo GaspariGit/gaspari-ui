@@ -10,11 +10,13 @@ declare const _default: import("vue").DefineComponent<{
     showSubMenu: (index: number, e: Event) => void;
     currentMenu: import("vue").Ref<{
         id?: string | number;
-        href: string;
+        href?: string;
         label: string;
         children: any[];
     }>;
     isVisibleSubMenu: import("vue").Ref<boolean>;
+    menuElementRef: any;
+    navigationRef: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     menuStructure: {
         type: PropType<ListItem[]>;

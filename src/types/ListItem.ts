@@ -1,6 +1,6 @@
 interface ListItem {
 	id? : string | number
-    href : string
+    href? : string
 	label : string
 	children: Array<ListItem>
 }

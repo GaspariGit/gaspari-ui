@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="layout">
         <header-navigation 
             :menuStructure="menuStructure"
         />
@@ -10,7 +10,6 @@
             </div>
         </main>
     </div>
-
 </template>
 
 <script lang="ts">

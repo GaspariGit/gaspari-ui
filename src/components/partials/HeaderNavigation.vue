@@ -1,5 +1,5 @@
 <template>
-	<header class="header-navigation my-5 container mx-auto">
+	<header class="header-navigation py-5 container mx-auto">
 		<div class="flex items-center justify-between mb-5">
 			<div>
 				<img :src="siteLogoImage" alt="gaspari-logo" >
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<nav class="text-secondary text-sm font-medium relative">
+		<nav ref="navigationRef" class="text-secondary text-sm font-medium relative">
 			<ul class="flex">
 				<li 
 					v-for="(item, index) in menuStructure" 
@@ -62,36 +62,45 @@
 			</ul>			
 
 			<!-- SubMenu -->
-			<div v-if="isVisibleSubMenu && currentMenu" class="text-black absolute w-full rounded-lg shadow-md p-6 bg-white top-7 left-0 z-50">
-				<div class="font-bold mb-4">{{ currentMenu.label }}</div>
-				<ul class="flex flex-wrap">
-					<li
-						v-for="(el, index) in currentMenu.children"
-						:key="index"
-						class="w-1/4 mb-3 cursor-pointer transition hover:underline"
-					>
-						<router-link to="/about">{{ el.label }}</router-link>
-					</li>
-				</ul>
-			</div>
+			<Transition>
+				<div ref="menuElementRef" v-if="isVisibleSubMenu && currentMenu" class="text-black absolute w-full rounded-lg shadow-md p-6 bg-white top-7 left-0 z-50">
+					<div class="font-bold mb-4">{{ currentMenu.label }}</div>
+					<ul class="flex flex-wrap">
+						<li
+							v-for="(el, index) in currentMenu.children"
+							:key="index"
+							class="w-1/4 mb-3 cursor-pointer transition hover:underline"
+						>
+							<template v-if="el.href">
+								<router-link :to="el.href">{{ el.label }}</router-link>
+							</template>
+
+							<div v-else>{{ el.label }}</div>
+						</li>
+					</ul>
+				</div>
+			</Transition>
 		</nav>
 	</header>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, PropType, ref, Transition } from 'vue';
 import siteLogo  from '../../assets/images/logo.png';
 import ListItem from '../../types/ListItem';
 
 export default defineComponent({
     name: 'HeaderNavigation',
+	components: {
+		Transition
+	},
 	props: {
 		menuStructure: {
 			type: Array as PropType<Array<ListItem>>,
 			required: true
 		},
 	},
-	setup(props) {
+	setup(props, context) {
 		const siteLogoImage = siteLogo;
 
 		const isVisibleSubMenu = ref<boolean>(false);
@@ -110,14 +119,46 @@ export default defineComponent({
 			}
 		}
 
+		const navigationRef = ref(null);
+		const menuElementRef = ref(null);
+		const close = (e : Event) => {
+			if(menuElementRef.value) {
+				if(!menuElementRef.value.contains(e.target) && !navigationRef.value.contains(e.target)) {
+					currentMenu.value = null;
+					isVisibleSubMenu.value = false;
+				}
+			}
+		}
 
+		onMounted(() => {
+			document.addEventListener('click', close)
+		})
+
+		onBeforeUnmount(() => {
+			document.removeEventListener('click', close)
+		})
 
 		return {
 			siteLogoImage,
 			showSubMenu,
 			currentMenu,
-			isVisibleSubMenu
+			isVisibleSubMenu,
+			menuElementRef,
+			navigationRef
 		}
 	}
 })
 </script>
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.12s ease-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+</style>
