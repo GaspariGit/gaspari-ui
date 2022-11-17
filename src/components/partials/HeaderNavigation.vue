@@ -109,7 +109,7 @@ export default defineComponent({
 			required: true
 		},
 	},
-	setup(props, context) {
+	setup(props) {
 		const siteLogoImage = siteLogo;
 
 		const isVisibleSubMenu = ref<boolean>(false);

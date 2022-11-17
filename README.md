@@ -1,7 +1,7 @@
 # gaspari-ui
 Library of components, written in Vue.js
 
----
+&nbsp;
 ## Installation
 
 ```
@@ -55,7 +55,8 @@ Secondly, run this command, to compile Tailwindcss styles:
 ```
 npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css
 ```
----
+
+&nbsp;
 # Components
 
 ## 1. GenericInput
@@ -95,7 +96,7 @@ Generic input component for basic inputs(text, numbers, date).
     </generic-input>
     ```
 
-
+&nbsp;
 ## 2. CustomTextArea
 
 ```html
@@ -112,6 +113,7 @@ Generic input component for basic inputs(text, numbers, date).
 | classes | string | List of classes that you want to add to the input | false |
 | label | string | Label text of the input. | false |
 
+&nbsp;
 ## 3. CustomCheckbox
 Checkbox for single use.
 
@@ -131,6 +133,7 @@ Checkbox for single use.
 | name | string | Name for the input. | false |
 | checked | string | If the checkbox is checked. | false |
 
+&nbsp;
 ## 4. CustomMultiCheckbox
 Checkbox for multiple selection.
 
@@ -175,6 +178,7 @@ heroes:
     }
     ```
 
+&nbsp;
 ## 5. CustomRadioGroup
 Radio group for multiple exlusive options.
 
@@ -227,7 +231,7 @@ selectedRadioValue:
         disabled? : boolean;
     }
     ```
-
+&nbsp;
 ## 6. CustomSelect
 Classic Select.
 
@@ -282,7 +286,8 @@ selected:
         label: string
     }
     ```
-   
+
+&nbsp;
 ## 7. CustomMultiSelect
 Multi Select.
 
@@ -335,7 +340,7 @@ selectedMultiSelectOptions:
     }
     ```
 
-
+&nbsp;
 ## 8. CustomMultiSelectAsync
 Multi Select with search feature.
 
@@ -383,7 +388,7 @@ selectedMultiSelectAsyncOptions:
         label: string
     }
     ```
-
+&nbsp;
 ## 9. CustomModal
 Modal.
 
@@ -428,6 +433,7 @@ Modal.
 1. "modal-body"
 2. "modal-footer"
 
+&nbsp;
 ## 10. CustomLoader
 Spinner for loading.
 
@@ -444,6 +450,7 @@ Spinner for loading.
 | loading | boolean | If loader is loading or not. | false |
 | size | string | Size of loader. Alternatives: ['small', 'default', 'large']. Default: 'default'.  | false |
 
+&nbsp;
 ## 11. CustomButton
 Button.
 
@@ -468,3 +475,215 @@ Button.
 #### Slots:
 1. "slot-left": on the left of button text
 2. "slot-right": on the right of button text
+
+
+&nbsp;
+## 12. Breadcrumbs
+BreadCrumbs.
+
+```html
+<div class="mb-2 ml-1 ">
+    <breadcrumbs :path_breadcrumbs="path_breadcrumbs" />
+</div>				
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| path_breadcrumbs | Array of BreadcrumbInterface | Array that represents the path. | true |
+
+
+#### Types:
+1. BreadcrumbInterface:   
+
+    ```
+    {
+        label : string,
+	    path : string,
+    }
+    ```
+
+&nbsp;
+## 13. FormSeparator
+Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
+
+```html
+<form-separator />				
+```
+
+&nbsp;
+## 14. FormContainer
+Container for the forms.
+
+```html
+<form-container
+    :path_breadcrumbs="[
+        {
+            label: 'Home',
+            path: '/home'
+        },
+        {
+            label: 'Form',							
+        }
+    ]"					
+>		
+    <!-- Slot above -->
+    <template v-slot:form-buttons-top>
+        <div class="flex mb-10 mt-6">
+            <custom-button
+                label="Salva"
+                styleType="primary-outline"
+                size="default"
+            />
+
+            <div class="ml-5">
+                <custom-button
+                    label="Chiudi"
+                    styleType="primary-outline"
+                    size="default"
+                />
+            </div>
+        </div>						
+    </template>	
+
+    <!-- Slot Inside -->
+    <template v-slot:form-content>        
+        <h1>{{ name }}</h1>
+
+        <generic-input
+            type="text"
+            placeholder="Aggiungi un placeholder"
+            label="Lorem ipsum"	
+            v-model="name"	
+        ></generic-input>	
+
+        <form-separator />
+
+        <generic-input
+            type="number"
+            placeholder="Aggiungi prezzo"
+            label="Prezzo"	
+            max="100"	
+        >
+            <template v-slot:prepend>
+                <div class="slot-price">€</div>
+            </template>
+        </generic-input>
+    </template>		
+
+    <!-- Slot below -->
+    <template v-slot:form-buttons-bottom>
+        <div class="flex my-10">
+            <custom-button
+                label="Salva"
+                styleType="primary-outline"
+                size="default"
+            />
+
+            <div class="ml-5">
+                <custom-button
+                    label="Chiudi"
+                    styleType="primary-outline"
+                    size="default"
+                />
+            </div>
+        </div>	
+    </template>								
+</form-container>				
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| path_breadcrumbs | Array of BreadcrumbInterface. If not specified is not displayed.  | Array that represents the path. | false |
+| title | string | Title of the form. If not specified is not displayed. | false |
+
+#### Types:
+1. BreadcrumbInterface:   
+
+    ```
+    {
+        label : string,
+	    path : string,
+    }
+    ```
+#### Slots:
+1. "form-buttons-top": Above the form
+2. "form-buttons-top": Below the form
+3. "form-content": Inside the form
+
+
+&nbsp;
+## 15. HeaderNavigation
+Navigation menu styled.
+
+```html
+<header-navigation 
+    :menuStructure="menuStructure"
+/>	
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| menuStructure | Array of ListItem. | Array that represents the menu structure. | true |
+
+#### Types:
+1. ListItem:   
+
+    ```
+    {
+        id? : string | number
+        href? : string
+        label : string
+        children: Array<ListItem>
+    }
+    ```
+
+For the elements where children is not an empty array, it is not possible specify the href.
+This navigation is ment to have only two levels.
+
+&nbsp;
+# Layouts
+## 1. LayoutBase
+Base Layout.
+
+```html
+<layout-base
+    :menuStructure="menuStructureList"
+>		
+    <!-- Layout Content -->
+    <template v-slot:layout-content>
+        
+        <form-container title="Nuovo ordine">
+            <template v-slot:form-content>
+                Contenuto form.
+            </template>
+        </form-container>
+
+    </template>
+</layout-base>
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| menuStructure | Array of ListItem. | Array that represents the menu structure. | true |
+
+#### Types:
+1. ListItem:   
+
+    ```
+    {
+        id? : string | number
+        href? : string
+        label : string
+        children: Array<ListItem>
+    }
+    ```
+
+For the elements where children is not an empty array, it is not possible specify the href.
+This navigation is ment to have only two levels.
+
+#### Slots:
+1. "layout-content": Inside layout

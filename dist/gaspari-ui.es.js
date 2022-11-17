@@ -1,5 +1,5 @@
-import { defineComponent as R, openBlock as d, createElementBlock as m, normalizeClass as se, renderSlot as E, createElementVNode as h, toDisplayString as v, createTextVNode as T, ref as j, createCommentVNode as O, Fragment as N, resolveComponent as J, renderList as z, createBlock as F, onMounted as Je, createVNode as S, withCtx as P, withKeys as M, withModifiers as $, withDirectives as q, vShow as X, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
-const St = R({
+import { defineComponent as C, openBlock as d, createElementBlock as p, normalizeClass as W, renderSlot as _, createElementVNode as h, toDisplayString as g, createTextVNode as F, ref as D, createCommentVNode as E, Fragment as B, resolveComponent as z, renderList as q, createBlock as T, onMounted as Je, createVNode as S, withCtx as V, withKeys as N, withModifiers as k, withDirectives as G, vShow as Z, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
+const St = C({
   name: "CustomButton",
   props: {
     label: {
@@ -62,24 +62,24 @@ const St = R({
       }
     };
   }
-}), L = (e, t) => {
+}), A = (e, t) => {
   const s = e.__vccOpts || e;
   for (const [n, r] of t)
     s[n] = r;
   return s;
-}, Et = ["disabled"];
-function Ot(e, t, s, n, r, o) {
-  return d(), m("button", {
-    class: se(["custom-button", e.assignStyle()]),
+}, _t = ["disabled"];
+function Et(e, t, s, n, r, o) {
+  return d(), p("button", {
+    class: W(["custom-button", e.assignStyle()]),
     disabled: e.disabled,
     onClick: t[0] || (t[0] = (...i) => e.handleClick && e.handleClick(...i))
   }, [
-    E(e.$slots, "slot-left"),
-    h("span", null, v(e.label), 1),
-    E(e.$slots, "slot-right")
-  ], 10, Et);
+    _(e.$slots, "slot-left"),
+    h("span", null, g(e.label), 1),
+    _(e.$slots, "slot-right")
+  ], 10, _t);
 }
-const _t = /* @__PURE__ */ L(St, [["render", Ot]]), kt = R({
+const Ot = /* @__PURE__ */ A(St, [["render", Et]]), $t = C({
   name: "CustomCheckbox",
   props: {
     modelValue: {
@@ -106,12 +106,12 @@ const _t = /* @__PURE__ */ L(St, [["render", Ot]]), kt = R({
       this.$emit("update:checked", e.target.checked);
     }
   }
-}), $t = ["checked", "disabled", "name"], Ct = /* @__PURE__ */ h("span", { class: "checkmark" }, null, -1);
+}), kt = ["checked", "disabled", "name"], Ct = /* @__PURE__ */ h("span", { class: "checkmark" }, null, -1);
 function At(e, t, s, n, r, o) {
-  return d(), m("label", {
-    class: se(["wrapper flex items-center", { disabled: e.disabled }])
+  return d(), p("label", {
+    class: W(["wrapper flex items-center", { disabled: e.disabled }])
   }, [
-    T(v(e.label) + " ", 1),
+    F(g(e.label) + " ", 1),
     h("input", {
       class: "checkbox",
       type: "checkbox",
@@ -119,11 +119,11 @@ function At(e, t, s, n, r, o) {
       onChange: t[0] || (t[0] = (...i) => e.updateInput && e.updateInput(...i)),
       disabled: e.disabled,
       name: e.name
-    }, null, 40, $t),
+    }, null, 40, kt),
     Ct
   ], 2);
 }
-const Rt = /* @__PURE__ */ L(kt, [["render", At]]), Lt = R({
+const Lt = /* @__PURE__ */ A($t, [["render", At]]), Rt = C({
   name: "CustomFileUpload",
   props: {
     label: {
@@ -141,9 +141,9 @@ const Rt = /* @__PURE__ */ L(kt, [["render", At]]), Lt = R({
     }
   },
   setup(e, t) {
-    const s = j(null), n = () => {
+    const s = D(null), n = () => {
       s.value.click();
-    }, r = j(null);
+    }, r = D(null);
     return {
       inputFileRef: s,
       handleButtonClick: n,
@@ -182,10 +182,10 @@ const Rt = /* @__PURE__ */ L(kt, [["render", At]]), Lt = R({
   Dt
 ];
 function Ut(e, t, s, n, r, o) {
-  return d(), m("div", Tt, [
-    e.label ? (d(), m("label", Ft, v(e.label), 1)) : O("", !0),
+  return d(), p("div", Tt, [
+    e.label ? (d(), p("label", Ft, g(e.label), 1)) : E("", !0),
     h("div", Vt, [
-      E(e.$slots, "prepend"),
+      _(e.$slots, "prepend"),
       h("input", {
         type: "file",
         class: "generic-input__input-file--hidden",
@@ -198,19 +198,19 @@ function Ut(e, t, s, n, r, o) {
           onClick: t[1] || (t[1] = (...i) => e.handleButtonClick && e.handleButtonClick(...i))
         }, " Sfoglia... "),
         h("div", Bt, [
-          e.currentFile ? (d(), m("div", Nt, [
-            T(v(e.currentFile.name) + " ", 1),
+          e.currentFile ? (d(), p("div", Nt, [
+            F(g(e.currentFile.name) + " ", 1),
             h("div", {
               onClick: t[2] || (t[2] = (...i) => e.deleteFile && e.deleteFile(...i)),
               class: "generic-input__input-file__file__file-name__cancel"
             }, jt)
-          ])) : (d(), m("div", Mt, v(e.placeholder), 1))
+          ])) : (d(), p("div", Mt, g(e.placeholder), 1))
         ])
       ])
     ])
   ]);
 }
-const br = /* @__PURE__ */ L(Lt, [["render", Ut]]), It = R({
+const Ar = /* @__PURE__ */ A(Rt, [["render", Ut]]), It = C({
   name: "CustomLoader",
   props: {
     loading: {
@@ -226,13 +226,13 @@ const br = /* @__PURE__ */ L(Lt, [["render", Ut]]), It = R({
   Ht
 ];
 function zt(e, t, s, n, r, o) {
-  return e.loading ? (d(), m("div", {
+  return e.loading ? (d(), p("div", {
     key: 0,
-    class: se(["spinner-border", e.size]),
+    class: W(["spinner-border", e.size]),
     role: "status"
-  }, xt, 2)) : O("", !0);
+  }, xt, 2)) : E("", !0);
 }
-const qt = /* @__PURE__ */ L(It, [["render", zt]]), Gt = R({
+const qt = /* @__PURE__ */ A(It, [["render", zt]]), Gt = C({
   name: "CustomModal",
   props: {
     isOpen: {
@@ -275,13 +275,13 @@ const qt = /* @__PURE__ */ L(It, [["render", zt]]), Gt = R({
   Xt
 ], es = { class: "modal-body" }, ts = { class: "modal-footer" };
 function ss(e, t, s, n, r, o) {
-  return e.isOpen ? (d(), m("div", Jt, [
+  return e.isOpen ? (d(), p("div", Jt, [
     h("div", Kt, [
       h("div", Wt, [
         h("div", Qt, [
           h("div", Yt, [
-            e.withoutTitle ? O("", !0) : (d(), m(N, { key: 0 }, [
-              T(v(e.modalTitle), 1)
+            e.withoutTitle ? E("", !0) : (d(), p(B, { key: 0 }, [
+              F(g(e.modalTitle), 1)
             ], 64))
           ]),
           h("div", {
@@ -290,19 +290,19 @@ function ss(e, t, s, n, r, o) {
           }, Zt)
         ]),
         h("div", es, [
-          E(e.$slots, "modal-body")
+          _(e.$slots, "modal-body")
         ]),
         h("div", ts, [
-          E(e.$slots, "modal-footer")
+          _(e.$slots, "modal-footer")
         ])
       ])
     ])
-  ])) : O("", !0);
+  ])) : E("", !0);
 }
-const gr = /* @__PURE__ */ L(Gt, [["render", ss]]), ns = R({
+const Lr = /* @__PURE__ */ A(Gt, [["render", ss]]), ns = C({
   name: "CustomMultiCheckbox",
   components: {
-    CustomCheckbox: Rt
+    CustomCheckbox: Lt
   },
   props: {
     value: {
@@ -322,9 +322,9 @@ const gr = /* @__PURE__ */ L(Gt, [["render", ss]]), ns = R({
   }
 });
 function is(e, t, s, n, r, o) {
-  const i = J("custom-checkbox");
-  return d(), m("div", null, [
-    (d(!0), m(N, null, z(e.options, (l, c) => (d(), F(i, {
+  const i = z("custom-checkbox");
+  return d(), p("div", null, [
+    (d(!0), p(B, null, q(e.options, (l, c) => (d(), T(i, {
       key: c,
       label: l.label,
       checked: e.value.includes(l.id),
@@ -332,32 +332,32 @@ function is(e, t, s, n, r, o) {
     }, null, 8, ["label", "checked", "onUpdate:checked"]))), 128))
   ]);
 }
-const yr = /* @__PURE__ */ L(ns, [["render", is]]);
+const Rr = /* @__PURE__ */ A(ns, [["render", is]]);
 function Qe(e, t) {
   return function() {
     return e.apply(t, arguments);
   };
 }
-const { toString: Ye } = Object.prototype, { getPrototypeOf: _e } = Object, ke = ((e) => (t) => {
+const { toString: Ye } = Object.prototype, { getPrototypeOf: Oe } = Object, $e = ((e) => (t) => {
   const s = Ye.call(t);
   return e[s] || (e[s] = s.slice(8, -1).toLowerCase());
-})(/* @__PURE__ */ Object.create(null)), I = (e) => (e = e.toLowerCase(), (t) => ke(t) === e), ue = (e) => (t) => typeof t === e, { isArray: ne } = Array, ve = ue("undefined");
+})(/* @__PURE__ */ Object.create(null)), I = (e) => (e = e.toLowerCase(), (t) => $e(t) === e), ue = (e) => (t) => typeof t === e, { isArray: ne } = Array, ve = ue("undefined");
 function rs(e) {
-  return e !== null && !ve(e) && e.constructor !== null && !ve(e.constructor) && W(e.constructor.isBuffer) && e.constructor.isBuffer(e);
+  return e !== null && !ve(e) && e.constructor !== null && !ve(e.constructor) && Q(e.constructor.isBuffer) && e.constructor.isBuffer(e);
 }
 const Xe = I("ArrayBuffer");
 function os(e) {
   let t;
   return typeof ArrayBuffer < "u" && ArrayBuffer.isView ? t = ArrayBuffer.isView(e) : t = e && e.buffer && Xe(e.buffer), t;
 }
-const ls = ue("string"), W = ue("function"), Ze = ue("number"), et = (e) => e !== null && typeof e == "object", as = (e) => e === !0 || e === !1, oe = (e) => {
-  if (ke(e) !== "object")
+const ls = ue("string"), Q = ue("function"), Ze = ue("number"), et = (e) => e !== null && typeof e == "object", as = (e) => e === !0 || e === !1, oe = (e) => {
+  if ($e(e) !== "object")
     return !1;
-  const t = _e(e);
+  const t = Oe(e);
   return (t === null || t === Object.prototype || Object.getPrototypeOf(t) === null) && !(Symbol.toStringTag in e) && !(Symbol.iterator in e);
-}, us = I("Date"), cs = I("File"), ds = I("Blob"), hs = I("FileList"), ps = (e) => et(e) && W(e.pipe), fs = (e) => {
+}, us = I("Date"), cs = I("File"), ds = I("Blob"), hs = I("FileList"), ps = (e) => et(e) && Q(e.pipe), fs = (e) => {
   const t = "[object FormData]";
-  return e && (typeof FormData == "function" && e instanceof FormData || Ye.call(e) === t || W(e.toString) && e.toString() === t);
+  return e && (typeof FormData == "function" && e instanceof FormData || Ye.call(e) === t || Q(e.toString) && e.toString() === t);
 }, ms = I("URLSearchParams"), bs = (e) => e.trim ? e.trim() : e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 function ce(e, t, { allOwnKeys: s = !1 } = {}) {
   if (e === null || typeof e > "u")
@@ -382,7 +382,7 @@ function we() {
   return e;
 }
 const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
-  s && W(r) ? e[o] = Qe(r, s) : e[o] = r;
+  s && Q(r) ? e[o] = Qe(r, s) : e[o] = r;
 }, { allOwnKeys: n }), e), ys = (e) => (e.charCodeAt(0) === 65279 && (e = e.slice(1)), e), vs = (e, t, s, n) => {
   e.prototype = Object.create(t.prototype, n), e.prototype.constructor = e, Object.defineProperty(e, "super", {
     value: t.prototype
@@ -395,14 +395,14 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   do {
     for (r = Object.getOwnPropertyNames(e), o = r.length; o-- > 0; )
       i = r[o], (!n || n(i, e, t)) && !l[i] && (t[i] = e[i], l[i] = !0);
-    e = s !== !1 && _e(e);
+    e = s !== !1 && Oe(e);
   } while (e && (!s || s(e, t)) && e !== Object.prototype);
   return t;
 }, Ss = (e, t, s) => {
   e = String(e), (s === void 0 || s > e.length) && (s = e.length), s -= t.length;
   const n = e.indexOf(t, s);
   return n !== -1 && n === s;
-}, Es = (e) => {
+}, _s = (e) => {
   if (!e)
     return null;
   if (ne(e))
@@ -414,20 +414,20 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   for (; t-- > 0; )
     s[t] = e[t];
   return s;
-}, Os = ((e) => (t) => e && t instanceof e)(typeof Uint8Array < "u" && _e(Uint8Array)), _s = (e, t) => {
+}, Es = ((e) => (t) => e && t instanceof e)(typeof Uint8Array < "u" && Oe(Uint8Array)), Os = (e, t) => {
   const n = (e && e[Symbol.iterator]).call(e);
   let r;
   for (; (r = n.next()) && !r.done; ) {
     const o = r.value;
     t.call(e, o[0], o[1]);
   }
-}, ks = (e, t) => {
+}, $s = (e, t) => {
   let s;
   const n = [];
   for (; (s = e.exec(t)) !== null; )
     n.push(s);
   return n;
-}, $s = I("HTMLFormElement"), Cs = (e) => e.toLowerCase().replace(
+}, ks = I("HTMLFormElement"), Cs = (e) => e.toLowerCase().replace(
   /[_-\s]([a-z\d])(\w*)/g,
   function(s, n, r) {
     return n.toUpperCase() + r;
@@ -437,10 +437,10 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   ce(s, (r, o) => {
     t(r, o, e) !== !1 && (n[o] = r);
   }), Object.defineProperties(e, n);
-}, Rs = (e) => {
+}, Ls = (e) => {
   tt(e, (t, s) => {
     const n = e[s];
-    if (!!W(n)) {
+    if (!!Q(n)) {
       if (t.enumerable = !1, "writable" in t) {
         t.writable = !1;
         return;
@@ -450,7 +450,7 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
       });
     }
   });
-}, Ls = (e, t) => {
+}, Rs = (e, t) => {
   const s = {}, n = (r) => {
     r.forEach((o) => {
       s[o] = !0;
@@ -474,10 +474,10 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   isFile: cs,
   isBlob: ds,
   isRegExp: As,
-  isFunction: W,
+  isFunction: Q,
   isStream: ps,
   isURLSearchParams: ms,
-  isTypedArray: Os,
+  isTypedArray: Es,
   isFileList: hs,
   forEach: ce,
   merge: we,
@@ -486,18 +486,18 @@ const gs = (e, t, s, { allOwnKeys: n } = {}) => (ce(t, (r, o) => {
   stripBOM: ys,
   inherits: vs,
   toFlatObject: ws,
-  kindOf: ke,
+  kindOf: $e,
   kindOfTest: I,
   endsWith: Ss,
-  toArray: Es,
-  forEachEntry: _s,
-  matchAll: ks,
-  isHTMLForm: $s,
+  toArray: _s,
+  forEachEntry: Os,
+  matchAll: $s,
+  isHTMLForm: ks,
   hasOwnProperty: Fe,
   hasOwnProp: Fe,
   reduceDescriptors: tt,
-  freezeMethods: Rs,
-  toObjectSet: Ls,
+  freezeMethods: Ls,
+  toObjectSet: Rs,
   toCamelCase: Cs,
   noop: Ts,
   toFiniteNumber: Fs
@@ -575,10 +575,10 @@ function de(e, t, s) {
     metaTokens: !0,
     dots: !1,
     indexes: !1
-  }, !1, function(w, B) {
-    return !u.isUndefined(B[w]);
+  }, !1, function(w, M) {
+    return !u.isUndefined(M[w]);
   });
-  const n = s.metaTokens, r = s.visitor || p, o = s.dots, i = s.indexes, c = (s.Blob || typeof Blob < "u" && Blob) && Ms(t);
+  const n = s.metaTokens, r = s.visitor || m, o = s.dots, i = s.indexes, c = (s.Blob || typeof Blob < "u" && Blob) && Ms(t);
   if (!u.isFunction(r))
     throw new TypeError("visitor must be a function");
   function a(f) {
@@ -590,39 +590,39 @@ function de(e, t, s) {
       throw new y("Blob is not supported. Use a Buffer instead.");
     return u.isArrayBuffer(f) || u.isTypedArray(f) ? c && typeof Blob == "function" ? new Blob([f]) : Buffer.from(f) : f;
   }
-  function p(f, w, B) {
-    let C = f;
-    if (f && !B && typeof f == "object") {
+  function m(f, w, M) {
+    let L = f;
+    if (f && !M && typeof f == "object") {
       if (u.endsWith(w, "{}"))
         w = n ? w : w.slice(0, -2), f = JSON.stringify(f);
-      else if (u.isArray(f) && Ps(f) || u.isFileList(f) || u.endsWith(w, "[]") && (C = u.toArray(f)))
-        return w = it(w), C.forEach(function(K, he) {
+      else if (u.isArray(f) && Ps(f) || u.isFileList(f) || u.endsWith(w, "[]") && (L = u.toArray(f)))
+        return w = it(w), L.forEach(function(K, he) {
           !(u.isUndefined(K) || K === null) && t.append(
             i === !0 ? Ve([w], he, o) : i === null ? w : w + "[]",
             a(K)
           );
         }), !1;
     }
-    return Se(f) ? !0 : (t.append(Ve(B, w, o), a(f)), !1);
+    return Se(f) ? !0 : (t.append(Ve(M, w, o), a(f)), !1);
   }
-  const g = [], _ = Object.assign(Bs, {
-    defaultVisitor: p,
+  const v = [], O = Object.assign(Bs, {
+    defaultVisitor: m,
     convertValue: a,
     isVisitable: Se
   });
   function b(f, w) {
     if (!u.isUndefined(f)) {
-      if (g.indexOf(f) !== -1)
+      if (v.indexOf(f) !== -1)
         throw Error("Circular reference detected in " + w.join("."));
-      g.push(f), u.forEach(f, function(C, D) {
-        (!(u.isUndefined(C) || C === null) && r.call(
+      v.push(f), u.forEach(f, function(L, j) {
+        (!(u.isUndefined(L) || L === null) && r.call(
           t,
-          C,
-          u.isString(D) ? D.trim() : D,
+          L,
+          u.isString(j) ? j.trim() : j,
           w,
-          _
-        )) === !0 && b(C, w ? w.concat(D) : [D]);
-      }), g.pop();
+          O
+        )) === !0 && b(L, w ? w.concat(j) : [j]);
+      }), v.pop();
     }
   }
   if (!u.isObject(e))
@@ -643,10 +643,10 @@ function Pe(e) {
     return t[n];
   });
 }
-function $e(e, t) {
+function ke(e, t) {
   this._pairs = [], e && de(e, this, t);
 }
-const rt = $e.prototype;
+const rt = ke.prototype;
 rt.append = function(t, s) {
   this._pairs.push([t, s]);
 };
@@ -666,7 +666,7 @@ function ot(e, t, s) {
     return e;
   const n = s && s.encode || Ns, r = s && s.serialize;
   let o;
-  if (r ? o = r(t, s) : o = u.isURLSearchParams(t) ? t.toString() : new $e(t, s).toString(n), o) {
+  if (r ? o = r(t, s) : o = u.isURLSearchParams(t) ? t.toString() : new ke(t, s).toString(n), o) {
     const i = e.indexOf("#");
     i !== -1 && (e = e.slice(0, i)), e += (e.indexOf("?") === -1 ? "?" : "&") + o;
   }
@@ -700,7 +700,7 @@ const lt = {
   silentJSONParsing: !0,
   forcedJSONParsing: !0,
   clarifyTimeoutError: !1
-}, Ds = typeof URLSearchParams < "u" ? URLSearchParams : $e, js = FormData, Us = (() => {
+}, Ds = typeof URLSearchParams < "u" ? URLSearchParams : ke, js = FormData, Us = (() => {
   let e;
   return typeof navigator < "u" && ((e = navigator.product) === "ReactNative" || e === "NativeScript" || e === "NS") ? !1 : typeof window < "u" && typeof document < "u";
 })(), U = {
@@ -851,7 +851,7 @@ const Qs = u.toObjectSet([
     r = i.indexOf(":"), s = i.substring(0, r).trim().toLowerCase(), n = i.substring(r + 1).trim(), !(!s || t[s] && Qs[s]) && (s === "set-cookie" ? t[s] ? t[s].push(n) : t[s] = [n] : t[s] = t[s] ? t[s] + ", " + n : n);
   }), t;
 }, Me = Symbol("internals"), ct = Symbol("defaults");
-function ee(e) {
+function te(e) {
   return e && String(e).trim().toLowerCase();
 }
 function le(e) {
@@ -888,7 +888,7 @@ function en(e, t) {
     });
   });
 }
-function Z(e, t) {
+function ee(e, t) {
   t = t.toLowerCase();
   const s = Object.keys(e);
   let n = s.length, r;
@@ -897,17 +897,17 @@ function Z(e, t) {
       return r;
   return null;
 }
-function V(e, t) {
+function P(e, t) {
   e && this.set(e), this[ct] = t || null;
 }
-Object.assign(V.prototype, {
+Object.assign(P.prototype, {
   set: function(e, t, s) {
     const n = this;
     function r(o, i, l) {
-      const c = ee(i);
+      const c = te(i);
       if (!c)
         throw new Error("header name must be a non-empty string");
-      const a = Z(n, c);
+      const a = ee(n, c);
       a && l !== !0 && (n[a] === !1 || l === !1) || (n[a || i] = le(o));
     }
     return u.isPlainObject(e) ? u.forEach(e, (o, i) => {
@@ -915,9 +915,9 @@ Object.assign(V.prototype, {
     }) : r(t, e, s), this;
   },
   get: function(e, t) {
-    if (e = ee(e), !e)
+    if (e = te(e), !e)
       return;
-    const s = Z(this, e);
+    const s = ee(this, e);
     if (s) {
       const n = this[s];
       if (!t)
@@ -932,8 +932,8 @@ Object.assign(V.prototype, {
     }
   },
   has: function(e, t) {
-    if (e = ee(e), e) {
-      const s = Z(this, e);
+    if (e = te(e), e) {
+      const s = ee(this, e);
       return !!(s && (!t || Ne(this, this[s], s, t)));
     }
     return !1;
@@ -942,8 +942,8 @@ Object.assign(V.prototype, {
     const s = this;
     let n = !1;
     function r(o) {
-      if (o = ee(o), o) {
-        const i = Z(s, o);
+      if (o = te(o), o) {
+        const i = ee(s, o);
         i && (!t || Ne(s, s[i], i, t)) && (delete s[i], n = !0);
       }
     }
@@ -955,7 +955,7 @@ Object.assign(V.prototype, {
   normalize: function(e) {
     const t = this, s = {};
     return u.forEach(this, (n, r) => {
-      const o = Z(s, r);
+      const o = ee(s, r);
       if (o) {
         t[o] = le(n), delete t[r];
         return;
@@ -974,7 +974,7 @@ Object.assign(V.prototype, {
     ), t;
   }
 });
-Object.assign(V, {
+Object.assign(P, {
   from: function(e) {
     return u.isString(e) ? new this(Ys(e)) : e instanceof this ? e : new this(e);
   },
@@ -983,29 +983,29 @@ Object.assign(V, {
       accessors: {}
     }).accessors, n = this.prototype;
     function r(o) {
-      const i = ee(o);
+      const i = te(o);
       s[i] || (en(n, o), s[i] = !0);
     }
     return u.isArray(e) ? e.forEach(r) : r(e), this;
   }
 });
-V.accessor(["Content-Type", "Content-Length", "Accept", "Accept-Encoding", "User-Agent"]);
-u.freezeMethods(V.prototype);
-u.freezeMethods(V);
+P.accessor(["Content-Type", "Content-Length", "Accept", "Accept-Encoding", "User-Agent"]);
+u.freezeMethods(P.prototype);
+u.freezeMethods(P);
 function tn(e, t) {
   e = e || 10;
   const s = new Array(e), n = new Array(e);
   let r = 0, o = 0, i;
   return t = t !== void 0 ? t : 1e3, function(c) {
-    const a = Date.now(), p = n[o];
+    const a = Date.now(), m = n[o];
     i || (i = a), s[r] = c, n[r] = a;
-    let g = o, _ = 0;
-    for (; g !== r; )
-      _ += s[g++], g = g % e;
+    let v = o, O = 0;
+    for (; v !== r; )
+      O += s[v++], v = v % e;
     if (r = (r + 1) % e, r === o && (o = (o + 1) % e), a - i < t)
       return;
-    const b = p && a - p;
-    return b ? Math.round(_ * 1e3 / b) : void 0;
+    const b = m && a - m;
+    return b ? Math.round(O * 1e3 / b) : void 0;
   };
 }
 function De(e, t) {
@@ -1014,7 +1014,7 @@ function De(e, t) {
   return (r) => {
     const o = r.loaded, i = r.lengthComputable ? r.total : void 0, l = o - s, c = n(l), a = o <= i;
     s = o;
-    const p = {
+    const m = {
       loaded: o,
       total: i,
       progress: i ? o / i : void 0,
@@ -1022,13 +1022,13 @@ function De(e, t) {
       rate: c || void 0,
       estimated: c && i && a ? (i - o) / c : void 0
     };
-    p[t ? "download" : "upload"] = !0, e(p);
+    m[t ? "download" : "upload"] = !0, e(m);
   };
 }
 function je(e) {
   return new Promise(function(s, n) {
     let r = e.data;
-    const o = V.from(e.headers).normalize(), i = e.responseType;
+    const o = P.from(e.headers).normalize(), i = e.responseType;
     let l;
     function c() {
       e.cancelToken && e.cancelToken.unsubscribe(l), e.signal && e.signal.removeEventListener("abort", l);
@@ -1039,12 +1039,12 @@ function je(e) {
       const b = e.auth.username || "", f = e.auth.password ? unescape(encodeURIComponent(e.auth.password)) : "";
       o.set("Authorization", "Basic " + btoa(b + ":" + f));
     }
-    const p = ut(e.baseURL, e.url);
-    a.open(e.method.toUpperCase(), ot(p, e.params, e.paramsSerializer), !0), a.timeout = e.timeout;
-    function g() {
+    const m = ut(e.baseURL, e.url);
+    a.open(e.method.toUpperCase(), ot(m, e.params, e.paramsSerializer), !0), a.timeout = e.timeout;
+    function v() {
       if (!a)
         return;
-      const b = V.from(
+      const b = P.from(
         "getAllResponseHeaders" in a && a.getAllResponseHeaders()
       ), w = {
         data: !i || i === "text" || i === "json" ? a.responseText : a.response,
@@ -1054,14 +1054,14 @@ function je(e) {
         config: e,
         request: a
       };
-      zs(function(C) {
-        s(C), c();
-      }, function(C) {
-        n(C), c();
+      zs(function(L) {
+        s(L), c();
+      }, function(L) {
+        n(L), c();
       }, w), a = null;
     }
-    if ("onloadend" in a ? a.onloadend = g : a.onreadystatechange = function() {
-      !a || a.readyState !== 4 || a.status === 0 && !(a.responseURL && a.responseURL.indexOf("file:") === 0) || setTimeout(g);
+    if ("onloadend" in a ? a.onloadend = v : a.onreadystatechange = function() {
+      !a || a.readyState !== 4 || a.status === 0 && !(a.responseURL && a.responseURL.indexOf("file:") === 0) || setTimeout(v);
     }, a.onabort = function() {
       !a || (n(new y("Request aborted", y.ECONNABORTED, e, a)), a = null);
     }, a.onerror = function() {
@@ -1076,7 +1076,7 @@ function je(e) {
         a
       )), a = null;
     }, U.isStandardBrowserEnv) {
-      const b = (e.withCredentials || Ks(p)) && e.xsrfCookieName && qs.read(e.xsrfCookieName);
+      const b = (e.withCredentials || Ks(m)) && e.xsrfCookieName && qs.read(e.xsrfCookieName);
       b && o.set(e.xsrfHeaderName, b);
     }
     r === void 0 && o.setContentType(null), "setRequestHeader" in a && u.forEach(o.toJSON(), function(f, w) {
@@ -1084,9 +1084,9 @@ function je(e) {
     }), u.isUndefined(e.withCredentials) || (a.withCredentials = !!e.withCredentials), i && i !== "json" && (a.responseType = e.responseType), typeof e.onDownloadProgress == "function" && a.addEventListener("progress", De(e.onDownloadProgress, !0)), typeof e.onUploadProgress == "function" && a.upload && a.upload.addEventListener("progress", De(e.onUploadProgress)), (e.cancelToken || e.signal) && (l = (b) => {
       !a || (n(!b || b.type ? new ie(null, e, a) : b), a.abort(), a = null);
     }, e.cancelToken && e.cancelToken.subscribe(l), e.signal && (e.signal.aborted ? l() : e.signal.addEventListener("abort", l)));
-    const _ = Ws(p);
-    if (_ && U.protocols.indexOf(_) === -1) {
-      n(new y("Unsupported protocol " + _ + ":", y.ERR_BAD_REQUEST, e));
+    const O = Ws(m);
+    if (O && U.protocols.indexOf(O) === -1) {
+      n(new y("Unsupported protocol " + O + ":", y.ERR_BAD_REQUEST, e));
       return;
     }
     a.send(r || null);
@@ -1127,7 +1127,7 @@ function rn(e, t, s) {
     }
   return (s || JSON.stringify)(e);
 }
-const Q = {
+const Y = {
   transitional: lt,
   adapter: nn(),
   transformRequest: [function(t, s) {
@@ -1156,7 +1156,7 @@ const Q = {
     return o || r ? (s.setContentType("application/json", !1), rn(t)) : t;
   }],
   transformResponse: [function(t) {
-    const s = this.transitional || Q.transitional, n = s && s.forcedJSONParsing, r = this.responseType === "json";
+    const s = this.transitional || Y.transitional, n = s && s.forcedJSONParsing, r = this.responseType === "json";
     if (t && u.isString(t) && (n && !this.responseType || r)) {
       const i = !(s && s.silentJSONParsing) && r;
       try {
@@ -1187,13 +1187,13 @@ const Q = {
   }
 };
 u.forEach(["delete", "get", "head"], function(t) {
-  Q.headers[t] = {};
+  Y.headers[t] = {};
 });
 u.forEach(["post", "put", "patch"], function(t) {
-  Q.headers[t] = u.merge(sn);
+  Y.headers[t] = u.merge(sn);
 });
 function fe(e, t) {
-  const s = this || Q, n = t || s, r = V.from(n.headers);
+  const s = this || Y, n = t || s, r = P.from(n.headers);
   let o = n.data;
   return u.forEach(e, function(l) {
     o = l.call(s, o, r.normalize(), t ? t.status : void 0);
@@ -1207,28 +1207,28 @@ function me(e) {
     throw new ie();
 }
 function He(e) {
-  return me(e), e.headers = V.from(e.headers), e.data = fe.call(
+  return me(e), e.headers = P.from(e.headers), e.data = fe.call(
     e,
     e.transformRequest
-  ), (e.adapter || Q.adapter)(e).then(function(n) {
+  ), (e.adapter || Y.adapter)(e).then(function(n) {
     return me(e), n.data = fe.call(
       e,
       e.transformResponse,
       n
-    ), n.headers = V.from(n.headers), n;
+    ), n.headers = P.from(n.headers), n;
   }, function(n) {
     return dt(n) || (me(e), n && n.response && (n.response.data = fe.call(
       e,
       e.transformResponse,
       n.response
-    ), n.response.headers = V.from(n.response.headers))), Promise.reject(n);
+    ), n.response.headers = P.from(n.response.headers))), Promise.reject(n);
   });
 }
-function te(e, t) {
+function se(e, t) {
   t = t || {};
   const s = {};
-  function n(a, p) {
-    return u.isPlainObject(a) && u.isPlainObject(p) ? u.merge(a, p) : u.isPlainObject(p) ? u.merge({}, p) : u.isArray(p) ? p.slice() : p;
+  function n(a, m) {
+    return u.isPlainObject(a) && u.isPlainObject(m) ? u.merge(a, m) : u.isPlainObject(m) ? u.merge({}, m) : u.isArray(m) ? m.slice() : m;
   }
   function r(a) {
     if (u.isUndefined(t[a])) {
@@ -1283,9 +1283,9 @@ function te(e, t) {
     responseEncoding: i,
     validateStatus: l
   };
-  return u.forEach(Object.keys(e).concat(Object.keys(t)), function(p) {
-    const g = c[p] || r, _ = g(p);
-    u.isUndefined(_) && g !== l || (s[p] = _);
+  return u.forEach(Object.keys(e).concat(Object.keys(t)), function(m) {
+    const v = c[m] || r, O = v(m);
+    u.isUndefined(O) && v !== l || (s[m] = O);
   }), s;
 }
 const ht = "1.1.3", Ce = {};
@@ -1330,11 +1330,11 @@ function on(e, t, s) {
       throw new y("Unknown option " + o, y.ERR_BAD_OPTION);
   }
 }
-const Ee = {
+const _e = {
   assertOptions: on,
   validators: Ce
-}, x = Ee.validators;
-class G {
+}, x = _e.validators;
+class J {
   constructor(t) {
     this.defaults = t, this.interceptors = {
       request: new Be(),
@@ -1342,13 +1342,13 @@ class G {
     };
   }
   request(t, s) {
-    typeof t == "string" ? (s = s || {}, s.url = t) : s = t || {}, s = te(this.defaults, s);
+    typeof t == "string" ? (s = s || {}, s.url = t) : s = t || {}, s = se(this.defaults, s);
     const { transitional: n, paramsSerializer: r } = s;
-    n !== void 0 && Ee.assertOptions(n, {
+    n !== void 0 && _e.assertOptions(n, {
       silentJSONParsing: x.transitional(x.boolean),
       forcedJSONParsing: x.transitional(x.boolean),
       clarifyTimeoutError: x.transitional(x.boolean)
-    }, !1), r !== void 0 && Ee.assertOptions(r, {
+    }, !1), r !== void 0 && _e.assertOptions(r, {
       encode: x.function,
       serialize: x.function
     }, !0), s.method = (s.method || this.defaults.method || "get").toLowerCase();
@@ -1361,7 +1361,7 @@ class G {
       function(f) {
         delete s.headers[f];
       }
-    ), s.headers = new V(s.headers, o);
+    ), s.headers = new P(s.headers, o);
     const i = [];
     let l = !0;
     this.interceptors.request.forEach(function(f) {
@@ -1371,42 +1371,42 @@ class G {
     this.interceptors.response.forEach(function(f) {
       c.push(f.fulfilled, f.rejected);
     });
-    let a, p = 0, g;
+    let a, m = 0, v;
     if (!l) {
       const b = [He.bind(this), void 0];
-      for (b.unshift.apply(b, i), b.push.apply(b, c), g = b.length, a = Promise.resolve(s); p < g; )
-        a = a.then(b[p++], b[p++]);
+      for (b.unshift.apply(b, i), b.push.apply(b, c), v = b.length, a = Promise.resolve(s); m < v; )
+        a = a.then(b[m++], b[m++]);
       return a;
     }
-    g = i.length;
-    let _ = s;
-    for (p = 0; p < g; ) {
-      const b = i[p++], f = i[p++];
+    v = i.length;
+    let O = s;
+    for (m = 0; m < v; ) {
+      const b = i[m++], f = i[m++];
       try {
-        _ = b(_);
+        O = b(O);
       } catch (w) {
         f.call(this, w);
         break;
       }
     }
     try {
-      a = He.call(this, _);
+      a = He.call(this, O);
     } catch (b) {
       return Promise.reject(b);
     }
-    for (p = 0, g = c.length; p < g; )
-      a = a.then(c[p++], c[p++]);
+    for (m = 0, v = c.length; m < v; )
+      a = a.then(c[m++], c[m++]);
     return a;
   }
   getUri(t) {
-    t = te(this.defaults, t);
+    t = se(this.defaults, t);
     const s = ut(t.baseURL, t.url);
     return ot(s, t.params, t.paramsSerializer);
   }
 }
 u.forEach(["delete", "get", "head", "options"], function(t) {
-  G.prototype[t] = function(s, n) {
-    return this.request(te(n || {}, {
+  J.prototype[t] = function(s, n) {
+    return this.request(se(n || {}, {
       method: t,
       url: s,
       data: (n || {}).data
@@ -1416,7 +1416,7 @@ u.forEach(["delete", "get", "head", "options"], function(t) {
 u.forEach(["post", "put", "patch"], function(t) {
   function s(n) {
     return function(o, i, l) {
-      return this.request(te(l || {}, {
+      return this.request(se(l || {}, {
         method: t,
         headers: n ? {
           "Content-Type": "multipart/form-data"
@@ -1426,7 +1426,7 @@ u.forEach(["post", "put", "patch"], function(t) {
       }));
     };
   }
-  G.prototype[t] = s(), G.prototype[t + "Form"] = s(!0);
+  J.prototype[t] = s(), J.prototype[t + "Form"] = s(!0);
 });
 class Ae {
   constructor(t) {
@@ -1492,30 +1492,30 @@ function an(e) {
   return u.isObject(e) && e.isAxiosError === !0;
 }
 function pt(e) {
-  const t = new G(e), s = Qe(G.prototype.request, t);
-  return u.extend(s, G.prototype, t, { allOwnKeys: !0 }), u.extend(s, t, null, { allOwnKeys: !0 }), s.create = function(r) {
-    return pt(te(e, r));
+  const t = new J(e), s = Qe(J.prototype.request, t);
+  return u.extend(s, J.prototype, t, { allOwnKeys: !0 }), u.extend(s, t, null, { allOwnKeys: !0 }), s.create = function(r) {
+    return pt(se(e, r));
   }, s;
 }
-const A = pt(Q);
-A.Axios = G;
-A.CanceledError = ie;
-A.CancelToken = Ae;
-A.isCancel = dt;
-A.VERSION = ht;
-A.toFormData = de;
-A.AxiosError = y;
-A.Cancel = A.CanceledError;
-A.all = function(t) {
+const R = pt(Y);
+R.Axios = J;
+R.CanceledError = ie;
+R.CancelToken = Ae;
+R.isCancel = dt;
+R.VERSION = ht;
+R.toFormData = de;
+R.AxiosError = y;
+R.Cancel = R.CanceledError;
+R.all = function(t) {
   return Promise.all(t);
 };
-A.spread = ln;
-A.isAxiosError = an;
-A.formToJSON = (e) => at(u.isHTMLForm(e) ? new FormData(e) : e);
-const un = R({
+R.spread = ln;
+R.isAxiosError = an;
+R.formToJSON = (e) => at(u.isHTMLForm(e) ? new FormData(e) : e);
+const un = C({
   name: "CustomMultipleFileUpload",
   components: {
-    CustomButton: _t,
+    CustomButton: Ot,
     CustomLoader: qt
   },
   props: {
@@ -1537,27 +1537,27 @@ const un = R({
     }
   },
   setup(e) {
-    const t = j(null), s = () => {
+    const t = D(null), s = () => {
       t.value.click();
     }, n = ({ target: a }) => {
       if (a && a.files.length > 0) {
-        let p = new FormData();
-        for (let g = 0; g < a.files.length; g++) {
-          const _ = a.files[g];
-          p.append("files", _);
+        let m = new FormData();
+        for (let v = 0; v < a.files.length; v++) {
+          const O = a.files[v];
+          m.append("files", O);
         }
-        i(p), t.value.value = "";
+        i(m), t.value.value = "";
       }
-    }, r = j([]), o = j(!1), i = (a) => {
-      console.log(a), o.value = !0, A.post(e.routePostFiles, a).then((p) => {
-        p.data.success ? alert("success") : alert("error"), o.value = !1;
-      }).catch((p) => {
-        console.log(p), o.value = !1;
+    }, r = D([]), o = D(!1), i = (a) => {
+      console.log(a), o.value = !0, R.post(e.routePostFiles, a).then((m) => {
+        m.data.success ? alert("success") : alert("error"), o.value = !1;
+      }).catch((m) => {
+        console.log(m), o.value = !1;
       });
     }, l = (a) => {
       r.value.length > 0 && r.value.splice(a, 1);
     }, c = () => {
-      A.get(e.routeGetFiles).then((a) => {
+      R.get(e.routeGetFiles).then((a) => {
         console.log("okk", a);
       }).catch((a) => {
         console.log(a);
@@ -1610,17 +1610,17 @@ const un = R({
   vn
 ];
 function Sn(e, t, s, n, r, o) {
-  const i = J("custom-button"), l = J("custom-loader");
-  return d(), m("div", cn, [
-    e.label ? (d(), m("label", dn, v(e.label), 1)) : O("", !0),
+  const i = z("custom-button"), l = z("custom-loader");
+  return d(), p("div", cn, [
+    e.label ? (d(), p("label", dn, g(e.label), 1)) : E("", !0),
     h("ul", hn, [
-      (d(!0), m(N, null, z(e.fileList, (c, a) => (d(), m("li", {
+      (d(!0), p(B, null, q(e.fileList, (c, a) => (d(), p("li", {
         class: "file-list-item",
         key: a
       }, [
-        T(v(c.original_name + "." + c.extension) + " ", 1),
+        F(g(c.original_name + "." + c.extension) + " ", 1),
         h("div", {
-          onClick: (p) => e.deleteFile(a),
+          onClick: (m) => e.deleteFile(a),
           class: "item-cancel"
         }, mn, 8, pn)
       ]))), 128))
@@ -1640,8 +1640,8 @@ function Sn(e, t, s, n, r, o) {
           disabled: !1,
           onOnClick: e.handleClick
         }, {
-          "slot-left": P(() => [
-            (d(), m("svg", yn, wn))
+          "slot-left": V(() => [
+            (d(), p("svg", yn, wn))
           ]),
           _: 1
         }, 8, ["onOnClick"])
@@ -1653,20 +1653,20 @@ function Sn(e, t, s, n, r, o) {
     ])
   ]);
 }
-const vr = /* @__PURE__ */ L(un, [["render", Sn]]);
+const Tr = /* @__PURE__ */ A(un, [["render", Sn]]);
 function be(e) {
   return e === 0 ? !1 : Array.isArray(e) && e.length === 0 ? !0 : !e;
 }
-function En(e) {
+function _n(e) {
   return (...t) => !e(...t);
 }
-function On(e, t) {
+function En(e, t) {
   return e === void 0 && (e = "undefined"), e === null && (e = "null"), e === !1 && (e = "false"), e.toString().toLowerCase().indexOf(t.trim()) !== -1;
 }
 function ft(e, t, s, n) {
-  return t ? e.filter((r) => On(n(r, s), t)).sort((r, o) => n(r, s).length - n(o, s).length) : e;
+  return t ? e.filter((r) => En(n(r, s), t)).sort((r, o) => n(r, s).length - n(o, s).length) : e;
 }
-function _n(e) {
+function On(e) {
   return e.filter((t) => !t.$isLabel);
 }
 function ge(e, t) {
@@ -1675,7 +1675,7 @@ function ge(e, t) {
     $isLabel: !0
   }), n.concat(r[e])) : n, []);
 }
-function kn(e, t, s, n, r) {
+function $n(e, t, s, n, r) {
   return (o) => o.map((i) => {
     if (!i[s])
       return console.warn("Options passed to vue-multiselect do not contain groups, despite the config."), [];
@@ -1687,7 +1687,7 @@ function kn(e, t, s, n, r) {
   });
 }
 const ze = (...e) => (t) => e.reduce((s, n) => n(s), t);
-var $n = {
+var kn = {
   data() {
     return {
       search: "",
@@ -1807,7 +1807,7 @@ var $n = {
     filteredOptions() {
       const e = this.search || "", t = e.toLowerCase().trim();
       let s = this.options.concat();
-      return this.internalSearch ? s = this.groupValues ? this.filterAndFlat(s, t, this.label) : ft(s, t, this.label, this.customLabel) : s = this.groupValues ? ge(this.groupValues, this.groupLabel)(s) : s, s = this.hideSelected ? s.filter(En(this.isSelected)) : s, this.taggable && t.length && !this.isExistingOption(t) && (this.tagPosition === "bottom" ? s.push({ isTag: !0, label: e }) : s.unshift({ isTag: !0, label: e })), s.slice(0, this.optionsLimit);
+      return this.internalSearch ? s = this.groupValues ? this.filterAndFlat(s, t, this.label) : ft(s, t, this.label, this.customLabel) : s = this.groupValues ? ge(this.groupValues, this.groupLabel)(s) : s, s = this.hideSelected ? s.filter(_n(this.isSelected)) : s, this.taggable && t.length && !this.isExistingOption(t) && (this.tagPosition === "bottom" ? s.push({ isTag: !0, label: e }) : s.unshift({ isTag: !0, label: e })), s.slice(0, this.optionsLimit);
     },
     valueKeys() {
       return this.trackBy ? this.internalValue.map((e) => e[this.trackBy]) : this.internalValue;
@@ -1834,14 +1834,14 @@ var $n = {
     },
     filterAndFlat(e, t, s) {
       return ze(
-        kn(t, s, this.groupValues, this.groupLabel, this.customLabel),
+        $n(t, s, this.groupValues, this.groupLabel, this.customLabel),
         ge(this.groupValues, this.groupLabel)
       )(e);
     },
     flatAndStrip(e) {
       return ze(
         ge(this.groupValues, this.groupLabel),
-        _n
+        On
       )(e);
     },
     updateSearch(e) {
@@ -2023,9 +2023,9 @@ var $n = {
       this.pointer = e, this.pointerDirty = !0;
     }
   }
-}, Re = {
+}, Le = {
   name: "vue-multiselect",
-  mixins: [$n, Cn],
+  mixins: [kn, Cn],
   props: {
     name: {
       type: String,
@@ -2143,78 +2143,78 @@ var $n = {
 const An = {
   ref: "tags",
   class: "multiselect__tags"
-}, Rn = { class: "multiselect__tags-wrap" }, Ln = { class: "multiselect__spinner" }, Tn = { key: 0 }, Fn = { class: "multiselect__option" }, Vn = { class: "multiselect__option" }, Pn = /* @__PURE__ */ T("No elements found. Consider changing the search query."), Bn = { class: "multiselect__option" }, Mn = /* @__PURE__ */ T("List is empty.");
+}, Ln = { class: "multiselect__tags-wrap" }, Rn = { class: "multiselect__spinner" }, Tn = { key: 0 }, Fn = { class: "multiselect__option" }, Vn = { class: "multiselect__option" }, Pn = /* @__PURE__ */ F("No elements found. Consider changing the search query."), Bn = { class: "multiselect__option" }, Mn = /* @__PURE__ */ F("List is empty.");
 function Nn(e, t, s, n, r, o) {
-  return d(), F("div", {
+  return d(), T("div", {
     tabindex: e.searchable ? -1 : s.tabindex,
     class: [{ "multiselect--active": e.isOpen, "multiselect--disabled": s.disabled, "multiselect--above": o.isAbove }, "multiselect"],
     onFocus: t[14] || (t[14] = (i) => e.activate()),
     onBlur: t[15] || (t[15] = (i) => e.searchable ? !1 : e.deactivate()),
     onKeydown: [
-      t[16] || (t[16] = M($((i) => e.pointerForward(), ["self", "prevent"]), ["down"])),
-      t[17] || (t[17] = M($((i) => e.pointerBackward(), ["self", "prevent"]), ["up"]))
+      t[16] || (t[16] = N(k((i) => e.pointerForward(), ["self", "prevent"]), ["down"])),
+      t[17] || (t[17] = N(k((i) => e.pointerBackward(), ["self", "prevent"]), ["up"]))
     ],
-    onKeypress: t[18] || (t[18] = M($((i) => e.addPointerElement(i), ["stop", "self"]), ["enter", "tab"])),
-    onKeyup: t[19] || (t[19] = M((i) => e.deactivate(), ["esc"])),
+    onKeypress: t[18] || (t[18] = N(k((i) => e.addPointerElement(i), ["stop", "self"]), ["enter", "tab"])),
+    onKeyup: t[19] || (t[19] = N((i) => e.deactivate(), ["esc"])),
     role: "combobox",
     "aria-owns": "listbox-" + e.id
   }, [
-    E(e.$slots, "caret", { toggle: e.toggle }, () => [
+    _(e.$slots, "caret", { toggle: e.toggle }, () => [
       S("div", {
-        onMousedown: t[1] || (t[1] = $((i) => e.toggle(), ["prevent", "stop"])),
+        onMousedown: t[1] || (t[1] = k((i) => e.toggle(), ["prevent", "stop"])),
         class: "multiselect__select"
       }, null, 32)
     ]),
-    E(e.$slots, "clear", { search: e.search }),
+    _(e.$slots, "clear", { search: e.search }),
     S("div", An, [
-      E(e.$slots, "selection", {
+      _(e.$slots, "selection", {
         search: e.search,
         remove: e.removeElement,
         values: o.visibleValues,
         isOpen: e.isOpen
       }, () => [
-        q(S("div", Rn, [
-          (d(!0), F(N, null, z(o.visibleValues, (i, l) => E(e.$slots, "tag", {
+        G(S("div", Ln, [
+          (d(!0), T(B, null, q(o.visibleValues, (i, l) => _(e.$slots, "tag", {
             option: i,
             search: e.search,
             remove: e.removeElement
           }, () => [
-            (d(), F("span", {
+            (d(), T("span", {
               class: "multiselect__tag",
               key: l
             }, [
               S("span", {
-                textContent: v(e.getOptionLabel(i))
+                textContent: g(e.getOptionLabel(i))
               }, null, 8, ["textContent"]),
               S("i", {
                 tabindex: "1",
-                onKeypress: M($((c) => e.removeElement(i), ["prevent"]), ["enter"]),
-                onMousedown: $((c) => e.removeElement(i), ["prevent"]),
+                onKeypress: N(k((c) => e.removeElement(i), ["prevent"]), ["enter"]),
+                onMousedown: k((c) => e.removeElement(i), ["prevent"]),
                 class: "multiselect__tag-icon"
               }, null, 40, ["onKeypress", "onMousedown"])
             ]))
           ])), 256))
         ], 512), [
-          [X, o.visibleValues.length > 0]
+          [Z, o.visibleValues.length > 0]
         ]),
-        e.internalValue && e.internalValue.length > s.limit ? E(e.$slots, "limit", { key: 0 }, () => [
+        e.internalValue && e.internalValue.length > s.limit ? _(e.$slots, "limit", { key: 0 }, () => [
           S("strong", {
             class: "multiselect__strong",
-            textContent: v(s.limitText(e.internalValue.length - s.limit))
+            textContent: g(s.limitText(e.internalValue.length - s.limit))
           }, null, 8, ["textContent"])
-        ]) : O("v-if", !0)
+        ]) : E("v-if", !0)
       ]),
       S(ae, { name: "multiselect__loading" }, {
-        default: P(() => [
-          E(e.$slots, "loading", {}, () => [
-            q(S("div", Ln, null, 512), [
-              [X, s.loading]
+        default: V(() => [
+          _(e.$slots, "loading", {}, () => [
+            G(S("div", Rn, null, 512), [
+              [Z, s.loading]
             ])
           ])
         ]),
         _: 3
       }),
-      e.searchable ? (d(), F("input", {
+      e.searchable ? (d(), T("input", {
         key: 0,
         ref: "search",
         name: s.name,
@@ -2228,44 +2228,44 @@ function Nn(e, t, s, n, r, o) {
         disabled: s.disabled,
         tabindex: s.tabindex,
         onInput: t[2] || (t[2] = (i) => e.updateSearch(i.target.value)),
-        onFocus: t[3] || (t[3] = $((i) => e.activate(), ["prevent"])),
-        onBlur: t[4] || (t[4] = $((i) => e.deactivate(), ["prevent"])),
-        onKeyup: t[5] || (t[5] = M((i) => e.deactivate(), ["esc"])),
+        onFocus: t[3] || (t[3] = k((i) => e.activate(), ["prevent"])),
+        onBlur: t[4] || (t[4] = k((i) => e.deactivate(), ["prevent"])),
+        onKeyup: t[5] || (t[5] = N((i) => e.deactivate(), ["esc"])),
         onKeydown: [
-          t[6] || (t[6] = M($((i) => e.pointerForward(), ["prevent"]), ["down"])),
-          t[7] || (t[7] = M($((i) => e.pointerBackward(), ["prevent"]), ["up"])),
-          t[9] || (t[9] = M($((i) => e.removeLastElement(), ["stop"]), ["delete"]))
+          t[6] || (t[6] = N(k((i) => e.pointerForward(), ["prevent"]), ["down"])),
+          t[7] || (t[7] = N(k((i) => e.pointerBackward(), ["prevent"]), ["up"])),
+          t[9] || (t[9] = N(k((i) => e.removeLastElement(), ["stop"]), ["delete"]))
         ],
-        onKeypress: t[8] || (t[8] = M($((i) => e.addPointerElement(i), ["prevent", "stop", "self"]), ["enter"])),
+        onKeypress: t[8] || (t[8] = N(k((i) => e.addPointerElement(i), ["prevent", "stop", "self"]), ["enter"])),
         class: "multiselect__input",
         "aria-controls": "listbox-" + e.id
-      }, null, 44, ["name", "id", "placeholder", "value", "disabled", "tabindex", "aria-controls"])) : O("v-if", !0),
-      o.isSingleLabelVisible ? (d(), F("span", {
+      }, null, 44, ["name", "id", "placeholder", "value", "disabled", "tabindex", "aria-controls"])) : E("v-if", !0),
+      o.isSingleLabelVisible ? (d(), T("span", {
         key: 1,
         class: "multiselect__single",
-        onMousedown: t[10] || (t[10] = $((...i) => e.toggle && e.toggle(...i), ["prevent"]))
+        onMousedown: t[10] || (t[10] = k((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
-        E(e.$slots, "singleLabel", { option: o.singleValue }, () => [
-          T(v(e.currentOptionLabel), 1)
+        _(e.$slots, "singleLabel", { option: o.singleValue }, () => [
+          F(g(e.currentOptionLabel), 1)
         ])
-      ], 32)) : O("v-if", !0),
-      o.isPlaceholderVisible ? (d(), F("span", {
+      ], 32)) : E("v-if", !0),
+      o.isPlaceholderVisible ? (d(), T("span", {
         key: 2,
         class: "multiselect__placeholder",
-        onMousedown: t[11] || (t[11] = $((...i) => e.toggle && e.toggle(...i), ["prevent"]))
+        onMousedown: t[11] || (t[11] = k((...i) => e.toggle && e.toggle(...i), ["prevent"]))
       }, [
-        E(e.$slots, "placeholder", {}, () => [
-          T(v(e.placeholder), 1)
+        _(e.$slots, "placeholder", {}, () => [
+          F(g(e.placeholder), 1)
         ])
-      ], 32)) : O("v-if", !0)
+      ], 32)) : E("v-if", !0)
     ], 512),
     S(ae, { name: "multiselect" }, {
-      default: P(() => [
-        q(S("div", {
+      default: V(() => [
+        G(S("div", {
           class: "multiselect__content-wrapper",
           onFocus: t[12] || (t[12] = (...i) => e.activate && e.activate(...i)),
           tabindex: "-1",
-          onMousedown: t[13] || (t[13] = $(() => {
+          onMousedown: t[13] || (t[13] = k(() => {
           }, ["prevent"])),
           style: { maxHeight: e.optimizedHeight + "px" },
           ref: "list"
@@ -2276,84 +2276,84 @@ function Nn(e, t, s, n, r, o) {
             role: "listbox",
             id: "listbox-" + e.id
           }, [
-            E(e.$slots, "beforeList"),
-            e.multiple && e.max === e.internalValue.length ? (d(), F("li", Tn, [
+            _(e.$slots, "beforeList"),
+            e.multiple && e.max === e.internalValue.length ? (d(), T("li", Tn, [
               S("span", Fn, [
-                E(e.$slots, "maxElements", {}, () => [
-                  T("Maximum of " + v(e.max) + " options selected. First remove a selected option to select another.", 1)
+                _(e.$slots, "maxElements", {}, () => [
+                  F("Maximum of " + g(e.max) + " options selected. First remove a selected option to select another.", 1)
                 ])
               ])
-            ])) : O("v-if", !0),
-            !e.max || e.internalValue.length < e.max ? (d(!0), F(N, { key: 1 }, z(e.filteredOptions, (i, l) => (d(), F("li", {
+            ])) : E("v-if", !0),
+            !e.max || e.internalValue.length < e.max ? (d(!0), T(B, { key: 1 }, q(e.filteredOptions, (i, l) => (d(), T("li", {
               class: "multiselect__element",
               key: l,
               id: e.id + "-" + l,
               role: i && (i.$isLabel || i.$isDisabled) ? null : "option"
             }, [
-              i && (i.$isLabel || i.$isDisabled) ? O("v-if", !0) : (d(), F("span", {
+              i && (i.$isLabel || i.$isDisabled) ? E("v-if", !0) : (d(), T("span", {
                 key: 0,
                 class: [e.optionHighlight(l, i), "multiselect__option"],
-                onClick: $((c) => e.select(i), ["stop"]),
-                onMouseenter: $((c) => e.pointerSet(l), ["self"]),
+                onClick: k((c) => e.select(i), ["stop"]),
+                onMouseenter: k((c) => e.pointerSet(l), ["self"]),
                 "data-select": i && i.isTag ? e.tagPlaceholder : o.selectLabelText,
                 "data-selected": o.selectedLabelText,
                 "data-deselect": o.deselectLabelText
               }, [
-                E(e.$slots, "option", {
+                _(e.$slots, "option", {
                   option: i,
                   search: e.search,
                   index: l
                 }, () => [
-                  S("span", null, v(e.getOptionLabel(i)), 1)
+                  S("span", null, g(e.getOptionLabel(i)), 1)
                 ])
               ], 42, ["onClick", "onMouseenter", "data-select", "data-selected", "data-deselect"])),
-              i && (i.$isLabel || i.$isDisabled) ? (d(), F("span", {
+              i && (i.$isLabel || i.$isDisabled) ? (d(), T("span", {
                 key: 1,
                 "data-select": e.groupSelect && o.selectGroupLabelText,
                 "data-deselect": e.groupSelect && o.deselectGroupLabelText,
                 class: [e.groupHighlight(l, i), "multiselect__option"],
-                onMouseenter: $((c) => e.groupSelect && e.pointerSet(l), ["self"]),
-                onMousedown: $((c) => e.selectGroup(i), ["prevent"])
+                onMouseenter: k((c) => e.groupSelect && e.pointerSet(l), ["self"]),
+                onMousedown: k((c) => e.selectGroup(i), ["prevent"])
               }, [
-                E(e.$slots, "option", {
+                _(e.$slots, "option", {
                   option: i,
                   search: e.search,
                   index: l
                 }, () => [
-                  S("span", null, v(e.getOptionLabel(i)), 1)
+                  S("span", null, g(e.getOptionLabel(i)), 1)
                 ])
-              ], 42, ["data-select", "data-deselect", "onMouseenter", "onMousedown"])) : O("v-if", !0)
-            ], 8, ["id", "role"]))), 128)) : O("v-if", !0),
-            q(S("li", null, [
+              ], 42, ["data-select", "data-deselect", "onMouseenter", "onMousedown"])) : E("v-if", !0)
+            ], 8, ["id", "role"]))), 128)) : E("v-if", !0),
+            G(S("li", null, [
               S("span", Vn, [
-                E(e.$slots, "noResult", { search: e.search }, () => [
+                _(e.$slots, "noResult", { search: e.search }, () => [
                   Pn
                 ])
               ])
             ], 512), [
-              [X, s.showNoResults && e.filteredOptions.length === 0 && e.search && !s.loading]
+              [Z, s.showNoResults && e.filteredOptions.length === 0 && e.search && !s.loading]
             ]),
-            q(S("li", null, [
+            G(S("li", null, [
               S("span", Bn, [
-                E(e.$slots, "noOptions", {}, () => [
+                _(e.$slots, "noOptions", {}, () => [
                   Mn
                 ])
               ])
             ], 512), [
-              [X, s.showNoOptions && e.options.length === 0 && !e.search && !s.loading]
+              [Z, s.showNoOptions && e.options.length === 0 && !e.search && !s.loading]
             ]),
-            E(e.$slots, "afterList")
+            _(e.$slots, "afterList")
           ], 12, ["id"])
         ], 36), [
-          [X, e.isOpen]
+          [Z, e.isOpen]
         ])
       ]),
       _: 3
     })
   ], 42, ["tabindex", "aria-owns"]);
 }
-Re.render = Nn;
-const Dn = R({
+Le.render = Nn;
+const Dn = C({
   name: "CustomMultiSelect",
   emits: ["update:selectedOptions"],
   props: {
@@ -2374,7 +2374,7 @@ const Dn = R({
     }
   },
   components: {
-    VueMultiselect: Re
+    VueMultiselect: Le
   },
   data() {
     return {
@@ -2415,9 +2415,9 @@ const jn = { class: "custom-multiselect" }, Un = {
   class: "custom-multiselect__label text-sm"
 }, In = { class: "multiselect__tags-wrap" }, Hn = { class: "multiselect__tag" }, xn = ["onClick"];
 function zn(e, t, s, n, r, o) {
-  const i = J("vue-multiselect");
-  return d(), m("div", jn, [
-    e.label ? (d(), m("label", Un, v(e.label), 1)) : O("", !0),
+  const i = z("vue-multiselect");
+  return d(), p("div", jn, [
+    e.label ? (d(), p("label", Un, g(e.label), 1)) : E("", !0),
     S(i, {
       modelValue: e.value,
       "onUpdate:modelValue": t[0] || (t[0] = (l) => e.value = l),
@@ -2433,13 +2433,13 @@ function zn(e, t, s, n, r, o) {
       onSearchChange: e.find,
       "internal-search": !1
     }, {
-      noResult: P(() => [
-        T(" Nessun risultato. ")
+      noResult: V(() => [
+        F(" Nessun risultato. ")
       ]),
-      tag: P((l) => [
+      tag: V((l) => [
         h("div", In, [
           h("span", Hn, [
-            h("span", null, v(l.option.label), 1),
+            h("span", null, g(l.option.label), 1),
             h("i", {
               onClick: (c) => e.removeOption(l.option),
               tabindex: "1",
@@ -2448,65 +2448,65 @@ function zn(e, t, s, n, r, o) {
           ])
         ])
       ]),
-      option: P((l) => [
-        T(v(l.option.label), 1)
+      option: V((l) => [
+        F(g(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange"])
   ]);
 }
-const wr = /* @__PURE__ */ L(Dn, [["render", zn]]);
+const Fr = /* @__PURE__ */ A(Dn, [["render", zn]]);
 var qn = "Expected a function", qe = 0 / 0, Gn = "[object Symbol]", Jn = /^\s+|\s+$/g, Kn = /^[-+]0x[0-9a-f]+$/i, Wn = /^0b[01]+$/i, Qn = /^0o[0-7]+$/i, Yn = parseInt, Xn = typeof re == "object" && re && re.Object === Object && re, Zn = typeof self == "object" && self && self.Object === Object && self, ei = Xn || Zn || Function("return this")(), ti = Object.prototype, si = ti.toString, ni = Math.max, ii = Math.min, ye = function() {
   return ei.Date.now();
 };
 function ri(e, t, s) {
-  var n, r, o, i, l, c, a = 0, p = !1, g = !1, _ = !0;
+  var n, r, o, i, l, c, a = 0, m = !1, v = !1, O = !0;
   if (typeof e != "function")
     throw new TypeError(qn);
-  t = Ge(t) || 0, Oe(s) && (p = !!s.leading, g = "maxWait" in s, o = g ? ni(Ge(s.maxWait) || 0, t) : o, _ = "trailing" in s ? !!s.trailing : _);
-  function b(k) {
-    var H = n, Y = r;
-    return n = r = void 0, a = k, i = e.apply(Y, H), i;
+  t = Ge(t) || 0, Ee(s) && (m = !!s.leading, v = "maxWait" in s, o = v ? ni(Ge(s.maxWait) || 0, t) : o, O = "trailing" in s ? !!s.trailing : O);
+  function b($) {
+    var H = n, X = r;
+    return n = r = void 0, a = $, i = e.apply(X, H), i;
   }
-  function f(k) {
-    return a = k, l = setTimeout(C, t), p ? b(k) : i;
+  function f($) {
+    return a = $, l = setTimeout(L, t), m ? b($) : i;
   }
-  function w(k) {
-    var H = k - c, Y = k - a, Te = t - H;
-    return g ? ii(Te, o - Y) : Te;
+  function w($) {
+    var H = $ - c, X = $ - a, Te = t - H;
+    return v ? ii(Te, o - X) : Te;
   }
-  function B(k) {
-    var H = k - c, Y = k - a;
-    return c === void 0 || H >= t || H < 0 || g && Y >= o;
+  function M($) {
+    var H = $ - c, X = $ - a;
+    return c === void 0 || H >= t || H < 0 || v && X >= o;
   }
-  function C() {
-    var k = ye();
-    if (B(k))
-      return D(k);
-    l = setTimeout(C, w(k));
+  function L() {
+    var $ = ye();
+    if (M($))
+      return j($);
+    l = setTimeout(L, w($));
   }
-  function D(k) {
-    return l = void 0, _ && n ? b(k) : (n = r = void 0, i);
+  function j($) {
+    return l = void 0, O && n ? b($) : (n = r = void 0, i);
   }
   function K() {
     l !== void 0 && clearTimeout(l), a = 0, n = c = r = l = void 0;
   }
   function he() {
-    return l === void 0 ? i : D(ye());
+    return l === void 0 ? i : j(ye());
   }
   function pe() {
-    var k = ye(), H = B(k);
-    if (n = arguments, r = this, c = k, H) {
+    var $ = ye(), H = M($);
+    if (n = arguments, r = this, c = $, H) {
       if (l === void 0)
         return f(c);
-      if (g)
-        return l = setTimeout(C, t), b(c);
+      if (v)
+        return l = setTimeout(L, t), b(c);
     }
-    return l === void 0 && (l = setTimeout(C, t)), i;
+    return l === void 0 && (l = setTimeout(L, t)), i;
   }
   return pe.cancel = K, pe.flush = he, pe;
 }
-function Oe(e) {
+function Ee(e) {
   var t = typeof e;
   return !!e && (t == "object" || t == "function");
 }
@@ -2521,9 +2521,9 @@ function Ge(e) {
     return e;
   if (li(e))
     return qe;
-  if (Oe(e)) {
+  if (Ee(e)) {
     var t = typeof e.valueOf == "function" ? e.valueOf() : e;
-    e = Oe(t) ? t + "" : t;
+    e = Ee(t) ? t + "" : t;
   }
   if (typeof e != "string")
     return e === 0 ? e : +e;
@@ -2532,7 +2532,7 @@ function Ge(e) {
   return s || Qn.test(e) ? Yn(e.slice(2), s ? 2 : 8) : Kn.test(e) ? qe : +e;
 }
 var ai = ri;
-const ui = R({
+const ui = C({
   name: "CustomMultiSelectAsync",
   emits: ["update:selectedOptions"],
   props: {
@@ -2553,7 +2553,7 @@ const ui = R({
     }
   },
   components: {
-    VueMultiselect: Re
+    VueMultiselect: Le
   },
   data() {
     return {
@@ -2571,7 +2571,7 @@ const ui = R({
       this.$emit("update:selectedOptions", this.value);
     },
     find(e) {
-      e && (this.loading = !0, A.get(this.optionsSearchRoute, {
+      e && (this.loading = !0, R.get(this.optionsSearchRoute, {
         params: {
           q: e
         }
@@ -2602,9 +2602,9 @@ const ui = R({
   class: "custom-multiselect__label text-sm"
 }, hi = { class: "multiselect__tags-wrap" }, pi = { class: "multiselect__tag" }, fi = ["onClick"];
 function mi(e, t, s, n, r, o) {
-  const i = J("vue-multiselect");
-  return d(), m("div", ci, [
-    e.label ? (d(), m("label", di, v(e.label), 1)) : O("", !0),
+  const i = z("vue-multiselect");
+  return d(), p("div", ci, [
+    e.label ? (d(), p("label", di, g(e.label), 1)) : E("", !0),
     S(i, {
       modelValue: e.value,
       "onUpdate:modelValue": t[0] || (t[0] = (l) => e.value = l),
@@ -2621,13 +2621,13 @@ function mi(e, t, s, n, r, o) {
       onSearchChange: e.debouncedSearch,
       loading: e.loading
     }, {
-      noResult: P(() => [
-        T(" Nessun risultato. ")
+      noResult: V(() => [
+        F(" Nessun risultato. ")
       ]),
-      tag: P((l) => [
+      tag: V((l) => [
         h("div", hi, [
           h("span", pi, [
-            h("span", null, v(l.option.label), 1),
+            h("span", null, g(l.option.label), 1),
             h("i", {
               onClick: (c) => e.removeOption(l.option),
               tabindex: "1",
@@ -2636,14 +2636,14 @@ function mi(e, t, s, n, r, o) {
           ])
         ])
       ]),
-      option: P((l) => [
-        T(v(l.option.label), 1)
+      option: V((l) => [
+        F(g(l.option.label), 1)
       ]),
       _: 1
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange", "loading"])
   ]);
 }
-const Sr = /* @__PURE__ */ L(ui, [["render", mi]]), bi = R({
+const Vr = /* @__PURE__ */ A(ui, [["render", mi]]), bi = C({
   name: "CustomSelect",
   props: {
     options: {
@@ -2685,9 +2685,9 @@ const Sr = /* @__PURE__ */ L(ui, [["render", mi]]), bi = R({
   disabled: "",
   value: ""
 }, Si = ["value", "selected"];
-function Ei(e, t, s, n, r, o) {
-  return d(), m("div", gi, [
-    e.label ? (d(), m("label", yi, v(e.label), 1)) : O("", !0),
+function _i(e, t, s, n, r, o) {
+  return d(), p("div", gi, [
+    e.label ? (d(), p("label", yi, g(e.label), 1)) : E("", !0),
     h("select", {
       name: e.name,
       class: "custom-select__select",
@@ -2695,16 +2695,16 @@ function Ei(e, t, s, n, r, o) {
       onChange: t[0] || (t[0] = (...i) => e.handleSelectChange && e.handleSelectChange(...i)),
       disabled: e.disabled
     }, [
-      h("option", wi, v(e.placeholder), 1),
-      (d(!0), m(N, null, z(e.options, (i, l) => (d(), m("option", {
+      h("option", wi, g(e.placeholder), 1),
+      (d(!0), p(B, null, q(e.options, (i, l) => (d(), p("option", {
         key: l,
         value: i.value,
         selected: i.value == e.value
-      }, v(i.label), 9, Si))), 128))
+      }, g(i.label), 9, Si))), 128))
     ], 40, vi)
   ]);
 }
-const Er = /* @__PURE__ */ L(bi, [["render", Ei]]), Oi = R({
+const Pr = /* @__PURE__ */ A(bi, [["render", _i]]), Ei = C({
   name: "CustomRadioGroup",
   props: {
     options: {
@@ -2721,12 +2721,12 @@ const Er = /* @__PURE__ */ L(bi, [["render", Ei]]), Oi = R({
       t.emit("update:value", n.value);
     } };
   }
-}), _i = { class: "custom-radio-group" }, ki = ["name", "id", "value", "disabled", "checked"], $i = /* @__PURE__ */ h("span", { class: "custom-radio-group__single-radio__radio" }, null, -1), Ci = ["for"];
+}), Oi = { class: "custom-radio-group" }, $i = ["name", "id", "value", "disabled", "checked"], ki = /* @__PURE__ */ h("span", { class: "custom-radio-group__single-radio__radio" }, null, -1), Ci = ["for"];
 function Ai(e, t, s, n, r, o) {
-  return d(), m("div", _i, [
-    (d(!0), m(N, null, z(e.options, (i) => (d(), m("div", {
+  return d(), p("div", Oi, [
+    (d(!0), p(B, null, q(e.options, (i) => (d(), p("div", {
       key: i.id,
-      class: se([{ disabled: i.disabled, checked: i.value == e.value }, "custom-radio-group__single-radio"])
+      class: W([{ disabled: i.disabled, checked: i.value == e.value }, "custom-radio-group__single-radio"])
     }, [
       h("input", {
         type: "radio",
@@ -2737,16 +2737,16 @@ function Ai(e, t, s, n, r, o) {
         class: "custom-radio-group__single-radio__radio-hidden",
         checked: i.value == e.value,
         onChange: t[0] || (t[0] = (...l) => e.checkRadio && e.checkRadio(...l))
-      }, null, 40, ki),
-      $i,
+      }, null, 40, $i),
+      ki,
       h("label", {
         class: "custom-radio-group__single-radio__radio-label",
         for: i.id
-      }, v(i.label), 9, Ci)
+      }, g(i.label), 9, Ci)
     ], 2))), 128))
   ]);
 }
-const Or = /* @__PURE__ */ L(Oi, [["render", Ai]]), Ri = R({
+const Br = /* @__PURE__ */ A(Ei, [["render", Ai]]), Li = C({
   name: "CustomTextArea",
   emits: ["update"],
   props: {
@@ -2774,14 +2774,14 @@ const Or = /* @__PURE__ */ L(Oi, [["render", Ai]]), Ri = R({
       }
     }) };
   }
-}), Li = { class: "generic-input" }, Ti = {
+}), Ri = { class: "generic-input" }, Ti = {
   key: 0,
   class: "generic-input__label text-sm secondary-color"
 };
 function Fi(e, t, s, n, r, o) {
-  return d(), m("div", Li, [
-    e.label ? (d(), m("label", Ti, v(e.label), 1)) : O("", !0),
-    q(h("textarea", We(e.$attrs, {
+  return d(), p("div", Ri, [
+    e.label ? (d(), p("label", Ti, g(e.label), 1)) : E("", !0),
+    G(h("textarea", We(e.$attrs, {
       "onUpdate:modelValue": t[0] || (t[0] = (i) => e.computedValue = i),
       class: "generic-input__input " + e.classes
     }), null, 16), [
@@ -2789,7 +2789,7 @@ function Fi(e, t, s, n, r, o) {
     ])
   ]);
 }
-const _r = /* @__PURE__ */ L(Ri, [["render", Fi]]), Vi = R({
+const Mr = /* @__PURE__ */ A(Li, [["render", Fi]]), Vi = C({
   name: "GenericInput",
   emits: ["update"],
   props: {
@@ -2829,21 +2829,54 @@ const _r = /* @__PURE__ */ L(Ri, [["render", Fi]]), Vi = R({
   class: "generic-input__read-only"
 };
 function Di(e, t, s, n, r, o) {
-  return d(), m("div", Pi, [
-    e.label ? (d(), m("label", Bi, v(e.label), 1)) : O("", !0),
+  return d(), p("div", Pi, [
+    e.label ? (d(), p("label", Bi, g(e.label), 1)) : E("", !0),
     h("div", Mi, [
-      E(e.$slots, "prepend"),
-      e.readOnly ? O("", !0) : q((d(), m("input", We({ key: 0 }, e.$attrs, {
+      _(e.$slots, "prepend"),
+      e.readOnly ? E("", !0) : G((d(), p("input", We({ key: 0 }, e.$attrs, {
         "onUpdate:modelValue": t[0] || (t[0] = (i) => e.computedValue = i),
         class: "generic-input__input " + e.classes
       }), null, 16)), [
         [bt, e.computedValue]
       ])
     ]),
-    e.readOnly ? (d(), m("div", Ni, v(e.computedValue), 1)) : O("", !0)
+    e.readOnly ? (d(), p("div", Ni, g(e.computedValue), 1)) : E("", !0)
   ]);
 }
-const kr = /* @__PURE__ */ L(Vi, [["render", Di]]), ji = "data:image/png;base64,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", Ui = R({
+const Nr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
+  name: "Breadcrumbs",
+  props: {
+    path_breadcrumbs: {
+      type: Array,
+      required: !0,
+      default: []
+    }
+  },
+  setup(e) {
+    const t = D("");
+    return e.path_breadcrumbs.forEach((s, n) => {
+      n === e.path_breadcrumbs.length - 1 ? t.value += `<span class="font-bold">${s.label}</span>` : (t.value += `<router-link to="${s.path}" class="cursor-pointer hover:underline">${s.label}</router-link>`, t.value += " / ");
+    }), {
+      breadcrumbString: t
+    };
+  }
+}), Ui = ["innerHTML"];
+function Ii(e, t, s, n, r, o) {
+  return d(), p("div", {
+    class: "text-secondary text-xl",
+    innerHTML: e.breadcrumbString
+  }, null, 8, Ui);
+}
+const Hi = /* @__PURE__ */ A(ji, [["render", Ii]]), xi = C({
+  name: "FormSeparator"
+}), zi = {
+  style: { width: "calc(100% + 2 * 24px)", transform: "translateX(-24px)" },
+  class: "border-secondaryLight mb-8 mt-9"
+};
+function qi(e, t, s, n, r, o) {
+  return d(), p("hr", zi);
+}
+const Dr = /* @__PURE__ */ A(xi, [["render", qi]]), Gi = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAAnCAYAAADdG6ATAAAACXBIWXMAAAsSAAALEgHS3X78AAAJwElEQVR4nO1ce4hUVRj/NnYDdydokzBIM9sgCysjYZXKu4KGGjGOINvVXRQTIjbJlXA1GiFHcnf/8MEm+kcKPmKSJcchWgsFHQpU2EotEsPVorWSaPWPaQRXmviW31nPnjnnvmb2PT8YZu495557Ht/53mdKstksFQLpmDWViKJE9CIRPS41eYGI9oSiqSMFeVERw4q8CSYds9YRURMRPeJS9RYRzQxFU78Vl3z0ojRoz9Mxq5aI9hLRgx4f4XqXiKh8jM/pmMZ9QQaXjlmniegzA7Ewy+oiomYiSillE9Ix65PxPumjGb44DPSU8w6Esj8UTa1Rnrmp1H9yvE3yWIJnggGxsEiZoCl20k9CfufLjoS3E9EyIppERGVE1EtEN4ioLZ5Itkr17qDchMPxRLIedS1WvkGwcpvt8URyvR0J/05Ekz107wn0rYXbiCeS92v6f4iIFhNRJW7xpukQfVHq3sE6bJTHphljk6Gc31WHDVsVTySv+W0DdTZgTI5j98NhTMTSFYqmtFwD4kd9xx7TC+xIeBoRdRLRQ0pRGRazxY6EV8UTyWek+4TJKnFolyf0oFJHtNloR8J/mZ51aXsAsYIoOyQ9TVgUPJ46OxJeyoQUTyRTmjaa7Uj4nFKW8w4NanGL+7gbhOrYz3zgiWDSMetKAGJhjrRauX3Lxbz+CZPNE/0pEW3mHQNC2kJEK4joV81z2t0pYRcmtJuI5opdiF21Cs8OeN6OhLOmtu1I2PQeQSzMvT4Qz+E9W1HGdSo0z5Y4lGmBdgW35O/5Xp91QjyRNG4+V6UXXKJKU+RGLJeUnckL8LrpPWCtgljmMfsWC8vfYOfMcnU7yA1CNLTLLJsXVOJWeUHp/wKZyPB7AcrKUVcHLvvZRz+a8M2bMMNEA3E+aHAkmHTMelnDJRi3HYiFWaTKkXii7FA09a3D6wQh6NhyH3Ty2SNuoto7PKHgWIWGY/9x75wyVhnd+P20A0H1A+JPiO7NkkW6chDG1o9SLPBZg8L6hUZ+8+K/qlYEVzlARJZSdJvruxALSVzgjKkCdBGe/MNKEct/VWHrjieSU/D7XegwzLYbobdkMMkNeRCir/6jbLZUV0Ybi0cmGOg7X2vGKUPogt0Q2zz+RUxEPE8uzzpCEscy+hRm5jBx1gvSMSuTjlk/pGPWNl58iCKd+dwiLz5zIfhlrmmIJRWKpso9EIuXQTCxHMLHFzB5LFaPg3UTxAdPcJcgxOEGxGMPurHfxAlxfzou2+keBxPPvj9YQymFKfUeRMhMfDYa6jO3uAECYQtjqkFxZsfdKp+EchMsdiERrfc5DjelV4izPlGACV/LIgpch5XiwDsSEP2f41BnjlTXBLakTqFfnYY6W8D5s+BMAh0wsafzGINyTkelNxRNbQpFU9y5fSAIJzBR7QAnqVKI5S6ceq+wfhOAq3Tge/pg73go0UyUH+OWTkT4heh/NfSLAcC9atzrMLUNTiE2rOpeEJBN6assQiBGVkj3dxdgTDnoV3rZQ8vig4jewOI74S6cdcxJjvEzTHShaOqFoOIHVlAGgz3Iip9gyfheHnSQdiT8DzvmZEJEm8tw6bTjg/T/BExe8S7+fQJlGZ0DT2mrFeJTN5YNkl8lo3xuw8SmQpnYKnTi5LrmPvtPCrEL3TBDctzVQflTH+nRtKFTehlnQWiVaJOJUHXgZaEUFwKLJV8MOxmb0aZ4X8ZgIeWA3QcG77MwpWWlvh/YCF3CxAYndZuneqUNUwpDvc6sbtPc+9B1hAUARMVEiL1uabdkcN2EcgFRbpS5kONC4e2RuGcvfEXzDBZFr+aeYx0WJ/FEsgL6kEzYPQhTVGhMbuN7QBD97UCsVYLItWIb4xXmuzCxXefJK3LyYdhaUnwoQ8VdihgFGMBh4KhTQwCfFxeyCAFVJL2mXGfVdIUixjdUglF9CFfH+wQVMRBuwcdul/IixhncCOZYkSCKkBE4CVwFTg8sYSdYKJqK5NOWkrFWArP6IvtUTO5u+CweNWWd0b1MvpVSu72IrH8km9YGP4So+7YuGi35P67r/CMu7eqyCbmvjU5u+uGAymHUSOskL33ioKUUMliChCvf4Elnryxc3L8Q0U44qi7CrX5ZF5CDf2Kyk0scRNiIxRHtHsEYd2keOYs6TVJdjp2d0rn+8V5+/2RDualdEZ5oUdIaHg4yh4MNlcPsVQKPToG0PiCqPVO5PdFQ3Q3s5X0AzjR5F7diEY4S0WOIjMtoxk49ieClDn1pHPFEMmdMhqjwFU1As96OhP+FY07lIgvhHJyP/pjmTtcu5xR3wLO9uUDpFoOCARwGOTFyfutLTi9Nx6wEEb1ZiI5hd7H7frUpAYm9vGoZFrsaxMJu7xJD1lkZREoOfC7QUYg+uQ/bwV0a0I/qAElaDfhe6/O5IYVO6ZVjDaU68YIcmD+hs+hwOsAgFiM+4jfNQIT6G6SckLc09fh+bYEi4apewe/rAeE1oHyLnwZHMleRkUMwoWhqJ5Q3gap0zOrlHBh8mFC+cTkauy5AXyoDElqtyDrD9QHkxqqEMQtiiwOQdzh3Vo4o+0CNlIQlErvKxUZDP7qlFARPkLji9wH6NGTQmtXI15WJphQKreXhDHVXwPPTrtYAFnq7dC1C/f0BU0Rn2RrZJj+LwGYFFM3voMCyovmfF8JhHcqOhM9AuZaDsdtwPknWS9oQLfbS7jSI43UBOeyQwuiHAdHsM+TGZJEs1agpaw84gIyHU5FlivXQpFksQrRWa63gpMAcEE8N0jmaNXXrRGISzGHmfvzPFDuk4yPCOjupvgPcrIlyobZ7FZFn7vNcXzM2DHD0wyCOtAZByVm43SmSpDTnpDn2tCngMC4KZdGLPJez5h3yN5ysFZHdNgXPh5Wz4Gz+JqRr3WkAke+yyNAHTsi2lOfUdmuQW5wYDXqMJ8cdCESXSadyhBt59GU5xGCnHQnP8jB5e8DpTPnHa6WUyD4rzHBUVXAW9fSjzvxVUQ19RZdDRCAo7qd89klttxVOx612JNw+0okmX0/v88r15aAN4ajEPKQycib/OWknPitlqv0Ik5WPYxx3OCv8BxRc1g+YE67AUdWUpFzXwG/S44E41PYPQe+qM52jsiNh9njP9sA152LuvlSIa8Qh0N99SLigXAfy8Apg4p8ioq+I6Dns0BZYHMy9arCwu8FdGhzaOozdvxTtVkHsWWizBb9PKll8An+7dHcplFQtsQDL0U/Z+5zTLohpNQ6xbTDVGwnI6x+oED/aId1qhFlexBhFXhwGxCHL/hlFQhnbyFckEY5+nsfv4p8FjXEU8l802fSmQhyLLWKEgoj+B/KnMPnqbVqPAAAAAElFTkSuQmCC", Ji = C({
   name: "HeaderNavigation",
   components: {
     Transition: ae
@@ -2854,36 +2887,36 @@ const kr = /* @__PURE__ */ L(Vi, [["render", Di]]), ji = "data:image/png;base64,
       required: !0
     }
   },
-  setup(e, t) {
-    const s = ji, n = j(!1), r = j(null), o = (p, g) => {
-      e.menuStructure[p].children.length > 0 && (r.value && r.value.id === e.menuStructure[p].id ? (r.value = null, n.value = !1) : (r.value = e.menuStructure[p], n.value = !0));
-    }, i = j(null), l = j(null), c = (p) => {
-      l.value && !l.value.contains(p.target) && !i.value.contains(p.target) && (r.value = null, n.value = !1);
-    }, a = () => {
-      n.value = !1, r.value = null;
+  setup(e) {
+    const t = Gi, s = D(!1), n = D(null), r = (a, m) => {
+      e.menuStructure[a].children.length > 0 && (n.value && n.value.id === e.menuStructure[a].id ? (n.value = null, s.value = !1) : (n.value = e.menuStructure[a], s.value = !0));
+    }, o = D(null), i = D(null), l = (a) => {
+      i.value && !i.value.contains(a.target) && !o.value.contains(a.target) && (n.value = null, s.value = !1);
+    }, c = () => {
+      s.value = !1, n.value = null;
     };
     return Je(() => {
-      document.addEventListener("click", c);
+      document.addEventListener("click", l);
     }), gt(() => {
-      document.removeEventListener("click", c);
+      document.removeEventListener("click", l);
     }), {
-      siteLogoImage: s,
-      showSubMenu: o,
-      currentMenu: r,
-      isVisibleSubMenu: n,
-      menuElementRef: l,
-      navigationRef: i,
-      forceClose: a
+      siteLogoImage: t,
+      showSubMenu: r,
+      currentMenu: n,
+      isVisibleSubMenu: s,
+      menuElementRef: i,
+      navigationRef: o,
+      forceClose: c
     };
   }
 });
-const Le = (e) => (vt("data-v-6766234e"), e = e(), wt(), e), Ii = { class: "header-navigation py-5 container mx-auto" }, Hi = { class: "flex items-center justify-between mb-5" }, xi = ["src"], zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-6766234e><div class="cursor-pointer" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-6766234e></path></svg></div><div class="ml-7 cursor-pointer" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-6766234e></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-6766234e><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-6766234e><div class="font-regular text-xl" data-v-6766234e>EP</div></div><div class="ml-1" data-v-6766234e><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-6766234e><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-6766234e></path></svg></div></div></div>', 1), qi = {
+const Re = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Ki = { class: "header-navigation py-5 container mx-auto" }, Wi = { class: "flex items-center justify-between mb-5" }, Qi = ["src"], Yi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-4de80bf8><div class="cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-4de80bf8></path></svg></div><div class="ml-7 cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-4de80bf8></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-4de80bf8><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-4de80bf8><div class="font-regular text-xl" data-v-4de80bf8>EP</div></div><div class="ml-1" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-4de80bf8></path></svg></div></div></div>', 1), Xi = {
   ref: "navigationRef",
-  class: "text-secondary text-sm font-medium relative"
-}, Gi = { class: "flex" }, Ji = ["onClick"], Ki = {
-  key: 0,
+  class: "text-secondary text-base font-medium relative"
+}, Zi = { class: "flex" }, er = ["onClick"], tr = {
+  key: 2,
   class: "ml-1 text-secondary"
-}, Wi = {
+}, sr = {
   key: 0,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2891,13 +2924,13 @@ const Le = (e) => (vt("data-v-6766234e"), e = e(), wt(), e), Ii = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, Qi = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, nr = /* @__PURE__ */ Re(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M4.5 15.75l7.5-7.5 7.5 7.5"
-}, null, -1)), Yi = [
-  Qi
-], Xi = {
+}, null, -1)), ir = [
+  nr
+], rr = {
   key: 1,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2905,13 +2938,13 @@ const Le = (e) => (vt("data-v-6766234e"), e = e(), wt(), e), Ii = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, Zi = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, or = /* @__PURE__ */ Re(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M19.5 8.25l-7.5 7.5-7.5-7.5"
-}, null, -1)), er = [
-  Zi
-], tr = {
+}, null, -1)), lr = [
+  or
+], ar = {
   key: 1,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2919,78 +2952,127 @@ const Le = (e) => (vt("data-v-6766234e"), e = e(), wt(), e), Ii = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, sr = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, ur = /* @__PURE__ */ Re(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M19.5 8.25l-7.5 7.5-7.5-7.5"
-}, null, -1)), nr = [
-  sr
-], ir = {
+}, null, -1)), cr = [
+  ur
+], dr = {
   key: 0,
   ref: "menuElementRef",
-  class: "text-black absolute w-full rounded-lg shadow-md p-6 bg-white top-7 left-0 z-50"
-}, rr = { class: "font-bold mb-4" }, or = { class: "flex flex-wrap" }, lr = { key: 1 };
-function ar(e, t, s, n, r, o) {
-  const i = J("router-link");
-  return d(), m("header", Ii, [
-    h("div", Hi, [
+  class: "text-black absolute w-full shadow-md p-6 bg-white top-7 left-0 z-50"
+}, hr = { class: "font-bold mb-4" }, pr = { class: "flex flex-wrap" }, fr = { key: 1 };
+function mr(e, t, s, n, r, o) {
+  const i = z("router-link");
+  return d(), p("header", Ki, [
+    h("div", Wi, [
       h("div", null, [
         h("img", {
           src: e.siteLogoImage,
           alt: "gaspari-logo"
-        }, null, 8, xi)
+        }, null, 8, Qi)
       ]),
-      zi
+      Yi
     ]),
-    h("nav", qi, [
-      h("ul", Gi, [
-        (d(!0), m(N, null, z(e.menuStructure, (l, c) => (d(), m("li", {
+    h("nav", Xi, [
+      h("ul", Zi, [
+        (d(!0), p(B, null, q(e.menuStructure, (l, c) => (d(), p("li", {
           key: c,
           class: "mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none",
           onClick: (a) => e.showSubMenu(c, a)
         }, [
-          h("span", {
-            class: se({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
-          }, v(l.label), 3),
-          l.children.length > 0 ? (d(), m("div", Ki, [
-            e.currentMenu ? (d(), m(N, { key: 0 }, [
-              e.currentMenu.id === l.id ? (d(), m("svg", Wi, Yi)) : (d(), m("svg", Xi, er))
-            ], 64)) : (d(), m("svg", tr, nr))
-          ])) : O("", !0)
-        ], 8, Ji))), 128))
+          l.href && l.children.length === 0 ? (d(), T(i, {
+            key: 0,
+            to: l.href,
+            onClick: e.forceClose
+          }, {
+            default: V(() => [
+              h("span", {
+                class: W({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
+              }, g(l.label), 3)
+            ]),
+            _: 2
+          }, 1032, ["to", "onClick"])) : (d(), p("span", {
+            key: 1,
+            class: W({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
+          }, g(l.label), 3)),
+          l.children.length > 0 ? (d(), p("div", tr, [
+            e.currentMenu ? (d(), p(B, { key: 0 }, [
+              e.currentMenu.id === l.id ? (d(), p("svg", sr, ir)) : (d(), p("svg", rr, lr))
+            ], 64)) : (d(), p("svg", ar, cr))
+          ])) : E("", !0)
+        ], 8, er))), 128))
       ]),
       S(ae, null, {
-        default: P(() => [
-          e.isVisibleSubMenu && e.currentMenu ? (d(), m("div", ir, [
-            h("div", rr, v(e.currentMenu.label), 1),
-            h("ul", or, [
-              (d(!0), m(N, null, z(e.currentMenu.children, (l, c) => (d(), m("li", {
+        default: V(() => [
+          e.isVisibleSubMenu && e.currentMenu ? (d(), p("div", dr, [
+            h("div", hr, g(e.currentMenu.label), 1),
+            h("ul", pr, [
+              (d(!0), p(B, null, q(e.currentMenu.children, (l, c) => (d(), p("li", {
                 key: c,
                 class: "w-1/4 mb-3 cursor-pointer transition hover:underline"
               }, [
-                l.href ? (d(), F(i, {
+                l.href && l.children.length === 0 ? (d(), T(i, {
                   key: 0,
                   onClick: e.forceClose,
                   to: l.href
                 }, {
-                  default: P(() => [
-                    T(v(l.label), 1)
+                  default: V(() => [
+                    F(g(l.label), 1)
                   ]),
                   _: 2
-                }, 1032, ["onClick", "to"])) : (d(), m("div", lr, v(l.label), 1))
+                }, 1032, ["onClick", "to"])) : (d(), p("div", fr, g(l.label), 1))
               ]))), 128))
             ])
-          ], 512)) : O("", !0)
+          ], 512)) : E("", !0)
         ]),
         _: 1
       })
     ], 512)
   ]);
 }
-const ur = /* @__PURE__ */ L(Ui, [["render", ar], ["__scopeId", "data-v-6766234e"]]), cr = R({
+const br = /* @__PURE__ */ A(Ji, [["render", mr], ["__scopeId", "data-v-4de80bf8"]]), gr = C({
+  name: "FormContainer",
+  components: {
+    Breadcrumbs: Hi
+  },
+  props: {
+    path_breadcrumbs: {
+      type: Array,
+      required: !1,
+      default: []
+    },
+    title: {
+      type: String,
+      required: !1
+    }
+  }
+}), yr = {
+  key: 0,
+  class: "mb-2 ml-1"
+}, vr = {
+  key: 1,
+  class: "mb-3 ml-1 font-semibold text-lg uppercase"
+}, wr = { class: "form_container p-6 bg-white rounded-lg shadow overflow-x-hidden" };
+function Sr(e, t, s, n, r, o) {
+  const i = z("breadcrumbs");
+  return d(), p(B, null, [
+    _(e.$slots, "form-buttons-top"),
+    e.path_breadcrumbs.length > 0 ? (d(), p("div", yr, [
+      S(i, { path_breadcrumbs: e.path_breadcrumbs }, null, 8, ["path_breadcrumbs"])
+    ])) : E("", !0),
+    e.title ? (d(), p("h3", vr, g(e.title), 1)) : E("", !0),
+    h("div", wr, [
+      _(e.$slots, "form-content")
+    ]),
+    _(e.$slots, "form-buttons-bottom")
+  ], 64);
+}
+const jr = /* @__PURE__ */ A(gr, [["render", Sr]]), _r = C({
   name: "LayoutBase",
   components: {
-    HeaderNavigation: ur
+    HeaderNavigation: br
   },
   props: {
     menuStructure: {
@@ -2998,33 +3080,36 @@ const ur = /* @__PURE__ */ L(Ui, [["render", ar], ["__scopeId", "data-v-6766234e
       required: !0
     }
   }
-}), dr = { class: "layout" }, hr = { class: "main-content" }, pr = { class: "container mx-auto py-7" };
-function fr(e, t, s, n, r, o) {
-  const i = J("header-navigation");
-  return d(), m("div", dr, [
+}), Er = { class: "layout" }, Or = { class: "main-content" }, $r = { class: "container mx-auto py-7" };
+function kr(e, t, s, n, r, o) {
+  const i = z("header-navigation");
+  return d(), p("div", Er, [
     S(i, { menuStructure: e.menuStructure }, null, 8, ["menuStructure"]),
-    h("main", hr, [
-      h("div", pr, [
-        E(e.$slots, "content")
+    h("main", Or, [
+      h("div", $r, [
+        _(e.$slots, "layout-content")
       ])
     ])
   ]);
 }
-const $r = /* @__PURE__ */ L(cr, [["render", fr]]);
+const Ur = /* @__PURE__ */ A(_r, [["render", kr]]);
 export {
-  _t as CustomButton,
-  Rt as CustomCheckbox,
-  br as CustomFileUpload,
+  Hi as Breadcrumbs,
+  Ot as CustomButton,
+  Lt as CustomCheckbox,
+  Ar as CustomFileUpload,
   qt as CustomLoader,
-  gr as CustomModal,
-  yr as CustomMultiCheckbox,
-  wr as CustomMultiSelect,
-  Sr as CustomMultiSelectAsync,
-  vr as CustomMultipleFileUpload,
-  Or as CustomRadioGroup,
-  Er as CustomSelect,
-  _r as CustomTextArea,
-  kr as GenericInput,
-  ur as HeaderNavigation,
-  $r as LayoutBase
+  Lr as CustomModal,
+  Rr as CustomMultiCheckbox,
+  Fr as CustomMultiSelect,
+  Vr as CustomMultiSelectAsync,
+  Tr as CustomMultipleFileUpload,
+  Br as CustomRadioGroup,
+  Pr as CustomSelect,
+  Mr as CustomTextArea,
+  jr as FormContainer,
+  Dr as FormSeparator,
+  Nr as GenericInput,
+  br as HeaderNavigation,
+  Ur as LayoutBase
 };

@@ -12,9 +12,12 @@ import CustomSelect from './components/ui/CustomSelect.vue';
 import CustomRadioGroup from './components/ui/CustomRadioGroup.vue';
 import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
+import Breadcrumbs from './components/ui/Breadcrumbs.vue';
+import FormSeparator from './components/ui/FormSeparator.vue';
 
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
+import FormContainer from './components/partials/FormContainer.vue';
 
 // Layouts
 import LayoutBase from './layouts/LayoutBase.vue';
@@ -36,5 +39,8 @@ export {
     CustomTextArea,
     GenericInput,
     HeaderNavigation,
-    LayoutBase
+    FormContainer,
+    LayoutBase,
+    Breadcrumbs,
+    FormSeparator
 }
