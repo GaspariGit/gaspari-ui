@@ -31,12 +31,12 @@
 			</div>
 		</div>
 
-		<nav ref="navigationRef" class="text-secondary text-sm font-medium relative">
+		<nav ref="navigationRef" class="text-secondary text-base font-medium relative">
 			<ul class="flex">
 				<li 
 					v-for="(item, index) in menuStructure" 
 					:key="index"
-					class="mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none"					
+					class="mr-6  flex items-center cursor-pointer hover:text-secondaryHover transition select-none"					
 					@click="(e) => showSubMenu(index, e)"
 				>
 						<template v-if="item.href && item.children.length === 0">
@@ -72,7 +72,7 @@
 
 			<!-- SubMenu -->
 			<Transition>
-				<div ref="menuElementRef" v-if="isVisibleSubMenu && currentMenu" class="text-black absolute w-full rounded-lg shadow-md p-6 bg-white top-7 left-0 z-50">
+				<div ref="menuElementRef" v-if="isVisibleSubMenu && currentMenu" class="text-black absolute w-full shadow-md p-6 bg-white top-7 left-0 z-50">
 					<div class="font-bold mb-4">{{ currentMenu.label }}</div>
 					<ul class="flex flex-wrap">
 						<li

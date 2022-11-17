@@ -6,7 +6,7 @@
 
         <main class="main-content">
             <div class="container mx-auto py-7">
-                <slot name="content"></slot>
+                <slot name="layout-content"></slot>
             </div>
         </main>
     </div>

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{vue,js,ts,jsx,tsx}", "./sandbox/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
     colors: {
@@ -10,7 +10,8 @@ module.exports = {
       primary: '#f58234',
       primaryHover: '#c4601e',
       secondary: '#576b81',
-      secondaryHover: '#314963',      
+      secondaryHover: '#314963',
+      secondaryLight: '#c9d2db'      
     }
   },
   plugins: [],
