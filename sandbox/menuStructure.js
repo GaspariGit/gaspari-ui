@@ -5,55 +5,47 @@ const menuStructure = [
         children: [
             {
                 id: 11,
-                href: 'ghejhce',
+                href: '/anagrafiche/clienti',
                 label: 'Clienti',
                 children: []
             },
             {
-                id: 12,
-                href: 'ghejhce',
+                id: 12,                
                 label: 'Aree',
                 children: []
             },
             {
-                id: 13,
-                href: 'ghejhce',
+                id: 13,                
                 label: 'Uffici',
                 children: []
             },
             {
-                id: 14,
-                href: 'ghejhce',
+                id: 14,                
                 label: 'Contatti',
                 children: []
             },
             {
-                id: 15,
-                href: 'ghejhce',
+                id: 15,                
                 label: 'Localizzazioni',
                 children: []
             },
             {
-                id: 16,
-                href: 'ghejhce',
+                id: 16,                
                 label: 'Fornitori',
                 children: []
             },
             {
-                id: 17,
-                href: 'ghejhce',
+                id: 17,                
                 label: 'Agenti',
                 children: []
             },
             {
-                id: 18,
-                href: 'ghejhce',
+                id: 18,                
                 label: 'Depositi',
                 children: []
             },
             {
-                id: 19,
-                href: 'ghejhce',
+                id: 19,                
                 label: 'Catalogo',
                 children: []
             },            
@@ -64,64 +56,54 @@ const menuStructure = [
         label: 'Operatività',
         children: [
             {
-                id: 21,
-                href: 'ghejhce',
+                id: 21,                
                 label: 'Richieste agenti',
                 children: []
             },
             {
-                id: 22,
-                href: 'ghejhce',
+                id: 22,                
                 label: 'Preventivi',
                 children: []
             },
             {
-                id: 23,
-                href: 'ghejhce',
+                id: 23,                
                 label: 'Preventivi Speciali',
                 children: []
             },
             {
-                id: 24,
-                href: 'ghejhce',
+                id: 24,                
                 label: 'Ordini',
                 children: []
             },
             {
-                id: 25,
-                href: 'ghejhce',
+                id: 25,                
                 label: 'Licenze',
                 children: []
             },
             {
-                id: 26,
-                href: 'ghejhce',
+                id: 26,                
                 label: 'Commesse (task)',
                 children: []
             },
             {
-                id: 27,
-                href: 'ghejhce',
+                id: 27,                
                 label: 'Bolle e DDT',
                 children: []
             },
             {
-                id: 28,
-                href: 'ghejhce',
+                id: 28,                
                 label: 'Fatture',
                 children: []
             },
         ]
     },
     {
-        id: 3,
-        href: 'ghejhce',
+        id: 3,        
         label: 'Magazzino',
         children: []
     },
     {
-        id: 4,
-        href: 'ghejhce',
+        id: 4,        
         label: 'Finanza e Contabilità',
         children: []
     },
@@ -130,32 +112,27 @@ const menuStructure = [
         label: 'Statistiche & Marketing',
         children: [
             {
-                id: 51,
-                href: 'ghejhce',
+                id: 51,                
                 label: 'Statistiche di vendita',
                 children: []
             },
             {
-                id: 52,
-                href: 'ghejhce',
+                id: 52,                
                 label: 'Newsletters',
                 children: []
             },
             {
-                id: 53,
-                href: 'ghejhce',
+                id: 53,                
                 label: 'Promozioni',
                 children: []
             },
             {
-                id: 54,
-                href: 'ghejhce',
+                id: 54,                
                 label: 'Gestione Sito Gaspari',
                 children: []
             },
             {
-                id: 55,
-                href: 'ghejhce',
+                id: 55,                
                 label: 'Gestione E-Commerce',
                 children: []
             }
@@ -166,26 +143,22 @@ const menuStructure = [
         label: 'Varie',
         children: [
             {
-                id: 61,
-                href: 'ghejhce',
+                id: 61,                
                 label: 'Documenti',
                 children: []
             },
             {
-                id: 62,
-                href: 'ghejhce',
+                id: 62,                
                 label: 'Notifiche',
                 children: []
             },
             {
-                id: 63,
-                href: 'ghejhce',
+                id: 63,                
                 label: 'E-mails',
                 children: []
             },
             {
-                id: 64,
-                href: 'ghejhce',
+                id: 64,                
                 label: 'Templates',
                 children: []
             }
