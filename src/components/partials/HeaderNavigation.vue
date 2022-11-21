@@ -1,9 +1,11 @@
 <template>
 	<header class="header-navigation py-5 container mx-auto">
 		<div class="flex items-center justify-between mb-5">
-			<div>
-				<img :src="siteLogoImage" alt="gaspari-logo" >
-			</div>
+			<router-link :to="{name: 'home'}">
+				<div>
+					<img :src="siteLogoImage" alt="gaspari-logo" >
+				</div>
+			</router-link>
 			<div class="flex items-center">
 				<div class="cursor-pointer">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

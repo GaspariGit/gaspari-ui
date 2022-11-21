@@ -1,4 +1,4 @@
-import { defineComponent as C, openBlock as d, createElementBlock as p, normalizeClass as W, renderSlot as _, createElementVNode as h, toDisplayString as g, createTextVNode as L, ref as j, createCommentVNode as E, Fragment as V, resolveComponent as I, renderList as H, createBlock as F, onMounted as Je, createVNode as S, withCtx as P, withKeys as N, withModifiers as k, withDirectives as G, vShow as Z, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
+import { defineComponent as C, openBlock as d, createElementBlock as p, normalizeClass as W, renderSlot as _, createElementVNode as h, toDisplayString as g, createTextVNode as L, ref as j, createCommentVNode as E, Fragment as P, resolveComponent as I, renderList as H, createBlock as F, onMounted as Je, createVNode as S, withCtx as V, withKeys as N, withModifiers as k, withDirectives as G, vShow as Z, Transition as ae, computed as Ke, mergeProps as We, vModelText as mt, vModelDynamic as bt, onBeforeUnmount as gt, createStaticVNode as yt, pushScopeId as vt, popScopeId as wt } from "vue";
 const St = C({
   name: "CustomButton",
   props: {
@@ -280,7 +280,7 @@ function ss(e, t, s, n, r, o) {
       h("div", Wt, [
         h("div", Qt, [
           h("div", Yt, [
-            e.withoutTitle ? E("", !0) : (d(), p(V, { key: 0 }, [
+            e.withoutTitle ? E("", !0) : (d(), p(P, { key: 0 }, [
               L(g(e.modalTitle), 1)
             ], 64))
           ]),
@@ -324,7 +324,7 @@ const Tr = /* @__PURE__ */ A(Gt, [["render", ss]]), ns = C({
 function is(e, t, s, n, r, o) {
   const i = I("custom-checkbox");
   return d(), p("div", null, [
-    (d(!0), p(V, null, H(e.options, (l, c) => (d(), F(i, {
+    (d(!0), p(P, null, H(e.options, (l, c) => (d(), F(i, {
       key: c,
       label: l.label,
       checked: e.value.includes(l.id),
@@ -1614,7 +1614,7 @@ function Sn(e, t, s, n, r, o) {
   return d(), p("div", cn, [
     e.label ? (d(), p("label", dn, g(e.label), 1)) : E("", !0),
     h("ul", hn, [
-      (d(!0), p(V, null, H(e.fileList, (c, a) => (d(), p("li", {
+      (d(!0), p(P, null, H(e.fileList, (c, a) => (d(), p("li", {
         class: "file-list-item",
         key: a
       }, [
@@ -1640,7 +1640,7 @@ function Sn(e, t, s, n, r, o) {
           disabled: !1,
           onOnClick: e.handleClick
         }, {
-          "slot-left": P(() => [
+          "slot-left": V(() => [
             (d(), p("svg", yn, wn))
           ]),
           _: 1
@@ -2174,7 +2174,7 @@ function Nn(e, t, s, n, r, o) {
         isOpen: e.isOpen
       }, () => [
         G(S("div", Rn, [
-          (d(!0), F(V, null, H(o.visibleValues, (i, l) => _(e.$slots, "tag", {
+          (d(!0), F(P, null, H(o.visibleValues, (i, l) => _(e.$slots, "tag", {
             option: i,
             search: e.search,
             remove: e.removeElement
@@ -2205,7 +2205,7 @@ function Nn(e, t, s, n, r, o) {
         ]) : E("v-if", !0)
       ]),
       S(ae, { name: "multiselect__loading" }, {
-        default: P(() => [
+        default: V(() => [
           _(e.$slots, "loading", {}, () => [
             G(S("div", Ln, null, 512), [
               [Z, s.loading]
@@ -2260,7 +2260,7 @@ function Nn(e, t, s, n, r, o) {
       ], 32)) : E("v-if", !0)
     ], 512),
     S(ae, { name: "multiselect" }, {
-      default: P(() => [
+      default: V(() => [
         G(S("div", {
           class: "multiselect__content-wrapper",
           onFocus: t[12] || (t[12] = (...i) => e.activate && e.activate(...i)),
@@ -2284,7 +2284,7 @@ function Nn(e, t, s, n, r, o) {
                 ])
               ])
             ])) : E("v-if", !0),
-            !e.max || e.internalValue.length < e.max ? (d(!0), F(V, { key: 1 }, H(e.filteredOptions, (i, l) => (d(), F("li", {
+            !e.max || e.internalValue.length < e.max ? (d(!0), F(P, { key: 1 }, H(e.filteredOptions, (i, l) => (d(), F("li", {
               class: "multiselect__element",
               key: l,
               id: e.id + "-" + l,
@@ -2433,10 +2433,10 @@ function zn(e, t, s, n, r, o) {
       onSearchChange: e.find,
       "internal-search": !1
     }, {
-      noResult: P(() => [
+      noResult: V(() => [
         L(" Nessun risultato. ")
       ]),
-      tag: P((l) => [
+      tag: V((l) => [
         h("div", In, [
           h("span", Hn, [
             h("span", null, g(l.option.label), 1),
@@ -2448,7 +2448,7 @@ function zn(e, t, s, n, r, o) {
           ])
         ])
       ]),
-      option: P((l) => [
+      option: V((l) => [
         L(g(l.option.label), 1)
       ]),
       _: 1
@@ -2621,10 +2621,10 @@ function mi(e, t, s, n, r, o) {
       onSearchChange: e.debouncedSearch,
       loading: e.loading
     }, {
-      noResult: P(() => [
+      noResult: V(() => [
         L(" Nessun risultato. ")
       ]),
-      tag: P((l) => [
+      tag: V((l) => [
         h("div", hi, [
           h("span", pi, [
             h("span", null, g(l.option.label), 1),
@@ -2636,7 +2636,7 @@ function mi(e, t, s, n, r, o) {
           ])
         ])
       ]),
-      option: P((l) => [
+      option: V((l) => [
         L(g(l.option.label), 1)
       ]),
       _: 1
@@ -2696,7 +2696,7 @@ function _i(e, t, s, n, r, o) {
       disabled: e.disabled
     }, [
       h("option", wi, g(e.placeholder), 1),
-      (d(!0), p(V, null, H(e.options, (i, l) => (d(), p("option", {
+      (d(!0), p(P, null, H(e.options, (i, l) => (d(), p("option", {
         key: l,
         value: i.value,
         selected: i.value == e.value
@@ -2724,7 +2724,7 @@ const Mr = /* @__PURE__ */ A(bi, [["render", _i]]), Ei = C({
 }), Oi = { class: "custom-radio-group" }, $i = ["name", "id", "value", "disabled", "checked"], ki = /* @__PURE__ */ h("span", { class: "custom-radio-group__single-radio__radio" }, null, -1), Ci = ["for"];
 function Ai(e, t, s, n, r, o) {
   return d(), p("div", Oi, [
-    (d(!0), p(V, null, H(e.options, (i) => (d(), p("div", {
+    (d(!0), p(P, null, H(e.options, (i) => (d(), p("div", {
       key: i.id,
       class: W([{ disabled: i.disabled, checked: i.value == e.value }, "custom-radio-group__single-radio"])
     }, [
@@ -2821,16 +2821,17 @@ const Dr = /* @__PURE__ */ A(Ri, [["render", Fi]]), Vi = C({
       }
     }) };
   }
-}), Pi = { class: "generic-input" }, Bi = {
-  key: 0,
-  class: "generic-input__label text-sm secondary-color"
-}, Mi = { class: "input-container" }, Ni = {
+}), Pi = { class: "generic-input" }, Bi = ["for"], Mi = { class: "input-container" }, Ni = {
   key: 1,
   class: "generic-input__read-only"
 };
 function Di(e, t, s, n, r, o) {
   return d(), p("div", Pi, [
-    e.label ? (d(), p("label", Bi, g(e.label), 1)) : E("", !0),
+    e.label ? (d(), p("label", {
+      key: 0,
+      for: e.$attrs.id,
+      class: "generic-input__label text-sm secondary-color"
+    }, g(e.label), 9, Bi)) : E("", !0),
     h("div", Mi, [
       _(e.$slots, "prepend"),
       e.readOnly ? E("", !0) : G((d(), p("input", We({ key: 0 }, e.$attrs, {
@@ -2859,14 +2860,14 @@ const jr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
 function xi(e, t, s, n, r, o) {
   const i = I("router-link");
   return d(), p("div", Ui, [
-    (d(!0), p(V, null, H(e.path_breadcrumbs, (l, c) => (d(), p(V, { key: c }, [
-      c === e.path_breadcrumbs.length - 1 ? (d(), p("span", Ii, g(l.label), 1)) : (d(), p(V, { key: 1 }, [
+    (d(!0), p(P, null, H(e.path_breadcrumbs, (l, c) => (d(), p(P, { key: c }, [
+      c === e.path_breadcrumbs.length - 1 ? (d(), p("span", Ii, g(l.label), 1)) : (d(), p(P, { key: 1 }, [
         l.path ? (d(), F(i, {
           key: 0,
           to: l.path,
           class: "cursor-pointer hover:underline"
         }, {
-          default: P(() => [
+          default: V(() => [
             L(g(l.label), 1)
           ]),
           _: 2
@@ -2919,7 +2920,7 @@ const Ur = /* @__PURE__ */ A(qi, [["render", Ji]]), Ki = "data:image/png;base64,
     };
   }
 });
-const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Qi = { class: "header-navigation py-5 container mx-auto" }, Yi = { class: "flex items-center justify-between mb-5" }, Xi = ["src"], Zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-4de80bf8><div class="cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-4de80bf8></path></svg></div><div class="ml-7 cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-4de80bf8></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-4de80bf8><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-4de80bf8><div class="font-regular text-xl" data-v-4de80bf8>EP</div></div><div class="ml-1" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-4de80bf8></path></svg></div></div></div>', 1), er = {
+const Le = (e) => (vt("data-v-5ebb53ef"), e = e(), wt(), e), Qi = { class: "header-navigation py-5 container mx-auto" }, Yi = { class: "flex items-center justify-between mb-5" }, Xi = ["src"], Zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-5ebb53ef><div class="cursor-pointer" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-5ebb53ef></path></svg></div><div class="ml-7 cursor-pointer" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-5ebb53ef></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-5ebb53ef><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-5ebb53ef><div class="font-regular text-xl" data-v-5ebb53ef>EP</div></div><div class="ml-1" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-5ebb53ef></path></svg></div></div></div>', 1), er = {
   ref: "navigationRef",
   class: "text-secondary text-base font-medium relative"
 }, tr = { class: "flex" }, sr = ["onClick"], nr = {
@@ -2976,17 +2977,22 @@ function gr(e, t, s, n, r, o) {
   const i = I("router-link");
   return d(), p("header", Qi, [
     h("div", Yi, [
-      h("div", null, [
-        h("img", {
-          src: e.siteLogoImage,
-          alt: "gaspari-logo"
-        }, null, 8, Xi)
-      ]),
+      S(i, { to: { name: "home" } }, {
+        default: V(() => [
+          h("div", null, [
+            h("img", {
+              src: e.siteLogoImage,
+              alt: "gaspari-logo"
+            }, null, 8, Xi)
+          ])
+        ]),
+        _: 1
+      }),
       Zi
     ]),
     h("nav", er, [
       h("ul", tr, [
-        (d(!0), p(V, null, H(e.menuStructure, (l, c) => (d(), p("li", {
+        (d(!0), p(P, null, H(e.menuStructure, (l, c) => (d(), p("li", {
           key: c,
           class: "mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none",
           onClick: (a) => e.showSubMenu(c, a)
@@ -2996,7 +3002,7 @@ function gr(e, t, s, n, r, o) {
             to: l.href,
             onClick: e.forceClose
           }, {
-            default: P(() => [
+            default: V(() => [
               h("span", {
                 class: W({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
               }, g(l.label), 3)
@@ -3007,18 +3013,18 @@ function gr(e, t, s, n, r, o) {
             class: W({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
           }, g(l.label), 3)),
           l.children.length > 0 ? (d(), p("div", nr, [
-            e.currentMenu ? (d(), p(V, { key: 0 }, [
+            e.currentMenu ? (d(), p(P, { key: 0 }, [
               e.currentMenu.id === l.id ? (d(), p("svg", ir, or)) : (d(), p("svg", lr, ur))
             ], 64)) : (d(), p("svg", cr, hr))
           ])) : E("", !0)
         ], 8, sr))), 128))
       ]),
       S(ae, null, {
-        default: P(() => [
+        default: V(() => [
           e.isVisibleSubMenu && e.currentMenu ? (d(), p("div", pr, [
             h("div", fr, g(e.currentMenu.label), 1),
             h("ul", mr, [
-              (d(!0), p(V, null, H(e.currentMenu.children, (l, c) => (d(), p("li", {
+              (d(!0), p(P, null, H(e.currentMenu.children, (l, c) => (d(), p("li", {
                 key: c,
                 class: "w-1/4 mb-3 cursor-pointer transition hover:underline"
               }, [
@@ -3027,7 +3033,7 @@ function gr(e, t, s, n, r, o) {
                   onClick: e.forceClose,
                   to: l.href
                 }, {
-                  default: P(() => [
+                  default: V(() => [
                     L(g(l.label), 1)
                   ]),
                   _: 2
@@ -3041,7 +3047,7 @@ function gr(e, t, s, n, r, o) {
     ], 512)
   ]);
 }
-const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-4de80bf8"]]), vr = C({
+const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-5ebb53ef"]]), vr = C({
   name: "FormContainer",
   components: {
     Breadcrumbs: zi
@@ -3066,7 +3072,7 @@ const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-4de80bf8
 }, _r = { class: "form_container p-6 bg-white rounded-lg shadow overflow-x-hidden" };
 function Er(e, t, s, n, r, o) {
   const i = I("breadcrumbs");
-  return d(), p(V, null, [
+  return d(), p(P, null, [
     e.path_breadcrumbs.length > 0 ? (d(), p("div", wr, [
       S(i, { path_breadcrumbs: e.path_breadcrumbs }, null, 8, ["path_breadcrumbs"])
     ])) : E("", !0),
