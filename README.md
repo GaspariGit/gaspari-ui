@@ -514,20 +514,31 @@ Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
 Container for the forms.
 
 ```html
-<form-container
+<form-container			
+    title="Nuovo cliente"
     :path_breadcrumbs="[
         {
             label: 'Home',
-            path: '/home'
+            path: {
+                name: 'home'
+            }
         },
         {
-            label: 'Form',							
+            label: 'Anagrafiche',							
+        },
+        {
+            label: 'Clienti',	
+            path: {
+                name: 'anagraphics.clients.index'
+            }						
+        },
+        {
+            label: 'Nuovo cliente',							
         }
-    ]"					
->		
-    <!-- Slot above -->
+    ]"
+>
     <template v-slot:form-buttons-top>
-        <div class="flex mb-10 mt-6">
+        <div class="flex my-6 ml-1">
             <custom-button
                 label="Salva"
                 styleType="primary-outline"
@@ -544,49 +555,43 @@ Container for the forms.
         </div>						
     </template>	
 
-    <!-- Slot Inside -->
-    <template v-slot:form-content>        
-        <h1>{{ name }}</h1>
-
-        <generic-input
-            type="text"
-            placeholder="Aggiungi un placeholder"
-            label="Lorem ipsum"	
-            v-model="name"	
-        ></generic-input>	
-
-        <form-separator />
-
-        <generic-input
-            type="number"
-            placeholder="Aggiungi prezzo"
-            label="Prezzo"	
-            max="100"	
-        >
-            <template v-slot:prepend>
-                <div class="slot-price">€</div>
-            </template>
-        </generic-input>
-    </template>		
-
-    <!-- Slot below -->
-    <template v-slot:form-buttons-bottom>
-        <div class="flex my-10">
-            <custom-button
-                label="Salva"
-                styleType="primary-outline"
-                size="default"
-            />
-
-            <div class="ml-5">
-                <custom-button
-                    label="Chiudi"
-                    styleType="primary-outline"
-                    size="default"
+    <template v-slot:form-content>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-6">
+                <generic-input
+                    type="text"
+                    placeholder="Inserisci codice cliente"
+                    label="Codice Cliente"	
+                    v-model="formData.customer_code"
                 />
             </div>
-        </div>	
-    </template>								
+            <div class="col-span-6">
+                <generic-input
+                    type="text"
+                    placeholder="Inserisci codice fatturazione cliente"
+                    label="Codice fatturazione cliente"	
+                    v-model="formData.invoice_code"
+                />
+            </div>
+
+            <div class="col-span-6">
+                <generic-input
+                    type="text"
+                    placeholder="Inserisci codice cliente"
+                    label="Codice Cliente"	
+                    v-model="formData.customer_code"
+                />
+            </div>
+            <div class="col-span-6">
+                <generic-input
+                    type="text"
+                    placeholder="Inserisci codice fatturazione cliente"
+                    label="Codice fatturazione cliente"	
+                    v-model="formData.invoice_code"
+                />
+            </div>
+        </div>
+    </template>
 </form-container>				
 ```
 

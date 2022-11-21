@@ -1,6 +1,6 @@
 <template>
    <div class="generic-input">
-        <label class="generic-input__label text-sm secondary-color" v-if="label">
+        <label :for="$attrs['id']" class="generic-input__label text-sm secondary-color" v-if="label">
             {{ label }}
         </label>
 
@@ -11,7 +11,7 @@
                 v-if="!readOnly"
                 v-bind="$attrs" 
                 v-model="computedValue"
-                :class="'generic-input__input ' + classes" 
+                :class="'generic-input__input ' + classes"                 
             >
         </div>
 
