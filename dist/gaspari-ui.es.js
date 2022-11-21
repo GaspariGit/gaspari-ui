@@ -2854,17 +2854,21 @@ const Nr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
   },
   setup(e) {
     const t = D("");
-    return e.path_breadcrumbs.forEach((s, n) => {
-      n === e.path_breadcrumbs.length - 1 ? t.value += `<span class="font-bold">${s.label}</span>` : (t.value += `<router-link to="${s.path}" class="cursor-pointer hover:underline">${s.label}</router-link>`, t.value += " / ");
+    return e.path_breadcrumbs.forEach((n, r) => {
+      r === e.path_breadcrumbs.length - 1 ? t.value += `<span class="font-bold">${n.label}</span>` : (n.path ? t.value += `<router-link to="${n.path}" class="cursor-pointer hover:underline">${n.label}</router-link>` : t.value += `<span>${n.label}</span>`, t.value += " / ");
     }), {
-      breadcrumbString: t
+      breadcrumbTemplate: {
+        template: `
+				${t}
+			`
+      }
     };
   }
 }), Ui = ["innerHTML"];
 function Ii(e, t, s, n, r, o) {
   return d(), p("div", {
     class: "text-secondary text-xl",
-    innerHTML: e.breadcrumbString
+    innerHTML: e.breadcrumbTemplate
   }, null, 8, Ui);
 }
 const Hi = /* @__PURE__ */ A(ji, [["render", Ii]]), xi = C({

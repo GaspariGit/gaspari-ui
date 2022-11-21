@@ -1,5 +1,5 @@
 <template>
-	<div class="text-secondary text-xl" v-html="breadcrumbString">
+	<div class="text-secondary text-xl" v-html="breadcrumbTemplate">
 	</div>
 </template>
 
@@ -16,19 +16,30 @@ export default defineComponent({
 			default: []
 		}
 	},
-	setup(props) {
+	setup(props) {		
 		const breadcrumbString = ref<string>('');
 		props.path_breadcrumbs.forEach((item, index) => {			
 			if(index === props.path_breadcrumbs.length - 1) {
 				breadcrumbString.value += `<span class="font-bold">${item.label}</span>`;
 			} else {
-				breadcrumbString.value += `<router-link to="${item.path}" class="cursor-pointer hover:underline">${item.label}</router-link>`;
+				if(item.path) {
+					breadcrumbString.value += `<router-link to="${item.path}" class="cursor-pointer hover:underline">${item.label}</router-link>`;
+				} else {
+					breadcrumbString.value += `<span>${item.label}</span>`
+				}
+
 				breadcrumbString.value += ' / '
 			}			
 		})
 
+		const breadcrumbTemplate = {
+			template: `
+				${breadcrumbString}
+			`
+		}
+
 		return {
-			breadcrumbString
+			breadcrumbTemplate
 		}
 	}
 })

@@ -18,12 +18,10 @@ Also add the styles in App.vue or in other place to be used globally on the proj
 import "gaspari-ui/dist/style.css"; 
 ```
 
-This library is meant to be used with Tailwindcss, but If you are NOT using it in the parent project, then add also this style globally:
+This library is meant to be used with Tailwindcss, so add also this style globally:
 ```js
 import "gaspari-ui/dist/output.css";
 ```
-
-Otherwise, you can skip this passage.
 
 ---
 

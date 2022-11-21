@@ -1,5 +1,5 @@
 interface BreadcrumbInterface {
     label: string;
-    path: string;
+    path?: string;
 }
 export default BreadcrumbInterface;
