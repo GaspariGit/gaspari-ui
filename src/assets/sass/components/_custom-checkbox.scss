@@ -42,6 +42,8 @@ label.wrapper.flex.items-center.disabled {
 
   &::after {
     box-sizing: content-box;
+    top: 2px !important;
+    left: 6px !important;
   }
 }
 
