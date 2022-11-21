@@ -210,7 +210,7 @@ function Ut(e, t, s, n, r, o) {
     ])
   ]);
 }
-const Rr = /* @__PURE__ */ A(Lt, [["render", Ut]]), It = C({
+const Lr = /* @__PURE__ */ A(Lt, [["render", Ut]]), It = C({
   name: "CustomLoader",
   props: {
     loading: {
@@ -299,7 +299,7 @@ function ss(e, t, s, n, r, o) {
     ])
   ])) : E("", !0);
 }
-const Lr = /* @__PURE__ */ A(Gt, [["render", ss]]), ns = C({
+const Tr = /* @__PURE__ */ A(Gt, [["render", ss]]), ns = C({
   name: "CustomMultiCheckbox",
   components: {
     CustomCheckbox: Rt
@@ -332,7 +332,7 @@ function is(e, t, s, n, r, o) {
     }, null, 8, ["label", "checked", "onUpdate:checked"]))), 128))
   ]);
 }
-const Tr = /* @__PURE__ */ A(ns, [["render", is]]);
+const Fr = /* @__PURE__ */ A(ns, [["render", is]]);
 function Qe(e, t) {
   return function() {
     return e.apply(t, arguments);
@@ -1653,7 +1653,7 @@ function Sn(e, t, s, n, r, o) {
     ])
   ]);
 }
-const Fr = /* @__PURE__ */ A(un, [["render", Sn]]);
+const Vr = /* @__PURE__ */ A(un, [["render", Sn]]);
 function be(e) {
   return e === 0 ? !1 : Array.isArray(e) && e.length === 0 ? !0 : !e;
 }
@@ -2455,7 +2455,7 @@ function zn(e, t, s, n, r, o) {
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange"])
   ]);
 }
-const Vr = /* @__PURE__ */ A(Dn, [["render", zn]]);
+const Pr = /* @__PURE__ */ A(Dn, [["render", zn]]);
 var qn = "Expected a function", qe = 0 / 0, Gn = "[object Symbol]", Jn = /^\s+|\s+$/g, Kn = /^[-+]0x[0-9a-f]+$/i, Wn = /^0b[01]+$/i, Qn = /^0o[0-7]+$/i, Yn = parseInt, Xn = typeof re == "object" && re && re.Object === Object && re, Zn = typeof self == "object" && self && self.Object === Object && self, ei = Xn || Zn || Function("return this")(), ti = Object.prototype, si = ti.toString, ni = Math.max, ii = Math.min, ye = function() {
   return ei.Date.now();
 };
@@ -2643,7 +2643,7 @@ function mi(e, t, s, n, r, o) {
     }, 8, ["modelValue", "options", "placeholder", "onSearchChange", "loading"])
   ]);
 }
-const Pr = /* @__PURE__ */ A(ui, [["render", mi]]), bi = C({
+const Br = /* @__PURE__ */ A(ui, [["render", mi]]), bi = C({
   name: "CustomSelect",
   props: {
     options: {
@@ -2704,7 +2704,7 @@ function _i(e, t, s, n, r, o) {
     ], 40, vi)
   ]);
 }
-const Br = /* @__PURE__ */ A(bi, [["render", _i]]), Ei = C({
+const Mr = /* @__PURE__ */ A(bi, [["render", _i]]), Ei = C({
   name: "CustomRadioGroup",
   props: {
     options: {
@@ -2746,7 +2746,7 @@ function Ai(e, t, s, n, r, o) {
     ], 2))), 128))
   ]);
 }
-const Mr = /* @__PURE__ */ A(Ei, [["render", Ai]]), Ri = C({
+const Nr = /* @__PURE__ */ A(Ei, [["render", Ai]]), Ri = C({
   name: "CustomTextArea",
   emits: ["update"],
   props: {
@@ -2789,7 +2789,7 @@ function Fi(e, t, s, n, r, o) {
     ])
   ]);
 }
-const Nr = /* @__PURE__ */ A(Ri, [["render", Fi]]), Vi = C({
+const Dr = /* @__PURE__ */ A(Ri, [["render", Fi]]), Vi = C({
   name: "GenericInput",
   emits: ["update"],
   props: {
@@ -2843,7 +2843,7 @@ function Di(e, t, s, n, r, o) {
     e.readOnly ? (d(), p("div", Ni, g(e.computedValue), 1)) : E("", !0)
   ]);
 }
-const Dr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
+const jr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
   name: "Breadcrumbs",
   props: {
     path_breadcrumbs: {
@@ -2855,8 +2855,8 @@ const Dr = /* @__PURE__ */ A(Vi, [["render", Di]]), ji = C({
 }), Ui = { class: "text-secondary text-xl" }, Ii = {
   key: 0,
   class: "font-bold"
-};
-function Hi(e, t, s, n, r, o) {
+}, Hi = { key: 1 };
+function xi(e, t, s, n, r, o) {
   const i = I("router-link");
   return d(), p("div", Ui, [
     (d(!0), p(V, null, H(e.path_breadcrumbs, (l, c) => (d(), p(V, { key: c }, [
@@ -2870,25 +2870,22 @@ function Hi(e, t, s, n, r, o) {
             L(g(l.label), 1)
           ]),
           _: 2
-        }, 1032, ["to"])) : E("", !0),
-        h("template", null, [
-          h("span", null, g(l.label), 1)
-        ]),
+        }, 1032, ["to"])) : (d(), p("span", Hi, g(l.label), 1)),
         L(" / ")
       ], 64))
     ], 64))), 128))
   ]);
 }
-const xi = /* @__PURE__ */ A(ji, [["render", Hi]]), zi = C({
+const zi = /* @__PURE__ */ A(ji, [["render", xi]]), qi = C({
   name: "FormSeparator"
-}), qi = {
+}), Gi = {
   style: { width: "calc(100% + 2 * 24px)", transform: "translateX(-24px)" },
   class: "border-secondaryLight mb-8 mt-9"
 };
-function Gi(e, t, s, n, r, o) {
-  return d(), p("hr", qi);
+function Ji(e, t, s, n, r, o) {
+  return d(), p("hr", Gi);
 }
-const jr = /* @__PURE__ */ A(zi, [["render", Gi]]), Ji = "data:image/png;base64,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", Ki = C({
+const Ur = /* @__PURE__ */ A(qi, [["render", Ji]]), Ki = "data:image/png;base64,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", Wi = C({
   name: "HeaderNavigation",
   components: {
     Transition: ae
@@ -2900,7 +2897,7 @@ const jr = /* @__PURE__ */ A(zi, [["render", Gi]]), Ji = "data:image/png;base64,
     }
   },
   setup(e) {
-    const t = Ji, s = j(!1), n = j(null), r = (a, m) => {
+    const t = Ki, s = j(!1), n = j(null), r = (a, m) => {
       e.menuStructure[a].children.length > 0 && (n.value && n.value.id === e.menuStructure[a].id ? (n.value = null, s.value = !1) : (n.value = e.menuStructure[a], s.value = !0));
     }, o = j(null), i = j(null), l = (a) => {
       i.value && !i.value.contains(a.target) && !o.value.contains(a.target) && (n.value = null, s.value = !1);
@@ -2922,13 +2919,13 @@ const jr = /* @__PURE__ */ A(zi, [["render", Gi]]), Ji = "data:image/png;base64,
     };
   }
 });
-const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Wi = { class: "header-navigation py-5 container mx-auto" }, Qi = { class: "flex items-center justify-between mb-5" }, Yi = ["src"], Xi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-4de80bf8><div class="cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-4de80bf8></path></svg></div><div class="ml-7 cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-4de80bf8></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-4de80bf8><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-4de80bf8><div class="font-regular text-xl" data-v-4de80bf8>EP</div></div><div class="ml-1" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-4de80bf8></path></svg></div></div></div>', 1), Zi = {
+const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Qi = { class: "header-navigation py-5 container mx-auto" }, Yi = { class: "flex items-center justify-between mb-5" }, Xi = ["src"], Zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-4de80bf8><div class="cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-4de80bf8></path></svg></div><div class="ml-7 cursor-pointer" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-4de80bf8></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-4de80bf8><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-4de80bf8><div class="font-regular text-xl" data-v-4de80bf8>EP</div></div><div class="ml-1" data-v-4de80bf8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-4de80bf8><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-4de80bf8></path></svg></div></div></div>', 1), er = {
   ref: "navigationRef",
   class: "text-secondary text-base font-medium relative"
-}, er = { class: "flex" }, tr = ["onClick"], sr = {
+}, tr = { class: "flex" }, sr = ["onClick"], nr = {
   key: 2,
   class: "ml-1 text-secondary"
-}, nr = {
+}, ir = {
   key: 0,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2936,13 +2933,13 @@ const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Wi = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, ir = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, rr = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M4.5 15.75l7.5-7.5 7.5 7.5"
-}, null, -1)), rr = [
-  ir
-], or = {
+}, null, -1)), or = [
+  rr
+], lr = {
   key: 1,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2950,13 +2947,13 @@ const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Wi = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, lr = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, ar = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M19.5 8.25l-7.5 7.5-7.5-7.5"
-}, null, -1)), ar = [
-  lr
-], ur = {
+}, null, -1)), ur = [
+  ar
+], cr = {
   key: 1,
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -2964,31 +2961,31 @@ const Le = (e) => (vt("data-v-4de80bf8"), e = e(), wt(), e), Wi = { class: "head
   "stroke-width": "1.5",
   stroke: "currentColor",
   class: "w-3 h-3"
-}, cr = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
+}, dr = /* @__PURE__ */ Le(() => /* @__PURE__ */ h("path", {
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
   d: "M19.5 8.25l-7.5 7.5-7.5-7.5"
-}, null, -1)), dr = [
-  cr
-], hr = {
+}, null, -1)), hr = [
+  dr
+], pr = {
   key: 0,
   ref: "menuElementRef",
   class: "text-black absolute w-full shadow-md p-6 bg-white top-7 left-0 z-50"
-}, pr = { class: "font-bold mb-4" }, fr = { class: "flex flex-wrap" }, mr = { key: 1 };
-function br(e, t, s, n, r, o) {
+}, fr = { class: "font-bold mb-4" }, mr = { class: "flex flex-wrap" }, br = { key: 1 };
+function gr(e, t, s, n, r, o) {
   const i = I("router-link");
-  return d(), p("header", Wi, [
-    h("div", Qi, [
+  return d(), p("header", Qi, [
+    h("div", Yi, [
       h("div", null, [
         h("img", {
           src: e.siteLogoImage,
           alt: "gaspari-logo"
-        }, null, 8, Yi)
+        }, null, 8, Xi)
       ]),
-      Xi
+      Zi
     ]),
-    h("nav", Zi, [
-      h("ul", er, [
+    h("nav", er, [
+      h("ul", tr, [
         (d(!0), p(V, null, H(e.menuStructure, (l, c) => (d(), p("li", {
           key: c,
           class: "mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none",
@@ -3009,18 +3006,18 @@ function br(e, t, s, n, r, o) {
             key: 1,
             class: W({ "text-secondaryHover": e.currentMenu && e.currentMenu.id === l.id })
           }, g(l.label), 3)),
-          l.children.length > 0 ? (d(), p("div", sr, [
+          l.children.length > 0 ? (d(), p("div", nr, [
             e.currentMenu ? (d(), p(V, { key: 0 }, [
-              e.currentMenu.id === l.id ? (d(), p("svg", nr, rr)) : (d(), p("svg", or, ar))
-            ], 64)) : (d(), p("svg", ur, dr))
+              e.currentMenu.id === l.id ? (d(), p("svg", ir, or)) : (d(), p("svg", lr, ur))
+            ], 64)) : (d(), p("svg", cr, hr))
           ])) : E("", !0)
-        ], 8, tr))), 128))
+        ], 8, sr))), 128))
       ]),
       S(ae, null, {
         default: P(() => [
-          e.isVisibleSubMenu && e.currentMenu ? (d(), p("div", hr, [
-            h("div", pr, g(e.currentMenu.label), 1),
-            h("ul", fr, [
+          e.isVisibleSubMenu && e.currentMenu ? (d(), p("div", pr, [
+            h("div", fr, g(e.currentMenu.label), 1),
+            h("ul", mr, [
               (d(!0), p(V, null, H(e.currentMenu.children, (l, c) => (d(), p("li", {
                 key: c,
                 class: "w-1/4 mb-3 cursor-pointer transition hover:underline"
@@ -3034,7 +3031,7 @@ function br(e, t, s, n, r, o) {
                     L(g(l.label), 1)
                   ]),
                   _: 2
-                }, 1032, ["onClick", "to"])) : (d(), p("div", mr, g(l.label), 1))
+                }, 1032, ["onClick", "to"])) : (d(), p("div", br, g(l.label), 1))
               ]))), 128))
             ])
           ], 512)) : E("", !0)
@@ -3044,10 +3041,10 @@ function br(e, t, s, n, r, o) {
     ], 512)
   ]);
 }
-const gr = /* @__PURE__ */ A(Ki, [["render", br], ["__scopeId", "data-v-4de80bf8"]]), yr = C({
+const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-4de80bf8"]]), vr = C({
   name: "FormContainer",
   components: {
-    Breadcrumbs: xi
+    Breadcrumbs: zi
   },
   props: {
     path_breadcrumbs: {
@@ -3060,31 +3057,31 @@ const gr = /* @__PURE__ */ A(Ki, [["render", br], ["__scopeId", "data-v-4de80bf8
       required: !1
     }
   }
-}), vr = {
+}), wr = {
   key: 0,
   class: "mb-2 ml-1"
-}, wr = {
+}, Sr = {
   key: 1,
   class: "mb-3 ml-1 font-semibold text-lg uppercase"
-}, Sr = { class: "form_container p-6 bg-white rounded-lg shadow overflow-x-hidden" };
-function _r(e, t, s, n, r, o) {
+}, _r = { class: "form_container p-6 bg-white rounded-lg shadow overflow-x-hidden" };
+function Er(e, t, s, n, r, o) {
   const i = I("breadcrumbs");
   return d(), p(V, null, [
     _(e.$slots, "form-buttons-top"),
-    e.path_breadcrumbs.length > 0 ? (d(), p("div", vr, [
+    e.path_breadcrumbs.length > 0 ? (d(), p("div", wr, [
       S(i, { path_breadcrumbs: e.path_breadcrumbs }, null, 8, ["path_breadcrumbs"])
     ])) : E("", !0),
-    e.title ? (d(), p("h3", wr, g(e.title), 1)) : E("", !0),
-    h("div", Sr, [
+    e.title ? (d(), p("h3", Sr, g(e.title), 1)) : E("", !0),
+    h("div", _r, [
       _(e.$slots, "form-content")
     ]),
     _(e.$slots, "form-buttons-bottom")
   ], 64);
 }
-const Ur = /* @__PURE__ */ A(yr, [["render", _r]]), Er = C({
+const Ir = /* @__PURE__ */ A(vr, [["render", Er]]), Or = C({
   name: "LayoutBase",
   components: {
-    HeaderNavigation: gr
+    HeaderNavigation: yr
   },
   props: {
     menuStructure: {
@@ -3092,36 +3089,36 @@ const Ur = /* @__PURE__ */ A(yr, [["render", _r]]), Er = C({
       required: !0
     }
   }
-}), Or = { class: "layout" }, $r = { class: "main-content" }, kr = { class: "container mx-auto py-7" };
-function Cr(e, t, s, n, r, o) {
+}), $r = { class: "layout" }, kr = { class: "main-content" }, Cr = { class: "container mx-auto py-7" };
+function Ar(e, t, s, n, r, o) {
   const i = I("header-navigation");
-  return d(), p("div", Or, [
+  return d(), p("div", $r, [
     S(i, { menuStructure: e.menuStructure }, null, 8, ["menuStructure"]),
-    h("main", $r, [
-      h("div", kr, [
+    h("main", kr, [
+      h("div", Cr, [
         _(e.$slots, "layout-content")
       ])
     ])
   ]);
 }
-const Ir = /* @__PURE__ */ A(Er, [["render", Cr]]);
+const Hr = /* @__PURE__ */ A(Or, [["render", Ar]]);
 export {
-  xi as Breadcrumbs,
+  zi as Breadcrumbs,
   Ot as CustomButton,
   Rt as CustomCheckbox,
-  Rr as CustomFileUpload,
+  Lr as CustomFileUpload,
   qt as CustomLoader,
-  Lr as CustomModal,
-  Tr as CustomMultiCheckbox,
-  Vr as CustomMultiSelect,
-  Pr as CustomMultiSelectAsync,
-  Fr as CustomMultipleFileUpload,
-  Mr as CustomRadioGroup,
-  Br as CustomSelect,
-  Nr as CustomTextArea,
-  Ur as FormContainer,
-  jr as FormSeparator,
-  Dr as GenericInput,
-  gr as HeaderNavigation,
-  Ir as LayoutBase
+  Tr as CustomModal,
+  Fr as CustomMultiCheckbox,
+  Pr as CustomMultiSelect,
+  Br as CustomMultiSelectAsync,
+  Vr as CustomMultipleFileUpload,
+  Nr as CustomRadioGroup,
+  Mr as CustomSelect,
+  Dr as CustomTextArea,
+  Ir as FormContainer,
+  Ur as FormSeparator,
+  jr as GenericInput,
+  yr as HeaderNavigation,
+  Hr as LayoutBase
 };
