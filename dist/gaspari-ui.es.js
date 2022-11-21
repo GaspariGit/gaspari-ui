@@ -3059,7 +3059,7 @@ const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-4de80bf8
   }
 }), wr = {
   key: 0,
-  class: "mb-2 ml-1"
+  class: "mb-6 ml-1"
 }, Sr = {
   key: 1,
   class: "mb-3 ml-1 font-semibold text-lg uppercase"
@@ -3067,10 +3067,10 @@ const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-4de80bf8
 function Er(e, t, s, n, r, o) {
   const i = I("breadcrumbs");
   return d(), p(V, null, [
-    _(e.$slots, "form-buttons-top"),
     e.path_breadcrumbs.length > 0 ? (d(), p("div", wr, [
       S(i, { path_breadcrumbs: e.path_breadcrumbs }, null, 8, ["path_breadcrumbs"])
     ])) : E("", !0),
+    _(e.$slots, "form-buttons-top"),
     e.title ? (d(), p("h3", Sr, g(e.title), 1)) : E("", !0),
     h("div", _r, [
       _(e.$slots, "form-content")
