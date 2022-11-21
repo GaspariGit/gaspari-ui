@@ -8,7 +8,7 @@
 				<template v-if="item.path">
 					<router-link :to="item.path" class="cursor-pointer hover:underline">{{ item.label }}</router-link>
 				</template>
-				<template>
+				<template v-else>
 					<span>{{ item.label }}</span>
 				</template> / 
 			</template>
