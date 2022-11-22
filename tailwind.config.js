@@ -11,7 +11,8 @@ module.exports = {
       primaryHover: '#c4601e',
       secondary: '#576b81',
       secondaryHover: '#314963',
-      secondaryLight: '#c9d2db'      
+      secondaryLight: '#c9d2db',
+      textGrey: '#707070'      
     }
   },
   plugins: [],

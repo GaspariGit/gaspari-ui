@@ -1,249 +1,245 @@
 <template>
-		<layout-base
-			:menuStructure="menuStructureList"
-		>			
-			<template v-slot:layout-content>
-				<form-container
-					:path_breadcrumbs="[
+		
+	<form-container
+		:path_breadcrumbs="[
+			{
+				label: 'Home',
+				path: '/home'
+			},
+			{
+				label: 'Form',							
+			}
+		]"					
+	>		
+		<template v-slot:form-buttons-top>
+			<div class="flex mb-10 mt-6">
+				<custom-button
+					label="Salva"
+					styleType="primary-outline"
+					size="default"
+				/>
+
+				<div class="ml-5">
+					<custom-button
+						label="Chiudi"
+						styleType="primary-outline"
+						size="default"
+					/>
+				</div>
+
+			</div>						
+		</template>	
+		<template v-slot:form-content>
+			
+			<h1>{{ name }}</h1>
+
+			<generic-input
+				type="text"
+				placeholder="Aggiungi un placeholder"
+				label="Lorem ipsum"	
+				v-model="name"	
+			></generic-input>	
+
+			<form-separator />
+
+			<generic-input
+				type="number"
+				placeholder="Aggiungi prezzo"
+				label="Prezzo"	
+				max="100"	
+			>
+				<template v-slot:prepend>
+					<div class="slot-price">€</div>
+				</template>
+			</generic-input>
+
+			<generic-input
+				type="date"
+				placeholder="Aggiungi un placeholder"
+				label="Lorem ipsum"	
+				v-model="name"	
+			></generic-input>	
+
+			<custom-text-area
+				label="ratataaa"
+				placeholder="Aldo un placeholdert"
+				disabled			
+			/>
+
+			<div style="padding: 8px">			
+				<custom-checkbox
+					label="select"
+					v-model:checked="selected"	
+					:disabled="true"
+				/>				
+			</div>	
+
+			<div>{{selected}}</div>				
+
+
+			<div style="padding: 8px">			
+				<custom-multi-checkbox
+					:options="options"
+					v-model:value="heroes"				
+				/>
+			</div>	
+
+			<div style="padding: 8px">			
+				<custom-radio-group
+					:options="[
 						{
-							label: 'Home',
-							path: '/home'
+							id: 'input_444',
+							label: 'Radio 1',
+							value: 'radio_1',
+							name: 'radio_group',						
+							disabled: true
 						},
 						{
-							label: 'Form',							
+							id: 'input_445',
+							label: 'Radio 2',
+							value: 'radio_2',
+							name: 'radio_group',
 						}
-					]"					
-				>		
-					<template v-slot:form-buttons-top>
-						<div class="flex mb-10 mt-6">
-							<custom-button
-								label="Salva"
-								styleType="primary-outline"
-								size="default"
-							/>
+					]"
+					v-model:value="selectedRadioValue"
+				/>
 
-							<div class="ml-5">
-								<custom-button
-									label="Chiudi"
-									styleType="primary-outline"
-									size="default"
-								/>
-							</div>
+				<div>SelectedRadio: {{ selectedRadioValue }}</div>
+			</div>	
 
-						</div>						
-					</template>	
-					<template v-slot:form-content>
-						
-						<h1>{{ name }}</h1>
+			<div style="padding: 8px">			
+				<custom-select
+					name="custom_select"
+					label="Seleziona"
+					:options="[
+						{
+							value: 1,
+							label: 'Giovanni'
+						},
+						{
+							value: 2,
+							label: 'Mario'
+						},
+						{
+							value: 3,
+							label: 'Andrea'
+						},
+					]"
+					v-model:value="selectedOption"
+				/>									
+			</div>	
 
-						<generic-input
-							type="text"
-							placeholder="Aggiungi un placeholder"
-							label="Lorem ipsum"	
-							v-model="name"	
-						></generic-input>	
+			<div style="padding: 8px">			
+				<custom-multi-select
+					label="Seleziona"
+					placeholder="Seleziona opzione"
+					:options="[
+						{
+							label: 'Opzione 1',
+							value: 1
+						},
+						{
+							label: 'Opzione 2',
+							value: 2
+						},
+						{
+							label: 'Opzione 3',
+							value: 3
+						},
+					]"
+					v-model:selectedOptions="selectedMultiSelectOptions"
+				/>			
 
-						<form-separator />
+				<div>{{ selectedMultiSelectOptions }}</div>									
+			</div>
 
-						<generic-input
-							type="number"
-							placeholder="Aggiungi prezzo"
-							label="Prezzo"	
-							max="100"	
-						>
-							<template v-slot:prepend>
-								<div class="slot-price">€</div>
-							</template>
-						</generic-input>
+			<div style="padding: 8px">
+				<custom-multi-select-async
+					label="Seleziona"
+					placeholder="Seleziona opzione"
+					v-model:selectedOptions="selectedMultiSelectAsyncOptions"
+					optionsSearchRoute="http://localhost:8000/data"
+				/>			
 
-						<generic-input
-							type="date"
-							placeholder="Aggiungi un placeholder"
-							label="Lorem ipsum"	
-							v-model="name"	
-						></generic-input>	
+				<div>{{ selectedMultiSelectAsyncOptions }}</div>
+			</div>
 
-						<custom-text-area
-							label="ratataaa"
-							placeholder="Aldo un placeholdert"
-							disabled			
+			<div style="padding: 8px;">
+				<custom-file-upload
+					label="File upload"
+					v-model:file="selectedFile"
+				/>		
+
+				<div v-if="selectedFile">
+					{{ selectedFile.name }}
+				</div>
+			</div>
+
+			<div style="padding: 8px;">
+				<custom-multiple-file-upload
+					label="Multiple File upload"
+					routeGetFiles="blabla"
+					routePostFiles="blabla"
+					routeDeleteFile="blabla"
+				/>
+
+				<div v-for="(file, index) in selectedFiles" :key="index">
+					{{ file[1].name }}
+				</div>
+			</div>
+
+			<custom-modal
+				:isOpen="isModalOpen"
+				modalTitle="Inserisci nuovo"
+				@closeModal="openCloseModal"
+			>
+				<template v-slot:modal-body>
+					Lorem ipsuctetur adipisicing elit. Quia excepturi voluptatum corrupti libero officia sed a officiis, accusamus ullam sunt magnam recusandae, repudiandae reprehenderit accusantium, autem eum sint unde quasi?
+				</template>
+
+				<template v-slot:modal-footer>
+					<div style="margin-right: 15px;">
+						<custom-button
+							label="Chiudi"
+							styleType="secondary-outline"
+							@onClick="openCloseModal"
 						/>
+					</div>
+					<custom-button
+						label="Inserisci"
+						styleType="primary"
+						@onClick="test"
+					/>
+				</template>
+			</custom-modal>
 
-						<div style="padding: 8px">			
-							<custom-checkbox
-								label="select"
-								v-model:checked="selected"	
-								:disabled="true"
-							/>				
-						</div>	
+			<div style="padding: 8px;">
+				<custom-button
+					label="Apri modale"
+					@onClick="openCloseModal"
+				/>
+			</div>
 
-						<div>{{selected}}</div>				
+		</template>		
+		<template v-slot:form-buttons-bottom>
+			<div class="flex my-10">
+				<custom-button
+					label="Salva"
+					styleType="primary-outline"
+					size="default"
+				/>
 
-
-						<div style="padding: 8px">			
-							<custom-multi-checkbox
-								:options="options"
-								v-model:value="heroes"				
-							/>
-						</div>	
-
-						<div style="padding: 8px">			
-							<custom-radio-group
-								:options="[
-									{
-										id: 'input_444',
-										label: 'Radio 1',
-										value: 'radio_1',
-										name: 'radio_group',						
-										disabled: true
-									},
-									{
-										id: 'input_445',
-										label: 'Radio 2',
-										value: 'radio_2',
-										name: 'radio_group',
-									}
-								]"
-								v-model:value="selectedRadioValue"
-							/>
-
-							<div>SelectedRadio: {{ selectedRadioValue }}</div>
-						</div>	
-
-						<div style="padding: 8px">			
-							<custom-select
-								name="custom_select"
-								label="Seleziona"
-								:options="[
-									{
-										value: 1,
-										label: 'Giovanni'
-									},
-									{
-										value: 2,
-										label: 'Mario'
-									},
-									{
-										value: 3,
-										label: 'Andrea'
-									},
-								]"
-								v-model:value="selectedOption"
-							/>									
-						</div>	
-
-						<div style="padding: 8px">			
-							<custom-multi-select
-								label="Seleziona"
-								placeholder="Seleziona opzione"
-								:options="[
-									{
-										label: 'Opzione 1',
-										value: 1
-									},
-									{
-										label: 'Opzione 2',
-										value: 2
-									},
-									{
-										label: 'Opzione 3',
-										value: 3
-									},
-								]"
-								v-model:selectedOptions="selectedMultiSelectOptions"
-							/>			
-
-							<div>{{ selectedMultiSelectOptions }}</div>									
-						</div>
-
-						<div style="padding: 8px">
-							<custom-multi-select-async
-								label="Seleziona"
-								placeholder="Seleziona opzione"
-								v-model:selectedOptions="selectedMultiSelectAsyncOptions"
-								optionsSearchRoute="http://localhost:8000/data"
-							/>			
-
-							<div>{{ selectedMultiSelectAsyncOptions }}</div>
-						</div>
-
-						<div style="padding: 8px;">
-							<custom-file-upload
-								label="File upload"
-								v-model:file="selectedFile"
-							/>		
-
-							<div v-if="selectedFile">
-								{{ selectedFile.name }}
-							</div>
-						</div>
-
-						<div style="padding: 8px;">
-							<custom-multiple-file-upload
-								label="Multiple File upload"
-								routeGetFiles="blabla"
-								routePostFiles="blabla"
-								routeDeleteFile="blabla"
-							/>
-
-							<div v-for="(file, index) in selectedFiles" :key="index">
-								{{ file[1].name }}
-							</div>
-						</div>
-
-						<custom-modal
-							:isOpen="isModalOpen"
-							modalTitle="Inserisci nuovo"
-							@closeModal="openCloseModal"
-						>
-							<template v-slot:modal-body>
-								Lorem ipsuctetur adipisicing elit. Quia excepturi voluptatum corrupti libero officia sed a officiis, accusamus ullam sunt magnam recusandae, repudiandae reprehenderit accusantium, autem eum sint unde quasi?
-							</template>
-
-							<template v-slot:modal-footer>
-								<div style="margin-right: 15px;">
-									<custom-button
-										label="Chiudi"
-										styleType="secondary-outline"
-										@onClick="openCloseModal"
-									/>
-								</div>
-								<custom-button
-									label="Inserisci"
-									styleType="primary"
-									@onClick="test"
-								/>
-							</template>
-						</custom-modal>
-
-						<div style="padding: 8px;">
-							<custom-button
-								label="Apri modale"
-								@onClick="openCloseModal"
-							/>
-						</div>
-
-					</template>		
-					<template v-slot:form-buttons-bottom>
-						<div class="flex my-10">
-							<custom-button
-								label="Salva"
-								styleType="primary-outline"
-								size="default"
-							/>
-
-							<div class="ml-5">
-								<custom-button
-									label="Chiudi"
-									styleType="primary-outline"
-									size="default"
-								/>
-							</div>
-						</div>	
-					</template>								
-				</form-container>					
-			</template>
-		</layout-base>
+				<div class="ml-5">
+					<custom-button
+						label="Chiudi"
+						styleType="primary-outline"
+						size="default"
+					/>
+				</div>
+			</div>	
+		</template>								
+	</form-container>					
+			
 
 
 </template>

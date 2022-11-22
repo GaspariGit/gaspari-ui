@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../HelloWorld.vue';
+import HomeView from '../views/HomeView.vue';
 import ClientView from '../views/Anagraphics/Clients/ClientView.vue';
 
 const routes: Array<RouteRecordRaw> = [
