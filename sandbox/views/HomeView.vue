@@ -1,6 +1,12 @@
 <template>
 	<div>
-		<custom-table>
+		<custom-table
+			:total="10000"
+			:perPage="25"	
+			:currentPage="1"
+			title="Ordini"	
+			@changed-pagination="handleUpdatePagination"	
+		>
 			<template v-slot:t-head>
 				<th>
 					data
@@ -24,7 +30,7 @@
 					stato
 				</th>
 				<th>
-					-
+					&nbsp;
 				</th>
 			</template>
 			<template v-slot:t-body>
@@ -51,17 +57,21 @@
 						Inviato
 					</td>
 					<td>
-						-
+						!
 					</td>
 				</tr>
 			</template>
 		</custom-table>
+
+		{{er}}{{ni}}
+
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import CustomTable from "../../src/components/partials/CustomTable.vue";
+import { usePagination } from "../../src/composables/pagination";
 
 
 export default defineComponent({
@@ -70,10 +80,18 @@ export default defineComponent({
 		CustomTable
 	},
 	setup() {
-		console.log('HomeView')
-		let ciao = 'ciaoooo';
+		const handleUpdatePagination = (e) => {
+			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', e)
+		};
+
+		const {er, ni, updatePagination} = usePagination();
+
+		
+
 		return {
-			ciao
+			handleUpdatePagination,
+			er,
+			ni
 		}
 	}
 })
