@@ -503,7 +503,7 @@ BreadCrumbs.
 
 &nbsp;
 
-##  13. CustomTable {#custom-table} 
+##  13. CustomTable
 Table with pagination. This component uses "pagination" composable
 
 ```html
