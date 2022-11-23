@@ -833,4 +833,4 @@ This navigation is ment to have only two levels.
 # Composables
 List of composables to use with components:
 
-1. **usePagination**: composable that handle all the process of updating data for CustomTable component. See [CustomTable](#custom-table) for the usage.
+1. **usePagination**: composable that handle all the process of updating data for CustomTable component. See [CustomTable](#13-customtable) for the usage.
