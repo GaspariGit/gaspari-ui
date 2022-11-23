@@ -22,7 +22,10 @@ export function usePagination() {
 		loading.value = true;
 		
 		await axios.get(routeApi, {
-			params: params
+			params: {
+				page: params.currentPage,
+				per_page: params.perPage
+			}
 		})
 		.then((res) => {			
 			if(res.status === 200) {

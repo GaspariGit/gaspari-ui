@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<custom-table
-			:total="10000"
+			:total="total"
 			:perPage="perPage"	
 			:currentPage="currentPage"
-			:from="1"
+			:from="from"
 			title="Ordini"	
 			@changed-pagination="handleUpdatePagination"	
 			:loading="loading"
@@ -38,7 +38,7 @@
 				</th>
 			</template>
 			<template v-slot:t-body>
-				<tr v-for="(item, index) in 25" :key="index">
+				<tr v-for="(item, index) in results" :key="index">
 					<td>
 						11/03/1998
 					</td>
@@ -91,14 +91,14 @@ export default defineComponent({
 		} = usePagination();
 
 		onMounted(async () => {
-			await updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities?max=25', {
+			await updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', {
 				perPage: 50,
 				currentPage: 1
 			})
 		})
 
 		const handleUpdatePagination = (e) => {
-			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities?max=25', e)
+			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', e)
 		};
 
 		return {
