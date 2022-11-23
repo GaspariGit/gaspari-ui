@@ -502,7 +502,145 @@ BreadCrumbs.
     ```
 
 &nbsp;
-## 13. FormSeparator
+
+##  13. CustomTable {#custom-table} 
+Table with pagination. This component uses "pagination" composable
+
+```html
+<custom-table
+    :total="total"
+    :perPage="perPage"	
+    :currentPage="currentPage"
+    :from="from"
+    title="Ordini"	
+    @changed-pagination="handleUpdatePagination"	
+    :loading="loading"
+>
+    <template v-slot:filters>Filters</template>
+
+    <template v-slot:t-head>
+        <th>
+            data
+        </th>
+        <th>
+            cod. cliente
+        </th>
+        <th>
+            cliente
+        </th>
+        <th>
+            cod. ufficio
+        </th>
+        <th>
+            email marketing
+        </th>
+        <th>
+            agente
+        </th>
+        <th>
+            stato
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </template>
+    <template v-slot:t-body>
+        <tr v-for="(item, index) in 25" :key="index">
+            <td>
+                11/03/1998
+            </td>
+            <td>
+                ODTC078
+            </td>
+            <td>
+                Municipio di Cortenova
+            </td>
+            <td>
+                UF6A1W
+            </td>
+            <td>
+                NO
+            </td>
+            <td>
+                Mario Rossi
+            </td>
+            <td>
+                Inviato
+            </td>
+            <td>
+                !
+            </td>
+        </tr>
+    </template>
+</custom-table>			
+```
+
+script part is like this:
+
+``` html javascript
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import { CustomTable } from "gaspari-ui";
+import usePagination from "gaspari-ui/dist/types/composables/usePagination.d.ts";
+
+export default defineComponent({
+	name: 'HomeView',
+	components: {
+		CustomTable
+	},
+	setup() {
+		const { 
+			results,
+			currentPage,
+			perPage,
+			total,
+			from,
+			updatePagination,
+			loading
+		} = usePagination();
+
+		onMounted(async () => {
+			await updatePagination('https://your-endpoint-get', {
+				perPage: 50,
+				currentPage: 1
+			})
+		})
+
+		const handleUpdatePagination = (e) => {
+			updatePagination('https://your-endpoint-get', e)
+		};
+
+		return {
+			handleUpdatePagination,
+			results,
+			currentPage,
+			perPage,
+			total,
+			from,
+			loading
+		}
+	}
+})
+</script>
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| title | string | Title for the table. | false |
+| total | number | Total records of the table. | true |
+| currentPage | number | Current page of the table. | true |
+| perPage | number | total records showed per page. | true |
+| from | number | Current page of the table. | true |
+| loading | boolean | If it is in loading state or not. | true |
+
+#### Slots:
+1. "filters": Space above the table where to put filters actions
+2. "t-head": Inside <thead></thead> tag. Put the <th></th> for the table's headers
+3. "t-body": Inside <tbody></tbody> tag. put table rows and table data.
+
+&nbsp;
+## 14. FormSeparator
 Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
 
 ```html
@@ -510,7 +648,7 @@ Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
 ```
 
 &nbsp;
-## 14. FormContainer
+## 15. FormContainer
 Container for the forms.
 
 ```html
@@ -617,7 +755,7 @@ Container for the forms.
 
 
 &nbsp;
-## 15. HeaderNavigation
+## 16. HeaderNavigation
 Navigation menu styled.
 
 ```html
@@ -690,3 +828,9 @@ This navigation is ment to have only two levels.
 
 #### Slots:
 1. "layout-content": Inside layout
+
+&nbsp;
+# Composables
+List of composables to use with components:
+
+1. **usePagination**: composable that handle all the process of updating data for CustomTable component. See [CustomTable](#custom-table) for the usage.

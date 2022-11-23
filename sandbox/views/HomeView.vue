@@ -2,11 +2,15 @@
 	<div>
 		<custom-table
 			:total="10000"
-			:perPage="25"	
-			:currentPage="1"
+			:perPage="perPage"	
+			:currentPage="currentPage"
+			:from="1"
 			title="Ordini"	
 			@changed-pagination="handleUpdatePagination"	
+			:loading="loading"
 		>
+			<template v-slot:filters>Filters</template>
+
 			<template v-slot:t-head>
 				<th>
 					data
@@ -34,7 +38,7 @@
 				</th>
 			</template>
 			<template v-slot:t-body>
-				<tr>
+				<tr v-for="(item, index) in 25" :key="index">
 					<td>
 						11/03/1998
 					</td>
@@ -62,17 +66,13 @@
 				</tr>
 			</template>
 		</custom-table>
-
-		{{er}}{{ni}}
-
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import CustomTable from "../../src/components/partials/CustomTable.vue";
-import { usePagination } from "../../src/composables/pagination";
-
+import { usePagination } from "../../src/composables/usePagination";
 
 export default defineComponent({
 	name: 'HomeView',
@@ -80,18 +80,35 @@ export default defineComponent({
 		CustomTable
 	},
 	setup() {
+		const { 
+			results,
+			currentPage,
+			perPage,
+			total,
+			from,
+			updatePagination,
+			loading
+		} = usePagination();
+
+		onMounted(async () => {
+			await updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities?max=25', {
+				perPage: 50,
+				currentPage: 1
+			})
+		})
+
 		const handleUpdatePagination = (e) => {
-			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', e)
+			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities?max=25', e)
 		};
-
-		const {er, ni, updatePagination} = usePagination();
-
-		
 
 		return {
 			handleUpdatePagination,
-			er,
-			ni
+			results,
+			currentPage,
+			perPage,
+			total,
+			from,
+			loading
 		}
 	}
 })
