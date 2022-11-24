@@ -4,7 +4,7 @@
 		<div class="sidebar-content">
 
 			<div class="sidebar-header mb-6 flex justify-between items-center">
-				<h4 class="text-xl font-bold">{{ title }}</h4>
+				<h4 class="text-2xl font-bold">{{ title }}</h4>
 				<div class="sidebar-close" @click="emitCloseSidebar">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" width="24px" height="24px">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -45,7 +45,7 @@ export default defineComponent({
 		title: {
 			type: String as PropType<string>,
 			required: false,
-			default: 'Titolo placeholder'
+			default: 'Oops'
 		},
 		loading: {
 			type: Boolean as PropType<boolean>,

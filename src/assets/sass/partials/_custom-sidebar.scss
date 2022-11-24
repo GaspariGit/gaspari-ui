@@ -37,7 +37,7 @@
         padding: 20px;
         padding-right: 10px;
         display: flex;
-        flex-direction: column;
+        flex-direction: column;        
 
         .sidebar-header {
             .sidebar-close {
@@ -53,6 +53,7 @@
             flex-grow: 1;
             overflow: auto;
             padding-right: 10px;
+            color: darken($color: $text_grey, $amount: 15)
         }
     }
 }

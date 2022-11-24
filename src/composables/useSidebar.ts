@@ -33,6 +33,7 @@ export function useSidebar() {
     const closeSidebar = () => {
         sidebarData.value = null;
         isOpenSidebar.value = false;
+        activeRecordIndex.value = null;
     }
 
 	return {

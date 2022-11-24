@@ -15,11 +15,76 @@
         tr.row-theaders {
             background-color: #f7fbfe;
             border-bottom: 1px solid #eaeaea;
+            
 
             th {
                 text-transform: uppercase;
                 padding: 16px 20px;
                 text-align-last: left;
+                position: relative;
+
+                &.ordered::before {
+                    content: '';
+                    position: absolute;
+                    right: 0px;
+                    top: 45%;
+                    transform: translateY(100%);
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid #000;
+                    clear: both;
+                }
+                &.ordered::after {
+                    content: '';
+                    position: absolute;
+                    right: 0px;
+                    top: 45%;
+                    transform: translateY(-100%) rotate(180deg);
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid #000;
+                    clear: both;
+                }
+                
+                &.ordered.ordered_asc::after {
+                    content: '';
+                    position: absolute;
+                    right: 0px;
+                    top: 35%;
+                    transform: translateY(100%) rotate(180deg);
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid #000;
+                    clear: both;                    
+                }
+                &.ordered.ordered_asc::before {
+                    content: none;
+                }
+
+                &.ordered.ordered_desc::before {
+                    content: '';
+                    position: absolute;
+                    right: 0px;
+                    top: 50%;
+                    transform: translateY(-100%);
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid #000;
+                    clear: both;      
+                                        
+                }
+                &.ordered.ordered_desc::after {
+                    content: none;
+                }
+                
             }
         }
         
