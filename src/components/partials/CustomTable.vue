@@ -18,7 +18,7 @@
 
 			<div class="text-textGrey text-sm font-medium row-pagination flex justify-between items-center">
 				<div class="flex">
-					<div class="mr-10">{{ from }} risultati di {{ total }}</div>
+					<div class="mr-10">Risultati da {{ from }} a {{ from + perPage - 1 }} di {{ total }}</div>
 					<div class="flex">
 						<label for="numberPerPage" class="mr-1">Elementi visualizzati: </label>
 						<select @change="changePerPageData" id="numberPerPage" class="bg-white border text-black">

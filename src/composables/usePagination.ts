@@ -11,10 +11,10 @@ interface RequestParams {
 export function usePagination() {
 
 	const results = ref<any[]>([]);
-	const total = ref<number | null>(null);
-	const from = ref<number | null>(null);
-	const currentPage = ref<number | null>(null);
-	const perPage = ref<number | null>(null);
+	const total = ref<number | null>(0);
+	const from = ref<number | null>(0);
+	const currentPage = ref<number | null>(0);
+	const perPage = ref<number | null>(0);
 
 	const loading = ref<boolean>(false);
 	
