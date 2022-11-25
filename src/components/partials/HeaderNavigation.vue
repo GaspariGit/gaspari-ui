@@ -38,7 +38,7 @@
 				<li 
 					v-for="(item, index) in menuStructure" 
 					:key="index"
-					class="mr-6  flex items-center cursor-pointer hover:text-secondaryHover transition select-none"					
+					class="mr-6 flex items-center cursor-pointer hover:text-secondaryHover transition select-none"					
 					@click="(e) => showSubMenu(index, e)"
 				>
 						<template v-if="item.href && item.children.length === 0">

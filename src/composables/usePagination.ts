@@ -37,9 +37,7 @@ export function usePagination() {
 		} else if(currentOrderBy.value === orderByColumn && currentOrderByDirection.value === 'desc') {
 			currentOrderBy.value = '';
 			currentOrderByDirection.value = null;
-		} 
-
-		setPaginationOrderClasses(orderByColumn)
+		}
 	}
 
 	const setPaginationOrderClasses = (orderByColumn : string) => {
