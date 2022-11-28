@@ -2,6 +2,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: hidden;
+    z-index: 1;
 
     .row-pagination {
         padding: 20px;
@@ -9,6 +10,11 @@
         width: 100%;     
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;      
+        z-index: 1;
+    }
+
+    table {
+        z-index: 1;
     }
 
     thead {        

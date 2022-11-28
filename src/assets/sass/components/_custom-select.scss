@@ -11,6 +11,8 @@
 
     &__select {
         @include input-style;
-        background-color: #fff;        
+        background-color: #fff;    
+        padding: 10px;
+        transform: translateY(-1px);
     }
 }

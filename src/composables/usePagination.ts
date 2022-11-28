@@ -1,5 +1,6 @@
 // mouse.js
 import axios from 'axios';
+import type Searchable from 'src/types/Searchable';
 import { ref } from 'vue'
 interface RequestParams {
 	currentPage : number
@@ -20,6 +21,7 @@ export function usePagination() {
 	const from = ref<number | null>(0);
 	const currentPage = ref<number | null>(0);
 	const perPage = ref<number | null>(0);
+	const searchables = ref<Searchable[]>([]);
 
 	const loading = ref<boolean>(false);
 
@@ -73,7 +75,8 @@ export function usePagination() {
 				perPage.value = params.perPage;
 				results.value = res.data.data;				
 				total.value = res.data.meta.total;
-				from.value = res.data.meta.from;				
+				from.value = res.data.meta.from;
+				searchables.value = res.data.searchables;				
 			}
 		})
 		.catch((error) => {
@@ -89,6 +92,7 @@ export function usePagination() {
 		perPage,
 		total,
 		from,
+		searchables,
 		updatePagination,	
 		loading,
 		setPaginationOrder,

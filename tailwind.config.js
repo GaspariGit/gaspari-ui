@@ -12,8 +12,10 @@ module.exports = {
       secondary: '#576b81',
       secondaryHover: '#314963',
       secondaryLight: '#c9d2db',
-      textGrey: '#707070'      
-    }
+      textGrey: '#707070',
+      customBlack: '#404042',
+      lime: '#76cb36',   
+    },  
   },
   plugins: [],
 }

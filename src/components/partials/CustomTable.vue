@@ -1,7 +1,7 @@
 <template>
     <div class="custom-table">				
-		<div class="mb-3 flex items-center justify-between" :class="{'flex-row-reverse' : !title}">
-			<h2 v-if="title" class="font-semibold text-lg uppercase">
+		<div class="mb-5 flex items-center justify-between" :class="{'flex-row-reverse' : !title}">
+			<h2 v-if="title" class="font-semibold text-xl uppercase">
 				{{ title }}
 			</h2>
 
@@ -18,7 +18,8 @@
 
 			<div class="text-textGrey text-sm font-medium row-pagination flex justify-between items-center">
 				<div class="flex">
-					<div class="mr-10">Risultati da {{ from }} a {{ from + perPage - 1 }} di {{ total }}</div>
+					<div v-if="total > 0" class="mr-10">Risultati da {{ from }} a {{ from + perPage - 1 }} di {{ total }}</div>
+					<div v-else class="mr-10">Nessun risultato</div>
 					<div class="flex">
 						<label for="numberPerPage" class="mr-1">Elementi visualizzati: </label>
 						<select @change="changePerPageData" id="numberPerPage" class="bg-white border text-black">
@@ -31,7 +32,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="custom-pagination">
+			<div v-if="total > 0" class="custom-pagination">
 				<VueTailwindPagination
 					:current="currentPage"
 					:total="total"

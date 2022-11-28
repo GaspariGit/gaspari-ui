@@ -29,16 +29,60 @@
 			</template>
 		</custom-sidebar>
 
+		<searchable-modal
+			:isOpen="isOpenModalSearch"
+			@closeModal="openCloseModalSearch"
+			@search="handleSearch"
+			:searchables="searchables"
+			v-if="isOpenModalSearch"
+		/>
+
 		<custom-table
 			:total="total"
-			:perPage="perPage"	
+			:perPage="perPage"
 			:currentPage="currentPage"
 			:from="from"
-			title="Ordini"	
-			@changed-pagination="handleUpdatePagination"	
+			title="Città"
+			@changed-pagination="handleUpdatePagination"
 			:loading="loading"
 		>
-			<template v-slot:filters>Filters</template>
+			<template v-slot:filters>
+				<div class="flex">
+					<!-- <div class="flex items-center cursor-pointer mr-4">
+						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+							</svg>
+						</div>
+						<div class="font-medium text-customBlack">
+							Filtra per prodotto
+						</div>
+					</div> -->
+
+					<div @click="openCloseModalSearch" class="flex items-center cursor-pointer">
+						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+							</svg>
+
+						</div>
+						<div class="font-medium text-customBlack">
+							Cerca
+						</div>
+					</div>
+
+					<!-- <div class="flex items-center cursor-pointer">
+						<div class="mr-2 bg-lime h-8 w-8 rounded-full flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+							</svg>
+						</div>
+						<div class="font-medium text-customBlack">
+							Aggiungi nuovo
+						</div>
+					</div> -->
+				</div>
+			</template>
 
 			<template v-slot:t-head>
 				<th 
@@ -71,6 +115,7 @@
 					&nbsp;
 				</th>
 			</template>
+
 			<template v-slot:t-body>
 				<tr v-for="(item, index) in results" :key="index" @click="handleOpenDetails(item.id, index)">
 					<td class="relative" :class="{recordActive : index === activeRecordIndex}">
@@ -98,7 +143,7 @@
 									<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
 								</svg>
 							</div>
-						</div>						
+						</div>
 					</td>
 				</tr>
 			</template>
@@ -112,12 +157,17 @@ import CustomTable from "../../src/components/partials/CustomTable.vue";
 import { usePagination } from "../../src/composables/usePagination";
 import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
+import SearchableModal from "../../src/components/ui/SearchableModal.vue";
+import CustomButton from "../../src/components/ui/CustomButton.vue";
+import Searchables from "../../src/types/Searchable";
 
 export default defineComponent({
 	name: 'HomeView',
 	components: {
 		CustomTable,
-		CustomSidebar
+		CustomSidebar,
+		SearchableModal,
+		CustomButton
 	},
 	setup() {
 		// Gestione paginazione tabella
@@ -127,6 +177,7 @@ export default defineComponent({
 			perPage,
 			total,
 			from,
+			searchables,
 			updatePagination,
 			loading,
 			setPaginationOrder,
@@ -168,6 +219,37 @@ export default defineComponent({
 			await openDetails('https://devapi00.gruppogaspari.net/api/v1/cities/' + id, index)
 		}
 
+		const isOpenModalSearch = ref<boolean>(false);
+		const openCloseModalSearch = () => {
+			isOpenModalSearch.value = !isOpenModalSearch.value;
+		}
+
+		const handleSearch = () => {
+			console.log('search!');
+		}
+
+		// const searchables : Searchables[] = [			
+        //     {
+        //         column: 'name',
+        //         label: 'Nome',
+        //         route: null,
+        //         type: 'text',
+        //         order: 0,
+        //         tie: [],
+        //         tieorder: null
+        //     },
+		// 	{
+        //         column: 'region',
+        //         label: 'Regione',
+        //         route: null,
+        //         type: 'select',
+        //         order: 0,
+        //         tie: [],
+        //         tieorder: null
+        //     }
+		// ]
+		
+
 		return {
 			handleUpdatePagination,
 			handleUpdatePaginationWithOrder,
@@ -187,6 +269,12 @@ export default defineComponent({
 			isOpenSidebar,
 			isLoadingSidebar,
 			sidebarData,
+
+			isOpenModalSearch,			
+			openCloseModalSearch,
+			handleSearch,
+
+			searchables
 		}
 	}
 })
