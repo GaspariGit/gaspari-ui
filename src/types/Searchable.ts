@@ -5,7 +5,8 @@ interface SearchableColumn {
     route : string | null
     type : MyTypes
     label : string
-    order : number
+    order : number,
+    placeholder : string
 }
 
 interface SearchableRelation {
@@ -19,4 +20,4 @@ interface Searchable {
     relations : SearchableRelation[]
 }
 
-export default Searchable;
+export type { SearchableColumn, SearchableRelation, Searchable };

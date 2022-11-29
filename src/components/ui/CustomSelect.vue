@@ -14,7 +14,7 @@
             @change="handleSelectChange"
             :disabled="disabled"
         >
-            <option selected disabled value="">{{ placeholder }}</option>
+            <option selected value="0">{{ placeholder }}</option>
             <option 
                 v-for="(option, index) in options"
                 :key="index"

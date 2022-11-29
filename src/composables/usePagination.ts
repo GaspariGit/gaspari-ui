@@ -1,6 +1,6 @@
 // mouse.js
 import axios from 'axios';
-import type Searchable from 'src/types/Searchable';
+import type { Searchable } from 'src/types/Searchable';
 import { ref } from 'vue'
 interface RequestParams {
 	currentPage : number
@@ -21,7 +21,7 @@ export function usePagination() {
 	const from = ref<number | null>(0);
 	const currentPage = ref<number | null>(0);
 	const perPage = ref<number | null>(0);
-	const searchables = ref<Searchable[]>([]);
+	const searchables = ref<Searchable | null>(null);
 
 	const loading = ref<boolean>(false);
 

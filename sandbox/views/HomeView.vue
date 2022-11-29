@@ -34,7 +34,6 @@
 			@closeModal="openCloseModalSearch"
 			@search="handleSearch"
 			:searchables="searchables"
-			v-if="isOpenModalSearch"
 		/>
 
 		<custom-table
@@ -159,7 +158,6 @@ import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
 import SearchableModal from "../../src/components/ui/SearchableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
-import Searchables from "../../src/types/Searchable";
 
 export default defineComponent({
 	name: 'HomeView',
