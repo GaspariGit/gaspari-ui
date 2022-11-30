@@ -38,10 +38,10 @@
                                             :placeholder="item.placeholder"
                                             :disabled="loadingState[item.column]"
                                             v-model:value="state[item.column]"
-                                            @change="handleChangeRelationsSelect(item.column, index)"                                           
+                                            @change="(e) => handleChangeRelationsSelect(e, item.column, index)"                                           
                                         />
                                     </template>
-                                </div>
+                                </div>															
                             </div>
                         </template>
                     </div>
@@ -81,9 +81,9 @@ import CustomModal from "./CustomModal.vue";
 import CustomButton from "./CustomButton.vue";
 import GenericInput from "./GenericInput.vue";
 import CustomSelect from "./CustomSelect.vue";
-import { Searchable } from '../../types/Searchable';
-
+import { Searchable, SearchableColumn } from '../../types/Searchable';
 import axios from "axios";
+const NAME_KEY = '_name';
 
 export default defineComponent({
     name: 'SearchableModal',
@@ -133,48 +133,55 @@ export default defineComponent({
             }
             return initialValue;               
         }
-
-        const state = ref<{}>({});
-        const optionsState = ref<{}>({});
+        
+		const state = ref<{}>({});
+		const optionsState = ref<{}>({});
         const loadingState = ref<{}>({});
         const relationState = ref<{}>({});
-        const initValues = () => {
+        const initSearch = () => {
             if(props.searchables) {
                 props.searchables.columns.forEach((item, index) => {
-                    state.value[item.column] = assignInitialValue(item.type);
-                    
-                    if(item.route) {
-                        loadingState.value[item.column] = true;
-                        axios.get('https://devapi00.gruppogaspari.net' + item.route)
-                            .then((response) => {                                
-                                optionsState.value[item.column] = response.data.data.options;
-
-                                // Fare check che se questa è colonna è nell'array relations
-                                props.searchables.relations.forEach((rel) => {    
-                                    const columns = Object.values(rel.columns); 
-
-                                    if(columns.includes(index)) {  
-                                        if(rel.order === null) {
-                                            let columns_to_update = columns.filter((col) => {
-                                                return col !== index;
-                                            })
-
-                                            relationState.value[item.column] = {
-                                                'update': columns_to_update,
-                                                'index': index,
-                                                'route': rel.route
-                                            };
-                                        }
-                                    }
-                                })
-
-                                loadingState.value[item.column] = false;
-                            })
-                            .catch((e) => {
-                                console.log(e)
-                            })
-                    }
+                    initValues(item);                    
+                    initOptions(item, index);
                 })
+            }
+        }
+        
+        const initValues = (item : SearchableColumn) => {
+            state.value[item.column] = assignInitialValue(item.type);
+        }
+
+        const initOptions = (item : SearchableColumn, index : number) => {
+            if(item.route) {
+                loadingState.value[item.column] = true;
+                axios.get('https://devapi00.gruppogaspari.net' + item.route)
+                    .then((response) => {                                
+                        optionsState.value[item.column] = response.data.data.options;
+
+                        // Fare check se questa colonna è nell'array relations
+                        props.searchables.relations.forEach((rel) => {    
+                            const columns = Object.values(rel.columns); 
+
+                            if(columns.includes(index)) {  
+                                if(rel.order === null) {
+                                    let columns_to_update = columns.filter((col) => {
+                                        return col !== index;
+                                    })
+
+                                    relationState.value[item.column] = {
+                                        'update': columns_to_update,
+                                        'index': index,
+                                        'route': rel.route
+                                    };
+                                }
+                            }
+                        })
+
+                        loadingState.value[item.column] = false;
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                    })
             }
         }
 
@@ -182,20 +189,41 @@ export default defineComponent({
         watch(() => props.isOpen, (actual, previous) => {
             if(actual === true && previous === false && firstOpened.value === false) {
                 firstOpened.value = true;
-
-                initValues()
+                initSearch();
             }
         });
                
         const cleanResults = () => {
-            props.searchables.columns.forEach(item => {
+            props.searchables.columns.forEach((item, index) => {
                 state.value[item.column] = assignInitialValue(item.type);
-            })
-        }
 
-        const handleChangeRelationsSelect = (column : string, index : number) => {
+				if(item.route) {
+					initOptions(item, index)
+				}
+            })
+        }        
+
+        const handleChangeRelationsSelect = (e, column : string, index : number) => {
             if(relationState.value[column]) {
-                const optionKeyToUpdate = props.searchables.columns[relationState.value[column].update].column
+                const optionKeysToUpdate = [];
+				const optionsIndexesToUpdate = []
+				relationState.value[column].update.forEach((id) => {
+					optionKeysToUpdate.push(props.searchables.columns[id].column)
+					optionsIndexesToUpdate.push(id)
+				})
+
+				// Reset dei campi con relazioni
+				if(parseInt(e.target.value) === 0) {
+					initOptions(props.searchables.columns[index], index);
+					// Questo per resettare tutte le input a cui è legata
+					optionKeysToUpdate.forEach((o, i) => {						
+						initValues(props.searchables.columns[optionsIndexesToUpdate[i]]);
+						initOptions(props.searchables.columns[optionsIndexesToUpdate[i]], optionsIndexesToUpdate[i]);
+					});
+					
+					return;
+				}
+				
                 const optionKeySource = props.searchables.columns[relationState.value[column].index].column
                 
                 axios.get('https://devapi00.gruppogaspari.net' + relationState.value[column].route)
@@ -205,10 +233,19 @@ export default defineComponent({
                             return record.properties[optionKeySource] === selectedId;
                         })
 
-                        console.log(filtered)
-                        // optionsState.value[optionKey] = [...optionsState.value[optionKey]].filter((option => {
-                        //     return option.value 
-                        // }))
+                        optionKeysToUpdate.forEach(optionKeyToUpdate => {
+							if(filtered.length === 1) {
+								state.value[optionKeyToUpdate] = filtered[0].properties[optionKeyToUpdate];
+							}
+
+							const nameKey = optionKeyToUpdate.split('_')[0] + NAME_KEY;
+							optionsState.value[optionKeyToUpdate] = filtered.map((option) => {                            
+								return {
+									value: option.properties[optionKeyToUpdate],
+									label: option.properties[nameKey]
+								}
+							})   
+						})                     
                     })
                     .catch(e => {
                         console.log(e)
