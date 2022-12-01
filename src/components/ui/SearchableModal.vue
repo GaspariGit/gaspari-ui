@@ -103,7 +103,11 @@ export default defineComponent({
         searchables: {
             type: [Object, null] as PropType<Searchable | null>,
             required: true,
-        }     
+        },
+        baseApiPath: {
+            type: String as PropType<string>,
+            required: true
+        }  
     },
     setup(props, context) {      
 
@@ -112,7 +116,18 @@ export default defineComponent({
         }
 
         const emitSearch = () => {
-            context.emit('search')
+            const objSearch = {
+                search: {}                
+            };
+            for(let property in state.value) {
+                const indexOfProperty = props.searchables.columns.findIndex(column => column.column === property);
+                if(state.value[property]) {
+                    objSearch.search[indexOfProperty] = state.value[property];
+                }
+            }
+
+            emitCloseModal();
+            context.emit('search', objSearch)
         }
 
         const assignInitialValue = (type : string) => {
@@ -154,7 +169,7 @@ export default defineComponent({
         const initOptions = (item : SearchableColumn, index : number) => {
             if(item.route) {
                 loadingState.value[item.column] = true;
-                axios.get('https://devapi00.gruppogaspari.net' + item.route)
+                axios.get(props.baseApiPath + item.route)
                     .then((response) => {                                
                         optionsState.value[item.column] = response.data.data.options;
 
@@ -198,10 +213,10 @@ export default defineComponent({
                 state.value[item.column] = assignInitialValue(item.type);
 
 				if(item.route) {
-					initOptions(item, index)
+					initOptions(item, index);
 				}
             })
-        }        
+        }
 
         const handleChangeRelationsSelect = (e, column : string, index : number) => {
             if(relationState.value[column]) {
@@ -226,7 +241,7 @@ export default defineComponent({
 				
                 const optionKeySource = props.searchables.columns[relationState.value[column].index].column
                 
-                axios.get('https://devapi00.gruppogaspari.net' + relationState.value[column].route)
+                axios.get(props.baseApiPath + relationState.value[column].route)
                     .then(({data}) => {                        
                         const selectedId = parseInt(state.value[column]);
                         const filtered = data.data.filter(record => {
@@ -239,7 +254,7 @@ export default defineComponent({
 							}
 
 							const nameKey = optionKeyToUpdate.split('_')[0] + NAME_KEY;
-							optionsState.value[optionKeyToUpdate] = filtered.map((option) => {                            
+							optionsState.value[optionKeyToUpdate] = filtered.map((option) => {
 								return {
 									value: option.properties[optionKeyToUpdate],
 									label: option.properties[nameKey]

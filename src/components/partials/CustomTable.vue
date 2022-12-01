@@ -52,6 +52,16 @@
 					<slot name="t-body"></slot>
 				</tbody>
 			</table>
+			<div v-if="total > 0" class="custom-pagination pagination-bottom">
+				<VueTailwindPagination
+					:current="currentPage"
+					:total="total"
+					:per-page="perPage"
+					@page-changed="changePageData"
+					text-before-input="Vai a pag."
+					text-after-input="Vai"
+				/>
+			</div>
 		</div>
 	</div>
 </template>

@@ -32,8 +32,9 @@
 		<searchable-modal
 			:isOpen="isOpenModalSearch"
 			@closeModal="openCloseModalSearch"
-			@search="handleSearch"
+			@search="handleUpdatePaginationWithSearch"
 			:searchables="searchables"
+			baseApiPath="https://devapi00.gruppogaspari.net"
 		/>
 
 		<custom-table
@@ -43,7 +44,7 @@
 			:from="from"
 			title="Città"
 			@changed-pagination="handleUpdatePagination"
-			:loading="loading"
+			:loading="loadingPagination"
 		>
 			<template v-slot:filters>
 				<div class="flex">
@@ -176,31 +177,43 @@ export default defineComponent({
 			total,
 			from,
 			searchables,
-			updatePagination,
-			loading,
+			loadingPagination,
+			setSearchParams,
 			setPaginationOrder,
-			currentOrderBy,
-			currentOrderByDirection,
-			setPaginationOrderClasses	
+			setPaginationOrderClasses,
+			updatePagination,
 		} = usePagination();
 
+		const handleUpdatePagination = async (e) => {
+			await updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', e)
+		};	
+
 		onMounted(async () => {
-			await updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', {
+			await handleUpdatePagination({
 				perPage: 25,
 				currentPage: 1
 			})
 		})
-
-		const handleUpdatePagination = async (e) => {
-			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', e)
-		};	
-		
+				
 		const handleUpdatePaginationWithOrder = (columnName : string) => {
 			setPaginationOrder(columnName);
-			updatePagination('https://devapi00.gruppogaspari.net/api/v1/cities', {
+			handleUpdatePagination({
 				perPage: perPage.value,
 				currentPage: currentPage.value
 			})
+		}
+
+		const handleUpdatePaginationWithSearch = (search) => {
+			setSearchParams(search);
+			handleUpdatePagination({
+				perPage: perPage.value,
+				currentPage: currentPage.value
+			})
+		}
+
+		const isOpenModalSearch = ref<boolean>(false);
+		const openCloseModalSearch = () => {
+			isOpenModalSearch.value = !isOpenModalSearch.value;
 		}
 
 		// Gestione Sidebar
@@ -209,70 +222,43 @@ export default defineComponent({
 			closeSidebar,
 			activeRecordIndex,
 			isOpenSidebar,
-			isLoadingSidebar,	
-			sidebarData		
+			isLoadingSidebar,
+			sidebarData
 		} = useSidebar();
 		
 		const handleOpenDetails = async (id: number, index: number) => {
 			await openDetails('https://devapi00.gruppogaspari.net/api/v1/cities/' + id, index)
 		}
-
-		const isOpenModalSearch = ref<boolean>(false);
-		const openCloseModalSearch = () => {
-			isOpenModalSearch.value = !isOpenModalSearch.value;
-		}
-
-		const handleSearch = () => {
-			console.log('search!');
-		}
-
-		// const searchables : Searchables[] = [			
-        //     {
-        //         column: 'name',
-        //         label: 'Nome',
-        //         route: null,
-        //         type: 'text',
-        //         order: 0,
-        //         tie: [],
-        //         tieorder: null
-        //     },
-		// 	{
-        //         column: 'region',
-        //         label: 'Regione',
-        //         route: null,
-        //         type: 'select',
-        //         order: 0,
-        //         tie: [],
-        //         tieorder: null
-        //     }
-		// ]
-		
-
-		return {
-			handleUpdatePagination,
-			handleUpdatePaginationWithOrder,
+						
+		return {			
+			// From usePagination
 			results,
 			currentPage,
 			perPage,
 			total,
 			from,
-			loading,
-			currentOrderBy,
-			currentOrderByDirection,
+			searchables,
+			loadingPagination,
 			setPaginationOrderClasses,
 
-			handleOpenDetails,
+			// Internals for pagination
+			handleUpdatePagination,
+			handleUpdatePaginationWithOrder,
+			handleUpdatePaginationWithSearch,
+
+			// For opening modal search
+			isOpenModalSearch,			
+			openCloseModalSearch,			
+
+			// From useSidebar			
 			closeSidebar,
 			activeRecordIndex,
 			isOpenSidebar,
 			isLoadingSidebar,
 			sidebarData,
-
-			isOpenModalSearch,			
-			openCloseModalSearch,
-			handleSearch,
-
-			searchables
+			
+			// Internals for sidebar
+			handleOpenDetails,
 		}
 	}
 })

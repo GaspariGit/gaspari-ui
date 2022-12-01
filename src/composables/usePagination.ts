@@ -4,7 +4,8 @@ import type { Searchable } from 'src/types/Searchable';
 import { ref } from 'vue'
 interface RequestParams {
 	currentPage : number
-	perPage : number
+	perPage : number,
+	search? : {}
 }
 
 interface ParamsObj {
@@ -23,7 +24,7 @@ export function usePagination() {
 	const perPage = ref<number | null>(0);
 	const searchables = ref<Searchable | null>(null);
 
-	const loading = ref<boolean>(false);
+	const loadingPagination = ref<boolean>(false);
 
 	// Ordinamento: i parametri devono essere settati globalmente
 	// per mantenerli nelle chiamate successive
@@ -48,9 +49,14 @@ export function usePagination() {
 			'ordered_desc' : currentOrderBy.value === orderByColumn && currentOrderByDirection.value === 'desc',
 		}
 	}
+
+	const searchParams = ref<{search: {}}>({search: {}})
+	const setSearchParams = (search : any) => {
+		searchParams.value.search = search.search
+	}
 	
 	const updatePagination = async (routeApi : string, params : RequestParams) => {
-		loading.value = true;
+		loadingPagination.value = true;
 
 		let paramsObj = {
 			page: params.currentPage,
@@ -64,6 +70,11 @@ export function usePagination() {
 			if(currentOrderByDirection.value === 'desc') {
 				paramsObj.order_desc = 1
 			}
+		}
+
+		// Set dei parametri della ricerca
+		if(searchParams.value.search) {
+			paramsObj.search = searchParams.value.search;
 		}
 		
 		await axios.get(routeApi, {
@@ -83,7 +94,7 @@ export function usePagination() {
 			return error;
 		})
 		
-		loading.value = false;
+		loadingPagination.value = false;
 	}
 
 	return {
@@ -93,11 +104,10 @@ export function usePagination() {
 		total,
 		from,
 		searchables,
+		setSearchParams,
 		updatePagination,	
-		loading,
+		loadingPagination,
 		setPaginationOrder,
-		currentOrderBy,
-		currentOrderByDirection,
 		setPaginationOrderClasses
 	}
 }
