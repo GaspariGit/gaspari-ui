@@ -25,9 +25,14 @@ import CustomSidebar from './components/partials/CustomSidebar.vue';
 // Layouts
 import LayoutBase from './layouts/LayoutBase.vue';
 
+// Composables
+import { useSidebar } from './composables/useSidebar';
+import { usePagination } from './composables/usePagination';
+
 import './assets/sass/_app.scss';
 
 export {
+    // Components
     CustomButton,
     CustomCheckbox,
     CustomFileUpload,
@@ -48,5 +53,9 @@ export {
     FormSeparator,
     SearchableModal,
     CustomTable,
-    CustomSidebar
+    CustomSidebar,
+
+    // Composables
+    useSidebar,
+    usePagination
 }

@@ -19,5 +19,7 @@ import FormContainer from './components/partials/FormContainer.vue';
 import CustomTable from './components/partials/CustomTable.vue';
 import CustomSidebar from './components/partials/CustomSidebar.vue';
 import LayoutBase from './layouts/LayoutBase.vue';
+import { useSidebar } from './composables/useSidebar';
+import { usePagination } from './composables/usePagination';
 import './assets/sass/_app.scss';
-export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation, FormContainer, LayoutBase, Breadcrumbs, FormSeparator, SearchableModal, CustomTable, CustomSidebar };
+export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation, FormContainer, LayoutBase, Breadcrumbs, FormSeparator, SearchableModal, CustomTable, CustomSidebar, useSidebar, usePagination };
