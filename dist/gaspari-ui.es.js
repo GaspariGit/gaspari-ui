@@ -3509,10 +3509,10 @@ const pl = /* @__PURE__ */ T(yo, [["render", jo]]), Io = L({
     };
   }
 });
-const Uo = (e) => (he("data-v-368a691d"), e = e(), pe(), e), xo = {
+const Uo = (e) => (he("data-v-20ccfa8e"), e = e(), pe(), e), xo = {
   key: 0,
   id: "custom-sidebar",
-  class: "custom-sidebar shadow-2xl relative"
+  class: "custom-sidebar shadow-2xl"
 }, Ho = { class: "sidebar-content" }, zo = { class: "sidebar-header mb-6 flex justify-between items-center" }, qo = { class: "text-2xl font-bold" }, Go = /* @__PURE__ */ Uo(() => /* @__PURE__ */ h("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -3564,7 +3564,7 @@ function Qo(e, t, s, n, r, o) {
     _: 3
   });
 }
-const fl = /* @__PURE__ */ T(Io, [["render", Qo], ["__scopeId", "data-v-368a691d"]]), Yo = L({
+const fl = /* @__PURE__ */ T(Io, [["render", Qo], ["__scopeId", "data-v-20ccfa8e"]]), Yo = L({
   name: "LayoutBase",
   components: {
     HeaderNavigation: Ur

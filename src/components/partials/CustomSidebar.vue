@@ -1,6 +1,6 @@
 <template>
 <Transition>
-	<div v-if="isOpen" id="custom-sidebar" class="custom-sidebar shadow-2xl relative">
+	<div v-if="isOpen" id="custom-sidebar" class="custom-sidebar shadow-2xl">
 		<div class="sidebar-content">
 
 			<div class="sidebar-header mb-6 flex justify-between items-center">
