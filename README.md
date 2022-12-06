@@ -507,117 +507,189 @@ BreadCrumbs.
 Table with pagination. This component uses "pagination" composable
 
 ```html
+<searchable-modal
+    :isOpen="isOpenModalSearch"
+    @closeModal="openCloseModalSearch"
+    @search="handleUpdatePaginationWithSearch"
+    :searchables="searchables"
+    baseApiPath="https://devapi00.gruppogaspari.net"
+/>
+
 <custom-table
     :total="total"
-    :perPage="perPage"	
+    :perPage="perPage"
     :currentPage="currentPage"
     :from="from"
-    title="Ordini"	
-    @changed-pagination="handleUpdatePagination"	
-    :loading="loading"
+    title="Città"
+    @changed-pagination="handleUpdatePagination"
+    :loading="loadingPagination"
 >
-    <template v-slot:filters>Filters</template>
+    <template v-slot:filters>
+        <div class="flex">					
+            <div @click="openCloseModalSearch" class="flex items-center cursor-pointer">
+                <div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+
+                </div>
+                <div class="font-medium text-customBlack">
+                    Cerca
+                </div>
+            </div>					
+        </div>
+    </template>
 
     <template v-slot:t-head>
-        <th>
-            data
+        <th
+            @click="handleUpdatePaginationWithOrder('name')" 
+            class="cursor-pointer ordered"
+            :class="setPaginationOrderClasses('name')"
+        >
+            Nome
         </th>
-        <th>
-            cod. cliente
+        <th 
+            @click="handleUpdatePaginationWithOrder('cadastral_code')" 
+            class="cursor-pointer ordered"
+            :class="setPaginationOrderClasses('cadastral_code')"
+        >
+            cod. catastale
         </th>
-        <th>
-            cliente
+        <th name="is_metropolitan_city">
+            città metropolitana
         </th>
-        <th>
-            cod. ufficio
+        <th name="istat_code_alpha">
+            cod. istat (alpha)
         </th>
-        <th>
-            email marketing
+        <th name="province_name">
+            provincia
         </th>
-        <th>
-            agente
-        </th>
-        <th>
-            stato
+        <th name="region_name">
+            regione
         </th>
         <th>
             &nbsp;
         </th>
     </template>
+
     <template v-slot:t-body>
-        <tr v-for="(item, index) in 25" :key="index">
-            <td>
-                11/03/1998
+        <tr v-for="(item, index) in results" :key="index">
+            <td class="relative" :class="{recordActive : index === activeRecordIndex}">
+                {{ item.properties.name }}
             </td>
             <td>
-                ODTC078
+                {{ item.properties.cadastral_code }}
             </td>
             <td>
-                Municipio di Cortenova
+                {{ item.properties.is_metropolitan_city ? 'SI' : 'NO' }}
             </td>
             <td>
-                UF6A1W
+                {{ item.properties.istat_code_alpha }}
             </td>
             <td>
-                NO
+                {{ item.properties.province_name }}
             </td>
             <td>
-                Mario Rossi
+                {{ item.properties.region_name }}
             </td>
             <td>
-                Inviato
-            </td>
-            <td>
-                !
+                <div class="flex items-center">
+                    <div class="w-8 h-8 cursor-pointer rounded-full bg-textGrey  text-white flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                    </div>
+                </div>
             </td>
         </tr>
     </template>
-</custom-table>			
+</custom-table>		
 ```
 
 script part is like this:
 
-``` html javascript
+``` html javascript typescript
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
-import { CustomTable } from "gaspari-ui";
-import usePagination from "gaspari-ui/dist/types/composables/usePagination.d.ts";
+import { defineComponent, onMounted, ref } from "vue";
+import CustomTable from "../../src/components/partials/CustomTable.vue";
+import { usePagination } from "../../src/composables/usePagination";
+import SearchableModal from "../../src/components/ui/SearchableModal.vue";
+import CustomButton from "../../src/components/ui/CustomButton.vue";
 
 export default defineComponent({
 	name: 'HomeView',
 	components: {
-		CustomTable
+		CustomTable,
+		SearchableModal,
+		CustomButton
 	},
 	setup() {
+		// Gestione paginazione tabella
 		const { 
 			results,
 			currentPage,
 			perPage,
 			total,
 			from,
+			searchables,
+			loadingPagination,
+			setSearchParams,
+			setPaginationOrder,
+			setPaginationOrderClasses,
 			updatePagination,
-			loading
 		} = usePagination();
 
+		const handleUpdatePagination = async (e) => {
+			await updatePagination($base_api_url, e)
+		};	
+
 		onMounted(async () => {
-			await updatePagination('https://your-endpoint-get', {
-				perPage: 50,
+			await handleUpdatePagination({
+				perPage: 25,
 				currentPage: 1
 			})
 		})
+				
+		const handleUpdatePaginationWithOrder = (columnName : string) => {
+			setPaginationOrder(columnName);
+			handleUpdatePagination({
+				perPage: perPage.value,
+				currentPage: currentPage.value
+			})
+		}
 
-		const handleUpdatePagination = (e) => {
-			updatePagination('https://your-endpoint-get', e)
-		};
+		const handleUpdatePaginationWithSearch = (search) => {
+			setSearchParams(search);
+			handleUpdatePagination({
+				perPage: perPage.value,
+				currentPage: currentPage.value
+			})
+		}
 
-		return {
-			handleUpdatePagination,
+		const isOpenModalSearch = ref<boolean>(false);
+		const openCloseModalSearch = () => {
+			isOpenModalSearch.value = !isOpenModalSearch.value;
+		}		
+						
+		return {			
+			// From usePagination
 			results,
 			currentPage,
 			perPage,
 			total,
 			from,
-			loading
+			searchables,
+			loadingPagination,
+			setPaginationOrderClasses,
+
+			// Internals for pagination
+			handleUpdatePagination,
+			handleUpdatePaginationWithOrder,
+			handleUpdatePaginationWithSearch,
+
+			// For opening modal search
+			isOpenModalSearch,			
+			openCloseModalSearch,						
 		}
 	}
 })
@@ -785,6 +857,106 @@ For the elements where children is not an empty array, it is not possible specif
 This navigation is ment to have only two levels.
 
 &nbsp;
+
+## 17. CustomSidebar
+Sidebar.
+
+```html
+<custom-sidebar 
+    @close-sidebar="closeSidebar" 			
+    :isOpen="isOpenSidebar"
+    :loading="isLoadingSidebar"
+    :title="sidebarData?.properties.name"
+>						
+    <template v-slot:sidebar-content>
+        <div v-if="sidebarData !== null">
+            <div class="mb-2"><span class="font-semibold">Codice catastale:</span> {{ sidebarData.properties.cadastral_code }}</div>
+            <div class="mb-2"><span class="font-semibold">Unità territoriale:</span> {{ sidebarData.properties.territorial_unit }}</div>
+            <div class="mb-2"><span class="font-semibold">Città metropolitata:</span> {{ sidebarData.properties.is_metropolitan_city ? 'SI' : 'NO' }}</div>
+            <div class="mb-2"><span class="font-semibold">Divisione geografica:</span> {{ sidebarData.properties.geographical_division }}</div>
+            <div class="mb-2"><span class="font-semibold">Codice IPA:</span> {{ sidebarData.properties.ipaCode }}</div>
+            <div class="mb-2"><span class="font-semibold">Codice ISTAT alfanumerico:</span> {{ sidebarData.properties.istat_code_alpha }}</div>
+            <div class="mb-2"><span class="font-semibold">Codice ISTAT numerico:</span> {{ sidebarData.properties.istat_code_numeric }}</div>
+            <div class="mb-2"><span class="font-semibold">Sigla:</span> {{ sidebarData.properties.plate_abbreviation }}</div>
+            <div class="mb-2"><span class="font-semibold">Provincia:</span> {{ sidebarData.properties.province.name }}</div>
+            <div class="mb-2"><span class="font-semibold">Regione:</span> {{ sidebarData.properties.region.name }}</div>
+
+            <h5 class="mt-6 mb-3 text-xl font-bold text-black">Statistiche:</h5>
+            <div class="mb-2"><span class="font-semibold">Zona altimetrica:</span> {{ sidebarData.statistics.altimetric_zone }}</div>
+            <div class="mb-2"><span class="font-semibold">Altitudine:</span> {{ sidebarData.statistics.altitude }}</div>
+            <div class="mb-2"><span class="font-semibold">Popolazione legale:</span> {{ sidebarData.statistics.legal_population }}</div>
+            <div class="mb-2"><span class="font-semibold">Popolazione residente:</span> {{ sidebarData.statistics.resident_population }}</div>					
+        </div>
+        <div v-else>Si è verificato un problema...</div>
+    </template>
+</custom-sidebar>	
+
+<!-- As if it was in a v-for with his id and index  -->
+<button @click="handleOpenDetails(item.id, index)">Open sidebar</button>
+```
+
+script part is like this:
+
+``` html javascript typescript vue
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useSidebar } from "../../src/composables/useSidebar";
+import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
+
+export default defineComponent({
+	name: 'HomeView',
+	components: {
+		CustomTable,
+		CustomSidebar,
+		SearchableModal,
+		CustomButton
+	},
+	setup() {		
+		// Gestione Sidebar
+		const {
+			openDetails,
+			closeSidebar,
+			activeRecordIndex,
+			isOpenSidebar,
+			isLoadingSidebar,
+			sidebarData
+		} = useSidebar();
+		
+		const handleOpenDetails = async (id: number, index: number) => {
+			await openDetails('$base_path_api_resource' + id, index)
+		}
+						
+		return {										
+			// From useSidebar			
+			closeSidebar,
+			activeRecordIndex,
+			isOpenSidebar,
+			isLoadingSidebar,
+			sidebarData,
+			
+			// Internals for sidebar
+			handleOpenDetails,
+		}
+	}
+})
+</script>
+```
+
+This components uses useSidebar composable and is meant to be used with CustomTable component. You can also use sidebar without binding it to a table or an api call. Check useSidebar composable and its methods.
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| isOpen | boolean | Sidebar open or closed. | false |
+| title | string | Sidebar title. | false |
+| loading | boolean | If sidebar is loading data. | false |
+
+
+#### Slots:
+1. "sidebar-content": Inside sidebar
+
+&nbsp;
+
 # Layouts
 ## 1. LayoutBase
 Base Layout.
@@ -834,3 +1006,5 @@ This navigation is ment to have only two levels.
 List of composables to use with components:
 
 1. **usePagination**: composable that handle all the process of updating data for CustomTable component. See [CustomTable](#13-customtable) for the usage.
+
+2. **useSidebar**: composable that handle all the process of open, close, and load data for CustomSidebar component. See [CustomSidebar](#17-customsidebar) for the usage.

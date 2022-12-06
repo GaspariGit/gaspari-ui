@@ -1,6 +1,7 @@
 interface RequestParams {
     currentPage: number;
     perPage: number;
+    search?: {};
 }
 export declare function usePagination(): {
     results: import("vue").Ref<any[]>;
@@ -8,7 +9,14 @@ export declare function usePagination(): {
     perPage: import("vue").Ref<number>;
     total: import("vue").Ref<number>;
     from: import("vue").Ref<number>;
+    searchables: any;
+    setSearchParams: (search: any) => void;
     updatePagination: (routeApi: string, params: RequestParams) => Promise<void>;
-    loading: import("vue").Ref<boolean>;
+    loadingPagination: import("vue").Ref<boolean>;
+    setPaginationOrder: (orderByColumn: string) => void;
+    setPaginationOrderClasses: (orderByColumn: string) => {
+        ordered_asc: boolean;
+        ordered_desc: boolean;
+    };
 };
 export {};

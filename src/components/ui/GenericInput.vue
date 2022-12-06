@@ -1,6 +1,6 @@
 <template>
    <div class="generic-input">
-        <label :for="$attrs['id']" class="generic-input__label text-sm secondary-color" v-if="label">
+        <label class="generic-input__label text-sm secondary-color" v-if="label">
             {{ label }}
         </label>
 

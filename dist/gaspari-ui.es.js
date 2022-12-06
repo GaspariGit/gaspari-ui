@@ -2682,8 +2682,7 @@ const Br = /* @__PURE__ */ A(ui, [["render", mi]]), bi = C({
   class: "custom-select__label text-sm"
 }, vi = ["name", "id", "disabled"], wi = {
   selected: "",
-  disabled: "",
-  value: ""
+  value: "0"
 }, Si = ["value", "selected"];
 function _i(e, t, s, n, r, o) {
   return d(), p("div", gi, [
@@ -2821,17 +2820,16 @@ const Dr = /* @__PURE__ */ A(Ri, [["render", Fi]]), Vi = C({
       }
     }) };
   }
-}), Pi = { class: "generic-input" }, Bi = ["for"], Mi = { class: "input-container" }, Ni = {
+}), Pi = { class: "generic-input" }, Bi = {
+  key: 0,
+  class: "generic-input__label text-sm secondary-color"
+}, Mi = { class: "input-container" }, Ni = {
   key: 1,
   class: "generic-input__read-only"
 };
 function Di(e, t, s, n, r, o) {
   return d(), p("div", Pi, [
-    e.label ? (d(), p("label", {
-      key: 0,
-      for: e.$attrs.id,
-      class: "generic-input__label text-sm secondary-color"
-    }, g(e.label), 9, Bi)) : E("", !0),
+    e.label ? (d(), p("label", Bi, g(e.label), 1)) : E("", !0),
     h("div", Mi, [
       _(e.$slots, "prepend"),
       e.readOnly ? E("", !0) : G((d(), p("input", We({ key: 0 }, e.$attrs, {
@@ -2920,7 +2918,7 @@ const Ur = /* @__PURE__ */ A(qi, [["render", Ji]]), Ki = "data:image/png;base64,
     };
   }
 });
-const Le = (e) => (vt("data-v-5ebb53ef"), e = e(), wt(), e), Qi = { class: "header-navigation py-5 container mx-auto" }, Yi = { class: "flex items-center justify-between mb-5" }, Xi = ["src"], Zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-5ebb53ef><div class="cursor-pointer" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-5ebb53ef></path></svg></div><div class="ml-7 cursor-pointer" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-5ebb53ef></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-5ebb53ef><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-5ebb53ef><div class="font-regular text-xl" data-v-5ebb53ef>EP</div></div><div class="ml-1" data-v-5ebb53ef><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-5ebb53ef><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-5ebb53ef></path></svg></div></div></div>', 1), er = {
+const Le = (e) => (vt("data-v-918f73a8"), e = e(), wt(), e), Qi = { class: "header-navigation py-5 container mx-auto" }, Yi = { class: "flex items-center justify-between mb-5" }, Xi = ["src"], Zi = /* @__PURE__ */ yt('<div class="flex items-center" data-v-918f73a8><div class="cursor-pointer" data-v-918f73a8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-918f73a8><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" data-v-918f73a8></path></svg></div><div class="ml-7 cursor-pointer" data-v-918f73a8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" data-v-918f73a8><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" data-v-918f73a8></path></svg></div><div class="cursor-pointer ml-7 flex items-center" data-v-918f73a8><div class="h-12 w-12 rounded-full bg-gray flex items-center justify-center" data-v-918f73a8><div class="font-regular text-xl" data-v-918f73a8>EP</div></div><div class="ml-1" data-v-918f73a8><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" data-v-918f73a8><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" data-v-918f73a8></path></svg></div></div></div>', 1), er = {
   ref: "navigationRef",
   class: "text-secondary text-base font-medium relative"
 }, tr = { class: "flex" }, sr = ["onClick"], nr = {
@@ -3047,7 +3045,7 @@ function gr(e, t, s, n, r, o) {
     ], 512)
   ]);
 }
-const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-5ebb53ef"]]), vr = C({
+const yr = /* @__PURE__ */ A(Wi, [["render", gr], ["__scopeId", "data-v-918f73a8"]]), vr = C({
   name: "FormContainer",
   components: {
     Breadcrumbs: zi

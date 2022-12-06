@@ -30,6 +30,10 @@ export function useSidebar() {
         isLoadingSidebar.value = false;
     }
 
+    const openSidebar = () => {
+        isOpenSidebar.value = true;
+    }
+
     const closeSidebar = () => {
         sidebarData.value = null;
         isOpenSidebar.value = false;
@@ -38,6 +42,7 @@ export function useSidebar() {
 
 	return {
         openDetails,
+        openSidebar,
         closeSidebar,
         activeRecordIndex,
         isOpenSidebar,
