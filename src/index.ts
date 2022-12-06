@@ -14,10 +14,13 @@ import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
 import Breadcrumbs from './components/ui/Breadcrumbs.vue';
 import FormSeparator from './components/ui/FormSeparator.vue';
+import SearchableModal from './components/ui/SearchableModal.vue';
 
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 import FormContainer from './components/partials/FormContainer.vue';
+import CustomTable from './components/partials/CustomTable.vue';
+import CustomSidebar from './components/partials/CustomSidebar.vue';
 
 // Layouts
 import LayoutBase from './layouts/LayoutBase.vue';
@@ -42,5 +45,8 @@ export {
     FormContainer,
     LayoutBase,
     Breadcrumbs,
-    FormSeparator
+    FormSeparator,
+    SearchableModal,
+    CustomTable,
+    CustomSidebar
 }
