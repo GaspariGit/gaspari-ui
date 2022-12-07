@@ -957,6 +957,20 @@ This components uses useSidebar composable and is meant to be used with CustomTa
 
 &nbsp;
 
+## 18. CustomPageMeta
+Tag to add meta info to the page.
+
+```html
+<custom-page-meta title="Titolo custom" />		
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| title | string | Title of the page. | false |
+
+&nbsp;
+
 # Layouts
 ## 1. LayoutBase
 Base Layout.

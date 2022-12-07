@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<custom-page-meta title="Titolo custom" />
 		<custom-sidebar 
 			@close-sidebar="closeSidebar" 			
 			:isOpen="isOpenSidebar"
@@ -157,6 +158,7 @@ import CustomTable from "../../src/components/partials/CustomTable.vue";
 import { usePagination } from "../../src/composables/usePagination";
 import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
+import CustomPageMeta from "../../src/components/partials/CustomPageMeta.vue";
 import SearchableModal from "../../src/components/ui/SearchableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
 
@@ -166,7 +168,8 @@ export default defineComponent({
 		CustomTable,
 		CustomSidebar,
 		SearchableModal,
-		CustomButton
+		CustomButton,
+		CustomPageMeta
 	},
 	setup() {
 		// Gestione paginazione tabella

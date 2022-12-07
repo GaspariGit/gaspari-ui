@@ -21,6 +21,7 @@ import HeaderNavigation from './components/partials/HeaderNavigation.vue';
 import FormContainer from './components/partials/FormContainer.vue';
 import CustomTable from './components/partials/CustomTable.vue';
 import CustomSidebar from './components/partials/CustomSidebar.vue';
+import CustomPageMeta from './components/partials/CustomPageMeta.vue';
 
 // Layouts
 import LayoutBase from './layouts/LayoutBase.vue';
@@ -54,6 +55,7 @@ export {
     SearchableModal,
     CustomTable,
     CustomSidebar,
+    CustomPageMeta,
 
     // Composables
     useSidebar,
