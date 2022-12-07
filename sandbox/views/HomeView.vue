@@ -31,11 +31,11 @@
 			</template>
 		</custom-sidebar>
 
-		<searchable-modal
-			:isOpen="isOpenModalSearch"
-			@closeModal="openCloseModalSearch"
-			@search="handleUpdatePaginationWithSearch"
-			:searchables="searchables"
+		<filterable-modal
+			:isOpen="isOpenModalFilter"
+			@closeModal="openCloseModalFilter"
+			@filter="handleUpdatePaginationWithFilter"
+			:filterables="filterables"
 			baseApiPath="https://devapi00.gruppogaspari.net"
 		/>
 
@@ -61,7 +61,22 @@
 						</div>
 					</div> -->
 
-					<div @click="openCloseModalSearch" class="flex items-center cursor-pointer">
+					<div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
+						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
+							<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+							</svg> -->
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" class="w-5 h-5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+							</svg>
+
+						</div>
+						<div class="font-medium text-customBlack">
+							Filtra
+						</div>
+					</div>	
+
+					<div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
 						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -159,18 +174,20 @@ import CustomTable from "../../src/components/partials/CustomTable.vue";
 import { usePagination } from "../../src/composables/usePagination";
 import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
-import SearchableModal from "../../src/components/ui/SearchableModal.vue";
+import FilterableModal from "../../src/components/ui/FilterableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
 import ScrollToTop from "../../src/components/ui/ScrollToTop.vue";
+import CustomSearchInput from "../../src/components/ui/CustomSearchInput.vue";
 
 export default defineComponent({
 	name: 'HomeView',
 	components: {
 		CustomTable,
 		CustomSidebar,
-		SearchableModal,
+		FilterableModal,
 		CustomButton,
-		ScrollToTop
+		ScrollToTop,
+		CustomSearchInput
 	},
 	setup() {
 		// Gestione paginazione tabella
@@ -180,9 +197,9 @@ export default defineComponent({
 			perPage,
 			total,
 			from,
-			searchables,
+			filterables,
 			loadingPagination,
-			setSearchParams,
+			setFilterParams,
 			setPaginationOrder,
 			setPaginationOrderClasses,
 			updatePagination,
@@ -207,17 +224,17 @@ export default defineComponent({
 			})
 		}
 
-		const handleUpdatePaginationWithSearch = (search) => {
-			setSearchParams(search);
+		const handleUpdatePaginationWithFilter = (search) => {
+			setFilterParams(search);
 			handleUpdatePagination({
 				perPage: perPage.value,
 				currentPage: currentPage.value
 			})
 		}
 
-		const isOpenModalSearch = ref<boolean>(false);
-		const openCloseModalSearch = () => {
-			isOpenModalSearch.value = !isOpenModalSearch.value;
+		const isOpenModalFilter = ref<boolean>(false);
+		const openCloseModalFilter = () => {
+			isOpenModalFilter.value = !isOpenModalFilter.value;
 		}
 
 		// Gestione Sidebar
@@ -241,18 +258,18 @@ export default defineComponent({
 			perPage,
 			total,
 			from,
-			searchables,
+			filterables,
 			loadingPagination,
 			setPaginationOrderClasses,
 
 			// Internals for pagination
 			handleUpdatePagination,
 			handleUpdatePaginationWithOrder,
-			handleUpdatePaginationWithSearch,
+			handleUpdatePaginationWithFilter,
 
-			// For opening modal search
-			isOpenModalSearch,			
-			openCloseModalSearch,			
+			// For opening modal Filter
+			isOpenModalFilter,			
+			openCloseModalFilter,			
 
 			// From useSidebar			
 			closeSidebar,

@@ -15,9 +15,9 @@
                     </div>
 
                     <div class="modal-body">                    
-                        <template v-if="searchables">
+                        <template v-if="filterables">
                             <div class="grid grid-cols-12 gap-6">
-                                <div class="col-span-6" v-for="(item, index) in searchables.columns" :key="index">
+                                <div class="col-span-6" v-for="(item, index) in filterables.columns" :key="index">
                                     <!-- Input Text -->
                                     <template v-if="item.type === 'text'">
                                         <generic-input
@@ -66,7 +66,7 @@
                         <custom-button
                             label="Cerca"
                             styleType="primary"
-                            @onClick="emitSearch"
+                            @onClick="emitFilter"
                         />
                     </div>
                 </div>
@@ -77,18 +77,16 @@
 
 <script lang="ts">
 import { defineComponent, Transition, PropType, ref, watch } from "vue";
-import CustomModal from "./CustomModal.vue";
 import CustomButton from "./CustomButton.vue";
 import GenericInput from "./GenericInput.vue";
 import CustomSelect from "./CustomSelect.vue";
-import { Searchable, SearchableColumn } from '../../types/Searchable';
+import { Filterable, FilterableColumn } from '../../types/Filterable';
 import axios from "axios";
 const NAME_KEY = '_name';
 
 export default defineComponent({
-    name: 'SearchableModal',
+    name: 'FilterbleModal',
     components: {
-        CustomModal,
         CustomButton,
         GenericInput,
         CustomSelect,
@@ -100,8 +98,8 @@ export default defineComponent({
             required: false,
             default: false
         },   
-        searchables: {
-            type: [Object, null] as PropType<Searchable | null>,
+        filterables: {
+            type: [Object, null] as PropType<Filterable | null>,
             required: true,
         },
         baseApiPath: {
@@ -115,19 +113,19 @@ export default defineComponent({
             context.emit('closeModal');
         }
 
-        const emitSearch = () => {
-            const objSearch = {
-                search: {}                
+        const emitFilter = () => {
+            const objFilter = {
+                filter: {}                
             };
             for(let property in state.value) {
-                const indexOfProperty = props.searchables.columns.findIndex(column => column.column === property);
+                const indexOfProperty = props.filterables.columns.findIndex(column => column.column === property);
                 if(state.value[property]) {
-                    objSearch.search[indexOfProperty] = state.value[property];
+                    objFilter.filter[indexOfProperty] = state.value[property];
                 }
             }
 
             emitCloseModal();
-            context.emit('search', objSearch)
+            context.emit('filter', objFilter)
         }
 
         const assignInitialValue = (type : string) => {
@@ -153,20 +151,20 @@ export default defineComponent({
 		const optionsState = ref<{}>({});
         const loadingState = ref<{}>({});
         const relationState = ref<{}>({});
-        const initSearch = () => {
-            if(props.searchables) {
-                props.searchables.columns.forEach((item, index) => {
+        const initFilter = () => {
+            if(props.filterables) {
+                props.filterables.columns.forEach((item, index) => {
                     initValues(item);                    
                     initOptions(item, index);
                 })
             }
         }
         
-        const initValues = (item : SearchableColumn) => {
+        const initValues = (item : FilterableColumn) => {
             state.value[item.column] = assignInitialValue(item.type);
         }
 
-        const initOptions = (item : SearchableColumn, index : number) => {
+        const initOptions = (item : FilterableColumn, index : number) => {
             if(item.route) {
                 loadingState.value[item.column] = true;
                 axios.get(props.baseApiPath + item.route)
@@ -174,7 +172,7 @@ export default defineComponent({
                         optionsState.value[item.column] = response.data.data.options;
 
                         // Fare check se questa colonna è nell'array relations
-                        props.searchables.relations.forEach((rel) => {    
+                        props.filterables.relations.forEach((rel) => {    
                             const columns = Object.values(rel.columns); 
 
                             if(columns.includes(index)) {  
@@ -204,12 +202,12 @@ export default defineComponent({
         watch(() => props.isOpen, (actual, previous) => {
             if(actual === true && previous === false && firstOpened.value === false) {
                 firstOpened.value = true;
-                initSearch();
+                initFilter();
             }
         });
                
         const cleanResults = () => {
-            props.searchables.columns.forEach((item, index) => {
+            props.filterables.columns.forEach((item, index) => {
                 state.value[item.column] = assignInitialValue(item.type);
 
 				if(item.route) {
@@ -223,23 +221,23 @@ export default defineComponent({
                 const optionKeysToUpdate = [];
 				const optionsIndexesToUpdate = []
 				relationState.value[column].update.forEach((id) => {
-					optionKeysToUpdate.push(props.searchables.columns[id].column)
+					optionKeysToUpdate.push(props.filterables.columns[id].column)
 					optionsIndexesToUpdate.push(id)
 				})
 
 				// Reset dei campi con relazioni
 				if(parseInt(e.target.value) === 0) {
-					initOptions(props.searchables.columns[index], index);
+					initOptions(props.filterables.columns[index], index);
 					// Questo per resettare tutte le input a cui è legata
 					optionKeysToUpdate.forEach((o, i) => {						
-						initValues(props.searchables.columns[optionsIndexesToUpdate[i]]);
-						initOptions(props.searchables.columns[optionsIndexesToUpdate[i]], optionsIndexesToUpdate[i]);
+						initValues(props.filterables.columns[optionsIndexesToUpdate[i]]);
+						initOptions(props.filterables.columns[optionsIndexesToUpdate[i]], optionsIndexesToUpdate[i]);
 					});
 					
 					return;
 				}
 				
-                const optionKeySource = props.searchables.columns[relationState.value[column].index].column
+                const optionKeySource = props.filterables.columns[relationState.value[column].index].column
                 
                 axios.get(props.baseApiPath + relationState.value[column].route)
                     .then(({data}) => {                        
@@ -270,7 +268,7 @@ export default defineComponent({
     
         return {
             emitCloseModal,
-            emitSearch,
+            emitFilter,
             state,
             loadingState,
             optionsState,

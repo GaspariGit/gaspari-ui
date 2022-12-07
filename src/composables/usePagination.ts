@@ -1,6 +1,6 @@
 // mouse.js
 import axios from 'axios';
-import type { Searchable } from 'src/types/Searchable';
+import type { Filterable } from 'src/types/Filterable';
 import { ref } from 'vue'
 interface RequestParams {
 	currentPage : number
@@ -22,7 +22,7 @@ export function usePagination() {
 	const from = ref<number | null>(0);
 	const currentPage = ref<number | null>(0);
 	const perPage = ref<number | null>(0);
-	const searchables = ref<Searchable | null>(null);
+	const filterables = ref<Filterable | null>(null);
 
 	const loadingPagination = ref<boolean>(false);
 
@@ -50,9 +50,9 @@ export function usePagination() {
 		}
 	}
 
-	const searchParams = ref<{search: {}}>({search: {}})
-	const setSearchParams = (search : any) => {
-		searchParams.value.search = search.search
+	const filterParams = ref<{filter: {}}>({filter: {}})
+	const setFilterParams = (filter : any) => {
+		filterParams.value.filter = filter.filter
 	}
 	
 	const updatePagination = async (routeApi : string, params : RequestParams) => {
@@ -73,8 +73,8 @@ export function usePagination() {
 		}
 
 		// Set dei parametri della ricerca
-		if(searchParams.value.search) {
-			paramsObj.search = searchParams.value.search;
+		if(filterParams.value.filter) {
+			paramsObj.filter = filterParams.value.filter;
 		}
 		
 		await axios.get(routeApi, {
@@ -87,7 +87,7 @@ export function usePagination() {
 				results.value = res.data.data;				
 				total.value = res.data.meta.total;
 				from.value = res.data.meta.from;
-				searchables.value = res.data.searchables;				
+				filterables.value = res.data.filterables;				
 			}
 		})
 		.catch((error) => {
@@ -103,8 +103,8 @@ export function usePagination() {
 		perPage,
 		total,
 		from,
-		searchables,
-		setSearchParams,
+		filterables,
+		setFilterParams,
 		updatePagination,	
 		loadingPagination,
 		setPaginationOrder,
