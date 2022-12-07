@@ -957,17 +957,12 @@ This components uses useSidebar composable and is meant to be used with CustomTa
 
 &nbsp;
 
-## 18. CustomPageMeta
-Tag to add meta info to the page.
+## 18. ScrollToTop
+scroll-to-top component.
 
 ```html
-<custom-page-meta title="Titolo custom" />		
+<scroll-to-top />
 ```
-
-#### Props:
-| Name | Type | Description | Required |
-| ---- | -------| --- | --- |
-| title | string | Title of the page. | false |
 
 &nbsp;
 
@@ -1022,3 +1017,6 @@ List of composables to use with components:
 1. **usePagination**: composable that handle all the process of updating data for CustomTable component. See [CustomTable](#13-customtable) for the usage.
 
 2. **useSidebar**: composable that handle all the process of open, close, and load data for CustomSidebar component. See [CustomSidebar](#17-customsidebar) for the usage.
+
+
+2. **usePageMeta**: composable that sets the title of the page. Use the function setPageTitle('example title') to set the title.

@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<custom-page-meta title="Titolo custom" />
+		<scroll-to-top />
+
 		<custom-sidebar 
 			@close-sidebar="closeSidebar" 			
 			:isOpen="isOpenSidebar"
@@ -158,9 +159,9 @@ import CustomTable from "../../src/components/partials/CustomTable.vue";
 import { usePagination } from "../../src/composables/usePagination";
 import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
-import CustomPageMeta from "../../src/components/partials/CustomPageMeta.vue";
 import SearchableModal from "../../src/components/ui/SearchableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
+import ScrollToTop from "../../src/components/ui/ScrollToTop.vue";
 
 export default defineComponent({
 	name: 'HomeView',
@@ -169,7 +170,7 @@ export default defineComponent({
 		CustomSidebar,
 		SearchableModal,
 		CustomButton,
-		CustomPageMeta
+		ScrollToTop
 	},
 	setup() {
 		// Gestione paginazione tabella
