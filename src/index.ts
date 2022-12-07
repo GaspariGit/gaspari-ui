@@ -15,6 +15,7 @@ import GenericInput from './components/ui/GenericInput.vue';
 import Breadcrumbs from './components/ui/Breadcrumbs.vue';
 import FormSeparator from './components/ui/FormSeparator.vue';
 import SearchableModal from './components/ui/SearchableModal.vue';
+import ScrollToTop from './components/ui/ScrollToTop.vue';
 
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
@@ -55,6 +56,7 @@ export {
     SearchableModal,
     CustomTable,
     CustomSidebar,
+    ScrollToTop,
 
     // Composables
     useSidebar,
