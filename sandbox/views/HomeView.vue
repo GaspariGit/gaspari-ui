@@ -2,6 +2,10 @@
 	<div>
 		<scroll-to-top />
 
+		<div class="m-20">
+			<custom-search-input />
+		</div>
+
 		<custom-sidebar 
 			@close-sidebar="closeSidebar" 			
 			:isOpen="isOpenSidebar"
@@ -61,11 +65,8 @@
 						</div>
 					</div> -->
 
-					<div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
-						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
-							<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-							</svg> -->
+					<!-- <div @click="openCloseModalFilter" class="flex items-center cursor-pointer mr-6">
+						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">							
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" class="w-5 h-5">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
 							</svg>
@@ -74,20 +75,9 @@
 						<div class="font-medium text-customBlack">
 							Filtra
 						</div>
-					</div>	
+					</div>	 -->
 
-					<div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
-						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-							</svg>
-
-						</div>
-						<div class="font-medium text-customBlack">
-							Cerca
-						</div>
-					</div>
-
+					
 					<!-- <div class="flex items-center cursor-pointer">
 						<div class="mr-2 bg-lime h-8 w-8 rounded-full flex items-center justify-center">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-6 h-6">
