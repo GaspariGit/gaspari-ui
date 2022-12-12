@@ -97,7 +97,8 @@ export default defineComponent({
 		},
 		from: {
 			type: Number as PropType<number>,
-			required: true
+			required: false,
+			default: 0
 		},
 		loading: {
 			type: Boolean as PropType<boolean>,
