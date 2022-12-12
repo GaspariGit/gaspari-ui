@@ -507,12 +507,12 @@ BreadCrumbs.
 Table with pagination. This component uses "pagination" composable
 
 ```html
-<searchable-modal
-    :isOpen="isOpenModalSearch"
-    @closeModal="openCloseModalSearch"
-    @search="handleUpdatePaginationWithSearch"
-    :searchables="searchables"
-    baseApiPath="https://devapi00.gruppogaspari.net"
+<filterable-modal
+    :isOpen="isOpenModalFilter"
+    @closeModal="openCloseModalFilter"
+    @filter="handleUpdatePaginationWithFilter"
+    :filterables="filterables"
+    baseApiPath="https://base.api.net"
 />
 
 <custom-table
@@ -526,7 +526,7 @@ Table with pagination. This component uses "pagination" composable
 >
     <template v-slot:filters>
         <div class="flex">					
-            <div @click="openCloseModalSearch" class="flex items-center cursor-pointer">
+            <div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
                 <div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -613,14 +613,14 @@ script part is like this:
 import { defineComponent, onMounted, ref } from "vue";
 import CustomTable from "../../src/components/partials/CustomTable.vue";
 import { usePagination } from "../../src/composables/usePagination";
-import SearchableModal from "../../src/components/ui/SearchableModal.vue";
+import FilterableModal from "../../src/components/ui/FilterableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
 
 export default defineComponent({
 	name: 'HomeView',
 	components: {
 		CustomTable,
-		SearchableModal,
+		FilterableModal,
 		CustomButton
 	},
 	setup() {
@@ -631,9 +631,9 @@ export default defineComponent({
 			perPage,
 			total,
 			from,
-			searchables,
+			filterables,
 			loadingPagination,
-			setSearchParams,
+			setFilterParams,
 			setPaginationOrder,
 			setPaginationOrderClasses,
 			updatePagination,
@@ -658,17 +658,17 @@ export default defineComponent({
 			})
 		}
 
-		const handleUpdatePaginationWithSearch = (search) => {
-			setSearchParams(search);
+		const handleUpdatePaginationWithFilter = (filter) => {
+			setFilterParams(filter);
 			handleUpdatePagination({
 				perPage: perPage.value,
 				currentPage: currentPage.value
 			})
 		}
 
-		const isOpenModalSearch = ref<boolean>(false);
-		const openCloseModalSearch = () => {
-			isOpenModalSearch.value = !isOpenModalSearch.value;
+		const isOpenModalFilter = ref<boolean>(false);
+		const openCloseModalFilter = () => {
+			isOpenModalFilter.value = !isOpenModalFilter.value;
 		}		
 						
 		return {			
@@ -678,18 +678,18 @@ export default defineComponent({
 			perPage,
 			total,
 			from,
-			searchables,
+			filterables,
 			loadingPagination,
 			setPaginationOrderClasses,
 
 			// Internals for pagination
 			handleUpdatePagination,
 			handleUpdatePaginationWithOrder,
-			handleUpdatePaginationWithSearch,
+			handleUpdatePaginationWithFilter,
 
-			// For opening modal search
-			isOpenModalSearch,			
-			openCloseModalSearch,						
+			// For opening modal Filter
+			isOpenModalFilter,			
+			openCloseModalFilter,						
 		}
 	}
 })
@@ -908,7 +908,7 @@ export default defineComponent({
 	components: {
 		CustomTable,
 		CustomSidebar,
-		SearchableModal,
+		FilterableModal,
 		CustomButton
 	},
 	setup() {		
