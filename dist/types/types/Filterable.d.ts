@@ -1,5 +1,5 @@
 declare type MyTypes = 'text' | 'select' | 'checkbox' | 'multiselect';
-interface SearchableColumn {
+interface FilterableColumn {
     column: string;
     route: string | null;
     type: MyTypes;
@@ -7,13 +7,13 @@ interface SearchableColumn {
     order: number;
     placeholder: string;
 }
-interface SearchableRelation {
+interface FilterableRelation {
     columns: number[];
     route: string;
     order: number[] | null;
 }
-interface Searchable {
-    columns: SearchableColumn[];
-    relations: SearchableRelation[];
+interface Filterable {
+    columns: FilterableColumn[];
+    relations: FilterableRelation[];
 }
-export type { SearchableColumn, SearchableRelation, Searchable };
+export type { FilterableColumn, FilterableRelation, Filterable };

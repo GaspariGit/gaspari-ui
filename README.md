@@ -966,6 +966,25 @@ scroll-to-top component.
 
 &nbsp;
 
+## 19. CustomSearchInput
+Search input custom.
+
+```html
+<custom-search-input 
+    @onSearch="handleUpdatePaginationWithSearch"
+/>
+```
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| Placeholder | string | placeholder. | false |
+
+#### Events:
+1. @onSearch: emitted when click search or enter. Returns the string.
+
+&nbsp;
+
+
 # Layouts
 ## 1. LayoutBase
 Base Layout.

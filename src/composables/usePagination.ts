@@ -52,7 +52,12 @@ export function usePagination() {
 
 	const filterParams = ref<{filter: {}}>({filter: {}})
 	const setFilterParams = (filter : any) => {
-		filterParams.value.filter = filter.filter
+		filterParams.value.filter = filter.filter;
+	}
+
+	const searchQuery = ref<string>('');
+	const setSearchQuery = (query : string) => {
+		searchQuery.value = query;
 	}
 	
 	const updatePagination = async (routeApi : string, params : RequestParams) => {
@@ -72,9 +77,14 @@ export function usePagination() {
 			}
 		}
 
-		// Set dei parametri della ricerca
+		// Set dei parametri del filtro
 		if(filterParams.value.filter) {
 			paramsObj.filter = filterParams.value.filter;
+		}
+
+		// Set dei parametri della ricerca
+		if(searchQuery.value) {
+			paramsObj.search = searchQuery.value
 		}
 		
 		await axios.get(routeApi, {
@@ -108,6 +118,7 @@ export function usePagination() {
 		updatePagination,	
 		loadingPagination,
 		setPaginationOrder,
-		setPaginationOrderClasses
+		setPaginationOrderClasses,
+		setSearchQuery
 	}
 }

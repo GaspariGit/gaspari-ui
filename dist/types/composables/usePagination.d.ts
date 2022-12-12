@@ -9,8 +9,8 @@ export declare function usePagination(): {
     perPage: import("vue").Ref<number>;
     total: import("vue").Ref<number>;
     from: import("vue").Ref<number>;
-    searchables: any;
-    setSearchParams: (search: any) => void;
+    filterables: any;
+    setFilterParams: (filter: any) => void;
     updatePagination: (routeApi: string, params: RequestParams) => Promise<void>;
     loadingPagination: import("vue").Ref<boolean>;
     setPaginationOrder: (orderByColumn: string) => void;
@@ -18,5 +18,6 @@ export declare function usePagination(): {
         ordered_asc: boolean;
         ordered_desc: boolean;
     };
+    setSearchQuery: (query: string) => void;
 };
 export {};

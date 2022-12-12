@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<scroll-to-top />
-
-		<div class="m-20">
-			<custom-search-input />
-		</div>
-
+		
 		<custom-sidebar 
 			@close-sidebar="closeSidebar" 			
 			:isOpen="isOpenSidebar"
@@ -53,20 +49,15 @@
 			:loading="loadingPagination"
 		>
 			<template v-slot:filters>
-				<div class="flex">
-					<!-- <div class="flex items-center cursor-pointer mr-4">
-						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-							</svg>
-						</div>
-						<div class="font-medium text-customBlack">
-							Filtra per prodotto
-						</div>
-					</div> -->
+				<div class="flex items-center">
+					<div class="mr-5">
+						<custom-search-input 
+							@onSearch="handleUpdatePaginationWithSearch"
+						/>
+					</div>				
 
-					<!-- <div @click="openCloseModalFilter" class="flex items-center cursor-pointer mr-6">
-						<div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">							
+					<div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
+						<div class="mr-2 bg-textGrey h-9 w-9 rounded-full flex items-center justify-center hover:bg-customBlack transition">							
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" class="w-5 h-5">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
 							</svg>
@@ -75,19 +66,7 @@
 						<div class="font-medium text-customBlack">
 							Filtra
 						</div>
-					</div>	 -->
-
-					
-					<!-- <div class="flex items-center cursor-pointer">
-						<div class="mr-2 bg-lime h-8 w-8 rounded-full flex items-center justify-center">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-6 h-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-							</svg>
-						</div>
-						<div class="font-medium text-customBlack">
-							Aggiungi nuovo
-						</div>
-					</div> -->
+					</div>									
 				</div>
 			</template>
 
@@ -192,6 +171,7 @@ export default defineComponent({
 			setFilterParams,
 			setPaginationOrder,
 			setPaginationOrderClasses,
+			setSearchQuery,
 			updatePagination,
 		} = usePagination();
 
@@ -222,6 +202,14 @@ export default defineComponent({
 			})
 		}
 
+		const handleUpdatePaginationWithSearch = (searchQuery : string) => {
+			setSearchQuery(searchQuery);
+			handleUpdatePagination({
+				perPage: perPage.value,
+				currentPage: currentPage.value
+			})
+		}
+
 		const isOpenModalFilter = ref<boolean>(false);
 		const openCloseModalFilter = () => {
 			isOpenModalFilter.value = !isOpenModalFilter.value;
@@ -240,6 +228,8 @@ export default defineComponent({
 		const handleOpenDetails = async (id: number, index: number) => {
 			await openDetails('https://devapi00.gruppogaspari.net/api/v1/cities/' + id, index)
 		}
+
+		
 						
 		return {			
 			// From usePagination
@@ -270,6 +260,8 @@ export default defineComponent({
 			
 			// Internals for sidebar
 			handleOpenDetails,
+
+			handleUpdatePaginationWithSearch
 		}
 	}
 })

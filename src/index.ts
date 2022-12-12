@@ -14,8 +14,9 @@ import CustomTextArea from './components/ui/CustomTextArea.vue';
 import GenericInput from './components/ui/GenericInput.vue';
 import Breadcrumbs from './components/ui/Breadcrumbs.vue';
 import FormSeparator from './components/ui/FormSeparator.vue';
-import SearchableModal from './components/ui/SearchableModal.vue';
+import FilterableModal from './components/ui/FilterableModal.vue';
 import ScrollToTop from './components/ui/ScrollToTop.vue';
+import CustomSearchInput from './components/ui/CustomSearchInput.vue';
 
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
@@ -53,10 +54,11 @@ export {
     LayoutBase,
     Breadcrumbs,
     FormSeparator,
-    SearchableModal,
+    FilterableModal,
     CustomTable,
     CustomSidebar,
     ScrollToTop,
+    CustomSearchInput,
 
     // Composables
     useSidebar,

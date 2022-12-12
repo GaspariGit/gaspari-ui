@@ -1,13 +1,13 @@
 import { PropType } from "vue";
-import { Searchable } from '../../types/Searchable';
+import { Filterable } from '../../types/Filterable';
 declare const _default: import("vue").DefineComponent<{
     isOpen: {
         type: PropType<boolean>;
         required: false;
         default: boolean;
     };
-    searchables: {
-        type: PropType<Searchable>;
+    filterables: {
+        type: PropType<Filterable>;
         required: true;
     };
     baseApiPath: {
@@ -16,7 +16,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, {
     emitCloseModal: () => void;
-    emitSearch: () => void;
+    emitFilter: () => void;
     state: import("vue").Ref<{}>;
     loadingState: import("vue").Ref<{}>;
     optionsState: import("vue").Ref<{}>;
@@ -28,8 +28,8 @@ declare const _default: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-    searchables: {
-        type: PropType<Searchable>;
+    filterables: {
+        type: PropType<Filterable>;
         required: true;
     };
     baseApiPath: {
