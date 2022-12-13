@@ -31,7 +31,7 @@ After downloading the repository and running:
 npm install
 ```
 
-Is it possible to modify the library in /src folder. The /sandbox folder is where you can import components and use them, by running:
+It is possible to modify the library in /src folder. The /sandbox folder is where you can import components and use them, by running:
 
 ```
 npm run dev
