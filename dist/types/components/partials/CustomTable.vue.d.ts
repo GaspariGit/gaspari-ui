@@ -19,7 +19,8 @@ declare const _default: import("vue").DefineComponent<{
     };
     from: {
         type: PropType<number>;
-        required: true;
+        required: false;
+        default: number;
     };
     loading: {
         type: PropType<boolean>;
@@ -49,13 +50,15 @@ declare const _default: import("vue").DefineComponent<{
     };
     from: {
         type: PropType<number>;
-        required: true;
+        required: false;
+        default: number;
     };
     loading: {
         type: PropType<boolean>;
         required: true;
     };
 }>>, {
+    from: number;
     currentPage: number;
     perPage: number;
 }>;

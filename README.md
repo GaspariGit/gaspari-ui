@@ -984,6 +984,32 @@ Search input custom.
 
 &nbsp;
 
+## 20. CustomTooltip
+Tooltip that appears on hover of an element.
+
+```html
+<custom-tooltip position="bottom" backroundColor="#000000">
+    <template v-slot:target>
+        <span>Tooltip</span>					
+    </template>
+    <template v-slot:content>
+        <p class="text-black">Lorem ipsum dolor sit <a href="https:/google.com" class="underline" target="_blank">amet</a> consectetur adipisicing elit. Voluptates sed illum nisi rerum. Voluptatibus vitae libero dolor illum deserunt. Dicta itaque ratione ipsam quisquam vitae cum officia aperiam eveniet eius.</p>					
+    </template>
+</custom-tooltip>
+```
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| position | string | position of tooltip. options are ["top", "right", "bottom", "left"]. Default is "top" | false |
+| backgroundColor | string | Color of the background. Default is black. | false |
+| maxWidth | number | max-width in pixels of the container. Default is 250. | false |
+
+#### Slots:
+1. target: The element target.
+2. content: The content of the tooltip.
+
+&nbsp;
+
 
 # Layouts
 ## 1. LayoutBase

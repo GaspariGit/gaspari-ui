@@ -2,6 +2,17 @@
 	<div>
 		<scroll-to-top />
 		
+		<div class="flex justify-center my-20">
+			<custom-tooltip position="top" backroundColor="#000000" :maxWidth="350">
+				<template v-slot:target>
+					<span>Popover</span>					
+				</template>
+				<template v-slot:content>
+					<p>Lorem ipsum dolor sit <a href="https:/google.com" class="underline" target="_blank">amet</a> consectetur adipisicing elit. Voluptates sed illum nisi rerum. Voluptatibus vitae libero dolor illum deserunt. Dicta itaque ratione ipsam quisquam vitae cum officia aperiam eveniet eius.</p>					
+				</template>
+			</custom-tooltip>
+		</div>
+
 		<custom-sidebar 
 			@close-sidebar="closeSidebar" 			
 			:isOpen="isOpenSidebar"
@@ -147,6 +158,7 @@ import FilterableModal from "../../src/components/ui/FilterableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
 import ScrollToTop from "../../src/components/ui/ScrollToTop.vue";
 import CustomSearchInput from "../../src/components/ui/CustomSearchInput.vue";
+import CustomTooltip from "../../src/components/ui/CustomTooltip.vue";
 
 export default defineComponent({
 	name: 'HomeView',
@@ -156,7 +168,8 @@ export default defineComponent({
 		FilterableModal,
 		CustomButton,
 		ScrollToTop,
-		CustomSearchInput
+		CustomSearchInput,
+		CustomTooltip
 	},
 	setup() {
 		// Gestione paginazione tabella
