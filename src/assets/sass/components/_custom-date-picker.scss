@@ -1,0 +1,52 @@
+.custom-date-picker {
+    .dp__input_wrap {
+        .dp__pointer.dp__input_readonly.dp__input.dp__input_icon_pad.dp__input_reg {
+            @include input-style;
+            padding-left: 40px; 
+        }
+
+        svg {
+            fill: var(--secondary-color);
+        }
+    } 
+}
+
+.dp__instance_calendar {
+    .dp__calendar_item[aria-selected="true"] {
+        .dp__cell_inner.dp__pointer.dp__active_date {
+            background-color: var(--secondary-color);
+        }
+    }
+
+    .dp__cell_inner.dp__pointer.dp__range_start,
+    .dp__cell_inner.dp__pointer.dp__range_end {
+        background-color: var(--secondary-color);
+    }
+
+    .dp__today {
+        border: 1px solid var(--secondary-color);
+    }
+}
+
+.dp__action_row {
+    .dp__selection_preview {
+        color: $text-grey;
+    }   
+
+    .dp__action_buttons {
+        .dp__action.dp__cancel  {
+            color: $red;            
+        }
+
+        .dp__action.dp__select {
+            color: var(--secondary-color);
+        }
+    }    
+}
+
+.dp__button {
+    svg {
+        fill: var(--primary-color);
+        stroke: var(--primary-color);
+    }
+}

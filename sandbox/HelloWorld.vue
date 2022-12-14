@@ -45,20 +45,21 @@
 			<generic-input
 				type="number"
 				placeholder="Aggiungi prezzo"
-				label="Prezzo"	
+				label="Prezzo"
 				max="100"	
 			>
 				<template v-slot:prepend>
 					<div class="slot-price">€</div>
 				</template>
-			</generic-input>
+			</generic-input>			
 
-			<generic-input
-				type="date"
-				placeholder="Aggiungi un placeholder"
-				label="Lorem ipsum"	
-				v-model="name"	
-			></generic-input>	
+			<div class="py-2">
+				<custom-date-picker
+					label="Data inizio"
+					:range="true"
+					type="date"
+				/>
+			</div>
 
 			<custom-text-area
 				label="ratataaa"
@@ -265,6 +266,7 @@ import ListItem from '../src/types/ListItem';
 import menuStructure from './menuStructure.js';
 import FormContainer from '../src/components/partials/FormContainer.vue';
 import FormSeparator from "../src/components/ui/FormSeparator.vue";
+import CustomDatePicker from "../src/components/ui/CustomDatePicker.vue";
 
 export default defineComponent({
 	name: 'HelloWorld',	
@@ -283,7 +285,8 @@ export default defineComponent({
 		CustomButton,
 		LayoutBase,
 		FormContainer,
-		FormSeparator
+		FormSeparator,
+		CustomDatePicker
 	},
 	setup() {
 		const name = ref<string>('Gianni');		
