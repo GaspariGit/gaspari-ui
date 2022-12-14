@@ -190,7 +190,7 @@ export default defineComponent({
 					formatted = timeArray;
 				} else {
 					const time : any = selectedDate.value;
-					const timeString = `${time.hours}:${time.minutes}:00`
+					const timeString = `${time.hours}:${time.minutes}:00`;
 
 					formatted = timeString;
 				}
