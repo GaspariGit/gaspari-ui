@@ -51,20 +51,23 @@
 				<template v-slot:prepend>
 					<div class="slot-price">€</div>
 				</template>
-			</generic-input>			
+			</generic-input>
 
 			<div class="py-2">
 				<custom-date-picker
 					label="Data inizio"
-					:range="true"
-					type="date"
+					:range="false"
+					type="time"
+					v-model:update="date"				
 				/>
+
+				{{date}}
 			</div>
 
 			<custom-text-area
 				label="ratataaa"
 				placeholder="Aldo un placeholdert"
-				disabled			
+				disabled
 			/>
 
 			<div style="padding: 8px">			
@@ -327,7 +330,7 @@ export default defineComponent({
 			},
 		]);
 
-		const test = (e) => {
+		const test = (e : string | string[]) => {
 			console.log('eeeee', e)
 		}
 
@@ -342,6 +345,8 @@ export default defineComponent({
 
 		const menuStructureList : Array<ListItem> = menuStructure;
 		
+		const date = ref('11:32:00');
+
 		return { 
 			name, 
 			selectedValues, 
@@ -357,7 +362,8 @@ export default defineComponent({
 			selectedFiles,
 			isModalOpen,
 			openCloseModal,
-			menuStructureList
+			menuStructureList,
+			date
 		}
 	}
 });
