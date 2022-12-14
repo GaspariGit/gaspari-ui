@@ -58,7 +58,7 @@
 					label="Data inizio"
 					:range="false"
 					type="time"
-					v-model:update="date"				
+					v-model:value="date"				
 				/>
 
 				{{date}}
