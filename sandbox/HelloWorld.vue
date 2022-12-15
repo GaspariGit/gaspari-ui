@@ -56,12 +56,13 @@
 			<div class="py-2">
 				<custom-date-picker
 					label="Data inizio"
-					:range="false"
+					:range="true"
 					type="time"
-					v-model:value="date"				
+					v-model:value="dateRange"
+					resultType="formatted"	
 				/>
 
-				{{date}}
+				{{dateRange}} - {{date}}
 			</div>
 
 			<custom-text-area
@@ -345,7 +346,8 @@ export default defineComponent({
 
 		const menuStructureList : Array<ListItem> = menuStructure;
 		
-		const date = ref('11:32:00');
+		const date = ref('06:15');
+		const dateRange = ref(['08:32', '13:44'])
 
 		return { 
 			name, 
@@ -363,7 +365,8 @@ export default defineComponent({
 			isModalOpen,
 			openCloseModal,
 			menuStructureList,
-			date
+			date,
+			dateRange
 		}
 	}
 });

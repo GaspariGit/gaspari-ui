@@ -20,7 +20,7 @@
 import { defineComponent, ref, PropType, onMounted } from "vue";
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
-import { DateType, SelectedDateType, FormattedDate } from "../../types/DateTimeType";
+import { DateType, SelectedDateType, FormattedDate, TimeType } from "../../types/DateTimeType";
 
 type ResultType = 'formatted' | 'original';
 
@@ -53,6 +53,7 @@ export default defineComponent({
         const selectedDate = ref<SelectedDateType>(null);
 
 		onMounted(() => {
+			console.log(props.value)
 			if(props.type !== 'time') {
 				if(props.range === true) {
 					const startDate = new Date();
@@ -61,21 +62,28 @@ export default defineComponent({
 				} else {
 					selectedDate.value = new Date;
 				}
-			} else {
-				const startTime = {
-					hours: new Date().getHours(),
-					minutes: new Date().getMinutes(),
-					seconds: 0
-				};
-
+			} else {								
 				if(props.range === true) {
-					const endTime = {...startTime}
+					const startTime = initTime(props.value[0]);
+					const endTime = initTime(props.value[1])
 					selectedDate.value = [startTime, endTime];
 				} else {
+					const startTime = initTime(props.value);
 					selectedDate.value = startTime;
 				}
 			}
 		})
+
+		const initTime = (value : string | string[]) : TimeType => {
+			if(typeof value === 'string') {
+				const split = value.split(':');
+				return {
+					hours: parseInt(split[0]),
+					minutes: parseInt(split[1]),
+					seconds: 0
+				}
+			}
+		}
 
 		const format = (selectedDate : Date) => {
             if(props.type !== 'time') {
@@ -184,13 +192,13 @@ export default defineComponent({
 				if(props.range === true) {
 					let timeArray = [];
 					Object.values({...selectedDate.value}).forEach(time => {
-						timeArray.push(`${time.hours}:${time.minutes}:00`)
+						timeArray.push(`${("0" + time.hours).toString().slice(-2)}:${("0" + time.minutes).toString().slice(-2)}:00`)
 					})
 
 					formatted = timeArray;
 				} else {
 					const time : any = selectedDate.value;
-					const timeString = `${time.hours}:${time.minutes}:00`;
+					const timeString = `${("0" + time.hours).toString().slice(-2)}:${("0" + time.minutes).toString().slice(-2)}:00`;
 
 					formatted = timeString;
 				}
