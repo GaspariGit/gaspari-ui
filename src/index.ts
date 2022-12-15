@@ -18,6 +18,7 @@ import FilterableModal from './components/ui/FilterableModal.vue';
 import ScrollToTop from './components/ui/ScrollToTop.vue';
 import CustomSearchInput from './components/ui/CustomSearchInput.vue';
 import CustomTooltip from './components/ui/CustomTooltip.vue';
+import CustomDatePicker from './components/ui/CustomDatePicker.vue';
 
 // Partials
 import HeaderNavigation from './components/partials/HeaderNavigation.vue';
@@ -61,6 +62,7 @@ export {
     ScrollToTop,
     CustomSearchInput,
     CustomTooltip,
+    CustomDatePicker,
 
     // Composables
     useSidebar,
