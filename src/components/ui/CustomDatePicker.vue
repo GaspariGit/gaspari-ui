@@ -53,14 +53,13 @@ export default defineComponent({
         const selectedDate = ref<SelectedDateType>(null);
 
 		onMounted(() => {
-			console.log(props.value)
 			if(props.type !== 'time') {
 				if(props.range === true) {
-					const startDate = new Date();
-					const endDate = new Date(new Date().setDate(startDate.getDate() + 7));
+					const startDate = initDateTime(props.value[0]);
+					const endDate = initDateTime(props.value[1]);
 					selectedDate.value = [startDate, endDate];
 				} else {
-					selectedDate.value = new Date;
+					selectedDate.value = initDateTime(props.value);
 				}
 			} else {								
 				if(props.range === true) {
@@ -82,6 +81,30 @@ export default defineComponent({
 					minutes: parseInt(split[1]),
 					seconds: 0
 				}
+			}
+		}
+
+		const initDateTime = (value : string | string[]) : Date => {
+			if(typeof value === 'string') {
+				const split = value.split(' ');
+				const dateSplit = split[0].split('-');
+
+				const year = parseInt(dateSplit[0]);
+				const month = parseInt(dateSplit[1]) - 1;
+				const day = parseInt(dateSplit[2]);
+								
+				if(props.type === 'datetime' && split.length === 2) {
+					const timeSplit = split[1].split(':');
+					const hours = parseInt(timeSplit[0]);
+					const minutes = parseInt(timeSplit[1]);
+					const seconds = 0;
+
+					const newTestDate = new Date(year, month, day, hours, minutes, seconds);
+					return newTestDate;
+				}
+				
+				const newTestDate = new Date(year, month, day);
+				return newTestDate;
 			}
 		}
 
@@ -164,9 +187,9 @@ export default defineComponent({
 						const minutes = ("0" + (date.getMinutes())).slice(-2);
 
 						if(props.type !== 'datetime') {
-							formattedArray.push(`${month}-${day}-${year}`)
+							formattedArray.push(`${year}-${month}-${day}`)
 						} else {
-							formattedArray.push(`${month}-${day}-${year} ${hours}:${minutes}:00`)
+							formattedArray.push(`${year}-${month}-${day} ${hours}:${minutes}:00`)
 						}
 					})
 
@@ -181,9 +204,9 @@ export default defineComponent({
 					const minutes = ("0" + (date.getMinutes())).slice(-2);
 
 					if(props.type !== 'datetime') {
-						formattedString = (`${month}-${day}-${year}`)
+						formattedString = (`${year}-${month}-${day}`)
 					} else {
-						formattedString = (`${month}-${day}-${year} ${hours}:${minutes}:00`);
+						formattedString = (`${year}-${month}-${day} ${hours}:${minutes}:00`);
 					}
 
 					formatted = formattedString;

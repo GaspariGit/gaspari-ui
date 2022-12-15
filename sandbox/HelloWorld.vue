@@ -57,7 +57,7 @@
 				<custom-date-picker
 					label="Data inizio"
 					:range="true"
-					type="time"
+					type="datetime"
 					v-model:value="dateRange"
 					resultType="formatted"	
 				/>
@@ -346,8 +346,8 @@ export default defineComponent({
 
 		const menuStructureList : Array<ListItem> = menuStructure;
 		
-		const date = ref('06:15');
-		const dateRange = ref(['08:32', '13:44'])
+		const date = ref('2022-06-15 11:05:00');
+		const dateRange = ref(['2022-02-13 11:06:00', '2022-07-11 12:15:00'])
 
 		return { 
 			name, 
