@@ -59,7 +59,7 @@
 					:range="true"
 					type="datetime"
 					v-model:value="dateRange"
-					resultType="formatted"	
+					resultType="formatted"
 				/>
 
 				{{dateRange}} - {{date}}

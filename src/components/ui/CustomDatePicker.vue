@@ -11,7 +11,9 @@
 		:format="format"
 		:time-picker="getDateType('time')"		
 		@open="checkIfOnlyDate"	
-		@update:model-value="emitDate"	
+		@update:model-value="emitDate"
+		select-text="Seleziona"
+		cancel-text="Annulla"
 	/>	
  </div>
 </template>
@@ -232,7 +234,7 @@ export default defineComponent({
 					formatted: formatted,
 					original: selectedDate.value,
 					type: props.type
-				})
+				})				
 			} else {
 				context.emit('update:value', formatted);
 			}

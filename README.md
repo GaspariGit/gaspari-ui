@@ -1010,6 +1010,46 @@ Tooltip that appears on hover of an element.
 
 &nbsp;
 
+## 21. CustomDatePicker
+Date picker.
+
+```html
+<custom-date-picker
+    label="Data inizio"
+    :range="true"
+    type="datetime"
+    v-model:value="dateRange"
+    resultType="formatted"	
+/>    
+```
+
+It is possible as well to use this fomat:
+```html
+<custom-date-picker
+    label="Data inizio"
+    :range="true"
+    type="datetime"
+    resultType="original"
+    @update="updateDateTime"
+/>    
+```
+
+This component has different types of input & output data, depending on what
+type of result do you want to obtain.
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| label | string | Label of the input | false |
+| range | boolean | If the input has a range between two dates/times or not. Default is false. If the range is true, the component expects an array of input, and returns an array (if the "resultType" prop is "formatted") | false |
+| type | string | The type of data you want to work with. Options are: ['time', 'date', 'datetime']. | false |
+| resultType | string | The type of data you want the component to return. Options are: ['formatted', 'original']. Original returns an object with the original value, the formatted value and the type (date, time, datetime). Formatted options returns a string or an array of strings, in the format "yyyy-mm-dd H:i:s".| false |
+| value | string or Array of strings | The value input of the component, passed also by v-model. Depending on the previous options i a string or an array: with "time" type the format is "22:12:00"; with "date" type the format is "2022-12-31"; with "datetime" format is "2022-12-31 23:59:59"| true |
+
+#### Events:
+1. update: when update of the value, if the prop "resultType" is "original".
+
+&nbsp;
+
 
 # Layouts
 ## 1. LayoutBase
