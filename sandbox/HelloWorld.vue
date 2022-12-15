@@ -97,7 +97,7 @@
 							label: 'Radio 1',
 							value: 'radio_1',
 							name: 'radio_group',						
-							disabled: true
+							disabled: false
 						},
 						{
 							id: 'input_445',

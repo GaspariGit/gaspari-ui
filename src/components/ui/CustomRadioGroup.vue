@@ -17,7 +17,7 @@
                 :checked="option.value == value"   
                 @change="checkRadio"
             >
-            <span class="custom-radio-group__single-radio__radio"></span>
+            <span class="custom-radio-group__single-radio__radio" @click="test"></span>
             <label 
                 class="custom-radio-group__single-radio__radio-label" 
                 :for="option.id"
@@ -50,7 +50,11 @@ export default defineComponent({
             context.emit('update:value', target.value)
         }  
 
-        return { checkRadio }
+        const test = () => {
+            console.log('amjkejhc')
+        }
+
+        return { checkRadio, test }
     }
 });
 </script>
