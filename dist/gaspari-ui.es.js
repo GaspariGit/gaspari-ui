@@ -2911,7 +2911,8 @@ const Z1 = /* @__PURE__ */ Ce(Ud, [["render", jd]]), Hd = "_name", Wd = ye({
     },
     baseApiPath: {
       type: String,
-      required: !0
+      required: !0,
+      default: ""
     }
   },
   setup(e, t) {
@@ -3009,7 +3010,7 @@ const Z1 = /* @__PURE__ */ Ce(Ud, [["render", jd]]), Hd = "_name", Wd = ye({
     };
   }
 });
-const Mu = (e) => (un("data-v-d19eff6f"), e = e(), sn(), e), qd = { class: "custom-modal" }, zd = { class: "modal-background" }, Gd = { class: "modal-container" }, Qd = { class: "modal-header" }, Jd = /* @__PURE__ */ Mu(() => /* @__PURE__ */ O("div", { class: "modal-title" }, " Cerca ", -1)), Zd = /* @__PURE__ */ Mu(() => /* @__PURE__ */ O("svg", {
+const Mu = (e) => (un("data-v-b2ab9d5c"), e = e(), sn(), e), qd = { class: "custom-modal" }, zd = { class: "modal-background" }, Gd = { class: "modal-container" }, Qd = { class: "modal-header" }, Jd = /* @__PURE__ */ Mu(() => /* @__PURE__ */ O("div", { class: "modal-title" }, " Cerca ", -1)), Zd = /* @__PURE__ */ Mu(() => /* @__PURE__ */ O("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   viewBox: "0 0 24 24",
@@ -3101,7 +3102,7 @@ function ap(e, t, n, r, a, i) {
     _: 1
   });
 }
-const K1 = /* @__PURE__ */ Ce(Wd, [["render", ap], ["__scopeId", "data-v-d19eff6f"]]), op = ye({
+const K1 = /* @__PURE__ */ Ce(Wd, [["render", ap], ["__scopeId", "data-v-b2ab9d5c"]]), op = ye({
   name: "ScrollToTop",
   components: {
     Transition: je

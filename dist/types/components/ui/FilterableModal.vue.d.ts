@@ -13,6 +13,7 @@ declare const _default: import("vue").DefineComponent<{
     baseApiPath: {
         type: PropType<string>;
         required: true;
+        default: string;
     };
 }, {
     emitCloseModal: () => void;
@@ -35,8 +36,10 @@ declare const _default: import("vue").DefineComponent<{
     baseApiPath: {
         type: PropType<string>;
         required: true;
+        default: string;
     };
 }>>, {
     isOpen: boolean;
+    baseApiPath: string;
 }>;
 export default _default;
