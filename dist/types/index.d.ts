@@ -26,5 +26,7 @@ import LayoutBase from './layouts/LayoutBase.vue';
 import { useSidebar } from './composables/useSidebar';
 import { usePagination } from './composables/usePagination';
 import { usePageMeta } from './composables/usePageMeta';
+import type MultiCheckboxOptions from './types/MultiCheckboxOptions';
+import type SelectOptions from './types/SelectOptions';
 import './assets/sass/_app.scss';
-export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation, FormContainer, LayoutBase, Breadcrumbs, FormSeparator, FilterableModal, CustomTable, CustomSidebar, ScrollToTop, CustomSearchInput, CustomTooltip, CustomDatePicker, useSidebar, usePagination, usePageMeta };
+export { CustomButton, CustomCheckbox, CustomFileUpload, CustomLoader, CustomModal, CustomMultiCheckbox, CustomMultipleFileUpload, CustomMultiSelect, CustomMultiSelectAsync, CustomSelect, CustomRadioGroup, CustomTextArea, GenericInput, HeaderNavigation, FormContainer, LayoutBase, Breadcrumbs, FormSeparator, FilterableModal, CustomTable, CustomSidebar, ScrollToTop, CustomSearchInput, CustomTooltip, CustomDatePicker, useSidebar, usePagination, usePageMeta, MultiCheckboxOptions, SelectOptions, };

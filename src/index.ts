@@ -34,6 +34,11 @@ import { useSidebar } from './composables/useSidebar';
 import { usePagination } from './composables/usePagination';
 import { usePageMeta } from './composables/usePageMeta';
 
+// Types
+import type MultiCheckboxOptions from './types/MultiCheckboxOptions';
+import type SelectOptions from './types/SelectOptions';
+
+
 import './assets/sass/_app.scss';
 
 export {
@@ -67,5 +72,9 @@ export {
     // Composables
     useSidebar,
     usePagination,
-    usePageMeta
+    usePageMeta,
+
+    // Types
+    MultiCheckboxOptions,
+    SelectOptions,
 }
