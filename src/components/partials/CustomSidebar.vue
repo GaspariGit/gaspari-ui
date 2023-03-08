@@ -1,34 +1,33 @@
 <template>
-<Transition>
-	<div v-if="isOpen" id="custom-sidebar" class="custom-sidebar shadow-2xl">
-		<div class="sidebar-content">
+	<Transition>
+		<div v-if="isOpen" id="custom-sidebar" class="custom-sidebar shadow-2xl">
+			<div class="sidebar-content">
 
-			<div class="sidebar-header mb-6 flex justify-between items-center">
-				<h4 class="text-2xl font-bold">{{ title }}</h4>
-				<div class="sidebar-close" @click="emitCloseSidebar">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" width="24px" height="24px">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-					</svg>
+				<div class="sidebar-header mb-6 flex justify-between items-center">
+					<h4 class="text-2xl font-bold">{{ title }}</h4>
+					<div class="sidebar-close" @click="emitCloseSidebar">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+							width="24px" height="24px">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</div>
+				</div>
+
+				<div class="sidebar-body">
+					<slot name="sidebar-content"></slot>
 				</div>
 			</div>
-
-			<div class="sidebar-body">
-				<slot name="sidebar-content"></slot>
+			<div class="sidebar-bg" @click="emitCloseSidebar"></div>
+			<div v-if="loading"
+				class="w-full h-full absolute top-0 left-0 flex items-center justify-center rounded backdrop-blur-sm transition z-50">
+				<custom-loader :loading="loading" size="large" />
 			</div>
 		</div>
-		<div class="sidebar-bg" @click="emitCloseSidebar"></div>
-		<div v-if="loading" class="w-full h-full absolute top-0 left-0 flex items-center justify-center rounded backdrop-blur-sm transition z-50">
-			<custom-loader 
-				:loading="loading"
-				size="large"
-			/>
-		</div>
-	</div>
-</Transition>
+	</Transition>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, Transition } from "vue";
+import { defineComponent, Transition } from "vue";
 import CustomLoader from "../ui/CustomLoader.vue";
 
 export default defineComponent({
@@ -39,16 +38,16 @@ export default defineComponent({
 	},
 	props: {
 		isOpen: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		title: {
-			type: String as PropType<string>,
+			type: String,
 			required: false,
 			default: 'Oops'
 		},
 		loading: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		}
 	},
@@ -56,7 +55,7 @@ export default defineComponent({
 
 		const emitCloseSidebar = () => {
 			context.emit('close-sidebar');
-		}	
+		}
 
 		return {
 			emitCloseSidebar
@@ -68,11 +67,11 @@ export default defineComponent({
 <style scoped>
 .v-enter-active,
 .v-leave-active {
-  transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
-  transform: translateX(100%);
+	transform: translateX(100%);
 }
 </style>

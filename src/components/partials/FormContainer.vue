@@ -1,14 +1,14 @@
-<template>	
+<template>
 	<template v-if="path_breadcrumbs.length > 0">
 		<div class="mb-6 ml-1 ">
-			<breadcrumbs :path_breadcrumbs="path_breadcrumbs" />			
+			<breadcrumbs :path_breadcrumbs="path_breadcrumbs" />
 		</div>
 	</template>
 
 	<!-- Top -->
 	<slot name="form-buttons-top"></slot>
 
-	<h3 v-if="title" class="mb-3 ml-1 font-semibold text-lg uppercase">{{ title }}</h3>	
+	<h3 v-if="title" class="mb-3 ml-1 font-semibold text-lg uppercase">{{ title }}</h3>
 
 	<!-- Content -->
 	<div class="form_container p-6 bg-white rounded-lg shadow overflow-x-hidden">

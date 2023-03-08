@@ -3,49 +3,55 @@
         <label for="exampleFormControlSelect1" v-if="label" class="custom-select__label text-sm">
             {{ label }}
         </label>
-        <select class="custom-select__select" :value="selected.value" @change="onSelect($event.target.value)"
+        <select :name="name" class="custom-select__select" :id="'select_' + name" @change="handleSelectChange"
             :disabled="disabled">
-            <option value="">{{ placeholder }}</option>
-            <option v-for="type in options" :value="type.value" :key="type.value">
-                {{ type.label }}
+            <option selected value="0">{{ placeholder }}</option>
+            <option v-for="(option, index) in options" :key="index" :value="option.value" :selected="option.value == value">
+                {{ option.label }}
             </option>
         </select>
     </div>
 </template>
 
-<script>
-export default {
-    emits: ['select'],
+<script lang="ts">
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
+import type SelectOptions from "../../types/SelectOptions";
+
+export default defineComponent({
+    name: 'CustomSelect',
     props: {
-        label: {
-            type: String,
-            required: false,
-            default: null
-        },
         options: {
-            type: Array,
-            required: true,
+            type: Array as PropType<Array<SelectOptions>>,
+            required: true
+        },
+        label: {
+            type: String as PropType<string>,
+            required: false
+        },
+        name: {
+            type: String as PropType<string>,
+            required: true
+        },
+        value: {
+            type: [String, Number] as PropType<string | number>,
         },
         placeholder: {
-            type: String,
-            requried: false,
-            default: 'Seleziona un opzione'
-        },
-        selected: {
-            type: Object,
-            required: true,
+            type: String as PropType<string>,
+            default: 'Seleziona opzione',
+            required: false
         },
         disabled: {
-            type: Boolean,
-            required: false,
-            default: false
+            type: Boolean as PropType<boolean>,
+            default: false,
         }
     },
-    methods: {
-        onSelect(value) {
-            this.$emit("select", value);
-        },
-    },
-};
-</script>
+    setup(props, context) {
+        const handleSelectChange = ({ target }) => {
+            context.emit('update:value', target.value)
+        }
 
+        return { handleSelectChange }
+    }
+});
+</script>

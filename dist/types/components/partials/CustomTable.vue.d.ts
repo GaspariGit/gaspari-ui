@@ -1,29 +1,28 @@
-import { PropType } from "vue";
 import '@ocrv/vue-tailwind-pagination/styles';
 declare const _default: import("vue").DefineComponent<{
     title: {
-        type: PropType<string>;
+        type: StringConstructor;
         required: false;
     };
     total: {
-        type: PropType<number>;
+        type: NumberConstructor;
         required: true;
     };
     currentPage: {
-        type: PropType<number>;
+        type: NumberConstructor;
         default: number;
     };
     perPage: {
-        type: PropType<number>;
+        type: NumberConstructor;
         default: number;
     };
     from: {
-        type: PropType<number>;
+        type: NumberConstructor;
         required: false;
         default: number;
     };
     loading: {
-        type: PropType<boolean>;
+        type: BooleanConstructor;
         required: true;
     };
 }, {
@@ -33,28 +32,28 @@ declare const _default: import("vue").DefineComponent<{
     }) => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
-        type: PropType<string>;
+        type: StringConstructor;
         required: false;
     };
     total: {
-        type: PropType<number>;
+        type: NumberConstructor;
         required: true;
     };
     currentPage: {
-        type: PropType<number>;
+        type: NumberConstructor;
         default: number;
     };
     perPage: {
-        type: PropType<number>;
+        type: NumberConstructor;
         default: number;
     };
     from: {
-        type: PropType<number>;
+        type: NumberConstructor;
         required: false;
         default: number;
     };
     loading: {
-        type: PropType<boolean>;
+        type: BooleanConstructor;
         required: true;
     };
 }>>, {

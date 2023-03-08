@@ -1,5 +1,5 @@
-import { PropType } from "vue";
-import SelectOptions from "../../types/SelectOptions";
+import type { PropType } from "vue";
+import type SelectOptions from "../../types/SelectOptions";
 declare const _default: import("vue").DefineComponent<{
     options: {
         type: PropType<SelectOptions[]>;

@@ -1,6 +1,6 @@
 <template>
-    <div class="custom-table">				
-		<div class="mb-5 flex items-center justify-between" :class="{'flex-row-reverse' : !title}">
+	<div class="custom-table">
+		<div class="mb-5 flex items-center justify-between" :class="{ 'flex-row-reverse': !title }">
 			<h2 v-if="title" class="font-semibold text-xl uppercase">
 				{{ title }}
 			</h2>
@@ -9,16 +9,15 @@
 		</div>
 
 		<div class="relative">
-			<div v-if="loading" class="w-full h-full pt-20 absolute top-0 left-0 flex items-start justify-center rounded backdrop-blur-sm transition z-50">
-				<custom-loader 
-					:loading="loading"
-					size="large"
-				/>
+			<div v-if="loading"
+				class="w-full h-full pt-20 absolute top-0 left-0 flex items-start justify-center rounded backdrop-blur-sm transition z-50">
+				<custom-loader :loading="loading" size="large" />
 			</div>
 
 			<div class="text-textGrey text-sm font-medium row-pagination flex justify-between items-center">
 				<div class="flex">
-					<div v-if="total > 0" class="mr-10">Risultati da {{ from }} a {{ from + perPage - 1 }} di {{ total }}</div>
+					<div v-if="total > 0" class="mr-10">Risultati da {{ from }} a {{ from + perPage - 1 }} di {{ total }}
+					</div>
 					<div v-else class="mr-10">Nessun risultato</div>
 					<div class="flex">
 						<label for="numberPerPage" class="mr-1">Elementi visualizzati: </label>
@@ -33,14 +32,8 @@
 				</div>
 			</div>
 			<div v-if="total > 0" class="custom-pagination">
-				<VueTailwindPagination
-					:current="currentPage"
-					:total="total"
-					:per-page="perPage"
-					@page-changed="changePageData"
-					text-before-input="Vai a pag."
-					text-after-input="Vai"
-				/>
+				<VueTailwindPagination :current="currentPage" :total="total" :per-page="perPage"
+					@page-changed="changePageData" text-before-input="Vai a pag." text-after-input="Vai" />
 			</div>
 			<table class="w-full">
 				<thead>
@@ -53,79 +46,73 @@
 				</tbody>
 			</table>
 			<div v-if="total > 0" class="custom-pagination pagination-bottom">
-				<VueTailwindPagination
-					:current="currentPage"
-					:total="total"
-					:per-page="perPage"
-					@page-changed="changePageData"
-					text-before-input="Vai a pag."
-					text-after-input="Vai"
-				/>
+				<VueTailwindPagination :current="currentPage" :total="total" :per-page="perPage"
+					@page-changed="changePageData" text-before-input="Vai a pag." text-after-input="Vai" />
 			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
 import '@ocrv/vue-tailwind-pagination/styles';
 import VueTailwindPagination from '@ocrv/vue-tailwind-pagination';
 import CustomLoader from "../ui/CustomLoader.vue";
 
 export default defineComponent({
-    name: 'CustomTable',
+	name: 'CustomTable',
 	components: {
 		VueTailwindPagination,
 		CustomLoader
 	},
-    props: {
+	props: {
 		title: {
-			type: String as PropType<string>,
+			type: String,
 			required: false
 		},
 		total: {
-			type: Number as PropType<number>,
+			type: Number,
 			required: true
-		},		
+		},
 		currentPage: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 1
 		},
 		perPage: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 25
 		},
 		from: {
-			type: Number as PropType<number>,
+			type: Number,
 			required: false,
 			default: 0
 		},
 		loading: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			required: true
 		}
-    },
-    setup(props, context) {		
+	},
+	setup(props, context) {
 
-		const changePerPageData = ({target}) => {
+		const changePerPageData = ({ target }) => {
 			emitPagination(props.currentPage, parseInt(target.value));
 		}
 
-		const changePageData = (e : number) => {	
+		const changePageData = (e: number) => {
 			emitPagination(e, props.perPage);
 		}
-		
-		const emitPagination = (currentPageData : number, perPageData : number) => {
+
+		const emitPagination = (currentPageData: number, perPageData: number) => {
 			context.emit('changed-pagination', {
 				currentPage: currentPageData,
 				perPage: perPageData
 			})
 		}
 
-        return {
+		return {
 			changePageData,
 			changePerPageData
-        }
-    }
+		}
+	}
 });
 </script>

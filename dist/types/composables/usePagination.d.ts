@@ -9,7 +9,21 @@ export declare function usePagination(): {
     perPage: import("vue").Ref<number>;
     total: import("vue").Ref<number>;
     from: import("vue").Ref<number>;
-    filterables: any;
+    filterables: import("vue").Ref<{
+        columns: {
+            column: string;
+            route: string;
+            type: "select" | "text" | "checkbox" | "multiselect";
+            label: string;
+            order: number;
+            placeholder: string;
+        }[];
+        relations: {
+            columns: number[];
+            route: string;
+            order: number[];
+        }[];
+    }>;
     setFilterParams: (filter: any) => void;
     updatePagination: (routeApi: string, params: RequestParams) => Promise<void>;
     loadingPagination: import("vue").Ref<boolean>;

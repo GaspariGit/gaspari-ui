@@ -208,7 +208,7 @@ selectedRadioValue:
 | options | Array of RadioGroupOptions | Options of the radio list. | true |
     
 &nbsp;
-## 6. CustomSelectOld
+## 6. CustomSelect
 Classic Select.
 
 ```html
@@ -264,7 +264,7 @@ selected:
     ```
 
 &nbsp;
-## 6.5. CustomSelect
+## 6.5. CustomSelectModel
 Classic Select.
 
 ```html

@@ -1,5 +1,10 @@
 import { PropType } from 'vue';
 declare const _default: import("vue").DefineComponent<{
+    type: {
+        required: false;
+        default: string;
+        type: PropType<string>;
+    };
     classes: {
         required: false;
         default: string;
@@ -20,6 +25,11 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     computedValue: import("vue").WritableComputedRef<string>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update"[], "update", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    type: {
+        required: false;
+        default: string;
+        type: PropType<string>;
+    };
     classes: {
         required: false;
         default: string;
@@ -40,6 +50,7 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     onUpdate?: (...args: any[]) => any;
 }, {
+    type: string;
     modelValue: string;
     classes: string;
     readOnly: boolean;
