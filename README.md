@@ -64,7 +64,7 @@ Generic input component for basic inputs(text, numbers, date).
 <generic-input
     type="text"
     placeholder="Aggiungi un placeholder"
-    label="Lorem ipsum"	
+    label="Lorem ipsum" 
     v-model="name"
 />
 ```
@@ -84,8 +84,8 @@ Generic input component for basic inputs(text, numbers, date).
     <generic-input
         type="number"
         placeholder="Aggiungi prezzo"
-        label="Prezzo"	
-        max="100"	
+        label="Prezzo"  
+        max="100"   
         v-model="price"
     >
         <template v-slot:prepend>
@@ -101,12 +101,12 @@ Generic input component for basic inputs(text, numbers, date).
 <custom-text-area
     label="ratataaa"
     placeholder="Aldo un placeholdert"
-    disabled			
+    disabled            
 />
 ```
 
 #### Props:
-| Name | Type | Description | Required |
+| Name | Description | Required |
 | ---- | -------| --- | --- |
 | classes | string | List of classes that you want to add to the input | false |
 | label | string | Label text of the input. | false |
@@ -118,13 +118,13 @@ Checkbox for single use.
 ```html
 <custom-checkbox
     label="select"
-    v-model:checked="selected"	
+    v-model:checked="selected"  
     :disabled="true"
 />
 ```
 
 #### Props:
-| Name | Type | Description | Required |
+| Name | Description | Required |
 | ---- | -------| --- | --- |
 | disabled | boolean | If checkbox is disabled. | false |
 | label | string | Label of checkbox. | true |
@@ -138,7 +138,7 @@ Checkbox for multiple selection.
 ```html
 <custom-multi-checkbox
     :options="options"
-    v-model:value="heroes"				
+    v-model:value="heroes"              
 />
 ```
 
@@ -161,20 +161,10 @@ heroes:
 ```
 
 #### Props:
-| Name | Type | Description | Required |
+| Name | Description | Required |
 | ---- | -------| --- | --- |
 | value | Array of strings or numbers | Array of values, corresponding to id of the option. passed through v-model | false |
 | options | Array of MultiCheckboxOptions | Options of the checkbox list. | true |
-
-#### Types:
-1. MultiCheckboxOptions:   
-
-    ```
-    {
-        id : string | number;
-        label : string;
-    }
-    ```
 
 &nbsp;
 ## 5. CustomRadioGroup
@@ -194,7 +184,7 @@ options:
         id: 'input_444',
         label: 'Radio 1',
         value: 'radio_1',
-        name: 'radio_group',						
+        name: 'radio_group',                        
         disabled: true
     },
     {
@@ -212,25 +202,13 @@ selectedRadioValue:
 ```
 
 #### Props:
-| Name | Type | Description | Required |
+| Name | Description | Required |
 | ---- | -------| --- | --- |
 | value | string or number | String or number, corresponding to value of the option. passed through v-model | false |
 | options | Array of RadioGroupOptions | Options of the radio list. | true |
-
-#### Types:
-1. RadioGroupOptions:   
-
-    ```
-    {
-        id: any;
-        label : string;
-        name : string;
-        value : string | number;
-        disabled? : boolean;
-    }
-    ```
+    
 &nbsp;
-## 6. CustomSelect
+## 6. CustomSelectOld
 Classic Select.
 
 ```html
@@ -239,7 +217,7 @@ Classic Select.
     label="Seleziona"
     :options="options"
     v-model:value="selected"
-/>			
+/>          
 ```
 
 options:
@@ -286,6 +264,63 @@ selected:
     ```
 
 &nbsp;
+## 6.5. CustomSelect
+Classic Select.
+
+```html
+<custom-select label="Cliente" :options="clients" :selected="order.client"
+                            placeholder="Seleziona un cliente"
+                            disabled="false">
+                        </custom-select>        
+```
+
+options:
+```
+[
+    {
+        value: 1,
+        label: 'Giovanni'
+    },
+    {
+        value: 2,
+        label: 'Mario'
+    },
+    {
+        value: 3,
+        label: 'Andrea'
+    },
+]
+```
+
+selected:
+```
+{
+    value: 1,
+    label: 'Giovanni'
+}
+```
+
+#### Props:
+| Name | Type | Description | Required |
+| ---- | -------| --- | --- |
+| options | Array of SelectOptions | Options of the Select. | true |
+| label | string | Label of the Select. | false |
+| name | string | Name of the Select. | true |
+| selected | Model of the selected element | true |
+| placeholder | string | placeholder | false |
+| disabled | boolean | enabled/disabled | false |
+
+#### Types:
+1. SelectOptions:   
+
+    ```
+    {
+        value: string | number,
+        label: string
+    }
+    ```
+
+&nbsp;
 ## 7. CustomMultiSelect
 Multi Select.
 
@@ -295,7 +330,7 @@ Multi Select.
     placeholder="Seleziona opzione"
     :options="options"
     v-model:selectedOptions="selectedMultiSelectOptions"
-/>					
+/>                  
 ```
 
 options:
@@ -322,21 +357,12 @@ selectedMultiSelectOptions:
 ```
 
 #### Props:
-| Name | Type | Description | Required |
+| Name | Description | Required |
 | ---- | -------| --- | --- |
 | label | string | Label of the Select. | false |
 | placeholder | string | placeholder | false |
 | options | Array of SelectOptions | Options of the Select. | true |
 | selectedOptions | array of strings or numbers | selected options for the select, passed trough v-model. | true |
-#### Types:
-1. SelectOptions:   
-
-    ```
-    {
-        value: string | number,
-        label: string
-    }
-    ```
 
 &nbsp;
 ## 8. CustomMultiSelectAsync
@@ -348,7 +374,7 @@ Multi Select with search feature.
     placeholder="Seleziona opzione"
     v-model:selectedOptions="selectedMultiSelectAsyncOptions"
     optionsSearchRoute="http://localhost:8000/data"
-/>							
+/>                          
 ```
 
 selectedMultiSelectAsyncOptions:
@@ -414,7 +440,7 @@ Modal.
             @onClick="test"
         />
     </template>
-</custom-modal>						
+</custom-modal>                     
 ```
 
 #### Props:
@@ -439,7 +465,7 @@ Spinner for loading.
 <custom-loader
     :loading="loading"
     size="small"
-/>			
+/>          
 ```
 
 #### Props:
@@ -456,7 +482,7 @@ Button.
 <custom-button
     label="Apri modale"
     @onClick="openCloseModal"
-/>					
+/>                  
 ```
 
 #### Props:
@@ -482,7 +508,7 @@ BreadCrumbs.
 ```html
 <div class="mb-2 ml-1 ">
     <breadcrumbs :path_breadcrumbs="path_breadcrumbs" />
-</div>				
+</div>              
 ```
 
 #### Props:
@@ -497,7 +523,7 @@ BreadCrumbs.
     ```
     {
         label : string,
-	    path : string,
+        path : string,
     }
     ```
 
@@ -525,7 +551,7 @@ Table with pagination. This component uses "pagination" composable
     :loading="loadingPagination"
 >
     <template v-slot:filters>
-        <div class="flex">					
+        <div class="flex">                  
             <div @click="openCloseModalFilter" class="flex items-center cursor-pointer">
                 <div class="mr-2 bg-textGrey h-8 w-8 rounded-full flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" class="w-5 h-5">
@@ -536,7 +562,7 @@ Table with pagination. This component uses "pagination" composable
                 <div class="font-medium text-customBlack">
                     Cerca
                 </div>
-            </div>					
+            </div>                  
         </div>
     </template>
 
@@ -603,7 +629,7 @@ Table with pagination. This component uses "pagination" composable
             </td>
         </tr>
     </template>
-</custom-table>		
+</custom-table>     
 ```
 
 script part is like this:
@@ -617,81 +643,81 @@ import FilterableModal from "../../src/components/ui/FilterableModal.vue";
 import CustomButton from "../../src/components/ui/CustomButton.vue";
 
 export default defineComponent({
-	name: 'HomeView',
-	components: {
-		CustomTable,
-		FilterableModal,
-		CustomButton
-	},
-	setup() {
-		// Gestione paginazione tabella
-		const { 
-			results,
-			currentPage,
-			perPage,
-			total,
-			from,
-			filterables,
-			loadingPagination,
-			setFilterParams,
-			setPaginationOrder,
-			setPaginationOrderClasses,
-			updatePagination,
-		} = usePagination();
+    name: 'HomeView',
+    components: {
+        CustomTable,
+        FilterableModal,
+        CustomButton
+    },
+    setup() {
+        // Gestione paginazione tabella
+        const { 
+            results,
+            currentPage,
+            perPage,
+            total,
+            from,
+            filterables,
+            loadingPagination,
+            setFilterParams,
+            setPaginationOrder,
+            setPaginationOrderClasses,
+            updatePagination,
+        } = usePagination();
 
-		const handleUpdatePagination = async (e) => {
-			await updatePagination($base_api_url, e)
-		};	
+        const handleUpdatePagination = async (e) => {
+            await updatePagination($base_api_url, e)
+        };  
 
-		onMounted(async () => {
-			await handleUpdatePagination({
-				perPage: 25,
-				currentPage: 1
-			})
-		})
-				
-		const handleUpdatePaginationWithOrder = (columnName : string) => {
-			setPaginationOrder(columnName);
-			handleUpdatePagination({
-				perPage: perPage.value,
-				currentPage: currentPage.value
-			})
-		}
+        onMounted(async () => {
+            await handleUpdatePagination({
+                perPage: 25,
+                currentPage: 1
+            })
+        })
+                
+        const handleUpdatePaginationWithOrder = (columnName : string) => {
+            setPaginationOrder(columnName);
+            handleUpdatePagination({
+                perPage: perPage.value,
+                currentPage: currentPage.value
+            })
+        }
 
-		const handleUpdatePaginationWithFilter = (filter) => {
-			setFilterParams(filter);
-			handleUpdatePagination({
-				perPage: perPage.value,
-				currentPage: currentPage.value
-			})
-		}
+        const handleUpdatePaginationWithFilter = (filter) => {
+            setFilterParams(filter);
+            handleUpdatePagination({
+                perPage: perPage.value,
+                currentPage: currentPage.value
+            })
+        }
 
-		const isOpenModalFilter = ref<boolean>(false);
-		const openCloseModalFilter = () => {
-			isOpenModalFilter.value = !isOpenModalFilter.value;
-		}		
-						
-		return {			
-			// From usePagination
-			results,
-			currentPage,
-			perPage,
-			total,
-			from,
-			filterables,
-			loadingPagination,
-			setPaginationOrderClasses,
+        const isOpenModalFilter = ref<boolean>(false);
+        const openCloseModalFilter = () => {
+            isOpenModalFilter.value = !isOpenModalFilter.value;
+        }       
+                        
+        return {            
+            // From usePagination
+            results,
+            currentPage,
+            perPage,
+            total,
+            from,
+            filterables,
+            loadingPagination,
+            setPaginationOrderClasses,
 
-			// Internals for pagination
-			handleUpdatePagination,
-			handleUpdatePaginationWithOrder,
-			handleUpdatePaginationWithFilter,
+            // Internals for pagination
+            handleUpdatePagination,
+            handleUpdatePaginationWithOrder,
+            handleUpdatePaginationWithFilter,
 
-			// For opening modal Filter
-			isOpenModalFilter,			
-			openCloseModalFilter,						
-		}
-	}
+            // For opening modal Filter
+            isOpenModalFilter,          
+            openCloseModalFilter,                       
+        }
+    }
 })
 </script>
 ```
@@ -716,7 +742,7 @@ export default defineComponent({
 Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
 
 ```html
-<form-separator />				
+<form-separator />              
 ```
 
 &nbsp;
@@ -724,7 +750,7 @@ Is an ``` <hr /> ``` tag  styled to be in FormContainer component.
 Container for the forms.
 
 ```html
-<form-container			
+<form-container         
     title="Nuovo cliente"
     :path_breadcrumbs="[
         {
@@ -734,16 +760,16 @@ Container for the forms.
             }
         },
         {
-            label: 'Anagrafiche',							
+            label: 'Anagrafiche',                           
         },
         {
-            label: 'Clienti',	
+            label: 'Clienti',   
             path: {
                 name: 'anagraphics.clients.index'
-            }						
+            }                       
         },
         {
-            label: 'Nuovo cliente',							
+            label: 'Nuovo cliente',                         
         }
     ]"
 >
@@ -762,8 +788,8 @@ Container for the forms.
                     size="default"
                 />
             </div>
-        </div>						
-    </template>	
+        </div>                      
+    </template> 
 
     <template v-slot:form-content>
         <div class="grid grid-cols-12 gap-6">
@@ -771,7 +797,7 @@ Container for the forms.
                 <generic-input
                     type="text"
                     placeholder="Inserisci codice cliente"
-                    label="Codice Cliente"	
+                    label="Codice Cliente"  
                     v-model="formData.customer_code"
                 />
             </div>
@@ -779,7 +805,7 @@ Container for the forms.
                 <generic-input
                     type="text"
                     placeholder="Inserisci codice fatturazione cliente"
-                    label="Codice fatturazione cliente"	
+                    label="Codice fatturazione cliente" 
                     v-model="formData.invoice_code"
                 />
             </div>
@@ -788,7 +814,7 @@ Container for the forms.
                 <generic-input
                     type="text"
                     placeholder="Inserisci codice cliente"
-                    label="Codice Cliente"	
+                    label="Codice Cliente"  
                     v-model="formData.customer_code"
                 />
             </div>
@@ -796,13 +822,13 @@ Container for the forms.
                 <generic-input
                     type="text"
                     placeholder="Inserisci codice fatturazione cliente"
-                    label="Codice fatturazione cliente"	
+                    label="Codice fatturazione cliente" 
                     v-model="formData.invoice_code"
                 />
             </div>
         </div>
     </template>
-</form-container>				
+</form-container>               
 ```
 
 #### Props:
@@ -817,7 +843,7 @@ Container for the forms.
     ```
     {
         label : string,
-	    path : string,
+        path : string,
     }
     ```
 #### Slots:
@@ -833,7 +859,7 @@ Navigation menu styled.
 ```html
 <header-navigation 
     :menuStructure="menuStructure"
-/>	
+/>  
 ```
 
 #### Props:
@@ -863,11 +889,11 @@ Sidebar.
 
 ```html
 <custom-sidebar 
-    @close-sidebar="closeSidebar" 			
+    @close-sidebar="closeSidebar"           
     :isOpen="isOpenSidebar"
     :loading="isLoadingSidebar"
     :title="sidebarData?.properties.name"
->						
+>                       
     <template v-slot:sidebar-content>
         <div v-if="sidebarData !== null">
             <div class="mb-2"><span class="font-semibold">Codice catastale:</span> {{ sidebarData.properties.cadastral_code }}</div>
@@ -885,11 +911,11 @@ Sidebar.
             <div class="mb-2"><span class="font-semibold">Zona altimetrica:</span> {{ sidebarData.statistics.altimetric_zone }}</div>
             <div class="mb-2"><span class="font-semibold">Altitudine:</span> {{ sidebarData.statistics.altitude }}</div>
             <div class="mb-2"><span class="font-semibold">Popolazione legale:</span> {{ sidebarData.statistics.legal_population }}</div>
-            <div class="mb-2"><span class="font-semibold">Popolazione residente:</span> {{ sidebarData.statistics.resident_population }}</div>					
+            <div class="mb-2"><span class="font-semibold">Popolazione residente:</span> {{ sidebarData.statistics.resident_population }}</div>                  
         </div>
         <div v-else>Si è verificato un problema...</div>
     </template>
-</custom-sidebar>	
+</custom-sidebar>   
 
 <!-- As if it was in a v-for with his id and index  -->
 <button @click="handleOpenDetails(item.id, index)">Open sidebar</button>
@@ -904,40 +930,40 @@ import { useSidebar } from "../../src/composables/useSidebar";
 import CustomSidebar from "../../src/components/partials/CustomSidebar.vue";
 
 export default defineComponent({
-	name: 'HomeView',
-	components: {
-		CustomTable,
-		CustomSidebar,
-		FilterableModal,
-		CustomButton
-	},
-	setup() {		
-		// Gestione Sidebar
-		const {
-			openDetails,
-			closeSidebar,
-			activeRecordIndex,
-			isOpenSidebar,
-			isLoadingSidebar,
-			sidebarData
-		} = useSidebar();
-		
-		const handleOpenDetails = async (id: number, index: number) => {
-			await openDetails('$base_path_api_resource' + id, index)
-		}
-						
-		return {										
-			// From useSidebar			
-			closeSidebar,
-			activeRecordIndex,
-			isOpenSidebar,
-			isLoadingSidebar,
-			sidebarData,
-			
-			// Internals for sidebar
-			handleOpenDetails,
-		}
-	}
+    name: 'HomeView',
+    components: {
+        CustomTable,
+        CustomSidebar,
+        FilterableModal,
+        CustomButton
+    },
+    setup() {       
+        // Gestione Sidebar
+        const {
+            openDetails,
+            closeSidebar,
+            activeRecordIndex,
+            isOpenSidebar,
+            isLoadingSidebar,
+            sidebarData
+        } = useSidebar();
+        
+        const handleOpenDetails = async (id: number, index: number) => {
+            await openDetails('$base_path_api_resource' + id, index)
+        }
+                        
+        return {                                        
+            // From useSidebar          
+            closeSidebar,
+            activeRecordIndex,
+            isOpenSidebar,
+            isLoadingSidebar,
+            sidebarData,
+            
+            // Internals for sidebar
+            handleOpenDetails,
+        }
+    }
 })
 </script>
 ```
@@ -990,10 +1016,10 @@ Tooltip that appears on hover of an element.
 ```html
 <custom-tooltip position="bottom" backroundColor="#000000">
     <template v-slot:target>
-        <span>Tooltip</span>					
+        <span>Tooltip</span>                    
     </template>
     <template v-slot:content>
-        <p class="text-black">Lorem ipsum dolor sit <a href="https:/google.com" class="underline" target="_blank">amet</a> consectetur adipisicing elit. Voluptates sed illum nisi rerum. Voluptatibus vitae libero dolor illum deserunt. Dicta itaque ratione ipsam quisquam vitae cum officia aperiam eveniet eius.</p>					
+        <p class="text-black">Lorem ipsum dolor sit <a href="https:/google.com" class="underline" target="_blank">amet</a> consectetur adipisicing elit. Voluptates sed illum nisi rerum. Voluptatibus vitae libero dolor illum deserunt. Dicta itaque ratione ipsam quisquam vitae cum officia aperiam eveniet eius.</p>                   
     </template>
 </custom-tooltip>
 ```
@@ -1019,7 +1045,7 @@ Date picker.
     :range="true"
     type="datetime"
     v-model:value="dateRange"
-    resultType="formatted"	
+    resultType="formatted"  
 />    
 ```
 
@@ -1058,7 +1084,7 @@ Base Layout.
 ```html
 <layout-base
     :menuStructure="menuStructureList"
->		
+>       
     <!-- Layout Content -->
     <template v-slot:layout-content>
         

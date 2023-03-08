@@ -8,6 +8,7 @@ import CustomMultiCheckbox from './components/ui/CustomMultiCheckbox.vue';
 import CustomMultipleFileUpload from './components/ui/CustomMultipleFileUpload.vue';
 import CustomMultiSelect from './components/ui/CustomMultiSelect.vue';
 import CustomMultiSelectAsync from './components/ui/CustomMultiSelectAsync.vue';
+import CustomSelectOld from './components/ui/CustomSelectOld.vue';
 import CustomSelect from './components/ui/CustomSelect.vue';
 import CustomRadioGroup from './components/ui/CustomRadioGroup.vue';
 import CustomTextArea from './components/ui/CustomTextArea.vue';
@@ -68,6 +69,7 @@ export {
     CustomSearchInput,
     CustomTooltip,
     CustomDatePicker,
+    CustomSelectOld,
 
     // Composables
     useSidebar,

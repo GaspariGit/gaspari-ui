@@ -1,5 +1,5 @@
 <template>
-   <div class="generic-input">
+    <div class="generic-input">
         <label class="generic-input__label text-sm secondary-color" v-if="label">
             {{ label }}
         </label>
@@ -7,18 +7,14 @@
         <!-- INSERIRE PREPEND STILIZZARE -->
         <div class="input-container">
             <slot name="prepend"></slot>
-            <input
-                v-if="!readOnly"
-                v-bind="$attrs" 
-                v-model="computedValue"
-                :class="'generic-input__input ' + classes"                 
-            >
+            <input v-if="!readOnly" v-bind="$attrs" v-model="computedValue" :class="'generic-input__input ' + classes"
+                :type="type">
         </div>
 
         <div v-if="readOnly" class="generic-input__read-only">
             {{ computedValue }}
         </div>
-   </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -28,6 +24,11 @@ export default defineComponent({
     name: 'GenericInput',
     emits: ['update'],
     props: {
+        type: {
+            required: false,
+            default: "",
+            type: String as PropType<string>
+        },
         classes: {
             required: false,
             default: "",
@@ -46,7 +47,7 @@ export default defineComponent({
             default: false
         }
     },
-    setup(props, { emit }) {        
+    setup(props, { emit }) {
         const computedValue = computed({
             get() {
                 return props.modelValue
